@@ -1,0 +1,10 @@
+{
+  "modelo_llm": "Qwen/Qwen2.5-1.5B-Instruct",
+  "dtype": "float32",
+  "dispositivo": "cpu",
+  "n_titulares": 394,
+  "segundos_total": 1045.5,
+  "seg_por_titular": 2.654,
+  "fecha": "2026-10-17T12:23:35",
+  "prompt_sistema": "Eres un editor de un diario peruano. Tu tarea es clasificar el titular de una noticia en exactamente UNA de estas 4 categorías:\n\n- politica: gobierno y Poder Ejecutivo, Congreso (Senado y Cámara de Diputados), partidos y candidatos, elecciones (ONPE, JNE), ministros y autoridades, justicia, fiscalía y corrupción de funcionarios, política exterior y diplomacia.\n- economia: economía peruana y mundial, empresas y negocios, mercados, bolsa, banca y finanzas, inversión, comercio y exportaciones, minería, energía e hidrocarburos como actividad económica, empleo, sueldos, impuestos, precios y consumo.\n- deportes: fútbol (Liga 1, selección peruana, clubes, torneos internacionales), otros deportes, deportistas, partidos, resultados, fichajes y competencias.\n- ciencia_tecnologia: ciencia e investigación, salud y medicina, espacio y astronomía, medio ambiente y animales, inteligencia artificial, empresas tecnológicas, celulares, aplicaciones, internet, ciberseguridad y videojuegos.\n\nReglas:\n1. Elige la categoría del tema principal del titular, aunque mencione otros temas.\n2. Usa solo una de las 4 categorías; no inventes otras.\n3. Responde únicamente con un JSON válido, sin explicaciones: {\"categoria\": \"<politica|economia|deportes|ciencia_tecnologia>\"}\n\nEjemplos:\nTitular: Pleno del Congreso aprueba en primera votación la reforma del sistema electoral\n{\"categoria\": \"politica\"}\nTitular: BCR mantiene su tasa de referencia y prevé que la inflación cierre el año en 2 %\n{\"categoria\": \"economia\"}\nTitular: Universitario venció a Sporting Cristal y se acerca al título del Torneo Clausura\n{\"categoria\": \"deportes\"}\nTitular: Científicos descubren una nueva especie de rana en la Amazonía peruana\n{\"categoria\": \"ciencia_tecnologia\"}"
+}

@@ -5,3 +5,7 @@ modelo/*.safetensors
 modelo/*.bin
 
 modelo/checkpoint-*/
+
+# Archivos temporales de Excel/Office (se crean mientras un libro está abierto)
+
+~$*

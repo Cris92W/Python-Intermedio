@@ -1,0 +1,16 @@
+{
+  "medio": "El Comercio",
+  "n_noticias": 394,
+  "n_test": 60,
+  "modelo_final": "DistilBERT multilingüe fine-tuned (variante A)",
+  "f1_macro_test": 0.8848,
+  "accuracy_test": 0.8833,
+  "zero_shot_modelo": "joeddav/xlm-roberta-large-xnli",
+  "zero_shot_f1_macro_40": 0.6945,
+  "zero_shot_f1_macro_test": 0.6954,
+  "llm_modelo": "Qwen/Qwen2.5-1.5B-Instruct",
+  "llm_f1_macro_test": 0.7789,
+  "acuerdo_llm_humano": 19,
+  "auditoria_n": 20,
+  "fecha": "2026-10-17T14:56:09"
+}
