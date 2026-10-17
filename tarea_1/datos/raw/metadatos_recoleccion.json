@@ -1,0 +1,22 @@
+{
+  "medio": "El Comercio",
+  "base_url": "https://elcomercio.pe",
+  "fecha_recoleccion": "2026-10-17T00:17:55",
+  "user_agent": "TareaDiplomadoPUCP-DataSciencePython/1.0 (proyecto academico; +https://github.com/Cris92W/Python-Intermedio)",
+  "pausa_segundos": [
+    1.0,
+    2.0
+  ],
+  "max_reintentos": 1,
+  "fuentes": {
+    "rss_portada": "https://elcomercio.pe/arc/outboundfeeds/rss/?outputType=xml",
+    "rss_politica": "https://elcomercio.pe/arc/outboundfeeds/rss/category/politica/?outputType=xml",
+    "sitemap_news_politica": "https://elcomercio.pe/sitemap/news/politica/?outputType=xml",
+    "rss_economia": "https://elcomercio.pe/arc/outboundfeeds/rss/category/economia/?outputType=xml",
+    "sitemap_news_economia": "https://elcomercio.pe/sitemap/news/economia/?outputType=xml",
+    "rss_deporte-total": "https://elcomercio.pe/arc/outboundfeeds/rss/category/deporte-total/?outputType=xml",
+    "sitemap_news_deporte-total": "https://elcomercio.pe/sitemap/news/deporte-total/?outputType=xml",
+    "rss_tecnologia": "https://elcomercio.pe/arc/outboundfeeds/rss/category/tecnologia/?outputType=xml",
+    "sitemap_news_tecnologia": "https://elcomercio.pe/sitemap/news/tecnologia/?outputType=xml"
+  }
+}
