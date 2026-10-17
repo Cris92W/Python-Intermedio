@@ -1,5 +1,5 @@
 # Python-Intermedio
- Tareas del curso Data Science con Python – Diplomado UNMSM 2026
+ Tareas del curso Data Science con Python – Diplomado PUCP 2026
  
 Integrante:
 
