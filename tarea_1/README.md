@@ -1,13 +1,4 @@
 # Tarea 1 – Noticias peruanas: del titular al clasificador
 
-> **¿Pueden convertir titulares peruanos en un clasificador de noticias?**
-
-### 1. Pregunta del proyecto
-
-### 2. Medios y fechas de extracción
-
-### 3. Hallazgos analíticos
-
-### 4. Limitaciones técnicas
-
-### 5. Cómo ejecutar en local
+> **¿Pueden convertir titulares peruanos en un clasificador de noticias?*
+La Tarea 1 consiste en construir, de principio a fin, un clasificador automático de noticias peruanas a partir de titulares reales del diario **El Comercio** (Caso B), recolectados de forma responsable mediante sus canales oficiales de RSS y sitemaps, respetando su `robots.txt` y aplicando pausas entre solicitudes. Con `requests`, `BeautifulSoup` y `pandas` se extraen y limpian más de 350 noticias, que se normalizan en cuatro categorías fijas (política, economía, deportes y ciencia y tecnología) y se exploran con gráficos interactivos en Plotly. Luego se comparan tres enfoques de clasificación evaluados sobre un mismo conjunto de test aislado: un modelo zero-shot sin entrenamiento como línea base, un LLM que etiqueta los titulares mediante un prompt estructurado (validado con una auditoría humana de 20 casos) y un Transformer ligero, DistilBERT multilingüe, ajustado con fine-tuning usando Hugging Face y Google Colab. Finalmente, el modelo se integra en un dashboard de Streamlit que permite explorar los datos y clasificar titulares nuevos en vivo. A lo largo del proyecto se aprende a recolectar datos web de manera ética, a limpiar y estructurar información real, a usar LLMs como herramienta de etiquetado (supervisión débil), a aplicar transfer learning con modelos de lenguaje, a evaluar con rigor mediante F1 macro y matriz de confusión sin contaminar el test, y a llevar un modelo hasta una aplicación funcional, todo documentado con un flujo de trabajo ordenado en Git y GitHub.
