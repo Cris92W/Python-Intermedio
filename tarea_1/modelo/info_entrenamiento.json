@@ -1,0 +1,23 @@
+{
+  "modelo_base": "distilbert/distilbert-base-multilingual-cased",
+  "variante": "A",
+  "etiquetas_entrenamiento": "etiqueta (editorial)",
+  "max_length": 64,
+  "epocas": 8,
+  "batch_size": 16,
+  "learning_rate": 5e-05,
+  "semilla": 42,
+  "val_f1_macro": {
+    "A": 0.914,
+    "B": 0.8607
+  },
+  "minutos_entrenamiento_cpu": {
+    "A": 11.0,
+    "B": 10.6
+  },
+  "n": {
+    "train": 275,
+    "val": 59,
+    "test": 60
+  }
+}
