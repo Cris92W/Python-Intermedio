@@ -14,6 +14,8 @@ import plotly.graph_objects as go
 import streamlit as st
 
 os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
+# Descarga por HTTP normal: con el cliente xet la descarga de los pesos se quedó colgada en las pruebas
+os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
 
 BASE = Path(__file__).resolve().parent
 DATOS, MODELO = BASE / "datos", BASE / "modelo"

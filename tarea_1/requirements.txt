@@ -1,15 +1,15 @@
 # Tarea 1 – dependencias exactas (probadas con Python 3.12 en Windows 10, solo CPU)
 # Instalar con:  pip install -r requirements.txt
 
-# torch en su versión CPU (evita descargar los ~2 GB de CUDA en Linux / Streamlit Cloud)
---extra-index-url https://download.pytorch.org/whl/cpu
-
 # --- Dashboard (app.py) ---
 streamlit==1.65.0
 pandas==2.3.3
 numpy==2.5.3
 plotly==7.1.0
-torch==2.14.1
+# torch solo CPU: en Linux (Streamlit Cloud, Python 3.12) se usa la rueda CPU oficial para no
+# descargar los ~2 GB de CUDA; en Windows y macOS la versión de PyPI ya es solo CPU.
+torch @ https://download.pytorch.org/whl/cpu/torch-2.14.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl ; sys_platform == "linux" and platform_machine == "x86_64"
+torch==2.14.1 ; sys_platform != "linux"
 transformers==5.20.1
 tokenizers==0.23.3
 safetensors==0.8.0

@@ -69,11 +69,11 @@ streamlit run app.py
 
 La app se abre en `http://localhost:8501`. Sin conda: `python -m venv .venv`, luego `.venv\Scripts\activate` (Windows) o `source .venv/bin/activate` (Linux/macOS), y después los mismos `pip install -r requirements.txt` y `streamlit run app.py`.
 
-**Pesos del modelo.** `modelo/model.safetensors` (541 MB) no está en GitHub porque supera el límite de 100 MB (ver `.gitignore`). Sin él, el dashboard funciona igual (datos, filtros, métricas, gráficos, tabla y entidades), pero el probador en vivo muestra un aviso. Hay dos formas de obtenerlo:
+**Pesos del modelo.** `modelo/model.safetensors` (541 MB) no está en GitHub porque supera el límite de 100 MB (ver `.gitignore`). Está publicado en Hugging Face Hub: [`Criswong92/distilbert-noticias-elcomercio`](https://huggingface.co/Criswong92/distilbert-noticias-elcomercio). Sin él, el dashboard funciona igual (datos, filtros, métricas, gráficos, tabla y entidades), pero el probador en vivo muestra un aviso. Hay dos formas de obtenerlo:
 
-- ejecutar `02_clasificacion.ipynb`, que entrena el modelo y lo guarda en `modelo/` (unos 25–30 minutos en CPU), o
-- si el modelo está publicado en Hugging Face Hub, indicar el repositorio antes de lanzar la app:
-  `$env:MODELO_HF="usuario/repositorio"; streamlit run app.py` (PowerShell) o `MODELO_HF=usuario/repositorio streamlit run app.py` (bash).
+- indicar el repositorio de Hugging Face antes de lanzar la app (se descarga solo la primera vez):
+  `$env:MODELO_HF="Criswong92/distilbert-noticias-elcomercio"; streamlit run app.py` (PowerShell) o `MODELO_HF=Criswong92/distilbert-noticias-elcomercio streamlit run app.py` (bash), o
+- ejecutar `02_clasificacion.ipynb`, que entrena el modelo y lo guarda en `modelo/` (unos 25–30 minutos en CPU).
 
 Para volver a ejecutar los notebooks se usan las mismas dependencias (sección "Notebooks" de `requirements.txt`). Con `USAR_CACHE = True` reutilizan los datos crudos y las etiquetas del LLM, así que no vuelven a descargar nada del medio.
 
@@ -116,5 +116,5 @@ tarea_1/
 ## 8. Despliegue en Streamlit Community Cloud (opcional)
 
 1. En [share.streamlit.io](https://share.streamlit.io): *Create app* → repositorio `Cris92W/Python-Intermedio`, rama `main`, archivo `tarea_1/app.py`. En *Advanced settings*, elegir Python 3.12.
-2. Como los pesos no están en GitHub, se deben subir a Hugging Face Hub y agregar en *Secrets*: `MODELO_HF = "usuario/repositorio"`. Streamlit expone ese secret como variable de entorno, y la app descarga el modelo al iniciar.
-3. `requirements.txt` instala `torch` desde el índice de CPU de PyTorch, para no descargar las librerías de CUDA.
+2. Como los pesos no están en GitHub, se leen de Hugging Face Hub. En *Secrets* se agrega `MODELO_HF = "Criswong92/distilbert-noticias-elcomercio"`. Streamlit expone ese secret como variable de entorno, y la app descarga el modelo al iniciar.
+3. En Linux, `requirements.txt` instala la rueda CPU oficial de `torch` para Python 3.12, para no descargar las librerías de CUDA (unos 2 GB).
