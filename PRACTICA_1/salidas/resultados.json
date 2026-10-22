@@ -1,0 +1,266 @@
+{
+  "fecha_corte": "2026-10-21",
+  "focos_peru_7d": 9949,
+  "incendios_peru_7d": 839,
+  "periodo_focos": [
+    "2026-10-14",
+    "2026-10-21"
+  ],
+  "incendio": {
+    "distrito": "CHICHAS",
+    "provincia": "CONDESUYOS",
+    "departamento": "AREQUIPA",
+    "focos": 198,
+    "frp_total_MW": 1979.2,
+    "primer_dia": "2026-10-16",
+    "ultimo_dia": "2026-10-18",
+    "lat": -15.4858,
+    "lon": -72.9851,
+    "rank_semana": 3
+  },
+  "focos_por_dia": {
+    "2026-10-16": 6,
+    "2026-10-17": 110,
+    "2026-10-18": 82
+  },
+  "antes": {
+    "fecha": "2026-10-15",
+    "hora_utc": "14:57",
+    "nubes_zona": 0.0,
+    "id": "S2C_MSIL2A_20261015T145731_R039_T18LYH_20261015T175103"
+  },
+  "despues": {
+    "fecha": "2026-10-20",
+    "hora_utc": "15:09",
+    "nubes_zona": 1.87,
+    "id": "S2A_MSIL2A_20261020T150931_R082_T18LYH_20261020T222456"
+  },
+  "zona_ha": 12446,
+  "zona_km": [
+    10.9,
+    11.5
+  ],
+  "enmascarado_pct": 1.87,
+  "ha_quemadas_zona": 242.0,
+  "ha_quemadas_cerca": 241.8,
+  "ha_quemadas_cerca_010": 1646.9,
+  "dnbr_mediana_cicatriz": 0.183,
+  "severidad": [
+    {
+      "severidad": "Rebrote",
+      "dNBR": "−∞ a -0.10",
+      "ha_zona": 859.1,
+      "ha_cerca_focos": 33.5
+    },
+    {
+      "severidad": "Sin quemar",
+      "dNBR": "-0.10 a 0.10",
+      "ha_zona": 9648.5,
+      "ha_cerca_focos": 2339.1
+    },
+    {
+      "severidad": "Baja",
+      "dNBR": "0.10 a 0.27",
+      "ha_zona": 1463.4,
+      "ha_cerca_focos": 1405.1
+    },
+    {
+      "severidad": "Moderada-baja",
+      "dNBR": "0.27 a 0.44",
+      "ha_zona": 241.0,
+      "ha_cerca_focos": 240.7
+    },
+    {
+      "severidad": "Moderada-alta",
+      "dNBR": "0.44 a 0.66",
+      "ha_zona": 1.1,
+      "ha_cerca_focos": 1.1
+    },
+    {
+      "severidad": "Alta",
+      "dNBR": "0.66 a ∞",
+      "ha_zona": 0.0,
+      "ha_cerca_focos": 0.0
+    }
+  ],
+  "por_distrito": [
+    {
+      "distrito": "CHICHAS",
+      "provincia": "CONDESUYOS",
+      "ha_dnbr_010": 1118.2,
+      "ha_dnbr_027": 219.3
+    },
+    {
+      "distrito": "TORO",
+      "provincia": "LA UNION",
+      "ha_dnbr_010": 528.7,
+      "ha_dnbr_027": 22.5
+    }
+  ],
+  "top_incendios": [
+    {
+      "focos": 295,
+      "frp_total_MW": 2366.4,
+      "distrito": "RIO TAMBO",
+      "provincia": "SATIPO",
+      "departamento": "JUNIN",
+      "primer_dia": "2026-10-14",
+      "ultimo_dia": "2026-10-20"
+    },
+    {
+      "focos": 222,
+      "frp_total_MW": 3011.3,
+      "distrito": "CURAHUASI",
+      "provincia": "ABANCAY",
+      "departamento": "APURIMAC",
+      "primer_dia": "2026-10-14",
+      "ultimo_dia": "2026-10-20"
+    },
+    {
+      "focos": 198,
+      "frp_total_MW": 1979.2,
+      "distrito": "CHICHAS",
+      "provincia": "CONDESUYOS",
+      "departamento": "AREQUIPA",
+      "primer_dia": "2026-10-16",
+      "ultimo_dia": "2026-10-18"
+    },
+    {
+      "focos": 134,
+      "frp_total_MW": 2230.6,
+      "distrito": "MANANTAY",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "primer_dia": "2026-10-14",
+      "ultimo_dia": "2026-10-16"
+    },
+    {
+      "focos": 122,
+      "frp_total_MW": 6671.1,
+      "distrito": "TAHUANIA",
+      "provincia": "ATALAYA",
+      "departamento": "UCAYALI",
+      "primer_dia": "2026-10-15",
+      "ultimo_dia": "2026-10-16"
+    },
+    {
+      "focos": 104,
+      "frp_total_MW": 1971.0,
+      "distrito": "HUANOQUITE",
+      "provincia": "PARURO",
+      "departamento": "CUSCO",
+      "primer_dia": "2026-10-14",
+      "ultimo_dia": "2026-10-17"
+    },
+    {
+      "focos": 92,
+      "frp_total_MW": 808.5,
+      "distrito": "LA JOYA",
+      "provincia": "AREQUIPA",
+      "departamento": "AREQUIPA",
+      "primer_dia": "2026-10-17",
+      "ultimo_dia": "2026-10-21"
+    },
+    {
+      "focos": 78,
+      "frp_total_MW": 639.8,
+      "distrito": "MAZAMARI",
+      "provincia": "SATIPO",
+      "departamento": "JUNIN",
+      "primer_dia": "2026-10-14",
+      "ultimo_dia": "2026-10-20"
+    },
+    {
+      "focos": 78,
+      "frp_total_MW": 1490.7,
+      "distrito": "CAYNA",
+      "provincia": "AMBO",
+      "departamento": "HUANUCO",
+      "primer_dia": "2026-10-18",
+      "ultimo_dia": "2026-10-20"
+    },
+    {
+      "focos": 77,
+      "frp_total_MW": 1393.4,
+      "distrito": "NUEVA REQUENA",
+      "provincia": "CORONEL PORTILLO",
+      "departamento": "UCAYALI",
+      "primer_dia": "2026-10-15",
+      "ultimo_dia": "2026-10-21"
+    }
+  ],
+  "escenas": [
+    {
+      "fecha": "2026-10-03",
+      "hora_utc": "15:07",
+      "nubes_zona_%": 0.0,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-05",
+      "hora_utc": "14:57",
+      "nubes_zona_%": 0.0,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-07",
+      "hora_utc": "14:59",
+      "nubes_zona_%": 0.0,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-08",
+      "hora_utc": "15:07",
+      "nubes_zona_%": 0.0,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-10",
+      "hora_utc": "14:57",
+      "nubes_zona_%": 0.0,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-10",
+      "hora_utc": "15:07",
+      "nubes_zona_%": 0.0,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-13",
+      "hora_utc": "15:07",
+      "nubes_zona_%": 0.0,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-15",
+      "hora_utc": "14:57",
+      "nubes_zona_%": 0.0,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-17",
+      "hora_utc": "14:57",
+      "nubes_zona_%": 0.06,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-18",
+      "hora_utc": "15:07",
+      "nubes_zona_%": 0.0,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-20",
+      "hora_utc": "14:57",
+      "nubes_zona_%": 12.49,
+      "sin_datos_%": 0.0
+    },
+    {
+      "fecha": "2026-10-20",
+      "hora_utc": "15:09",
+      "nubes_zona_%": 1.87,
+      "sin_datos_%": 0.0
+    }
+  ]
+}
