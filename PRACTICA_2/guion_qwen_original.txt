@@ -1,0 +1,6 @@
+Dieciséis de octubre, dos y ocho de la tarde: detecté el primer foco en el pajonal de Chichas, Arequipa.
+En tres días, ciento noventa y ocho focos lo convirtieron en el tercer incendio con más focos del Perú esa semana.
+El diecisiete ardió con ciento diez focos. El área se triplicó: mil seiscientas cuarenta y siete hectáreas.
+Ochenta y cinco por ciento fue severidad baja: un fuego extenso pero leve, entre tres mil trescientos y cuatro mil cien metros.
+El borde quedó a cien metros del caserío Quichuana y a ciento cincuenta de Cahuanota.
+Lo medí con Sentinel dos, FIRMS y Python. El fuego se apaga; los datos quedan.

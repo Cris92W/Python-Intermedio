@@ -1,0 +1,12 @@
+Escribe el texto para narrar un reel de 50 segundos (máximo 120 palabras) sobre el incendio de Chichas, en primera persona y en tono de storytelling: empieza con un gancho y termina con una frase de cierre. Usa solo estos datos, sin inventar nada más. Escribe los números con palabras y cuida el género (mil seiscientas cuarenta y siete hectáreas).
+
+- Del 16 al 18 de octubre de 2026 ardió el pajonal altoandino de Chichas, en Condesuyos, Arequipa.
+- Los satélites detectaron 198 focos de calor: fue el tercer incendio del Perú con más focos esa semana, en la que hubo 9 949 focos en todo el país.
+- El primer foco apareció el 16 a las 14:08; el 17 fue el día más intenso, con 110 focos; el último foco se vio el 18 a las 14:13.
+- El área quemada se triplicó del 17 al 18 y llegó a 1 647 hectáreas el 20 de octubre.
+- El 85 % del área tuvo severidad baja: fue un fuego extenso pero leve.
+- Ardió en las partes altas, entre 3 300 y 4 100 metros de altitud.
+- El borde quemado quedó a 100 metros del caserío Quichuana y a 150 metros del pueblo Cahuanota.
+- Lo medí con imágenes del satélite Sentinel-2, focos de NASA FIRMS y Python.
+
+Responde solo con el texto para leer en voz alta, en 6 párrafos cortos.

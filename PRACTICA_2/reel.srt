@@ -1,0 +1,148 @@
+1
+00:00:00,300 --> 00:00:01,760
+Dieciséis de octubre,
+
+2
+00:00:01,760 --> 00:00:02,500
+dos y ocho de
+
+3
+00:00:02,500 --> 00:00:03,540
+la tarde:
+
+4
+00:00:03,540 --> 00:00:05,020
+un satélite detecta el
+
+5
+00:00:05,020 --> 00:00:05,860
+primer foco en el
+
+6
+00:00:05,860 --> 00:00:07,220
+pajonal de Chichas,
+
+7
+00:00:07,220 --> 00:00:08,210
+Arequipa.
+
+8
+00:00:08,309 --> 00:00:09,409
+En tres días,
+
+9
+00:00:09,409 --> 00:00:11,169
+ciento noventa y ocho
+
+10
+00:00:11,169 --> 00:00:12,669
+focos lo convirtieron en
+
+11
+00:00:12,669 --> 00:00:13,929
+el tercer incendio con
+
+12
+00:00:13,929 --> 00:00:15,129
+más focos del Perú
+
+13
+00:00:15,129 --> 00:00:16,079
+esa semana.
+
+14
+00:00:16,360 --> 00:00:17,920
+El diecisiete ardió con
+
+15
+00:00:17,920 --> 00:00:19,600
+ciento diez focos.
+
+16
+00:00:19,600 --> 00:00:20,780
+Al día siguiente,
+
+17
+00:00:20,780 --> 00:00:22,220
+el área se triplicó;
+
+18
+00:00:22,220 --> 00:00:23,140
+para el veinte sumaba
+
+19
+00:00:23,140 --> 00:00:24,052
+mil seiscientas cuarenta
+
+20
+00:00:24,052 --> 00:00:25,630
+y siete hectáreas.
+
+21
+00:00:25,883 --> 00:00:26,483
+El ochenta y cinco
+
+22
+00:00:26,483 --> 00:00:27,563
+por ciento fue de
+
+23
+00:00:27,563 --> 00:00:29,143
+severidad baja:
+
+24
+00:00:29,143 --> 00:00:30,703
+un fuego extenso pero
+
+25
+00:00:30,703 --> 00:00:31,663
+leve,
+
+26
+00:00:31,663 --> 00:00:32,903
+entre tres mil trescientos
+
+27
+00:00:32,903 --> 00:00:33,883
+y cuatro mil cien
+
+28
+00:00:33,883 --> 00:00:35,493
+metros de altitud.
+
+29
+00:00:35,577 --> 00:00:36,757
+El borde quemado quedó
+
+30
+00:00:36,757 --> 00:00:37,577
+a cien metros del
+
+31
+00:00:37,577 --> 00:00:39,417
+caserío Quichuana y a
+
+32
+00:00:39,417 --> 00:00:41,267
+ciento cincuenta de Cahuanota.
+
+33
+00:00:41,453 --> 00:00:42,553
+Lo medí con Sentinel
+
+34
+00:00:42,553 --> 00:00:42,873
+dos,
+
+35
+00:00:42,873 --> 00:00:45,693
+FIRMS y Python.
+
+36
+00:00:45,693 --> 00:00:47,113
+El fuego se apaga;
+
+37
+00:00:47,113 --> 00:00:48,463
+los datos quedan.
+

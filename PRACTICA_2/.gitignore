@@ -1,0 +1,7 @@
+# Pesos de Qwen3-TTS (unos 2,5 GB): se descargan de Hugging Face
+modelos/
+# Muestra de voz personal: no se sube al repositorio
+mi_voz*
+# Audios intermedios con la voz clonada: se regeneran con voz.py
+salidas/
+*.log

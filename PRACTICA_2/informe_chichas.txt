@@ -1,0 +1,326 @@
+Informe de teledetección · Condesuyos, Arequipa, Perú
+Tres días de fuego en la puna de Chichas
+Del 16 al 18 de octubre de 2026 un incendio recorrió el pajonal altoandino de Chichas. Con imágenes Sentinel-2, focos de calor VIIRS, un modelo de elevación y OpenStreetMap reconstruimos cuánto quemó, cómo avanzó, qué tan severo fue y qué tuvo cerca.
+Autor
+Cristian Wong P.
+Ingeniero geógrafo y bachiller en Ciencia Política
+1 647ha
+Área quemada al 20 oct (dNBR ≥ 0,10)
+48h
+Entre el primer y el último foco detectado
+198
+Focos VIIRS: 3.er incendio del Perú esa semana
+0,1km
+Del borde quemado al caserío Quichuana
+Diplomado de Ciencia de Datos con Python · Notebook PRACTICA_1.ipynb · Corte de datos: 21 oct 2026
+Ubicación
+Quemado en la imagen del17 oct18 oct20 oct
+Lámina 1. Cicatriz del incendio según la imagen en que aparece por primera vez, sobre Sentinel-2 L2A del 20 oct 2026 en color verdadero (B4-B3-B2). Cuadrícula UTM zona 18S cada 2 km; coordenadas en km.
+Centroide
+15°29′ S · 72°59′ O
+Zona de estudio
+10,9 × 11,5 km
+Altitud quemada (p5–p95)
+3 287–4 091 m
+Sistema de referencia
+WGS 84 / UTM 18S · EPSG:32718
+Sensores
+MSI · VIIRS · GLO-30
+Capítulo I
+Una semana de fuego en el Perú
+¿Dónde ardió el país del 14 al 21 de octubre?
+14–21 oct 2026 · 1 de 3
+9 949 puntos de calor
+Cada punto naranja es un píxel de 375 m donde los satélites VIIRS midieron calor anómalo. En siete días hubo 9 949 focos dentro del Perú, sobre todo en la sierra sur y en la selva central.
+NASA FIRMS · VIIRS 375 m (S-NPP, NOAA-20, NOAA-21) · «South America 7d»
+De focos a incendios · 2 de 3
+839 incendios; diez destacan
+Un foco no es un incendio. Agrupamos los focos que están a 1 km o menos entre sí y salen 839 incendios. Los anillos marcan los diez con más focos; su área crece con el número de focos.
+DBSCAN con distancia haversine · radio 1 km · mínimo 3 focos
+Ubicación · 3 de 3
+Arequipa, provincia de Condesuyos
+El tercero en número de focos ardió en el distrito de Chichas, en las alturas de Arequipa: 198 focos entre el 16 y el 18 de octubre. En octubre la zona es seca y casi sin nubes, así que Sentinel-2 puede medirla bien. El recuadro blanco es la zona de estudio.
+Límites departamentales y distritales: INEI · Proyección equirectangular, paralelo estándar 12° S
+Capítulo II
+48 horas de avance
+¿Cómo creció el fuego, pasada a pasada?
+15 oct · Antes del fuego
+La zona intacta
+Así se veía la zona un día antes: imagen Sentinel-2 del 15 de octubre en color verdadero, sin nubes. Los tonos pardos son pajonal y suelo desnudo; al este, un valle con chacras verdes. Las líneas punteadas son límites distritales.
+Sentinel-2 L2A · tesela 18LYH · 15 oct, 14:57 UTC · 0,0 % de nubes en la zona
+16 oct · Día 1
+Empieza el fuego
+A las 14:08 hora local (19:08 UTC) el satélite NOAA-20 detecta los primeros 6 focos (amarillo), en el centro de la zona. Aún no hay una imagen Sentinel-2 que muestre la quema: el fondo sigue siendo la del 15.
+Hora local del Perú = UTC − 5
+17 oct · Día 2
+El día más intenso: 110 focos
+La imagen Sentinel-2 de esa mañana (9:57 hora local) ya muestra 433 ha quemadas (relleno naranja). Los focos del día, también en naranja, empujan el frente hacia el norte y el este.
+7 pasadas VIIRS con focos este día, de madrugada y por la tarde
+18 oct · Día 3
+La cicatriz se triplica
+Con 82 focos más, la imagen del 18 suma 1 439 ha (lo nuevo, en rojo). El último foco se detecta a las 14:13 hora local; en las pasadas siguientes los satélites ya no ven fuego.
+Último foco: NOAA-21, 18 oct, 19:13 UTC
+20 oct · Después
+1 647 ha y dos poblados al borde
+La cicatriz final sobre la imagen del 20 de octubre (en carmín, lo nuevo desde el 18). El caserío Quichuana queda a 0,1 km del área quemada y el pueblo Cahuanota a 0,15 km, según OpenStreetMap.
+dNBR ≥ 0,10 frente al 15 oct · solo píxeles a ≤ 750 m de un foco VIIRS
+Nota técnica · II
+Qué vio cada satélite, y cuándo
+VIIRS pasa varias veces al día y detecta calor; Sentinel-2 pasa cada pocos días y mide el estado de la vegetación. Juntos fechan el avance: los focos dicen cuándo ardía y las imágenes, qué quedó quemado.
+Gráfico 1
+Focos VIIRS por ventana de paso e imágenes Sentinel-2, 15–20 oct 2026
+Número de focos dentro de la zona · horas en UTC (hora local = UTC − 5)
+Fuente: NASA FIRMS (VIIRS 375 m) y ESA Copernicus Sentinel-2 L2A. Elaboración: propia. Pasa el cursor sobre una barra para ver cada pasada.
+Cuadro 1
+Imágenes Sentinel-2 revisadas, tesela 18LYH
+Hora de paso y porcentaje de nubes y sombras dentro de la zona
+Fecha
+UTC
+Local
+Nubes en la zona
+Uso
+Fuente: Microsoft Planetary Computer, colección sentinel-2-l2a; % calculado con la capa SCL solo dentro de la zona del incendio. Elaboración: propia.
+Gráfico 2
+Crecimiento de la cicatriz entre imágenes
+Hectáreas con dNBR ≥ 0,10 frente al 15 oct, a ≤ 750 m de focos
+Nota: las imágenes del 17 y 18 se tomaron con el fuego activo; el humo puede alterar el índice. Elaboración: propia.
+15 oct · antes20 oct · después⇔
+Firma espectral · esquema
+Valores típicos ilustrativos, no medidos en esta escena.
+Capítulo III
+Cómo se mide una cicatriz
+¿Qué cuenta como quemado, y qué no?
+15 oct · Imagen de referencia
+Antes
+Todo parte de la imagen sin nubes del 15 de octubre. Es la línea de base: cada cambio se mide contra ella, píxel por píxel.
+Sentinel-2 L2A · color verdadero (B4, B3, B2) · píxel de 10 m
+20 oct · Imagen posterior
+Después
+Cinco días más tarde, la cicatriz es una mancha parda oscura de unos 10 km de norte a sur. Arrastra la línea blanca para comparar las dos fechas.
+20 oct, 15:09 UTC · 1,9 % de nubes y sombras en la zona
+Control de calidad
+No todo lo oscuro es ceniza
+Al sureste y al noroeste hay manchas oscuras que no son quemas: son sombras de nubes. La capa de clasificación de escena (SCL) enmascara las nubes, pero no siempre sus sombras.
+Por eso solo contamos píxeles a ≤ 750 m de un foco VIIRS, dos píxeles VIIRS de distancia. La línea blanca es el borde de la cicatriz que sí cumple ese criterio.
+Las elipses son una interpretación visual, no una máscara del cálculo.
+El índice
+La firma espectral del fuego
+La vegetación refleja mucho infrarrojo cercano (NIR) y poco infrarrojo de onda corta (SWIR). Al quemarse, el NIR cae y el SWIR sube. El NBR resume ese contraste y el dNBR mide cuánto cambió:
+NBR = (B8A − B12) / (B8A + B12)dNBR = NBRantes − NBRdespués
+B8A (865 nm) y B12 (2 190 nm) a 20 m · desfase L2A −1000 corregido · máscara SCL en ambas fechas
+Clasificación
+Del índice a la severidad
+Con los umbrales del USGS, el 85 % del área quemada es de severidad baja. Solo 1 ha llega a moderada-alta y ninguna a alta.
+Umbrales de Key y Benson (2006) · hectáreas a ≤ 750 m de focos · píxel de 20 m = 0,04 ha
+Sensibilidad
+La decisión que cambia el número
+Los umbrales del USGS se calibraron en bosques. En este pajonal, la mediana del dNBR dentro de la cicatriz es solo 0,18. Prueba otros umbrales:
+Con 0,27, el umbral clásico, el área baja a 242 ha: 6,8 veces menos. Reportamos 1 647 ha con 0,10 porque coincide con la cicatriz visible, y damos las dos cifras.
+No existe una calibración oficial del dNBR para pajonal altoandino
+Nota técnica · III
+Severidad y umbral, en cifras
+Las mismas imágenes dan de 242 a 1 647 ha según el umbral. La cifra elegida y la alternativa van juntas, con su reparto por clase y por distrito.
+Cuadro 2
+Superficie quemada por clase de severidad
+Clases USGS sobre dNBR · a ≤ 750 m de focos VIIRS
+Clase
+dNBR
+ha
+Participación
+Fuente: Sentinel-2 L2A del 15 y 20 oct 2026; umbrales de Key y Benson (2006). Píxel de 20 m = 0,04 ha. Elaboración: propia.
+Gráfico 3
+Área quemada por distrito
+Hectáreas, separadas por rango de dNBR
+Fuente: límites distritales del INEI. Elaboración: propia.
+Gráfico 4
+Tres maneras de contar el área quemada
+Hectáreas según el umbral de dNBR y el filtro de cercanía a focos
+dNBR ≥ 0,27 en toda la zonaUmbral clásico USGS, sin mirar los focos
+242 ha
+dNBR ≥ 0,27 a ≤ 750 m de focosUmbral clásico, solo cerca de focos VIIRS
+242 ha
+dNBR ≥ 0,10 a ≤ 750 m de focosUmbral para pajonal · cifra elegida · 6,8 veces la anterior
+1 647 ha
+Nota: no existe una calibración oficial del dNBR para pajonal altoandino; por eso se informan las dos cifras. Elaboración: propia.
+Capítulo IV
+El relieve
+¿En qué parte del terreno ardió?
+Modelo 3D
+3 060 m de desnivel en 11 km
+La zona va de 1 616 a 4 676 m s. n. m.: lomas altas cortadas por quebradas profundas. Encima del modelo de elevación va la imagen Sentinel-2 del 20 de octubre.
+Copernicus DEM GLO-30 remuestreado a 40 m · exageración vertical ×1,5 · luz desde el noroeste (azimut 315°)
+Altitud
+Ardió la parte alta
+La cicatriz (en rojo) ocupa las lomas altas. El 90 % del área quemada está entre 3 287 y 4 091 m (percentiles 5 y 95) y la mediana es 3 783 m.
+Hectáreas por franja de 100 m en la nota técnica de este capítulo
+Pendiente
+Laderas moderadas, no paredes de quebrada
+La pendiente media del área quemada es 20,0°, frente a 26,2° de toda la zona. El fuego recorrió sobre todo terreno menos empinado que el promedio.
+Área quemada20,0°
+Toda la zona26,2°
+Pendiente calculada sobre el DEM de 40 m
+Focos VIIRS en 3D
+Los focos sobre el terreno
+Cada punto es un foco VIIRS a la altura del terreno, coloreado por día: amarillo el 16, naranja el 17 y rojo el 18. La mediana de sus altitudes es 3 720 m, muy cerca de la del área quemada.
+Un foco marca el centro de un píxel de 375 m: su posición tiene unos ±190 m de incertidumbre
+Tu turno
+Explora el modelo
+Nota técnica · IV
+Altitud y pendiente del área quemada
+Cada píxel quemado se cruzó con el modelo de elevación. La distribución muestra una franja estrecha: casi todo ardió entre 3 300 y 4 100 m.
+Gráfico 5
+Distribución altitudinal del área quemada
+Hectáreas por franja de 100 m · altitud en m s. n. m.
+90 % del área (p5–p95: 3 287–4 091 m)Mediana del área quemada: 3 783 mMediana de los focos: 3 720 m
+Fuente: Copernicus DEM GLO-30 remuestreado a 40 m (0,16 ha por píxel); 4,8 ha sin dato de altitud. Elaboración: propia.
+3 783m
+Altitud mediana del área quemada
+3 720m
+Altitud mediana de los focos VIIRS
+20,0°
+Pendiente media del área quemada (26,2° en toda la zona)
+Capítulo V
+¿Quién estuvo cerca?
+¿Qué poblados y caminos quedaron expuestos?
+OpenStreetMap
+La cicatriz y sus vecinos
+Alrededor del incendio, OpenStreetMap registra caseríos, pueblos, viviendas aisladas y una red de caminos rurales. 16 lugares están a 5 km o menos del área quemada; 8 caen dentro de esta zona.
+Distancia de cada elemento al píxel quemado más cercano · árbol KD (scipy)
+Franja de 1 km
+Tres poblados a menos de 1 km
+Quichuana (0,1 km), Cahuanota (0,15 km) y Acchapuna (0,9 km), al noreste, quedan dentro de la franja de 1 km alrededor de la cicatriz.
+Franja calculada en el navegador con una transformada de distancia sobre la cicatriz (píxel de 20 m)
+Franja de 2 km
+Cinco a menos de 2 km
+Con 2 km se suman Chupacra (1,7 km), al este, y Ushqui (1,9 km), al oeste.
+Red vial
+16,8 km de caminos a menos de 1 km
+Una vía terciaria cruza el área quemada; un camino vecinal y un sendero pasan a 0,2 km. En ámbar, los tramos dentro de la franja de 1 km.
+Vías OSM: tertiary, unclassified, residential y path
+Límite de los datos
+Lo que el mapa no muestra
+OpenStreetMap casi no tiene edificaciones dibujadas en esta parte de la sierra: 0 a menos de 5 km. Eso no significa que no haya viviendas, corrales o cercos. La exposición real puede ser mayor.
+© colaboradores de OpenStreetMap, ODbL · descarga del 21 oct 2026
+Nota técnica · V
+Distancias a poblados y vías
+Distancia de cada elemento de OpenStreetMap al píxel quemado más cercano (cicatriz del 20 oct), en un radio de unos 6 km alrededor de la zona.
+3
+Poblados, caseríos y viviendas a ≤ 1 km del área quemada
+5
+A ≤ 2 km (16 a ≤ 5 km)
+16,8km
+De vías y caminos a ≤ 1 km del área quemada
+Cuadro 3
+Poblados más cercanos al área quemada
+Distancia al píxel quemado más cercano, en km
+N.°
+Poblado
+Distancia
+Franja
+Fuente: © colaboradores de OpenStreetMap (ODbL), API de OSM, 21 oct 2026. Elaboración: propia.
+Cuadro 4
+Tramos viales más cercanos
+Vías y caminos de OSM; ninguno tiene nombre registrado
+N.°
+Tipo de vía
+Distancia
+Franja
+Nota: OpenStreetMap está incompleto en la sierra rural: que algo no aparezca no significa que no exista. Elaboración: propia.
+Capítulo VI
+Explora el mapa por tu cuenta
+Capítulo VII
+Lo que dicen los datos
+Tres hallazgos, el contexto nacional, el método completo y lo que este análisis no puede afirmar.
+1 647ha
+Creció en dos días y se detuvo
+La cicatriz pasó de 433 ha (17 oct) a 1 439 ha (18 oct) y 1 647 ha (20 oct). VIIRS detectó 6, 110 y 82 focos el 16, 17 y 18 de octubre, y ninguno después.
+×6,8
+Extenso, de baja severidad, y el umbral importa
+1 647 ha con dNBR ≥ 0,10 frente a 242 ha con el umbral clásico de 0,27. Es pajonal con poca biomasa: el 85 % es de severidad baja.
+0,1km
+Llegó casi a los poblados
+Quichuana a 0,1 km y Cahuanota a 0,15 km; 5 poblados mapeados a ≤ 2 km y 16,8 km de vías a ≤ 1 km. Ardió entre 3 287 y 4 091 m, con pendiente media de 20°.
+Contexto nacional
+Dónde se ubica Chichas entre los incendios de esa semana
+Cuadro 5
+Los 10 incendios con más focos VIIRS del Perú, 14–21 oct 2026
+FRP: potencia radiativa del fuego, suma de todos los focos de cada incendio
+N.°
+Distrito
+Focos
+FRP total (MW)
+Días con focos, 14→21 oct
+Fuente: NASA FIRMS; 9 949 focos dentro del Perú agrupados con DBSCAN en 839 incendios (radio 1 km, mínimo 3 focos). Elaboración: propia.
+Método en ocho pasos
+Todo en Python, en CPU, sin claves ni pagos
+Focos de calor
+CSV de 7 días de NASA FIRMS (S-NPP, NOAA-20, NOAA-21) cruzado con los distritos del INEI.
+pandas · shapely
+Incendios
+Agrupamiento DBSCAN con distancia haversine: focos a ≤ 1 km, mínimo 3.
+scikit-learn
+Imágenes
+Búsqueda STAC en Planetary Computer y lectura solo de la ventana del incendio desde COG.
+pystac-client · rasterio
+Nubes
+% de nube y sombra con la capa SCL dentro de la zona, no en toda la tesela.
+SCL 3, 8, 9, 10
+dNBR
+B8A y B12 a 20 m, desfase L2A −1000, máscara SCL en ambas fechas.
+numpy
+Progresión
+dNBR con las imágenes del 17, 18 y 20 oct: fecha en que cada píxel aparece quemado.
+3 imágenes posteriores
+Relieve
+Copernicus DEM GLO-30 reproyectado a la grilla UTM: altitud, pendiente y malla 3D.
+rasterio.warp
+Exposición
+Poblados y vías de la API de OSM; distancias a la cicatriz con un árbol KD.
+scipy.spatial
+Limitaciones
+Lo que este análisis no puede afirmar
+Un foco de calor no es un incendio
+Agrupar focos a ≤ 1 km es una decisión de método; otro radio daría otros incendios y otro ranking.
+Las nubes y el humo esconden el fuego
+La imagen del 20 oct tiene nubes al sureste y sombras que la SCL no detecta. Las del 17 y 18 se tomaron con el fuego activo y el humo puede alterar el dNBR.
+El umbral cambia el resultado casi 7 veces
+No hay calibración oficial del dNBR para pajonal andino; por eso se reportan las dos cifras.
+OpenStreetMap está incompleto
+En la sierra rural casi no hay edificaciones dibujadas: la exposición real puede ser mayor.
+Resolución y datos preliminares
+A 20 m no se ven quemas pequeñas, y los focos FIRMS de 7 días son de tiempo casi real (NRT).
+No es un reporte oficial
+Estas cifras no reemplazan los reportes del COEN, INDECI, SERFOR ni SERNANP.
+Ficha técnica
+Metadatos del producto
+Sistema de referencia
+WGS 84 / UTM zona 18S (EPSG:32718)
+Extensión
+E 710 320–721 180 m · N 8 280 480–8 291 940 m (10,86 × 11,46 km)
+Resolución
+10 m (color verdadero) · 20 m (dNBR) · 40 m (DEM) · 375 m (VIIRS)
+Fechas
+Antes: 15 oct · progresión: 17 y 18 oct · después: 20 oct 2026
+Índice
+dNBR = NBR antes − NBR después, NBR = (B8A − B12) / (B8A + B12)
+Criterio de quemado
+dNBR ≥ 0,10 y distancia ≤ 750 m a un foco VIIRS
+Severidad
+USGS: baja 0,10–0,27 · mod.-baja 0,27–0,44 · mod.-alta 0,44–0,66 · alta ≥ 0,66
+Máscara
+SCL 3, 6, 8, 9, 10 y 11 en cualquiera de las dos fechas
+Software
+Python: pandas, numpy, shapely, scikit-learn, rasterio, pystac-client, scipy
+Autor y fecha
+Cristian Wong P., ingeniero geógrafo y bachiller en Ciencia Política · corte de datos 21 oct 2026
+Figura del notebook
+Salida original de PRACTICA_1.ipynb
+Figura 1. Izquierda: dNBR continuo entre el 15 y el 20 de octubre, con los focos VIIRS (×). Derecha: clases de severidad USGS. Los huecos blancos son píxeles con nube o sombra (1,9 % de la zona).
+Fuentes
+Datos y referencias
+Focos de calor: NASA FIRMS, VIIRS 375 m, «South America 7d»: firms.modaps.eosdis.nasa.gov (descarga del 21 oct 2026).
+Imágenes: Sentinel-2 L2A (ESA Copernicus) y Copernicus DEM GLO-30, vía Microsoft Planetary Computer.
+Poblados y vías: © colaboradores de OpenStreetMap, ODbL, API de OSM, 21 oct 2026.
+Límites: INEI, repositorio juaneladio/peru-geojson.
+Severidad: Key, C. H. y Benson, N. C. (2006). Landscape Assessment. USDA Forest Service, RMRS-GTR-164-CD.
+Incendio de Chichas 2026 · Autor: Cristian Wong P., ingeniero geógrafo y bachiller en Ciencia Política · Trabajo académico independiente, no oficial.Tarea práctica de Python Intermedio · Diplomado de Ciencia de Datos 2026

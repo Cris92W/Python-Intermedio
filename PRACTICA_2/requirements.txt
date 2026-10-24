@@ -1,0 +1,13 @@
+# Python 3.12 · versiones con las que se generó el reel (CPU, Windows 10)
+qwen-tts==0.1.1
+faster-whisper==1.2.1
+pillow==12.3.0
+imageio-ffmpeg==0.6.0
+soundfile==0.14.0
+jiwer==4.0.0
+num2words==0.5.14
+numpy==2.5.4
+librosa==1.0.0
+torch==2.14.1
+transformers==4.57.3
+huggingface-hub

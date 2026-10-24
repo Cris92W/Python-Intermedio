@@ -1,0 +1,71 @@
+[
+  {
+    "frase": "Dieciséis de octubre, dos y ocho de la tarde: un satélite detecta el primer foco en el pajonal de Chichas, Arequipa.",
+    "cifra": "16 oct · 14:08",
+    "etiqueta": "Primer foco detectado por satélite",
+    "credito": "Sentinel-2 · 15 oct 2026 · focos VIIRS del 16 oct",
+    "fondo": "antes",
+    "camara": [[1.15, 640, 560], [1.6, 800, 480]],
+    "focos": ["2026-10-16"], "focos_desde": "detecta", "focos_dur": 1.2, "radio": 11, "pulso": true
+  },
+  {
+    "frase": "En tres días, ciento noventa y ocho focos lo convirtieron en el tercer incendio con más focos del Perú esa semana.",
+    "cifra": "198 focos",
+    "etiqueta": "3.º incendio del Perú por número de focos, 14–21 oct",
+    "credito": "Focos VIIRS (NASA FIRMS) · amarillo 16 · naranja 17 · rojo 18 oct",
+    "fondo": "antes",
+    "camara": [[1.6, 800, 480], [1.0, 543, 573]], "camara_dur": 4.0,
+    "focos": ["2026-10-16", "2026-10-17", "2026-10-18"], "focos_desde": "ciento", "focos_dur": 2.6, "radio": 8,
+    "contar": {"desde": 0, "formato": "{} focos", "curva": "lineal",
+               "pasos": [{"palabra": "ciento", "valor": 198, "dur": 2.6}]}
+  },
+  {
+    "frase": "El diecisiete ardió con ciento diez focos. Al día siguiente, el área se triplicó; para el veinte sumaba mil seiscientas cuarenta y siete hectáreas.",
+    "cifra": "1 647 ha",
+    "etiqueta": "Área quemada al 17 de octubre",
+    "credito": "Sentinel-2 · cicatriz por fecha: amarillo 17 · naranja 18 · rojo 20 oct",
+    "fondo": "despues",
+    "camara": [[1.0, 543, 573], [1.12, 560, 560]],
+    "capas": [
+      {"img": "progresion", "color": [246, 213, 92], "palabra": "diecisiete"},
+      {"img": "progresion", "color": [237, 138, 46], "palabra": "siguiente"},
+      {"img": "progresion", "color": [184, 50, 42], "palabra": "veinte"}
+    ],
+    "contar": {"desde": 0, "formato": "{} ha",
+               "pasos": [{"palabra": "diecisiete", "valor": 433, "dur": 0.8},
+                         {"palabra": "siguiente", "valor": 1439, "dur": 1.0, "etiqueta": "Área quemada al 18 de octubre"},
+                         {"palabra": "veinte", "valor": 1647, "dur": 0.8, "etiqueta": "Área quemada al 20 de octubre"}]}
+  },
+  {
+    "frase": "El ochenta y cinco por ciento fue de severidad baja: un fuego extenso pero leve, entre tres mil trescientos y cuatro mil cien metros de altitud.",
+    "cifra": "85 %",
+    "etiqueta": "Del área quemada tuvo severidad baja",
+    "credito": "Severidad USGS sobre dNBR · amarillo: baja · naranja: moderada-baja",
+    "fondo": "despues",
+    "camara": [[1.12, 560, 560], [1.0, 543, 600]],
+    "capas": [{"img": "severidad", "palabra": "ochenta"}],
+    "contar": {"desde": 0, "formato": "{} %",
+               "pasos": [{"palabra": "ochenta", "valor": 85, "dur": 1.0}]}
+  },
+  {
+    "frase": "El borde quemado quedó a cien metros del caserío Quichuana y a ciento cincuenta de Cahuanota.",
+    "cifra": "100 m",
+    "etiqueta": "Del borde quemado al caserío Quichuana",
+    "credito": "Poblados: © colaboradores de OpenStreetMap",
+    "fondo": "despues",
+    "camara": [[1.0, 543, 573], [1.7, 820, 560]], "camara_dur": 2.5,
+    "capas": [{"img": "progresion"}],
+    "poblados": ["Quichuana", "Cahuanota"],
+    "contar": {"desde": 1000, "formato": "{} m",
+               "pasos": [{"palabra": null, "valor": 100, "dur": 1.3}]}
+  },
+  {
+    "frase": "Lo medí con Sentinel dos, FIRMS y Python. El fuego se apaga; los datos quedan.",
+    "cifra": "",
+    "etiqueta": "",
+    "credito": "NASA FIRMS · ESA Copernicus Sentinel-2 · OpenStreetMap · Python",
+    "fondo": "despues",
+    "camara": [[1.7, 820, 560], [1.0, 543, 573]], "camara_dur": 3.0,
+    "capas": [{"img": "progresion"}]
+  }
+]
