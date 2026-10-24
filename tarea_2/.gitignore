@@ -1,0 +1,15 @@
+# Corpus crudo (imágenes, audios originales y WAV de 16 kHz): se recupera con descargar_datos.py
+datos/raw/
+# Cualquier carpeta raw/ (también dentro de subcarpetas de datos/): trae nombres reales y audio pesado
+raw/
+
+# Pesos de modelos
+modelos/*.safetensors
+modelos/*.bin
+modelos/checkpoint-*/
+
+# Entornos y temporales
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.env
