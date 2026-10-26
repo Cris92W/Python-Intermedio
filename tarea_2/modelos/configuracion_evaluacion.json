@@ -1,0 +1,190 @@
+{
+  "descripcion": "Configuración de la evaluación de la Parte 2 (02_evaluacion.ipynb). La muestra, los cuatro modelos, el prompt del LLM y los criterios de auditoría quedaron fijos el 24 de octubre de 2026, y la normalización el 25 de octubre: todo antes de calcular cualquier métrica, y nada se cambió después.",
+  "fecha_fijada": "2026-10-24",
+  "muestra": {
+    "semilla": 2026,
+    "metodo": "muestreo aleatorio estratificado con pandas.DataFrame.sample(random_state=2026) dentro de cada estrato",
+    "documentos": {
+      "estratos": {
+        "impreso": 3,
+        "foto": 3,
+        "manuscrito": 4
+      },
+      "ids": [
+        "doc_004",
+        "doc_005",
+        "doc_006",
+        "doc_012",
+        "doc_013",
+        "doc_014",
+        "doc_020",
+        "doc_023",
+        "doc_025",
+        "doc_026"
+      ]
+    },
+    "audio": {
+      "estratos": {
+        "OpenSLR 73": 4,
+        "Wikimedia Commons": 6
+      },
+      "filtro": "entrevistas de Wikimedia Commons de hasta 100 s (por el tiempo de transcripción manual)",
+      "ids": [
+        "clip_010",
+        "clip_011",
+        "clip_013",
+        "clip_015",
+        "clip_016",
+        "clip_017",
+        "clip_023",
+        "clip_027",
+        "clip_028",
+        "clip_029"
+      ]
+    },
+    "referencias": "transcripción manual en datos/raw/muestra_evaluacion/*.txt, sin ver la salida de ningún modelo (reglas en LEEME.txt)"
+  },
+  "normalizacion": {
+    "pasos": [
+      "quitar las marcas entre corchetes que no son palabras dichas o escritas: [HABLANTE_N], [ilegible], [inaudible] (los seudónimos [PERSONA_NN] se quedan)",
+      "cambiar la s larga «ſ» por «s»",
+      "Unicode NFC y minúsculas",
+      "reemplazar la puntuación por espacios (voz.normalizar); las tildes y la ñ se quedan",
+      "quitar las muletillas sin significado de la lista (también de las referencias, por regla de transcripción)",
+      "unir espacios y saltos de línea en un solo espacio"
+    ],
+    "muletillas": [
+      "eh",
+      "ehh",
+      "eeh",
+      "em",
+      "emm",
+      "mm",
+      "mmm",
+      "hm",
+      "hmm",
+      "ah",
+      "uh",
+      "um",
+      "aja",
+      "ajá"
+    ],
+    "aplica_a": "referencias y salidas de todos los modelos por igual"
+  },
+  "metricas": {
+    "CER": "jiwer.cer sobre el texto normalizado (documentos)",
+    "WER": "jiwer.wer sobre el texto normalizado (audio)",
+    "agregacion": "global = errores totales / caracteres o palabras totales de las 10 referencias; también se reporta por archivo",
+    "latencia_audio": "factor de tiempo real = segundos de cálculo / duración del audio, sin contar la carga del modelo",
+    "latencia_documentos": "segundos de cálculo por documento, sin contar la carga del modelo"
+  },
+  "modelos": {
+    "ocr_base": {
+      "nombre": "PaddleOCR (línea base)",
+      "version": "3.7.0",
+      "modelos": "PP-OCRv6_medium_det + PP-OCRv6_medium_rec (preentrenados, sin ajuste fino ni diccionario propio)",
+      "parametros": {
+        "lang": "es",
+        "use_doc_orientation_classify": true,
+        "use_doc_unwarping": false,
+        "use_textline_orientation": true,
+        "text_det_limit_type": "max",
+        "text_det_limit_side_len": 2000
+      },
+      "corrida": "Parte 1 (01_extraccion.ipynb), 23 de octubre de 2026, sobre los 25 documentos"
+    },
+    "ocr_alternativo": {
+      "nombre": "EasyOCR",
+      "version": "1.7.2",
+      "modelos": "detector CRAFT + reconocedor CRNN latin_g2 (preentrenados)",
+      "parametros": {
+        "lang_list": [
+          "es"
+        ],
+        "gpu": false,
+        "detail": 1,
+        "paragraph": false,
+        "lado_max_px": 2000,
+        "orden": "cajas agrupadas en renglones de arriba abajo y de izquierda a derecha"
+      },
+      "corrida": "ocr_easyocr.py, 24 de octubre de 2026, sobre los 10 documentos de la muestra"
+    },
+    "asr_base": {
+      "nombre": "faster-whisper small (línea base)",
+      "version": "1.2.1",
+      "parametros": {
+        "modelo": "small",
+        "device": "cpu",
+        "compute_type": "int8",
+        "language": "es",
+        "beam_size": 5,
+        "vad_filter": true,
+        "vad_min_silence_ms": 500,
+        "condition_on_previous_text": false
+      },
+      "corrida": "Parte 1 (01_extraccion.ipynb), 22 de octubre de 2026, sobre los 28 clips"
+    },
+    "asr_alternativo": {
+      "nombre": "Qwen3-ASR 0.6B",
+      "hf": "Qwen/Qwen3-ASR-0.6B-hf",
+      "transformers": "5.20.2",
+      "parametros": {
+        "device": "cpu",
+        "dtype": "float32",
+        "language": "es",
+        "max_new_tokens": 448,
+        "segmentacion": "voz.Transcriptor.segmentos: VAD Silero, pausas de 0,3 s, tramos de 12 s como máximo"
+      },
+      "corrida": "24 de octubre de 2026, con el código de la sección 4.2 de 02_evaluacion.ipynb, sobre los 10 clips de la muestra"
+    },
+    "llm": {
+      "nombre": "Qwen3-0.6B (transformers, CPU, float32, greedy, enable_thinking=False)",
+      "hf": "Qwen/Qwen3-0.6B",
+      "transformers": "5.20.2",
+      "parametros": {
+        "device": "cpu",
+        "dtype": "float32",
+        "do_sample": false,
+        "max_new_tokens": 300,
+        "enable_thinking": false
+      },
+      "entrada": "texto_ocr y texto_asr ya seudonimizados de la Parte 1",
+      "sistema": "Eres un asistente que extrae datos de textos peruanos obtenidos por OCR o por reconocimiento de voz. Respondes solo con un objeto JSON válido, sin texto antes ni después.",
+      "prompt_documento": "Extrae campos del siguiente texto, que salió del OCR de un documento ({tipo}). El texto puede tener errores de lectura.\n\nDevuelve solo este JSON:\n{{\"modalidad\": \"documento\", \"tema\": ..., \"resumen\": ..., \"emisor\": ..., \"fecha\": ..., \"monto\": ...}}\n\nReglas:\n- tema: de 2 a 6 palabras sobre de qué trata el texto.\n- resumen: una oración tuya de máximo 30 palabras sobre lo que dice el texto; no copies el texto ni agregues nada que no esté escrito.\n- emisor: quién emite o firma el documento (persona, institución o comercio), solo si aparece escrito en el texto; si no, null.\n- fecha: la fecha o el año tal como aparece en el texto; si no aparece, null.\n- monto: el precio o la cantidad de dinero tal como aparece (por ejemplo \"S/ 15.00\"); si hay varios, el total o el principal; si no hay, null.\n- No inventes datos. Si algo no está en el texto, escribe null sin comillas.\n- Los marcadores como [PERSONA_03] reemplazan nombres reales: cópialos tal cual cuando hagan falta.\n\nTexto:\n\"\"\"\n{texto}\n\"\"\"",
+      "prompt_audio": "Extrae campos de la siguiente transcripción automática de un audio en español peruano. Puede tener errores de reconocimiento.\n\nDevuelve solo este JSON:\n{{\"modalidad\": \"audio\", \"tema\": ..., \"resumen\": ..., \"numero_hablantes\": ..., \"citas_clave\": [...]}}\n\nReglas:\n- tema: de 2 a 6 palabras sobre de qué se habla.\n- resumen: una oración tuya de máximo 30 palabras sobre lo que se dice; no copies la transcripción ni agregues nada que no esté en ella.\n- numero_hablantes: cuántas marcas distintas [HABLANTE_N] hay en la transcripción; si no hay marcas, null.\n- citas_clave: una o dos frases copiadas palabra por palabra de la transcripción, las más importantes; si el texto es muy corto, una sola.\n- No inventes datos. Si algo no está en la transcripción, escribe null sin comillas.\n- Los marcadores como [PERSONA_03] reemplazan nombres reales: cópialos tal cual cuando hagan falta.\n\nTranscripción:\n\"\"\"\n{texto}\n\"\"\"",
+      "corrida": "24 de octubre de 2026, con el código de la sección 3 de 02_evaluacion.ipynb, sobre los 53 registros (25 documentos y 28 clips)"
+    }
+  },
+  "auditoria": {
+    "semilla": 2026,
+    "metodo": "random.Random(2026).sample: 10 documentos y 10 clips entre todos los registros, sin mirar las extracciones",
+    "campos": {
+      "documento": [
+        "modalidad",
+        "tema",
+        "resumen",
+        "emisor",
+        "fecha",
+        "monto"
+      ],
+      "audio": [
+        "modalidad",
+        "tema",
+        "resumen",
+        "numero_hablantes",
+        "citas_clave"
+      ]
+    },
+    "criterios": {
+      "Qué se compara": "Cada campo se juzga contra el texto que recibió el LLM (hoja Textos: OCR o ASR ya seudonimizado), no contra la imagen o el audio.",
+      "modalidad": "Correcto si dice «documento» o «audio» según corresponda.",
+      "tema": "Correcto si describe de qué trata el texto, aunque sea general. Incorrecto si es de otro tema o está vacío.",
+      "resumen": "Correcto si todo lo que afirma está en el texto. Incorrecto si inventa o contradice algo, o si copia el texto en lugar de resumirlo.",
+      "emisor, fecha, monto": "Correcto si el valor aparece en el texto, o si es null y el texto no lo trae. Incorrecto si lo inventa, si es null cuando el texto lo trae claramente o si pone otra cosa (por ejemplo, una fecha en «monto»).",
+      "numero_hablantes": "Correcto si coincide con el número de marcas [HABLANTE_N] distintas del texto, o si es null y no hay marcas.",
+      "citas_clave": "Correcto si cada cita está copiada del texto; se aceptan diferencias de mayúsculas y puntuación. Incorrecto si alguna cita no está en el texto o si está vacío.",
+      "Extracción completamente correcta": "Todos sus campos marcados «Sí». Un JSON inválido cuenta como extracción incorrecta.",
+      "Cómo llenar": "En la hoja Auditoría, elige Sí o No en la columna «¿Correcto?» de cada fila y explica en «Comentario» los errores. No cambies las demás columnas."
+    }
+  }
+}
