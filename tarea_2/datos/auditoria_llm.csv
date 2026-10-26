@@ -1,0 +1,107 @@
+id,modalidad,campo,valor_llm,veredicto,comentario
+doc_004,documento,modalidad,documento,Sí,
+doc_004,documento,tema,Constitución política del Peru,Sí,
+doc_004,documento,resumen,"La Constitución política del Peru fue sancionada por el Congreso de 1856 y reformada por el Congreso de 1860, estableciendo la independencia y la libertad de la Nación.",Sí,
+doc_004,documento,emisor,EL LIBERTADOR [PERSONA_26],No,Debió salir el nombre del Presidente de la República
+doc_004,documento,fecha,1856,Sí,
+doc_004,documento,monto,,Sí,
+doc_008,documento,modalidad,documento,Sí,
+doc_008,documento,tema,navegación aérea,Sí,
+doc_008,documento,resumen,"El joven [PERSONA_31] está practicando ascensiones en Milán, construyendo un aerostat que ha sido bautizado con el nombre de «Inca» para recordar su país, y ha logrado recorridos altos con una fortuna.",No,Debe decior el nombre completo de la persona ya es un recorte de periódico público. Además está construyendo un globlo aerostático.
+doc_008,documento,emisor,UNMSM-CEDOC,Sí,
+doc_008,documento,fecha,2023,No,No puedo dar fe si fue publicado el año 2023. En el documento no se visualiza
+doc_008,documento,monto,S/ 15.00,No,No menciona monto
+doc_011,documento,modalidad,documento,Sí,
+doc_011,documento,tema,información de documentos,Sí,
+doc_011,documento,resumen,El texto describe números y referencias a documentos.,Sí,
+doc_011,documento,emisor,[PERSONA_34],No,Se debería colocar el nombre de la persona. Es público
+doc_011,documento,fecha,18-1190628,No,Menciona la fecha de vida del personaje: 1860-1928. Del año 1935
+doc_011,documento,monto,S/ 15.00,No,No menciona monto
+doc_014,documento,modalidad,documento,Sí,
+doc_014,documento,tema,MONUMENTO DE LA NACION,Sí,
+doc_014,documento,resumen,EL DOCUMENTO ES UN INMUEBLE DECLARADO MONUMENTO DE LA NACION,Sí,
+doc_014,documento,emisor,,Sí,
+doc_014,documento,fecha,1972,Sí,
+doc_014,documento,monto,S/ 28.00,No,No menciona monto
+doc_016,documento,modalidad,documento,Sí,
+doc_016,documento,tema,GOBIERNO REGIONAL INKA,Sí,
+doc_016,documento,resumen,"PRESIDENCIA DE LA REPUBLICA, GOBIERNO REGIONAL INKA, OBRA:CULMINACION ESTACION FERROVIARIA, INGAUAS CALIENTES MACHUPICCHU, INAUGURADO, SIENDO PRESIDENTE CONSTITUCIONAL DE LA REPUBLICA, CONVENIO:PRES-CTAR. REGION INKA, AGUAS CALIENTES, FEBRERO DE 1998.",No,"Deberia decir ""AGUAS CALIENTES..."""
+doc_016,documento,emisor,ING- [PERSONA_36],No,Deberia salir el nombre del Ing. Presidente [PERSONA_36]
+doc_016,documento,fecha,FEBRERO DE 1998,Sí,
+doc_016,documento,monto,S/ 15.00,No,No menciona monto
+doc_017,documento,modalidad,documento,Sí,
+doc_017,documento,tema,manuscrito,Sí,
+doc_017,documento,resumen,El texto describe una lista de ingredientes para un manuscrito,No,"No, es una lista de menú para la venta en un restaurante"
+doc_017,documento,emisor,,Sí,
+doc_017,documento,fecha,,Sí,
+doc_017,documento,monto,,Sí,
+doc_018,documento,modalidad,documento,Sí,
+doc_018,documento,tema,Salad Bar y Chicha Morada,Sí,
+doc_018,documento,resumen,El texto describe una lista de ingredientes y productos relacionados con la gastronomía en el documento.,No,"No, es una lista de menú para la venta en un restaurante"
+doc_018,documento,emisor,,Sí,
+doc_018,documento,fecha,,Sí,
+doc_018,documento,monto,,Sí,
+doc_021,documento,modalidad,documento,Sí,
+doc_021,documento,tema,DEFENDER LA CAUSAA,No,"Solo deberia decir la CAUSA , no CAUSAA"
+doc_021,documento,resumen,NO HACE FALTA PARA DEFENDER LA CAUSAA,No,"Solo deberia decir la CAUSA , no CAUSAA"
+doc_021,documento,emisor,,Sí,
+doc_021,documento,fecha,,Sí,
+doc_021,documento,monto,,Sí,
+doc_024,documento,modalidad,documento,Sí,
+doc_024,documento,tema,resto de días preguntando,Sí,
+doc_024,documento,resumen,El texto describe el resto de los días preguntando si pudimos salvar a más,Sí,
+doc_024,documento,emisor,,Sí,
+doc_024,documento,fecha,,Sí,
+doc_024,documento,monto,,Sí,
+doc_026,documento,modalidad,documento,Sí,
+doc_026,documento,tema,manuscrito,Sí,
+doc_026,documento,resumen,"El texto es un manuscrito con tres palabras: MIRMOAY, CIONA y Orguilaea.",No,"Es una frase en una pancarta que dice que ""MI AMOR POR TI ES INCONDICIONAL orgullosa mamá"""
+doc_026,documento,emisor,,No,
+doc_026,documento,fecha,,No,
+doc_026,documento,monto,,No,
+clip_001,audio,modalidad,audio,Sí,
+clip_001,audio,tema,partido de hoy,No,Entrevista en la calle con bulla de fondo
+clip_001,audio,resumen,"Perú ganará el partido, esperando que [PERSONA_18] se eche goles y que [PERSONA_18] gane el partido",No,"Se hizo bien en omitir el nombre y apellido de la entrevistada. Solo es depurar un poco más la redacción del resumen , pero en el sentido es que gane el partido"
+clip_001,audio,numero_hablantes,2,Sí,
+clip_001,audio,citas_clave,"[""[HABLANTE_1] Muy bien, la siguiente pregunta es acerca de qué jugador piensa que va a ser más decisivo en este partido."", ""Es que esperar lo que Dios, primeramente es Dios, pues si perdemos a mí hay que esperar lo mejor, porque estamos demostrando lo mejor que pueden nuestros jugadores, ¿no?""]",Sí,
+clip_003,audio,JSON inválido,"{""modalidad"": ""audio"", ""tema"": ""Perú"", ""resumen"": ""El Perú es mi país donde nacido, amo mucho porque acá vivo tengo todo lo que necesito y adoro mi país, es mi patria, es un territorio donde nosotros vivimos, por ejemplo yo soy de la selva central, amo mi territorio porque de ahí vivo, de ahí como, tengo mi medicina, mis plantas ancestrales, tengo mi cultura y mi identidad también. [HABLANTE_2] Bueno, el Perú es mi país donde nacido, amo mucho porque acá vivo tengo todo lo que necesito y adoro mi país, es mi patria, es un territorio donde nosotros vivimos, por ejemplo yo soy de la selva central, amo mi territorio porque de ahí vivo, de ahí como, tengo mi medicina, mis plantas ancestrales, tengo mi cultura y mi identidad también. [HABLANTE_1] [HABLANTE_2] Bueno, el Perú es mi país donde nacido, amo mucho porque acá vivo tengo todo lo que necesito y adoro mi país, es mi patria, es un territorio donde nosotros vivimos, por ejemplo yo soy de la selva central, amo mi territorio porque de ahí vivo, de ahí como, tengo mi medicina",No,Desde dónde dice  [HABLANTE_2] se repite la respuesta inicial parcialmente y después se vuelve a repetir con más recorte.
+clip_004,audio,modalidad,audio,Sí,
+clip_004,audio,tema,Perú y su patria,Sí,
+clip_004,audio,resumen,"El Perú es una patria grande donde todos los peruanos son parte de eso y no debe ser así. Las autoridades lo ven negativamente, pero hay posibilidades positivas. La organización de mujeres apurimeñas promueve la igualdad y la lucha por el bienestar de las mujeres.",Sí,
+clip_004,audio,numero_hablantes,3,No,Entrevista en la calle con bulla de fondo minima.
+clip_004,audio,citas_clave,"[""Mi nombre es la señora [PERSONA_06]"", ""El Perú es una patria grande..."", ""La organización de mujeres apurimeñas promueve la igualdad...""]",Sí,
+clip_008,audio,modalidad,audio,Sí,
+clip_008,audio,tema,Perú,Sí,
+clip_008,audio,resumen,"El Perú es mi patria, su gastronomía, su música, su literatura y sus científicos. Los aspectos negativos incluyen el desempleo y la inflación.",Sí,
+clip_008,audio,numero_hablantes,,No,Solo una persona está hablando
+clip_008,audio,citas_clave,"[""[HABLANTE_1] Señor [PERSONA_10], y esta entrevista va a ser publicada en un forum de internet..."", ""La gastronomía a nivel mundial tiene prestigio. de muy conocido, a nivel internacional, su música, también su literatura, y también los grandes científicos que ha aportado a nuestro país.""]",Sí,
+clip_010,audio,modalidad,audio,Sí,
+clip_010,audio,tema,amar,No,Mensaje a la Juventud del país
+clip_010,audio,resumen,"El amar es amar, no? Creo que cada uno tiene una orientación, tiene una preferencia y nadie debe ser usado por eso, sabemos que la sociedad peruana es un tanto conservadora pero poco a poco confío de que abriremos más la mente para que muchos de nosotros en la comunidad pues podamos amar sin ninguna restricción.",Sí,"Recrea parte de la respuesta,pero transcribe mal porque dice que no deben ser juzgados por la sociedad peruana"
+clip_010,audio,numero_hablantes,2,Sí,
+clip_010,audio,citas_clave,"[""[PERSONA_11]"", ""Bueno, el amar es amar, no? Creo que cada uno tiene una orientación, tiene una preferencia y nadie debe ser usado por eso, sabemos que la sociedad peruana es un tanto conservadora pero poco a poco confío de que abriremos más la mente para que muchos de nosotros en la comunidad pues podamos amar sin ninguna restricción.""]",No,"Nadie debe ser""juzgado"" por eso usado"
+clip_016,audio,modalidad,audio,Sí,
+clip_016,audio,tema,coca,Sí,
+clip_016,audio,resumen,"Una de las anécdotas que ha marcado mi vida es cuando estuve muy pequeña y mis padres también se dedicaban a la siembra de coca, pero vino la radicación y con todos los vecinos todas las partes que sembraban se vieron afectados porque no tenían otro tipo de sembrío sin radicar una coca de raíz y fue muy duro un par de meses porque no decir unos años para recuperarse, volver a restablecerse, sembrar lo que es el tema de otros productos alternativos para poder sustentar el tema económico y emocional, sobre todo para el tema de que las familias que no tenían con que compartir o sustentar las casas, comida, los ingresos, los estudios, entre otras cosas.",Sí,
+clip_016,audio,numero_hablantes,,No,Solo una persona está hablando
+clip_016,audio,citas_clave,"[""una de las anécdotas que ha marcado mi vida es cuando estuve muy pequeña y mis padres también se dedicaban a la siembra de coca"", ""una coca de raíz y fue muy duro un par de meses porque no decir unos años para recuperarse, volver a restablecerse, sembrar lo que es el tema de otros productos alternativos""]",Sí,
+clip_020,audio,modalidad,audio,Sí,
+clip_020,audio,tema,canción por WhatsApp,Sí,
+clip_020,audio,resumen,La canción por WhatsApp se compartió,Sí,
+clip_020,audio,numero_hablantes,,No,Solo una persona está hablando
+clip_020,audio,citas_clave,"[""Te voy a compartir la canción por WhatsApp.""]",Sí,
+clip_021,audio,modalidad,audio,Sí,
+clip_021,audio,tema,votar,No,Registrarme para votar
+clip_021,audio,resumen,¿Cómo puedo registrarme para poder votar?,Sí,
+clip_021,audio,numero_hablantes,,No,Solo una persona está hablando
+clip_021,audio,citas_clave,"[""¿Cómo puedo registrarme para poder votar?""]",Sí,
+clip_026,audio,modalidad,audio,Sí,
+clip_026,audio,tema,centros de acopio,Sí,
+clip_026,audio,resumen,En las zonas que no han sido afectadas es donde se encuentran todos los centros de acopio.,Sí,
+clip_026,audio,numero_hablantes,,No,Solo una persona está hablando
+clip_026,audio,citas_clave,"[""En las zonas que no han sido afectadas es donde se encuentran todos los centros de acopio.""]",Sí,
+clip_029,audio,modalidad,audio,Sí,
+clip_029,audio,tema,ve,No,Ver la Tv
+clip_029,audio,resumen,Ellos ven la tele entre la 1 y las 3 de la tarde.,Sí,
+clip_029,audio,numero_hablantes,,No,Solo una persona está hablando
+clip_029,audio,citas_clave,"[""Ellos ven la tele entre la 1 y las 3 de la tarde.""]",Sí,

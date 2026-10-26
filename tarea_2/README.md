@@ -168,3 +168,72 @@ El script hace lo siguiente:
 - Guarda los audios originales en `datos/raw/audio/originales/` y una copia WAV mono de 16 kHz por
   clip en `datos/raw/audio/`.
 - De OpenSLR 73 solo lee del zip las frases elegidas, con peticiones HTTP Range.
+
+## Parte 2: evaluación y extracción estructurada (`02_evaluacion.ipynb`)
+
+La muestra, los cuatro modelos con sus parámetros, el prompt del LLM y los criterios de auditoría se
+fijaron el 24 de octubre de 2026. La normalización se fijó el 25 de octubre. Todo quedó fijo antes de
+calcular cualquier métrica y está en
+[`modelos/configuracion_evaluacion.json`](modelos/configuracion_evaluacion.json).
+
+| Paso | Resultado |
+|---|---|
+| 1. Muestra | 10 documentos (3 impresos, 3 fotos y 4 manuscritos) y 10 clips (6 entrevistas de Commons y 4 frases de OpenSLR 73, 6,8 min), sorteados por estrato con semilla 2026. Se transcribieron a mano y se seudonimizaron en la columna `texto_referencia` |
+| 2. Línea base | PaddleOCR y faster-whisper `small` en CPU, con la configuración de la Parte 1. Referencias y salidas pasan por la misma normalización, sin las marcas `[HABLANTE_N]` |
+| 3. LLM | Qwen3-0.6B local (CPU, decodificación voraz) extrae campos JSON de los 53 textos: [`datos/extraccion_llm.csv`](datos/extraccion_llm.csv), con 52 JSON válidos. La auditoría humana de 20 extracciones al azar está en [`datos/auditoria_llm.csv`](datos/auditoria_llm.csv) |
+| 4. Comparación | EasyOCR 1.7 ([`ocr_easyocr.py`](ocr_easyocr.py)) y Qwen3-ASR 0.6B, sobre los mismos 20 archivos. Resultados por archivo en [`datos/evaluacion_modelos.csv`](datos/evaluacion_modelos.csv) |
+| 5. Casos difíciles | CER por tipo de documento, y WER según la relación señal-ruido de cada clip, estimada con el VAD |
+| 6. Decisión | Tabla comparativa con precisión, latencia, tamaño y costo, y elección para un entorno real |
+
+| Modelo | Métrica | Global | Impreso / estudio | Foto | Manuscrito / calle | Latencia en esta CPU | Disco |
+|---|---|---|---|---|---|---|---|
+| **PaddleOCR** (base) | CER | **0,027** | 0,002 | 0,146 | 0,182 | 56 s por documento | 146 MB |
+| EasyOCR | CER | 0,089 | 0,037 | 0,279 | 0,453 | 23 s por documento | 94 MB |
+| **faster-whisper `small`** (base) | WER | **0,049** | 0,068 | | 0,048 | factor de tiempo real 0,57 | 464 MB |
+| Qwen3-ASR 0.6B | WER | 0,210 | 0,114 | | 0,215 | factor de tiempo real 1,04 | 1 503 MB |
+
+```
+Resultados Test: WER: 0.05 | CER: 0.03 | Acuerdo LLM-Humano: 1/20
+```
+
+**Hallazgos de la Parte 2**
+- **Los modelos base ganan en las dos modalidades.**
+  - PaddleOCR comete 3,3 veces menos errores que EasyOCR. Solo pierde en una foto, donde lee los
+    renglones de abajo arriba.
+  - faster-whisper comete 4,3 veces menos errores que Qwen3-ASR y es casi el doble de rápido.
+  - Por eso se eligen los dos modelos base para un entorno real sin GPU.
+- **El tipo de documento pesa más que el modelo.** Los impresos salen casi perfectos. En las fotos y
+  los manuscritos el CER sube a 0,15–0,18, y ningún modelo lee la pancarta en letra cursiva.
+- **Qwen3-ASR se degrada con el ruido.** Sus tres peores clips son las entrevistas con menos de 6 dB de
+  relación señal-ruido y varias voces.
+- **El LLM pequeño no es confiable sin revisión.** Solo 1 de 20 extracciones está completamente correcta,
+  aunque el 69 % de los campos está bien.
+  - Copia el ejemplo del prompt («S/ 15.00») como monto en 8 documentos.
+  - Otros errores vienen de la entrada: la regla del prompt para el número de hablantes, la
+    seudonimización de figuras públicas y un OCR ilegible.
+
+**Limitaciones**
+- La muestra es pequeña: 10 archivos por modalidad. En las 4 frases de estudio (44 palabras), cada error
+  pesa 2,3 puntos de WER.
+- Una sola persona hizo la auditoría, y en varios campos juzgó contra el archivo original en lugar del
+  texto que recibió el LLM.
+- La normalización no convierte cifras en palabras, así que «la 1» cuenta como error frente a «la una».
+
+**Privacidad.** Las referencias manuales, las salidas de EasyOCR y Qwen3-ASR, las extracciones del LLM y
+los comentarios de la auditoría se seudonimizan con el mismo diccionario de la Parte 1. spaCy busca
+después los nombres que quedan, y cada candidato se revisa a mano en el notebook. Las transcripciones
+manuales sin seudonimizar (`datos/raw/muestra_evaluacion/`) y la planilla de auditoría
+(`datos/raw/auditoria_llm/`) quedan fuera de Git.
+
+**Ejecución.** Usa el mismo `.venv` de la Parte 1:
+
+```bash
+.venv/Scripts/jupyter nbconvert --to notebook --execute --inplace 02_evaluacion.ipynb
+```
+
+- El notebook lee las salidas guardadas en `datos/raw/`. Si no existen, vuelve a correr cada modelo.
+- EasyOCR corre en un entorno aparte, porque su OpenCV choca con el de PaddleOCR:
+  `uv run --no-project --python 3.12 --with easyocr==1.7.2 --with pandas python ocr_easyocr.py`.
+
+**Uso de IA.** El trabajo se hizo con Claude Code. Las capturas de la conversación están en
+[`evidencias_ia/`](evidencias_ia/), numeradas en orden.

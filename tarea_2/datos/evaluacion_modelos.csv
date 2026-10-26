@@ -1,0 +1,730 @@
+id,modalidad,tipo,modelo,rol,metrica,valor,errores,unidades,segundos,duracion_seg,factor_tiempo_real,texto_modelo,texto_referencia
+doc_004,documento,impreso,PaddleOCR (base),base,CER,0.0011148272017837235,1,897,70.1,,,"EL LIBERTADOR [PERSONA_26],
+PRESIDENTE CONSTITUCIONAL DE LA REPUBLICA, &C.
+Por cuanto el Congreso há sancionado la siguiente
+CONSTITUCION POLITICA DEL PERU,
+del año de 1856, reformada por el Congreso de 1860.
+Bajo la proteccion de Dios:—El Congreso de la Re-
+pública, autorizado por los pueblos para reformar la
+Constitucion política del año de 1856, dá la siguiente
+CONSTITUCION.
+TITULO I.
+De LA Nacion.
+ARTiculo 1. La Nacion Peruana es la asociacion
+política de todos los peruanos.
+ARt. 2. La Nacion es libre é independiente, y no
+puede celebrar pacto que se oponga á su independencia
+ó integridad, ó que afecte de algun modo su soberanía.
+ART. 3. La soberanía reside en la Nacion, y su ejer-
+cicio se encomienda á los funcionarios que esta Consti-
+tucion establece.
+TITULO II.
+DE LA RELIGION.
+ART. 4. La Nacion profesa la Religion Católica,
+Apostólica, Romana: el Estado la proteje, y no permite
+el ejercicio público de otra alguna.","EL LIBERTADOR [PERSONA_26],
+PRESIDENTE CONSTITUCIONAL DE LA REPUBLICA, &C.
+Por cuanto el Congreso ha sancionado la siguiente
+CONSTITUCION POLITICA DEL PERU,
+del año de 1856, reformada por el Congreso de 1860.
+Bajo la proteccion de Dios:—El Congreso de la Re-
+pública, autorizado por los pueblos para reformar la
+Constitucion política del año de 1856, dá la siguiente
+CONSTITUCION.
+TITULO I.
+DE LA NACION.
+ARTiculo 1. La Nacion Peruana es la asociacion
+política de todos los peruanos.
+ARt. 2. La Nacion es libre é independiente, y no
+puede celebrar pacto que se oponga á su independencia
+ó integridad, ó que afecte de algun modo su soberanía.
+ART. 3. La soberanía reside en la Nacion, y su ejer-
+cicio se encomienda á los funcionarios que esta Consti-
+tucion establece.
+TITULO II.
+DE LA RELIGION.
+ART. 4. La Nacion profesa la Religion Católica,
+Apostólica, Romana: el Estado la proteje, y no permite
+el ejercicio público de otra alguna."""
+doc_005,documento,impreso,PaddleOCR (base),base,CER,0.006965174129353234,7,1005,82.1,,,"14
+ACTO I.
+Con.
+Que tiempos estos! me pesa
+ser noble ya y cortesana!
+pues si va al baile mañana
+despues—
+OLIV.
+(Calla! la Condesa!)
+Con.
+(No es ella, es su hija)—
+ESCENA X.
+Díchos y doña ISABEL.
+ISA.
+Señores!
+Pláceme veros, condesa,
+(Yendo hacia ella)
+y hoy mas que la alta nobleza
+no es pródiga de favores.
+Mi madre de tal honor
+agradece la hidalguía.
+Con.
+La dicha es nuestra.—
+OLIV.
+A fé mia,
+nos honra doña Leonor.
+y vos, á decir verdad,
+sin cortesanos cumplidos,
+hoy nos teneis sorprendidos
+ante tan rara beldad.
+No es cierto, marqués?—
+SAN.
+Cabal;
+soy del mismo parecer,
+casi encantado de ver
+un semblante angelical.
+IsA,
+Gracias, marqués.—
+(Con indiferencia)
+SAN.
+Señorita,
+solo al cielo las debeis,
+porque dos rayos teneis
+(Aludiendo á los ojos)
+de su belleza infinita;
+y agradezco á mi ventura
+que de sus límites pasa,
+admirando en vuestra casa
+tanto candor y hermosura.
+No es verdad, conde?—
+OLIV.
+Sí, sí...
+(Doña Isabel que aparenta hablar ála condesa,
+apenaspresta atencion á los cumplídos que se la
+dirigen.)
+IsA,
+Conde, callad por favor,
+me hareis subir el rubor","ACTO I.
+14
+CON. Que tiempos estos! me pesa
+ser noble ya y cortesana!
+pues si va al baile mañana
+despues- ....
+OLIV. (Calla! la Condesa!)
+CON.(No es ella, es su hija)—
+ESCENA X.
+Dichos y doña ISABEL.
+ISA.Señores!
+Pláceme veros, condesa, (Yendo hacia ella)
+y hoy mas que la alta nobleza
+no es pródiga de favores.
+Mi madre de tal honor
+agradece la hidalguía.
+CON.La dicha es nuestra.-
+OLIV. A fé mia,
+nos honra doña Leonor.
+y vos, á decir verdad,
+sin cortesanos cumplidos,
+hoy nos teneis sorprendidos
+ante tan rara beldad.
+No es cierto, marqués?-
+SAN.Cabal;
+soy del mismo parecer,
+casi encantado de ver
+un semblante angelical.
+ISA,Gracias, marqués.- (Con indiferencia)
+SAN. Señorita,
+solo al cielo las debeis,
+porque dos rayos teneis (Aludiendo á los ojos)
+de su belleza infinita;
+y agradezco á mi ventura
+que de sus límites pasa,
+admirando en vuestra casa
+tanto candor y hermosura.
+No es verdad, conde?-
+OLIV.Sí, sí...
+(Doña Isabel que aparenta hablar ála condesa,
+apenaspresta atencion á los cumplídos que se la
+dirigen.)
+ISA,Conde, callad por favor,
+me hareis subir el rubor"""
+doc_006,documento,impreso,PaddleOCR (base),base,CER,0.0008583690987124463,2,2330,102.7,,,"[PERSONA_27]
+33
+más calibre que los que reza el Flos-Sanctorum. Venga un diablo cual-
+quiera y llévese mi almilla en cambio del amor de esa caprichosa cria-
+tura!
+Satanás, que desde los antros más profundos del infierno había escu-
+chado las palabras del plumario, tocó la campanilla, y al reclamo se pre-
+sentó el diablo Lilit. Por si mis lectores no conocen á este personaje, han
+de saberse que los demonógrafos, que andan á vueltas y tornas con las
+Clavículas de Salomón, libro que leen al resplandor de un carbunclo,
+afirman que Lilit, diablo de bonita estampa, muy zalamero y decidor, es
+el correvedile de Su Majestad Infernal.
+—Vé, Lilit, al cerro de las Ramas y extiende un contrato con un hom-
+bre que allí encontrarás y que abriga tanto desprecio por su alma que la
+llama almilla. Concédele cuanto te pida y no te andes con regateos, que
+ya sabes que no soy tacaño tratándose de una presa.
+Yo, pobre y mal traído narrador de cuentos, no he podido alcanzar
+pormenores acerca de la entrevista entre Lilit y D. Dimas, porque no
+hubo taquígrafo á mano que se encargase de copiarla sin perder punto
+ni coma. Y es lástima, por mi fe! Pero baste saber que Lilit, al regresar
+al infierno, le entregó á Satanás un pergamino que, fórmula más ó menos,
+contenía lo siguiente:
+Conste que yo D. Dimas de la Tijereta cedo mi almilla al rey de los
+abismos en cambio del amor y posesión de una mujer. Item, me obligo
+á satisfacer la deuda de la fecha en tres años.» Y aquí seguían las fir-
+mas de las altas partes contratantes y el sello del demonio.
+Al entrar el escribano en su tugurio, salió á abrirle la puerta nada me-
+nos que Visitación, la desdeñosa y remilgada Visitación, que ebria do
+amor se arrojó en los brazos de Tijereta. Cual es la campana, tal la ba-
+dajada.
+Lilit había encendido en el corazón de la pobre muchacha el fuego de
+[PERSONA_38] y en sus sentidos la desvergonzada lubricidad de [PERSONA_28]. Doble.
+mos esta hoja, que de suyo es peligroso extenderse en pormenores quo
+pueden tentar al prójimo labrando su condenación eterna, sin que le val-
+gan la bula de Meco ni las de composición.
+IV
+Como no hay plazo que no se cumpla ni deuda que no se pague, pasa-
+ron, día por día, tres años como tres berenjenas, y llegó el día en que Ti.
+jereta tuviese que hacer honor á su firma. Arrastrado por una fuerza su-
+perior y sin darse cuenta de ello, se encontró en un verbo transportado
+Tomo I
+3","[PERSONA_27]                                                  33
+más calibre que los que reza el Flos-Sanctorum. Venga un diablo cual-
+quiera y llévese mi almilla en cambio del amor de esa caprichosa cria-
+tura!
+Satanás, que desde los antros más profundos del infierno había escu-
+chado las palabras del plumario, tocó la campanilla, y al reclamo se pre-
+sentó el diablo Lilit. Por si mis lectores no conocen á este personaje, han
+de saberse que los demonógrafos, que andan á vueltas y tornas con las
+Clavículas de Salomón, libro que leen al resplandor de un carbunelo,
+afirman que Lilit, diablo de bonita estampa, muy zalamero y decidor, es
+el correvedile de Su Majestad Infernal.
+—Vé, Lilit, al cerro de las Ramas y extiende un contrato con un hom-
+bre que allí encontrarás y que abriga tanto desprecio por su alma que la
+llama almilla. Concédele cuanto te pida y no te andes con regateos, quo
+ya sabes que no soy tacaño tratándose de una presa.
+Yo, pobre y mal traído narrador de cuentos, no he podido alcanzar
+pormenores acerca de la entrevista entre Lilit y D. Dimas, porque no
+hubo taquígrafo á mano que se encargase de copiarla sin perder punto
+ni coma. ¡Y es lástima, por mi fe! Pero baste saber que Lilit, al regresar
+al infierno, le entregó á Satanás un pergamino que, fórmula más ó menos,
+contenía lo siguiente:
+""Conste que yo D. Dimas de la Tijereta cedo mi almilla al rey de los
+abismos en cambio del amor y posesión de una mujer. Item, me obligo
+á satisfacer la deuda de la fecha en tres años."" Y aquí seguían las fir-
+mas de las altas partes contratantes y el sello del demonio.
+Al entrar el escribano en su tugurio, salió á abrirle la puerta nada me-
+nos que Visitación, la desdeñosa y remilgada Visitación, que ebria do
+amor se arrojó en los brazos de Tijereta. Cual es la campana, tal la ba-
+dajada.
+Lilit había encendido en el corazón de la pobre muchacha el fuego de
+[PERSONA_38] y en sus sentidos la desvergonzada lubricidad de [PERSONA_28]. Doble.
+mos esta hoja, que de suyo es peligroso extenderse en pormenores quo
+pueden tentar al prójimo labrando su condenación eterna, sin que le val-
+gan la bula de Meco ni las de composición.
+IV
+Como no hay plazo que no se cumpla ni deuda que no se pague, pasa-
+ron, día por día, tres años como tres berenjenas, y llegó el día en que Ti.
+jereta tuviese que hacer honor á su firma. Arrastrado por una fuerza su-
+perior y sin darse cuenta de ello, se encontró en un verbo transportado
+Tomo I                                                               3"
+doc_012,documento,foto,PaddleOCR (base),base,CER,0.0196078431372549,3,153,52.2,,,"LA CIVDAD DE LIMA
+Al SEVIllANo
+FRAY
+[PERSONA_35] OP
+(1570 - 1615)
+AVTOR DEL POEMA EPICO
+RELIGIOSO<<LACRISTIADA>>
+EPITOME DE LA LITERATVRA
+VIRREINALPERVANA.
+MMXXI","LA CIVDAD DE LIMA
+AL SEVILLANO
+FRAY
+[PERSONA_35] OP
+(1570 - 1615)
+AVTOR DEL POEMA EPICO
+RELIGIOSO<<LA CRISTIADA>>
+EPÍTOME DE LA LITERATVRA
+VIRREINAL PERVANA.
+MMXXI"
+doc_013,documento,foto,PaddleOCR (base),base,CER,0.7321428571428571,41,56,38.7,,,"TESUITAS
+LOS
+CONVENTO DE
+ANTIGUO
+UNIVERSITARIO
+PARANINFO","PARANINFO
+UNIVERSITARIO
+ANTIGUO CONVENTO DE 
+LOS JESUITAS"
+doc_014,documento,foto,PaddleOCR (base),base,CER,0.018867924528301886,2,106,49.5,,,"ANTIGUOHOSPITALDE
+LOS BETHLEMITAS
+INMUEBLE DECLARADO MONUMENTO DE LA NACION
+R.S.N.2900-72-ED 28-DtC 1972","ANTIGUO HOSPITAL DE
+LOS BETHLEMITAS
+INMUEBLE DECLARADO MONUMENTO DE LA NACION
+R.S.N.2900-72-ED 28-DtC 1972"
+doc_020,documento,manuscrito,PaddleOCR (base),base,CER,0.06422018348623854,7,109,39.5,,,"CEVICHERIA
+EL-TIBURON-1
+CEVICHEMIXTO
+9. suleche ol.Tigre
+Canchita
+Arroz Chaupa
+Chilcano Represt
+de
+Cortesia","CEVICHERIA
+EL-TIBURON 1
+CEVICHE MIXTO
+c/. su leche Dl.Tigre
+Canchita
+Arroz Chaufa
+Chilcano Represco
+de Cortesia"
+doc_023,documento,manuscrito,PaddleOCR (base),base,CER,0.1935483870967742,18,93,20.9,,,"Si tu Familia noacepla
+TU ORIENTACION SEXUAL
+OIDENT. de GENERO,
+AHORAYTOM
+YOSOYTUFAMILIA","Si tu Familia no acepta
+tu ORIENTACIÓN SEXUAL
+O IDENT. de GÉNERO,
+AHORA YO SOY TU FAMILIA 
+Y TQM"
+doc_025,documento,manuscrito,PaddleOCR (base),base,CER,0.14136125654450263,27,191,54.5,,,"""LAS BRISAS
+Recreo:
+PACHAMANCA
+TRUCHA A LA PARRILLA
+**
+FRITA
+AL AJO
+*
+BROASTER
+CHICHARRON DE TRUCHA
+*
+CEBICHE DETRUCHA
+SUDADO
+米
+*PAPA A LA HUANCAINA
+*CALDO DE GALLINA
+GASEOSAS
+米
+Gracias por su visi","Recreo:
+""LAS BRISAS""
+*PACHAMANCA
+*TRUCHA A LA PARRILLA
+*´´ FRITA
+*´´ AL AJ
+* ´´ BROASTER
+BROASTER
+*CHICHARRON DE TRUCHA
+*CEBICHE DE TRUCHA
+* SUDADO ´´ ´´
+*PAPA A LA HUANCAINA
+*CALDO DE GALLINA
+*GASEOSAS
+
+Gracias por su visi"
+doc_026,documento,manuscrito,PaddleOCR (base),base,CER,0.6086956521739131,28,46,45.0,,,"MIRMOAY
+CIONA
+Orguilaea","MI AMOR
+POR TI ES
+INCONDICIONAL
+Orgullosa mamá"
+doc_004,documento,impreso,EasyOCR,alternativo,CER,0.01560758082497213,14,897,32.6,,,"EL LIBERTADOR [PERSONA_26] =
+9
+PRESIDENTE CONSTITUCIONAL DE LA REPUBLICA &c.
+Por cuanto el Congreso há sancionado la siguiente
+CONSTITUCION POLITICA DEL PERU
+del año de 1856 reformada por el Congreso de 1860.
+Bajo la proteccion de Dios:_El Congreso dc la Re-
+púhlica autorizado por los pueblos para reformar la
+Constitucion política del año de 1856 _ dá . la   siguiente
+UONSTITUCION.
+TITULO I.
+DE LA NACION.
+ARTICULO 1. La Nacion Peruana es la asociacion
+política   de todos los peruanos.
+ART. 2 La Nacion es  libre é independiente y no
+puede celebrar pacto que se oponga á su independencia
+ó integridad 6 que afecte de algun modo su soberanía.
+ART. 3 La soberanía reside en la Nacion; y su ejer-
+cicio sc encomienda á los funcionarios que esta Consti-
+tucion establece.
+TITULO IL
+DE LA RELIGION.
+ART. 4. La Nacion  profesa la   Religion Católica,
+A 'postólica, Romana : el Estado la proteje y no permite
+el ejercicio público de otra alguna.","EL LIBERTADOR [PERSONA_26],
+PRESIDENTE CONSTITUCIONAL DE LA REPUBLICA, &C.
+Por cuanto el Congreso ha sancionado la siguiente
+CONSTITUCION POLITICA DEL PERU,
+del año de 1856, reformada por el Congreso de 1860.
+Bajo la proteccion de Dios:—El Congreso de la Re-
+pública, autorizado por los pueblos para reformar la
+Constitucion política del año de 1856, dá la siguiente
+CONSTITUCION.
+TITULO I.
+DE LA NACION.
+ARTiculo 1. La Nacion Peruana es la asociacion
+política de todos los peruanos.
+ARt. 2. La Nacion es libre é independiente, y no
+puede celebrar pacto que se oponga á su independencia
+ó integridad, ó que afecte de algun modo su soberanía.
+ART. 3. La soberanía reside en la Nacion, y su ejer-
+cicio se encomienda á los funcionarios que esta Consti-
+tucion establece.
+TITULO II.
+DE LA RELIGION.
+ART. 4. La Nacion profesa la Religion Católica,
+Apostólica, Romana: el Estado la proteje, y no permite
+el ejercicio público de otra alguna."""
+doc_005,documento,impreso,EasyOCR,alternativo,CER,0.028855721393034824,29,1005,29.0,,,"14 ACTO I.
+Con. Que tiempos estos! me pesa
+ser noble ya y cortesanal
+pues si va al baile mañana
+despues
+OLIV . (Calla! la Condesal)
+Con. (No es ella, es su hija)
+ESCENA X.
+Díchos y doña ISABEL.
+IsA. Señores!
+Pláceme veros; condesa, ( Yendo hacia ella)
+y hoy mas que la alta nobleza
+no es pródiga de favores.
+Mi madre de tal honor
+agradece la hidalguía.
+Con. La dicha es nuestra.
+OLIV . A fé mia,
+nos honra doña Leonor.
+y vos; & decir verdad
+sin cortesanos cumplidos;
+hoy nos teneis sorprendidos
+ante tan rara beldad.
+No es cierto, marqués?
+SAN. Cabal;
+soy del mismo parecer;
+casi encantado de ver
+un semblante angelical.
+IsA, Gracias, marqués. (Con indiferencia)
+SAN. Señorita,
+solo al cielo las debeis;
+porque dos rayos teneis (Aludiendo á los ojos)
+de su belleza infinita;
+y agradezco á mi ventura
+que de sus límites pasa
+admirando en vuestra casa
+tanto candor y hermosura.
+No es verdad, conde?-
+OLIV . Sí, sí
+(Doña Isabel que   aparenta hablar á la condesa,
+apenas presta atencion á los cumplídos que se la
+Isa. Conde; callad por favor; dirigen )
+me hareis subir el rubor","ACTO I.
+14
+CON. Que tiempos estos! me pesa
+ser noble ya y cortesana!
+pues si va al baile mañana
+despues- ....
+OLIV. (Calla! la Condesa!)
+CON.(No es ella, es su hija)—
+ESCENA X.
+Dichos y doña ISABEL.
+ISA.Señores!
+Pláceme veros, condesa, (Yendo hacia ella)
+y hoy mas que la alta nobleza
+no es pródiga de favores.
+Mi madre de tal honor
+agradece la hidalguía.
+CON.La dicha es nuestra.-
+OLIV. A fé mia,
+nos honra doña Leonor.
+y vos, á decir verdad,
+sin cortesanos cumplidos,
+hoy nos teneis sorprendidos
+ante tan rara beldad.
+No es cierto, marqués?-
+SAN.Cabal;
+soy del mismo parecer,
+casi encantado de ver
+un semblante angelical.
+ISA,Gracias, marqués.- (Con indiferencia)
+SAN. Señorita,
+solo al cielo las debeis,
+porque dos rayos teneis (Aludiendo á los ojos)
+de su belleza infinita;
+y agradezco á mi ventura
+que de sus límites pasa,
+admirando en vuestra casa
+tanto candor y hermosura.
+No es verdad, conde?-
+OLIV.Sí, sí...
+(Doña Isabel que aparenta hablar ála condesa,
+apenaspresta atencion á los cumplídos que se la
+dirigen.)
+ISA,Conde, callad por favor,
+me hareis subir el rubor"""
+doc_006,documento,impreso,EasyOCR,alternativo,CER,0.04935622317596566,115,2330,34.6,,,"[PERSONA_27] 33
+más calibre que log que reza 0l Flov-Sanctorum. iVenga un diablo cual-
+quiere y llévege mi almilla en cambio del amor de e8a caprichose crie-
+ture !
+Satanáø, que desde los entrog més profundos del inferno había escu-
+chedo las palabres del plumario, tocó la canpanille, y al reclamo 80 pre-
+sent6 øl diablo Lilit. Por si mis lectores no conocen á este personaje, ban
+de saberse que los demonógrafos; que andan ú vuøltas y tornas con las
+Clavículae de Salomón libro que leen al regplandor de un carbunclo;
+sfrman que Lilit, diablo de bonite estampe, muy zalemero y decidor; es
+el correvedile de Su Majestad Infernal
+~Vé, Lilit, al cerro de les Ramas y extiende un contrato con un hom-
+bre qu0 allí encontrarás y que abriga tento desprecio por su alma que la
+llame almille Concédele cuanto te pida y no te ande8 con regatøo8, quo
+y8 sabes qu0 no 8oy tacaão tratándose de une prega
+Yo; pobre y mal traído narrador de cuentos, no he podido alcanzar
+pormenores acerCB de la entrevista  entre Lilit y D. Dimas, poraue po
+bubo taquígrafo é mano qu0 80 encargase de copiarle sin perder punto
+ni coma iY es lástima, por mi fe! Pero buste Baber que Lilit; 8l regresar
+8 inferno; le entregó ó Satanás un pergamiuo que, fórmula más ó menos ,
+contenía lo siguiente:
+(Conste que yo D. Dimas de la Tijereta cedo mi almilla al røy de los
+abismos en cambio del amor y posesión de une mujer. Item; me obligo
+satisfacer la deuda de la feche en tres eños) Y aquí seguían las fir-
+mas de las altas partes contratanteg y el sello del dewonio
+Al entrer el escribano en 8u tugurio, salió é abrirle la puerta neda me-
+n08 que  Visitación; le desdeñoge y remilgada   Visitación, que ebria  do
+amor 80 arrojó en los brazos de Tijereta  Cual es lo campana, tal la bu-
+dajada
+Lilit babía encendido en el corazón de la pobre muchacha el fuego de
+[PERSONA_38] J en su8 sentidog la desvergonzada lubricidad de [PERSONA_28]. Doble.
+mos esta boje, que de Buyo eg peligroso extenderse en pormenores qu0
+pueden tentar al prójimo labrando su condenación eterna, sin que le val-
+gan la bula de Meco ni leg de composición.
+IV
+Como no bay plazo que no 80 cumpla ni deuda que no s0 pegue; pasa-
+rod, dfa por día, tres años como trøs berenjenes; y llegó el día en que Ti.
+jereta tuviese que bacer bonor ú su firma. Arrastrado por una fuerza s1-
+perior y Bin derse cuenta de ello, 8e encontró en un verbo transportado
+Tovo I 3","[PERSONA_27]                                                  33
+más calibre que los que reza el Flos-Sanctorum. Venga un diablo cual-
+quiera y llévese mi almilla en cambio del amor de esa caprichosa cria-
+tura!
+Satanás, que desde los antros más profundos del infierno había escu-
+chado las palabras del plumario, tocó la campanilla, y al reclamo se pre-
+sentó el diablo Lilit. Por si mis lectores no conocen á este personaje, han
+de saberse que los demonógrafos, que andan á vueltas y tornas con las
+Clavículas de Salomón, libro que leen al resplandor de un carbunelo,
+afirman que Lilit, diablo de bonita estampa, muy zalamero y decidor, es
+el correvedile de Su Majestad Infernal.
+—Vé, Lilit, al cerro de las Ramas y extiende un contrato con un hom-
+bre que allí encontrarás y que abriga tanto desprecio por su alma que la
+llama almilla. Concédele cuanto te pida y no te andes con regateos, quo
+ya sabes que no soy tacaño tratándose de una presa.
+Yo, pobre y mal traído narrador de cuentos, no he podido alcanzar
+pormenores acerca de la entrevista entre Lilit y D. Dimas, porque no
+hubo taquígrafo á mano que se encargase de copiarla sin perder punto
+ni coma. ¡Y es lástima, por mi fe! Pero baste saber que Lilit, al regresar
+al infierno, le entregó á Satanás un pergamino que, fórmula más ó menos,
+contenía lo siguiente:
+""Conste que yo D. Dimas de la Tijereta cedo mi almilla al rey de los
+abismos en cambio del amor y posesión de una mujer. Item, me obligo
+á satisfacer la deuda de la fecha en tres años."" Y aquí seguían las fir-
+mas de las altas partes contratantes y el sello del demonio.
+Al entrar el escribano en su tugurio, salió á abrirle la puerta nada me-
+nos que Visitación, la desdeñosa y remilgada Visitación, que ebria do
+amor se arrojó en los brazos de Tijereta. Cual es la campana, tal la ba-
+dajada.
+Lilit había encendido en el corazón de la pobre muchacha el fuego de
+[PERSONA_38] y en sus sentidos la desvergonzada lubricidad de [PERSONA_28]. Doble.
+mos esta hoja, que de suyo es peligroso extenderse en pormenores quo
+pueden tentar al prójimo labrando su condenación eterna, sin que le val-
+gan la bula de Meco ni las de composición.
+IV
+Como no hay plazo que no se cumpla ni deuda que no se pague, pasa-
+ron, día por día, tres años como tres berenjenas, y llegó el día en que Ti.
+jereta tuviese que hacer honor á su firma. Arrastrado por una fuerza su-
+perior y sin darse cuenta de ello, se encontró en un verbo transportado
+Tomo I                                                               3"
+doc_012,documento,foto,EasyOCR,alternativo,CER,0.37254901960784315,57,153,22.6,,,"4 CVDAD D2 ZA
+AL SEVILANO
+FRAY
+DIGC DE
+""[PERSONA_35] CP
+(570 - 16-5)
+AV-@N DEL ?CEYA É2CC
+RELICICSC <4 Crs-454 >>
+2 -2v 92 LA _ tEratvra
+VR2Eal ?ERVANA
+MMXX","LA CIVDAD DE LIMA
+AL SEVILLANO
+FRAY
+[PERSONA_35] OP
+(1570 - 1615)
+AVTOR DEL POEMA EPICO
+RELIGIOSO<<LA CRISTIADA>>
+EPÍTOME DE LA LITERATVRA
+VIRREINAL PERVANA.
+MMXXI"
+doc_013,documento,foto,EasyOCR,alternativo,CER,0.39285714285714285,22,56,17.2,,,"FARANINEO
+GMAERSIARIO
+Anelicek CSAVENTO DE
+LC oLAS","PARANINFO
+UNIVERSITARIO
+ANTIGUO CONVENTO DE 
+LOS JESUITAS"
+doc_014,documento,foto,EasyOCR,alternativo,CER,0.08490566037735849,9,106,23.7,,,"ANTIGUO HOSPITALDe
+Los BETHLEMITAS
+INMUEBLE DECL ARADO IOIUVENTO DE L 4 NACION
+Rs,n, 2900 72*ED 28 * Dic 1972","ANTIGUO HOSPITAL DE
+LOS BETHLEMITAS
+INMUEBLE DECLARADO MONUMENTO DE LA NACION
+R.S.N.2900-72-ED 28-DtC 1972"
+doc_020,documento,manuscrito,EasyOCR,alternativo,CER,0.44954128440366975,49,109,17.1,,,"CevIcIEenig
+EL 7IBUR@M(
+CFVICHE Aul leche MUto
+Canchita dTigre
+Arroz Chaupa
+Chilcano ' de Cortesia Recresh]","CEVICHERIA
+EL-TIBURON 1
+CEVICHE MIXTO
+c/. su leche Dl.Tigre
+Canchita
+Arroz Chaufa
+Chilcano Represco
+de Cortesia"
+doc_023,documento,manuscrito,EasyOCR,alternativo,CER,0.4946236559139785,46,93,8.4,,,"S+#Familambacjko
+tU @REIA@MNSEXUAL
+0 IDENT de TINERO 1
+AHIRA Ysfinn","Si tu Familia no acepta
+tu ORIENTACIÓN SEXUAL
+O IDENT. de GÉNERO,
+AHORA YO SOY TU FAMILIA 
+Y TQM"
+doc_025,documento,manuscrito,EasyOCR,alternativo,CER,0.38219895287958117,73,191,23.9,,,"Recreo: ce LASBRISAS ""
+RachakancA
+TRUCHA ^ La PARRILLA
+FRITA
+AL Ajo
+CEBKHE CHICHARRON ) BROASTER de TRucha
+SUDADO deTRUCHA
+X Papa Caldo A La
+GaSEOSAS de 6ALLINA HUAnCAiNA
+Gracias
+Por su Vn","Recreo:
+""LAS BRISAS""
+*PACHAMANCA
+*TRUCHA A LA PARRILLA
+*´´ FRITA
+*´´ AL AJ
+* ´´ BROASTER
+BROASTER
+*CHICHARRON DE TRUCHA
+*CEBICHE DE TRUCHA
+* SUDADO ´´ ´´
+*PAPA A LA HUANCAINA
+*CALDO DE GALLINA
+*GASEOSAS
+
+Gracias por su visi"
+doc_026,documento,manuscrito,EasyOCR,alternativo,CER,0.6739130434782609,31,46,17.8,,,"MI L
+POR
+Uo Koj
+zuca Acz","MI AMOR
+POR TI ES
+INCONDICIONAL
+Orgullosa mamá"
+clip_010,audio,entrevista de campo,faster-whisper small (base),base,WER,0.01744186046511628,3,172,36.1,77.35,0.46670976082740795,"[HABLANTE_1] Si, yo soy [PERSONA_11] de la Facultad de Censas Belógicas y ahora lo voy a hacer preguntes al señor [PERSONA_12] que nos va a responder en primer lugar ¿Qué mensaje le daría la juventud del país? [HABLANTE_2] Bueno, el amar es amar, no? Creo que cada uno tiene una orientación, tiene una preferencia y nadie debe ser usado por eso, sabemos que la sociedad peruana es un tanto conservadora pero poco a poco confío de que abriremos más la mente para que muchos de nosotros en la comunidad pues podamos amar sin ninguna restricción. [HABLANTE_1] Ay no me gusta preguntarle qué significa esa marcha por usted. [HABLANTE_2] Bueno ya vengo participando, bueno desde que soy mayor de hace 4 o 5 años Y es un espacio donde pueden encontrarme con mucha más gente que también de la comunidad Y son espacios donde simplemente expresamos lo que sentimos, ¿no? Quienes somos, a qué comunidad pertenecemos Y que nuestro amor no hace daño a nadie Simplemente queremos eso, disfrutar de lo nuestro [HABLANTE_1] Muchas gracias por sus respuestas","Si, yo soy [PERSONA_11] de la Facultad de Ciencias Biológicas y ahora lo voy a hacer preguntas al señor [PERSONA_12] que nos va a responder en primer lugar ¿Qué mensaje le daría la juventud del país? 
+Bueno, el amar es amar, no? Creo que cada uno tiene una orientación, tiene una preferencia y nadie debe ser usado por eso, sabemos que la sociedad peruana es un tanto conservadora pero poco a poco confío de que abriremos más la mente para que muchos de nosotros en la comunidad pues podamos amar sin ninguna restricción. 
+Ay no me gusta preguntarle qué significa esa marcha por usted.
+Bueno ya vengo participando, bueno desde que soy mayor de hace 4 o 5 años. Y es un espacio donde pueden encontrarme con mucha más gente que también de la comunidad. Y son espacios donde simplemente expresamos lo que sentimos, ¿no? Quienes somos, a qué comunidad pertenecemos Y que nuestro amor no hace daño a nadie. Simplemente queremos eso, disfrutar de lo nuestro. 
+Muchas gracias por sus respuestas."
+clip_011,audio,entrevista de campo,faster-whisper small (base),base,WER,0.07368421052631578,14,190,49.5,95.04,0.5208333333333333,"[HABLANTE_1] Ahora, mi nombre es [PERSONA_11], ahora me voy a presentar a hacerle unas preguntas al señor para entrevistarlo, al señor [PERSONA_13] para poder entrevistarlo. Al primer lugar, me gustaría preguntarle, qué opinas, qué mensaje le daría a la juventud del país, a respecto de esta marcha en general. [HABLANTE_2] Que sigan sus sueños, que sigan sus, que hagan lo que le gusta, con responsabilidad y que luchen por eso, ¿no? Que sean personas felices en realidad, porque al menos mi generación muchos han hecho cosas que en realidad no le gustaban pero yo creo que la juventud ahora debería seguir sus sueños y hacer lo que les gusta, es todo ámbito, ¿no? Con responsabilidad por todo, que no se le daño a nadie. [HABLANTE_1] Ustedes me gustaría preguntarle, ¿qué opinan de la marchinga? Aquí, ¿qué opinan de la marchinga? [HABLANTE_2] Que colorida. [HABLANTE_3] Colorida. [HABLANTE_4] Estás de comercial también. [HABLANTE_5] Comercial? [HABLANTE_6] Sí. [HABLANTE_1] ¿Cómo comercial? ¿Por qué mucha gente que vende cosas? [HABLANTE_7] Vende cosas. [HABLANTE_2] Como el día de la mujer, el día del niño, ¿no? [HABLANTE_8] Porque todo eso es... [HABLANTE_2] No es que vengan cosas, sino que es bastante particulado. [HABLANTE_7] ¿Está bien? ¿Está bien? Sí. [HABLANTE_1] Gracias, listo.","Ahora, mi nombre es [PERSONA_11], ahora me voy a presentar a hacerle unas preguntas al señor para entrevistarlo, al señor [PERSONA_13] para poder entrevistarlo. Al primer lugar, me gustaría preguntarle, qué opinas, qué mensaje le daría a la juventud del país, a respecto de esta marcha en general. 
+Que sigan sus sueños, que sigan sus, que hagan lo que le gusta, con responsabilidad y que luchen por eso, ¿no? Que sean personas felices en realidad, porque al menos mi generación muchos han hecho cosas que en realidad no le gustaban, pero yo creo que la juventud ahora debería seguir sus sueños y hacer lo que les gusta, es todo ámbito, ¿no? Con responsabilidad por todo, que no se le daño a nadie. 
+Ustedes me gustaría preguntarle, ¿qué opinan de la marcha? Aquí, ¿qué opinan de la marcha? 
+Bien, colorida. 
+Colorida?
+Bastante comercial también
+Comercial?
+Sí, bastante.
+¿Por qué mucha gente que vende cosas? 
+Vende cosas.  Es como el día de la mujer, el día del niño, ¿no? Mas que todo, es eso. No es que vengan cosas, sino que es bastante marquetedo 
+¿Está bien? ¿Está bien? 
+Sí. Ya. gracias
+Listo."
+clip_013,audio,entrevista de campo,faster-whisper small (base),base,WER,0.10784313725490197,22,204,46.7,81.6,0.5723039215686275,"[HABLANTE_1] ¿Cuál es el nombre? [PERSONA_14]. ¿Usted me acaba de decir que no es el pueblo? ¿De dónde es? La misma sitio no, yo soy de misma Pumbovamba, esta es un distrito. ¿Ustedes de la provincia? Ha hecho y haces un distrito. ¿Cómo ha sido usted ha venido aquí? Como conozco, todos los años vengo. Ah, viene todos los años, sí. ¿Hay algo especial en esa ocasión en el que usted ha venido? ha habido también más más bandas, más más personas, es lo mismo donde que se acabaron pasar esos. Claro, y qué otras cosas más van a ocurrir más adelante. Otros bailes también, depende de mayor domo o depende de donadores que hay, si hay bailes y bailes costomistas. Claro, normalmente hay esta cantidad de gente o a veces hay más o menos. Más tarde llena. Ah, más tarde vienen más personas. Hay bastantes del pueblo. Este es como vienen para misa como dicen, entonces ahí llegamos a las personas que nos gusta escuchar la misa. Y se quedan hasta tarde, ahí disfrutando del evento. Ya entre 5 o 6 y ya estamos yendo ya nosotros. Otros Ya se queda más de más. [HABLANTE_2] Muchas gracias, señor. [HABLANTE_1] Muchas gracias.","¿Cuál es el nombre?
+[PERSONA_14]
+¿Usted me acaba de decir que no es el pueblo? ¿De dónde es? 
+La misma sitio no, yo soy de misma Pumbovamba, esta es un distrito.
+¿Ustedes de la provincia y Chullas es un distrito? 
+Ajá.
+Claro, y ¿Cómo ha sido usted ha venido aquí? 
+Como conozco, todos los años vengo.
+Ah, viene todos los años 
+sí
+Y ¿Hay de algo especial en esa ocasión en el que usted ha venido o antes ha habido talvez más  más bandas, más más personas?
+No, es lo misma
+Es lo mismo
+Donde que se acabaron pasar eso 
+Claro, y qué otras cosas más van a ocurrir más adelante.
+Otros bailes también, depende de mayordomo o depende de donadores que hay, si hay bailes y bailes costumbristas
+Claro, normalmente hay esta cantidad de gente o a veces hay más o menos?
+Más tarde llena
+Ah, más tarde vienen más personas. Hay bastantes del pueblo.
+Este es como vienen para misa como dicen, entonces ahí llegamos a las personas que nos gusta escuchar la misa.
+Y se quedan hasta tarde, ahí disfrutando del evento.
+Ya entre 5 o 6 y ya estamos yendo ya nosotros.
+Otros Ya se queda más de más
+Muchas gracias, señora
+Ya."
+clip_015,audio,entrevista de campo,faster-whisper small (base),base,WER,0.02702702702702703,2,74,21.0,39.24,0.5351681957186544,"[HABLANTE_1] Buenos días, joven. Claro que sí, la fiesta de santo patrón de Chuia Taitapalli es muy importante para mí y para mi familia. ¿Por qué? Porque nosotros desde muy niña yo sigo y el tradición. Entonces, a mí me ha hecho muchos milagros. Es por ello, yo sigo desde muy chiquita desde mis padres. Entonces, seguimos el costumbre. Todos los chueacinos, no solo yo, mi familia, todos creemos a nuestro santo patrón. Muchas gracias.","Buenos días, joven. Claro que sí, la fiesta de santo patrón de Chuya Taitapalli es muy importante para mí y para mi familia. ¿Por qué? Porque nosotros desde muy niña yo sigo y el tradición. Entonces, a mí me ha hecho muchos milagros. Es por ello, yo sigo desde muy chiquita desde mis padres. Entonces, seguimos el costumbre. Todos los chuecinos, no solo yo, mi familia, todos creemos a nuestro santo patrón. Muchas gracias."
+clip_016,audio,entrevista de campo,faster-whisper small (base),base,WER,0.0,0,118,23.5,43.76,0.5370201096892139,"[HABLANTE_1] Una de las anécdotas que ha marcado mi vida es cuando estuve muy pequeña y mis padres también se dedicaban a la siembra de coca, pero vino la radicación y con todos los vecinos todas las partes que sembraban se vieron afectados porque no tenían otro tipo de sembrío sin radicar una coca de raíz y fue muy duro un par de meses porque no decir unos años para recuperarse, volver a restablecerse, sembrar lo que es el tema de otros productos alternativos para poder sustentar el tema económico y emocional, sobre todo para el tema de que las familias que no tenían con que compartir o sustentar las casas, comida, los ingresos, los estudios, entre otras cosas.","Una de las anécdotas que ha marcado mi vida es cuando estuve muy pequeña y mis padres también se dedicaban a la siembra de coca, pero vino la radicación y con todos los vecinos todas las partes que sembraban se vieron afectados porque no tenían otro tipo de sembrío sin radicar una coca de raíz y fue muy duro un par de meses porque no decir unos años para recuperarse, volver a restablecerse, sembrar lo que es el tema de otros productos alternativos para poder sustentar el tema económico y emocional, sobre todo para el tema de que las familias que no tenían con que compartir o sustentar las casas, comida, los ingresos, los estudios, entre otras cosas."
+clip_017,audio,entrevista de campo,faster-whisper small (base),base,WER,0.0,0,96,22.4,44.04,0.508628519527702,"[HABLANTE_1] Yo creo que el tema de identificar las brechas relacionadas a la mujer campesina es algo muy visible, porque muchas de ellas no cuentan con estudios superiores, no cuentan con una carrera profesionales y enfrentan mucho más desafíos, lo cual se dedican a las actividades agropecuarias entre otras otras y es un poco más dificultoso porque no tienen el apoyo necesario ni la capacidad o no tuvieron los estudios completos para poder defenderse entre otros campos, pero hoy en día creo que las cosas han cambiado y han avanzado para bien a favor de las mujeres.","Yo creo que el tema de identificar las brechas relacionadas a la mujer campesina es algo muy visible, porque muchas de ellas no cuentan con estudios superiores, no cuentan con una carrera profesionales y enfrentan mucho más desafíos, lo cual se dedican a las actividades agropecuarias entre otras otras y es un poco más dificultoso porque no tienen el apoyo necesario ni la capacidad o no tuvieron los estudios completos para poder defenderse entre otros campos, pero hoy en día creo que las cosas han cambiado y han avanzado para bien a favor de las mujeres."
+clip_023,audio,lectura de estudio,faster-whisper small (base),base,WER,0.1111111111111111,1,9,8.2,5.29,1.550094517958412,Es muy fácil reguardar su hogar de los huracanes.,Es muy fácil resguardar su hogar de los huracanes.
+clip_027,audio,lectura de estudio,faster-whisper small (base),base,WER,0.0,0,14,8.4,7.34,1.1444141689373297,"Mientras se acaban de cocer todas las verduras, vamos a freír los huevos aparte.","Mientras se acaban de cocer todas las verduras, vamos a freír los huevos aparte."
+clip_028,audio,lectura de estudio,faster-whisper small (base),base,WER,0.0,0,8,8.0,7.25,1.103448275862069,Le puedo compartir estas fotos. Las está viendo.,Le puedo compartir estas fotos. Las está viendo?
+clip_029,audio,lectura de estudio,faster-whisper small (base),base,WER,0.15384615384615385,2,13,8.1,6.66,1.2162162162162162,Ellos ven la tele entre la 1 y las 3 de la tarde.,Ellos ven la tele entre la una y las tres de la tarde.
+clip_010,audio,entrevista de campo,Qwen3-ASR 0.6B,alternativo,WER,0.1511627906976744,26,172,99.95,77.35,1.2921784098254687,"gracias sí yo soy [PERSONA_11] de la facultad de ciencias biológicas yo ahora lo voy a hacer preguntas al señor [PERSONA_12] hola a señor [PERSONA_12] que nos va a responder en primer lugar qué pensas que le daría la juventud del país Bueno. El amar es amar, ¿no? creo que cada uno tiene una orientación tiene una preferencia y nadie debe ser juzgado por esto Sabemos que la sociedad peruana es un tanto conservadora. pero poco a poco confío de que abriremos más la mente para que muchos de nosotros en la comunidad pues Podamos amar sin ninguna restricción. ah y también me se preguntarle qué significa esta marcha para usted bueno ya vengo participando bueno desde que soy mayor de edad de hace cuatro o cinco años y es un espacio donde puedo encontrarme con mucha más gente que también de la comunidad y son espacios donde simplemente expresamos lo que sentimos no quienes somos a qué comunidad pertenecemos y que nuestro amor no hace daño a nadie simplemente queremos eso disfrutar de lo nuestro Ya muchas gracias por susuestas gracias a ti","Si, yo soy [PERSONA_11] de la Facultad de Ciencias Biológicas y ahora lo voy a hacer preguntas al señor [PERSONA_12] que nos va a responder en primer lugar ¿Qué mensaje le daría la juventud del país? 
+Bueno, el amar es amar, no? Creo que cada uno tiene una orientación, tiene una preferencia y nadie debe ser usado por eso, sabemos que la sociedad peruana es un tanto conservadora pero poco a poco confío de que abriremos más la mente para que muchos de nosotros en la comunidad pues podamos amar sin ninguna restricción. 
+Ay no me gusta preguntarle qué significa esa marcha por usted.
+Bueno ya vengo participando, bueno desde que soy mayor de hace 4 o 5 años. Y es un espacio donde pueden encontrarme con mucha más gente que también de la comunidad. Y son espacios donde simplemente expresamos lo que sentimos, ¿no? Quienes somos, a qué comunidad pertenecemos Y que nuestro amor no hace daño a nadie. Simplemente queremos eso, disfrutar de lo nuestro. 
+Muchas gracias por sus respuestas."
+clip_011,audio,entrevista de campo,Qwen3-ASR 0.6B,alternativo,WER,0.3631578947368421,69,190,92.87,95.04,0.9771675084175084,ahora Mi nombre es [PERSONA_11]. Ahora voy a proceder a hacer unas preguntas al señor para entrevistarlo a señor [PERSONA_13] para poder entrevistarlo a al primer lugar me gustaría preguntarle qué opina digo qué mensaje le daría a la juventud del país al respecto de este digo de esta marcha en general que sigan sus sueños esfuerzos esigan su que haga lo que le gusta con responsabilidad que luchen por eso no les dan personas felices ya hay un son al menos mi generación muchos han hecho cosas que en realidad al final no le gustaban yo creo que las puertas de ahora debería seguir sus sueños y hacer lo que les gusta el toweleto no por responsabilidad por todo sin hacerle la junal tenemos que hacer preguntarle qué opina de la marcha aquí Copia de la marcha. Ya. Colorida trata de comercial también comercial como comercial porque mucha gente que vende cosas frente a los árboles como el día de mujer el día del niño no porque todo es no que vendan cosas sino que es bastante marcado También cariño sí gracias No.,"Ahora, mi nombre es [PERSONA_11], ahora me voy a presentar a hacerle unas preguntas al señor para entrevistarlo, al señor [PERSONA_13] para poder entrevistarlo. Al primer lugar, me gustaría preguntarle, qué opinas, qué mensaje le daría a la juventud del país, a respecto de esta marcha en general. 
+Que sigan sus sueños, que sigan sus, que hagan lo que le gusta, con responsabilidad y que luchen por eso, ¿no? Que sean personas felices en realidad, porque al menos mi generación muchos han hecho cosas que en realidad no le gustaban, pero yo creo que la juventud ahora debería seguir sus sueños y hacer lo que les gusta, es todo ámbito, ¿no? Con responsabilidad por todo, que no se le daño a nadie. 
+Ustedes me gustaría preguntarle, ¿qué opinan de la marcha? Aquí, ¿qué opinan de la marcha? 
+Bien, colorida. 
+Colorida?
+Bastante comercial también
+Comercial?
+Sí, bastante.
+¿Por qué mucha gente que vende cosas? 
+Vende cosas.  Es como el día de la mujer, el día del niño, ¿no? Mas que todo, es eso. No es que vengan cosas, sino que es bastante marquetedo 
+¿Está bien? ¿Está bien? 
+Sí. Ya. gracias
+Listo."
+clip_013,audio,entrevista de campo,Qwen3-ASR 0.6B,alternativo,WER,0.3088235294117647,63,204,85.34,81.6,1.0458333333333334,"Pues no [PERSONA_14] es Penosa. Okay, usted me ha de acabo de decir que no no es el pueblo usted de dónde la misma sitio no de fuera de misma pumobamba estas son distritos es decir la provincia aychu ya son distritos y cómo cómo ha sido usted ha venido aquí como conozco todos los años vengo ah viene todos los años sí y hay algo de especial en esa ocasión en el que os ha venido antes ha habido tal vez más más bandas más no es la misma. es lo mismo hombres que se acabaron pasar eso claro y qué qué otras cosas más van a ocurrir más adelante otros bailes también depende de mayor domo o depende de donadores que hay ya virus y normalmente y Claro, normalmente hay esta cantidad de gente o a veces hay más o menos. Más tarde llenan. Ah, más tarde vienen más personas. hay bastantes del pueblo este es como vienen para misa como dicen no entonces ahí llegamos el personas que nos gusta escuchar la misa y se quedan hasta tarde ahí disfrutando del ya entre cinco seis ya estamos siendo ya nosotros otros ya regresan ya se quedan más demás muchas gracias señora muchas gracias","¿Cuál es el nombre?
+[PERSONA_14]
+¿Usted me acaba de decir que no es el pueblo? ¿De dónde es? 
+La misma sitio no, yo soy de misma Pumbovamba, esta es un distrito.
+¿Ustedes de la provincia y Chullas es un distrito? 
+Ajá.
+Claro, y ¿Cómo ha sido usted ha venido aquí? 
+Como conozco, todos los años vengo.
+Ah, viene todos los años 
+sí
+Y ¿Hay de algo especial en esa ocasión en el que usted ha venido o antes ha habido talvez más  más bandas, más más personas?
+No, es lo misma
+Es lo mismo
+Donde que se acabaron pasar eso 
+Claro, y qué otras cosas más van a ocurrir más adelante.
+Otros bailes también, depende de mayordomo o depende de donadores que hay, si hay bailes y bailes costumbristas
+Claro, normalmente hay esta cantidad de gente o a veces hay más o menos?
+Más tarde llena
+Ah, más tarde vienen más personas. Hay bastantes del pueblo.
+Este es como vienen para misa como dicen, entonces ahí llegamos a las personas que nos gusta escuchar la misa.
+Y se quedan hasta tarde, ahí disfrutando del evento.
+Ya entre 5 o 6 y ya estamos yendo ya nosotros.
+Otros Ya se queda más de más
+Muchas gracias, señora
+Ya."
+clip_015,audio,entrevista de campo,Qwen3-ASR 0.6B,alternativo,WER,0.12162162162162163,9,74,37.71,39.24,0.9610091743119266,"Buenos días joven, claro que sí, la fiesta de San Tu patron de Chuyas Taipapalli. es muy importante para mí y para mi familia porque porque nosotros desde muy niña yo sigo y el tradición Entonces a mí me ha hecho muchos milagros, es por ello yo sigo desde muy chiquita desde mis padres. Entonces seguimos el costumbre. y Todos los chuecinos no solo yo, mi familia todos. Creemos a nuestro Santo Patron. Muchas gracias.","Buenos días, joven. Claro que sí, la fiesta de santo patrón de Chuya Taitapalli es muy importante para mí y para mi familia. ¿Por qué? Porque nosotros desde muy niña yo sigo y el tradición. Entonces, a mí me ha hecho muchos milagros. Es por ello, yo sigo desde muy chiquita desde mis padres. Entonces, seguimos el costumbre. Todos los chuecinos, no solo yo, mi familia, todos creemos a nuestro santo patrón. Muchas gracias."
+clip_016,audio,entrevista de campo,Qwen3-ASR 0.6B,alternativo,WER,0.09322033898305085,11,118,46.52,43.76,1.063071297989031,"una de las anécdotas que ha marcado mi vida es cuando estuve muy pequeña y mis padres también se dedicaban a la siembra de de coca pero viendo la radicación y con todos los vecinos todas las partes que sembraban se vieron afectados porque no tenían otro tipo de sembrillos y radicaron la coca de raíz y fue muy duro un par de meses porque que no decir unos años para recuperarse, volver a restablecerse, sembrar lo que es el tema de otros productos alternativos para poder este sustentar no el tema económico. y emocional sobre todo para el tema de que las familias que no tenían con qué compartir o sustentar las casas comida no los ingresos los estudios entre otras cosas","Una de las anécdotas que ha marcado mi vida es cuando estuve muy pequeña y mis padres también se dedicaban a la siembra de coca, pero vino la radicación y con todos los vecinos todas las partes que sembraban se vieron afectados porque no tenían otro tipo de sembrío sin radicar una coca de raíz y fue muy duro un par de meses porque no decir unos años para recuperarse, volver a restablecerse, sembrar lo que es el tema de otros productos alternativos para poder sustentar el tema económico y emocional, sobre todo para el tema de que las familias que no tenían con que compartir o sustentar las casas, comida, los ingresos, los estudios, entre otras cosas."
+clip_017,audio,entrevista de campo,Qwen3-ASR 0.6B,alternativo,WER,0.0625,6,96,42.05,44.04,0.9548138056312443,yo creo que el tema de identificar las brechas relacionadas a la mujer campesina es algo este muy visible no porque muchas de ellas no no cuentan con estudios superiores no cuentan con una carrera profesional y enfrentan mucho más desafíos lo cual se dedican a las actividades agropecuarias entre otras y es un poco más dificultoso porque no no tienen el apoyo necesario ni la capacidad o no tuvieron los estudios completos para poder defenderse entre otros campos pero hoy en día creo que las cosas han cambiado y han avanzado para bien a favor de las mujeres,"Yo creo que el tema de identificar las brechas relacionadas a la mujer campesina es algo muy visible, porque muchas de ellas no cuentan con estudios superiores, no cuentan con una carrera profesionales y enfrentan mucho más desafíos, lo cual se dedican a las actividades agropecuarias entre otras otras y es un poco más dificultoso porque no tienen el apoyo necesario ni la capacidad o no tuvieron los estudios completos para poder defenderse entre otros campos, pero hoy en día creo que las cosas han cambiado y han avanzado para bien a favor de las mujeres."
+clip_023,audio,lectura de estudio,Qwen3-ASR 0.6B,alternativo,WER,0.1111111111111111,1,9,4.35,5.29,0.8223062381852552,Es muy fácil reguardar su hogar de los huracanes.,Es muy fácil resguardar su hogar de los huracanes.
+clip_027,audio,lectura de estudio,Qwen3-ASR 0.6B,alternativo,WER,0.21428571428571427,3,14,6.57,7.34,0.8950953678474115,"Mientras se acaban de cocer todas las verduras, vamos a freir los huevos a parte.","Mientras se acaban de cocer todas las verduras, vamos a freír los huevos aparte."
+clip_028,audio,lectura de estudio,Qwen3-ASR 0.6B,alternativo,WER,0.0,0,8,4.18,7.25,0.576551724137931,Le puedo compartir estas fotos. las está viendo,Le puedo compartir estas fotos. Las está viendo?
+clip_029,audio,lectura de estudio,Qwen3-ASR 0.6B,alternativo,WER,0.07692307692307693,1,13,4.18,6.66,0.6276276276276276,Ellos ven la tele entre las una y las tres de la tarde.,Ellos ven la tele entre la una y las tres de la tarde.
