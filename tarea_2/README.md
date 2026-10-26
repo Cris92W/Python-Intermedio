@@ -3,6 +3,14 @@
 > ¿Pueden convertir documentos escaneados y entrevistas en audio en un archivo de texto
 > estructurado y buscable?
 
+**Dashboard público:** https://cris92w-tarea2.streamlit.app
+
+| Parte | Archivo | Contenido |
+|---|---|---|
+| 1 | [`01_extraccion.ipynb`](01_extraccion.ipynb) | Corpus, OCR, transcripción, seudonimización y EDA |
+| 2 | [`02_evaluacion.ipynb`](02_evaluacion.ipynb) | CER y WER, comparación de modelos, extracción con LLM y auditoría |
+| 3 | [`app.py`](app.py) | Dashboard en Streamlit que explora los resultados |
+
 ## Corpus
 
 Los archivos se bajaron con `descargar_datos.py`: el audio el 22 de octubre de 2026 y los documentos
@@ -237,3 +245,63 @@ manuales sin seudonimizar (`datos/raw/muestra_evaluacion/`) y la planilla de aud
 
 **Uso de IA.** El trabajo se hizo con Claude Code. Las capturas de la conversación están en
 [`evidencias_ia/`](evidencias_ia/), numeradas en orden.
+
+## Parte 3: dashboard (`app.py`)
+
+**Enlace público (Streamlit Community Cloud):** https://cris92w-tarea2.streamlit.app
+
+La app no corre modelos. Solo lee los CSV que prepararon los notebooks y una muestra ligera de
+ejemplos publicables, así que carga en segundos desde el navegador.
+
+| Sección | Qué muestra |
+|---|---|
+| Encabezado | La pregunta, un resumen del método y 5 indicadores: documentos procesados, minutos de audio, CER de PaddleOCR, WER de faster-whisper y acuerdo LLM-humano |
+| Filtros (barra lateral) | Búsqueda de palabras en los textos OCR y ASR, tipo de documento, fuente y duración del audio, y modelos evaluados. Actualizan los gráficos, las tablas y los exploradores |
+| 📊 Resultados | CER y WER por archivo para los 4 modelos, tabla comparativa (precisión, latencia y disco) y la decisión |
+| 📄 Documentos | Gráfico de confianza del OCR según la longitud del texto, tabla descargable y explorador |
+| 🎙️ Audios | Gráfico de duración por fuente, tabla descargable y explorador |
+| 🤖 Extracción con LLM | Acierto por campo en la auditoría, extracciones y auditoría descargables |
+| ℹ️ Fuentes y método | Fuentes con enlaces, licencias y fechas, privacidad y limitaciones |
+
+**Exploradores**
+- **Documentos.** Muestran los 25 documentos procesados.
+  - Para cada uno: texto OCR (con la búsqueda resaltada), campos extraídos por el LLM y atribución
+    (fuente, licencia y autor).
+  - En los 10 de la muestra también aparecen la referencia manual, el CER de los dos modelos y la
+    salida de EasyOCR. En los 20 de la auditoría, el veredicto por campo.
+- **Audios.** Muestran los 28 clips.
+  - Para cada uno: transcripción separada por turnos de hablante y campos del LLM.
+  - En los 10 de la muestra, la referencia manual junto a faster-whisper y Qwen3-ASR, con su WER.
+
+**Qué se publica** (en [`datos/ejemplos/`](datos/ejemplos/), 3 MB en total)
+- **Imágenes:** 15 vistas reducidas de documentos con licencia libre que no muestran nombres de
+  personas. Quedan fuera `doc_010` y los 9 documentos cuyo texto tiene `[PERSONA_NN]`. Su texto
+  seudonimizado y sus metadatos siguen disponibles.
+- **Audio:** los 10 clips de OpenSLR 73 (CC BY-SA 4.0), frases leídas por hablantes anónimos. Las
+  entrevistas no se reproducen, porque las voces y los nombres que se dicen son datos personales. Su
+  transcripción está seudonimizada y la fuente original está enlazada para la atribución.
+
+**Ejecutar en local**
+
+```bash
+cd tarea_2
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+`requirements.txt` solo tiene lo que necesita la app: streamlit, pandas y plotly. Para desplegarla en
+Streamlit Community Cloud, se elige el archivo principal `tarea_2/app.py` y Python 3.12.
+
+**Hallazgos principales**
+1. **Para un archivo sin GPU, los modelos base son la mejor opción.** PaddleOCR comete 3,3 veces menos
+   errores que EasyOCR, y faster-whisper `small` 4,3 veces menos que Qwen3-ASR, además de ser casi el
+   doble de rápido.
+2. **La dificultad depende más del documento y del audio que del modelo.** El CER sube de 0,002 en
+   impresos a 0,18 en manuscritos. Qwen3-ASR falla más en las entrevistas con ruido y varias voces.
+
+**Limitaciones técnicas**
+1. **La evaluación es pequeña.** Son 10 archivos por modalidad y una sola persona en la auditoría. En
+   las frases cortas, un solo error mueve mucho el WER.
+2. **El LLM de 0,6 B no es confiable sin revisión.** Inventa montos copiando el ejemplo del prompt, y la
+   diarización sobreestima los hablantes en la calle. Todo corre en una CPU sin AVX2, lo que impidió
+   probar modelos más grandes.
