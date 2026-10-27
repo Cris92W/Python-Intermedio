@@ -1,4 +1,4 @@
-"""Huellas de edificios de Microsoft (Global ML Building Footprints) para las zonas de detalle.
+"""Huellas de edificios de Microsoft (Global ML Building Footprints) para la zona de detalle de Piura.
 
     .venv/Scripts/python.exe scripts/obtener_edificios.py
 
@@ -6,13 +6,10 @@ Microsoft detecta los techos con aprendizaje automático sobre imágenes satelit
 años) y publica un polígono por edificio, partido en tiles de nivel 9 (quadkeys). Licencia ODbL.
 https://github.com/microsoft/GlobalMLBuildingFootprints
 
-Zonas de detalle:
-- piura: Piura, Castilla, Veintiséis de Octubre y el Bajo Piura (Catacaos, Cura Mori, El Tallán),
-  inundados por el desborde del río Piura.
-- trujillo: Trujillo, El Porvenir, Florencia de Mora, La Esperanza y Huanchaco (huaicos de las
-  quebradas San Ildefonso y El León).
+Zona de detalle: Piura, Castilla, Veintiséis de Octubre y el Bajo Piura (Catacaos, Cura Mori,
+El Tallán), inundados por el desborde del río Piura en 2017.
 
-Escribe datos/originales/edificios_microsoft/{zona}.gpkg con los edificios dentro de cada zona.
+Escribe datos/originales/edificios_microsoft/piura.gpkg con los edificios dentro de la zona.
 """
 import gzip
 import io
@@ -32,7 +29,6 @@ CABECERAS = {"User-Agent": "tarea3-unmsm (https://github.com/Cris92W/Python-Inte
 
 ZONAS = {  # (oeste, sur, este, norte)
     "piura": (-80.80, -5.45, -80.58, -5.12),
-    "trujillo": (-79.14, -8.16, -78.98, -8.02),
 }
 
 

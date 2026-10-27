@@ -7,3 +7,4 @@ shapely
 pyproj
 pyogrio
 numpy
+truststore==0.10.5

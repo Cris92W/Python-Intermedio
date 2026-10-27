@@ -2,7 +2,7 @@
 
     .venv/Scripts/python.exe scripts/validar_gfm_ems.py
 
-Para cada área (AOI) de la activación EMSR199 dentro del estudio se comparan, sobre la grilla de 80 m
+Para cada área (AOI) de la activación EMSR199 en Piura se comparan, sobre la grilla de 80 m
 de GFM (datos/procesados/gfm_80m/2017_*.tif):
 - EMS: unión de los polígonos "Flooded Area" y "Mudflow" de todas las versiones (inicial y monitoreo).
 - GFM: píxeles con agua en al menos una fecha y en al menos dos fechas de dic-2016 a may-2017.
@@ -12,7 +12,8 @@ Métricas:
 - gfm_fuera_pct: % del área GFM dentro del AOI que EMS no delimitó. No es necesariamente error: GFM
   cubre seis meses y EMS es una foto de pocos días; también incluye zonas que EMS no alcanzó a mapear.
 
-Escribe datos/procesados/validacion_gfm_ems.csv.
+Escribe datos/procesados/validacion_gfm_ems.csv y, para los mapas, web/data/ems_2017.geojson con el
+contorno de cada AOI y su inundación (todas las versiones unidas y simplificadas a 30 m).
 """
 import glob
 import re
@@ -30,6 +31,8 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 BASE = Path(__file__).resolve().parent.parent
 ORIG = BASE / "datos" / "originales" / "copernicus_ems_2017"
 PROC = BASE / "datos" / "procesados"
+WEB = BASE / "web" / "data"
+CRS_METROS = "EPSG:32717"  # UTM 17S
 
 
 def capas_por_aoi():
@@ -55,10 +58,12 @@ def main():
     distritos = gpd.read_file(PROC / "distritos_estudio.gpkg")
     estudio = distritos.union_all()
     rasters = sorted((PROC / "gfm_80m").glob("2017_*.tif"))
-    filas = []
+    filas, capas_web = [], []
     for nombre, (aoi, crisis) in capas_por_aoi().items():
         if not aoi.intersects(estudio) or crisis.empty:
             continue
+        capas_web.append({"aoi": nombre, "tipo": "aoi", "geometry": aoi})
+        capas_web.append({"aoi": nombre, "tipo": "inundacion", "geometry": crisis.union_all()})
         ems_px = gfm1 = gfm2 = inter1 = inter2 = aoi_px = 0
         for tif in rasters:
             with rasterio.open(tif) as ds:
@@ -95,6 +100,11 @@ def main():
         })
     tabla = pd.DataFrame(filas).sort_values("ems_inundado_km2", ascending=False).round(2)
     tabla.to_csv(PROC / "validacion_gfm_ems.csv", index=False, encoding="utf-8")
+
+    web = gpd.GeoDataFrame(capas_web, crs=4326).to_crs(CRS_METROS)
+    web["geometry"] = web.simplify(30)
+    web = web[~web.is_empty].to_crs(4326)
+    web.to_file(WEB / "ems_2017.geojson", driver="GeoJSON", COORDINATE_PRECISION=5)
     print(tabla.to_string(index=False))
 
 

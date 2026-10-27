@@ -1,8 +1,9 @@
-"""Indicadores por distrito y departamento, y datos para la web (Parte 1 de la Tarea 3).
+"""Indicadores por distrito y provincia de Piura, y datos para la web (Parte 1 de la Tarea 3).
 
     .venv/Scripts/python.exe scripts/analizar_datos.py
 
-Requiere haber corrido obtener_limites.py, inventario_gfm.py, procesar_gfm.py y edificios_afectados.py.
+Requiere haber corrido obtener_limites.py, inventario_gfm.py, procesar_gfm.py, edificios_afectados.py,
+validar_gfm_ems.py y obtener_huaicos.py.
 
 Indicadores de GFM por distrito y evento:
 - inund_max_km2: la mayor superficie inundada en una sola fecha, ya descontada el agua habitual
@@ -22,7 +23,7 @@ Corrección de área: GFM usa la proyección Equi7 (azimutal equidistante centra
 agranda las áreas lejos del centro en un factor c/sen(c), con c la distancia angular al centro
 (un 2 % en la costa peruana). Las superficies se dividen por ese factor.
 
-Escribe datos/procesados/indicadores_distrito.csv y, en web/data/: distritos.geojson, serie_gfm.json,
+Escribe datos/procesados/indicadores_distrito.csv y, en web/data/: distritos.geojson, serie.json,
 indeci.json y resumen.json.
 """
 import json
@@ -41,6 +42,8 @@ CENTRO_EQUI7 = (-60.5, -14.0)
 UMBRAL_KM2 = 0.1
 EVENTOS = ("2017", "2023")
 REFERENCIA = "2022"
+RADIO_HUAICO_M = 160  # dos píxeles de 80 m alrededor de cada punto de INGEMMET
+COBERTURA_MIN = 0.9  # "última fecha": la última pasada que vio al menos el 90 % de Piura
 
 
 def registros(df):
@@ -72,13 +75,29 @@ def union_por_distrito(distritos, evento, minimo=2, referencia=None):
     return total
 
 
+def huaicos_con_agua(evento):
+    """Puntos de huaico de INGEMMET con agua anómala del radar a menos de RADIO_HUAICO_M."""
+    puntos = gpd.read_file(WEB / "huaicos_ingemmet.geojson")
+    puntos = puntos[puntos["huaico"]]
+    vistos = np.zeros(len(puntos), dtype=bool)
+    for tif in sorted((PROC / "gfm_80m").glob(f"{evento}_*.tif")):
+        with rasterio.open(tif) as ds, \
+                rasterio.open(tif.parent / tif.name.replace(evento, REFERENCIA, 1)) as ref:
+            agua = (ds.read(1) >= 2) & (ref.read(1) == 0)
+            zonas = puntos.to_crs(ds.crs).buffer(RADIO_HUAICO_M)
+            marca = rasterize(((g, i + 1) for i, g in enumerate(zonas)), out_shape=agua.shape,
+                              transform=ds.transform, fill=0, dtype="uint16", all_touched=True)
+        vistos[np.unique(marca[agua & (marca > 0)]) - 1] = True
+    return int(vistos.sum()), len(puntos)
+
+
 def main():
     distritos = gpd.read_file(PROC / "distritos_estudio.gpkg")
-    centros = distritos.to_crs("EPSG:32718").centroid.to_crs(4326)
+    centros = distritos.to_crs("EPSG:32717").centroid.to_crs(4326)
     distritos["factor_equi7"] = factor_equi7(centros.x.values, centros.y.values)
 
     serie = pd.read_csv(PROC / "gfm_distrito_fecha.csv", dtype={"UBIGEO": str, "evento": str})
-    serie = serie.merge(distritos[["UBIGEO", "NOMBDEP", "factor_equi7"]], on="UBIGEO")
+    serie = serie.merge(distritos[["UBIGEO", "NOMBPROV", "factor_equi7"]], on="UBIGEO")
     for col in ("inundado_km2", "observado_km2"):
         serie[col] = serie[col] / serie["factor_equi7"]
     habitual = serie[serie["evento"] == REFERENCIA].groupby("UBIGEO")["inundado_km2"].median()
@@ -105,16 +124,17 @@ def main():
             ind.loc[sel, col] = ind.loc[sel, "UBIGEO"].map(dict(zip(distritos["UBIGEO"], valores)))
     ind["agua_habitual_km2"] = ind["UBIGEO"].map(dict(zip(distritos["UBIGEO"], agua_habitual)))
     ind.loc[ind["inund_max_km2"] < UMBRAL_KM2, "fecha_max"] = ""
-    ind = ind.merge(distritos[["UBIGEO", "NOMBDEP", "NOMBPROV", "NOMBDIST", "area_km2"]], on="UBIGEO")
+    ind = ind.merge(distritos[["UBIGEO", "NOMBPROV", "NOMBDIST", "area_km2"]], on="UBIGEO")
     ind["pct_max"] = 100 * ind["inund_max_km2"] / ind["area_km2"]
+    ind["pct_anom"] = 100 * ind["inund_anom_km2"] / ind["area_km2"]
     ind.to_csv(PROC / "indicadores_distrito.csv", index=False, encoding="utf-8")
 
     # Web: distritos con indicadores en columnas por evento
     ancho = ind.pivot(index="UBIGEO", columns="evento",
-                      values=["inund_anom_km2", "inund_max_km2", "inund_union_km2", "pct_max", "fecha_max",
-                              "fechas_con_agua"])
+                      values=["inund_anom_km2", "inund_max_km2", "inund_union_km2", "pct_max", "pct_anom",
+                              "fecha_max", "fechas_con_agua"])
     ancho.columns = [f"{v}_{e}" for v, e in ancho.columns]
-    web = distritos[["UBIGEO", "NOMBDEP", "NOMBPROV", "NOMBDIST", "area_km2", "geometry"]].merge(
+    web = distritos[["UBIGEO", "NOMBPROV", "NOMBDIST", "area_km2", "geometry"]].merge(
         ancho.reset_index(), on="UBIGEO", how="left")
     web["agua_habitual_km2"] = web["UBIGEO"].map(dict(zip(distritos["UBIGEO"], agua_habitual)))
     # El pivote mezcla fechas y números (columnas object): se fuerzan a número para que el JSON no lleve texto.
@@ -125,41 +145,83 @@ def main():
             web[c] = pd.to_numeric(web[c]).fillna(0).astype(int)
         elif c.startswith("fecha_max"):
             web[c] = web[c].fillna("")
-    web["geometry"] = web.to_crs("EPSG:32718").simplify(150).to_crs(4326)
+    web["geometry"] = web.to_crs("EPSG:32717").simplify(120).to_crs(4326)
     WEB.mkdir(parents=True, exist_ok=True)
     web.to_file(WEB / "distritos.geojson", driver="GeoJSON", COORDINATE_PRECISION=5)
 
-    # Serie por departamento y fecha (solo la parte observada ese día)
-    dep = (serie.groupby(["evento", "fecha_peru", "NOMBDEP"], as_index=False)
-           [["inundado_km2", "anomalo_km2", "observado_km2"]].sum())
-    area_dep = distritos.groupby("NOMBDEP")["area_km2"].sum()
-    dep["pct_observado"] = 100 * dep["observado_km2"] / dep["NOMBDEP"].map(area_dep)
-    dep = dep.round(3)
-    (WEB / "serie_gfm.json").write_text(json.dumps(registros(dep), ensure_ascii=False), encoding="utf-8")
+    # Serie por fecha: km² anómalos de cada distrito (null si el radar no lo vio ese día) y % de Piura observado
+    area_total = distritos["area_km2"].sum()
+    serie_web, total = {}, []
+    for evento, g in serie.groupby("evento"):
+        fechas = sorted(g["fecha_peru"].unique())
+        tabla = g.pivot_table(index="UBIGEO", columns="fecha_peru", values="anomalo_km2", aggfunc="sum")
+        tabla = tabla.reindex(columns=fechas).round(2)
+        obs = g.groupby("fecha_peru")["observado_km2"].sum().reindex(fechas)
+        serie_web[evento] = {
+            "fechas": fechas,
+            "observado_pct": (100 * obs / area_total).round(1).tolist(),
+            "distritos": {u: [None if pd.isna(v) else v for v in fila] for u, fila in tabla.iterrows()},
+        }
+        dia = g.groupby("fecha_peru", as_index=False)[["anomalo_km2", "observado_km2"]].sum()
+        dia["evento"] = evento
+        total.append(dia)
+    (WEB / "serie.json").write_text(json.dumps(serie_web, ensure_ascii=False, allow_nan=False), encoding="utf-8")
+    total = pd.concat(total, ignore_index=True)
 
-    indeci = pd.read_csv(PROC / "indeci_danos_departamento.csv")
-    (WEB / "indeci.json").write_text(json.dumps({
-        "departamento": json.loads(indeci.to_json(orient="records", force_ascii=False)),
-        "mensual_2023": json.loads(pd.read_csv(PROC / "indeci_2023_mensual.csv").to_json(orient="records"))},
-        ensure_ascii=False), encoding="utf-8")
+    indeci = pd.read_csv(PROC / "indeci_danos_departamento.csv", dtype={"evento": str})
+    indeci = indeci[indeci["departamento"] == "PIURA"]
+    (WEB / "indeci.json").write_text(json.dumps(registros(indeci), ensure_ascii=False, allow_nan=False),
+                                     encoding="utf-8")
 
-    edificios = pd.concat([pd.read_csv(PROC / f"edificios_{z}.csv") for z in ("piura", "trujillo")])
-    por_dep = (ind.groupby(["evento", "NOMBDEP"])
-               .agg(inund_anom_km2=("inund_anom_km2", "sum"), inund_union_km2=("inund_union_km2", "sum"),
-                    agua_habitual_km2=("agua_habitual_km2", "sum"),
-                    distritos_con_agua=("inund_anom_km2", lambda s: int((s >= UMBRAL_KM2).sum())))
-               .round(2).reset_index())
-    pico_dep = dep.loc[dep.groupby(["evento", "NOMBDEP"])["anomalo_km2"].idxmax(),
-                       ["evento", "NOMBDEP", "fecha_peru", "anomalo_km2"]]
+    inv = pd.read_csv(PROC / "gfm_inventario.csv", dtype={"evento": str})
+    por_prov = (ind.groupby(["evento", "NOMBPROV"])
+                .agg(inund_anom_km2=("inund_anom_km2", "sum"), inund_union_km2=("inund_union_km2", "sum"),
+                     agua_habitual_km2=("agua_habitual_km2", "sum"),
+                     distritos_con_agua=("inund_anom_km2", lambda s: int((s >= UMBRAL_KM2).sum())))
+                .round(2).reset_index())
+    resumen_evento = {}
+    for evento in EVENTOS:
+        d = ind[ind["evento"] == evento]
+        t = total[total["evento"] == evento]
+        pico = t.loc[t["anomalo_km2"].idxmax()]
+        completas = t[t["observado_km2"] >= COBERTURA_MIN * area_total]
+        ultimo = completas.sort_values("fecha_peru").iloc[-1]
+        resumen_evento[evento] = {
+            "escenas": int((inv["evento"] == evento).sum()), "fechas": int(inv.loc[inv["evento"] == evento,
+                                                                                  "fecha_peru"].nunique()),
+            "inund_anom_km2": round(d["inund_anom_km2"].sum(), 1),
+            "inund_union_km2": round(d["inund_union_km2"].sum(), 1),
+            "distritos_con_agua": int((d["inund_anom_km2"] >= UMBRAL_KM2).sum()),
+            "pico_fecha": pico["fecha_peru"], "pico_km2": round(float(pico["anomalo_km2"]), 1),
+            "ultima_fecha": ultimo["fecha_peru"], "ultima_km2": round(float(ultimo["anomalo_km2"]), 1),
+        }
+    resumen_evento[REFERENCIA] = {
+        "escenas": int((inv["evento"] == REFERENCIA).sum()),
+        "fechas": int(inv.loc[inv["evento"] == REFERENCIA, "fecha_peru"].nunique()),
+        "agua_habitual_km2": round(float(agua_habitual.sum()), 1),
+    }
+
+    flujos = gpd.read_file(WEB / "huaicos_ingemmet.geojson")
+    ems = gpd.read_file(WEB / "ems_2017.geojson")
+    ems_km2 = ems[ems["tipo"] == "inundacion"].to_crs("EPSG:32717").union_all().area / 1e6  # AOIs unidas, sin doble conteo
+    vistos = {e: huaicos_con_agua(e) for e in EVENTOS}
     resumen = {
-        "por_departamento": registros(por_dep),
-        "pico_departamento": registros(pico_dep.rename(columns={"fecha_peru": "fecha", "anomalo_km2": "km2"})
-                                       .round(2)),
-        "edificios": registros(edificios),
-        "validacion": registros(pd.read_csv(PROC / "validacion_gfm_ems.csv")),
+        "area_km2": round(area_total, 1), "distritos": len(distritos),
+        "eventos": resumen_evento,
+        "por_provincia": registros(por_prov),
         "top_distritos": {e: registros(ind[ind["evento"] == e].nlargest(10, "inund_anom_km2")
-                                       [["NOMBDEP", "NOMBDIST", "inund_anom_km2", "inund_union_km2",
+                                       [["NOMBPROV", "NOMBDIST", "inund_anom_km2", "inund_union_km2",
                                          "agua_habitual_km2", "fecha_max"]].round(2)) for e in EVENTOS},
+        "edificios": registros(pd.read_csv(PROC / "edificios_piura.csv"))[0],
+        "validacion": registros(pd.read_csv(PROC / "validacion_gfm_ems.csv")),
+        "ems_inundado_km2": round(ems_km2, 1),
+        "indeci": {r["evento"]: r for r in registros(indeci)},
+        "huaicos": {
+            "flujos": len(flujos), "huaicos": int(flujos["huaico"].sum()),
+            "por_provincia_tipo": registros(flujos.groupby(["provincia", "tipo"]).size()
+                                            .rename("n").reset_index()),
+            "con_agua_radar": {e: {"puntos": v[0], "de": v[1]} for e, v in vistos.items()},
+        },
     }
     hallazgos = PROC / "hallazgos.json"  # redactados a mano con las cifras de esta salida
     if hallazgos.exists():
@@ -167,12 +229,13 @@ def main():
     (WEB / "resumen.json").write_text(json.dumps(resumen, ensure_ascii=False, indent=1, allow_nan=False),
                                       encoding="utf-8")
 
-    print(por_dep.to_string(index=False))
-    print(pico_dep.round(2).to_string(index=False))
+    print(json.dumps(resumen_evento, ensure_ascii=False, indent=1))
+    print(por_prov.to_string(index=False))
+    print("Huaicos de INGEMMET con agua del radar cerca:", vistos)
     for e in EVENTOS:
         print(f"\nTop distritos {e} (inundación anómala):")
         print(ind[ind["evento"] == e].nlargest(10, "inund_anom_km2")
-              [["NOMBDEP", "NOMBDIST", "inund_anom_km2", "inund_union_km2", "agua_habitual_km2", "fecha_max",
+              [["NOMBPROV", "NOMBDIST", "inund_anom_km2", "inund_union_km2", "agua_habitual_km2", "fecha_max",
                 "fechas_con_agua"]].round(2).to_string(index=False))
 
 

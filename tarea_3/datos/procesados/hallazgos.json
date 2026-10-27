@@ -1,14 +1,20 @@
 [
   {
-    "titulo": "1. El agua se quedó en el desierto del norte, por semanas",
-    "texto": "Piura y Lambayeque concentran el 97 % de la inundación anómala detectada por radar en 2017 (450 de 464 km²) y el 99 % en 2023 (332 de 336 km²). Solo Sechura suma 194 km² en 2017 y 183 km² en 2023. El agua no se fue con la lluvia: en Piura el máximo de 2017 fue el 4 de abril (240 km²), una semana después del desborde del río Piura del 27 de marzo, y el de 2023 llegó recién el 9 de mayo (228 km²), dos meses después del ciclón Yaku; a fines de junio aún quedaban 165 km²."
+    "cifra": "72",
+    "unidad": "%",
+    "titulo": "1. El agua se quedó en el desierto de Sechura, por semanas",
+    "texto": "La provincia de Sechura concentró el 72 % del agua anómala de 2017 (218 de 304 km²) y el 74 % de la de 2023 (188 de 255 km²). El agua no se fue con la lluvia: el día con más agua de 2017 fue el 4 de abril (240 km²), una semana después del desborde del río Piura, y el de 2023 llegó recién el 9 de mayo (228 km²), dos meses después del ciclón Yaku; el 26 de junio de 2023 aún quedaban 165 km²."
   },
   {
-    "titulo": "2. El radar no ve dónde vive la gente",
-    "texto": "Frente a la delimitación manual de Copernicus de 2017, el radar detectó el 46 % de la inundación del Bajo Piura (llanura agrícola), entre 10 y 16 % en Sechura y 0 % en las zonas urbanas y de huaicos de Trujillo y Lima. En las zonas de detalle, Copernicus ubica 4 908 edificios en zonas inundadas, de huaico o en manzanas dañadas; el radar, solo 23. La Libertad, Áncash y Lima sumaron 132 711 damnificados en 2017 según INDECI, pero apenas 14 km² de inundación detectada."
+    "cifra": "14",
+    "unidad": "de \u0001 \u0002",
+    "titulo": "2. El radar no ve dónde vive la gente, ni los huaicos",
+    "texto": "Frente a la delimitación manual de Copernicus de 2017, el radar detectó el 46 % de la inundación del Bajo Piura, entre 10 y 13 % en Sechura, y 8 % y 0 % en los dos sectores mapeados de la ciudad de Piura. De \u0001 \u0002 edificios en zonas inundadas o manzanas dañadas, marcó 14. Y ninguno de los 455 puntos de huaico de INGEMMET tuvo agua del radar cerca: los huaicos de Canchaque o Paimas solo se conocen por INDECI, INGEMMET y la prensa."
   },
   {
-    "titulo": "3. En 2023 hubo menos agua, y el daño cayó mucho más",
-    "texto": "La inundación anómala de 2023 fue el 72 % de la de 2017 (336 frente a 464 km²), pero en los cinco departamentos los damnificados bajaron al 38 % (101 120 frente a 267 039) y las viviendas destruidas al 20 % (11 917 frente a 59 650), aun cuando la cifra de 2023 incluye todas las emergencias del semestre. La extensión del agua no basta para explicar el daño: en 2023 Lambayeque tuvo más damnificados que Piura (42 962 frente a 29 493) con menos de un tercio de su superficie inundada."
+    "cifra": "84",
+    "unidad": "%",
+    "titulo": "3. En 2023 hubo casi tanta agua, pero lejos de la ciudad",
+    "texto": "El agua anómala de 2023 fue el 84 % de la de 2017, y los afectados según INDECI, el 80 %. Pero los damnificados bajaron al 33 % (2\u0001 \u0002 frente a 8\u0001 \u0002) y las viviendas destruidas al 11 % (\u0001 \u0002 frente a 2\u0001 \u0002). La diferencia está en dónde cayó el agua: en la provincia de Piura, donde está la ciudad, el radar vio 9 km² en 2023 frente a 28 km² en 2017; el resto se quedó en el desierto de Sechura y en las quebradas de Talara y Paita."
   }
 ]

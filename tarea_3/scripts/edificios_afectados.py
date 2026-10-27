@@ -1,10 +1,11 @@
-"""Edificios afectados por inundaciones y huaicos en las zonas de detalle (Piura y Trujillo), 2017 y 2023.
+"""Edificios afectados por inundaciones en la zona de detalle de Piura (ciudad y Bajo Piura), 2017 y 2023.
 
     .venv/Scripts/python.exe scripts/edificios_afectados.py
 
 Cruza cada edificio de Microsoft (scripts/obtener_edificios.py) con tres fuentes independientes:
 1. Copernicus EMS 2017 (scripts/obtener_ems_2017.py): polígonos delimitados a mano sobre imágenes de
-   alta resolución, "Flooded Area" (inundación) y "Mudflow" (huaico), y manzanas con grado de daño.
+   alta resolución, "Flooded Area" (inundación) y "Mudflow" (huaico; en Piura EMS no delimitó ninguno),
+   y manzanas con grado de daño.
 2. GFM 2017: unión de todas las fechas con agua anómala entre dic-2016 y may-2017 (radar, 20 m).
 3. GFM 2023: lo mismo entre ene-2023 y jun-2023. En 2023 no hubo activación de Copernicus EMS.
 
@@ -14,8 +15,7 @@ aún no existían, y eso se declara como limitación.
 
 Escribe en datos/procesados/:
 - edificios_{zona}.csv: conteos por fuente y categoría.
-- web: ../web/data/edificios_{zona}.geojson (edificios afectados en algún evento + contexto cercano)
-  y ../web/data/zonas_{zona}.geojson (polígonos de inundación y huaico de cada fuente).
+- web: ../web/data/edificios_{zona}.geojson (edificios afectados en algún evento + contexto cercano).
 """
 import os
 
@@ -44,8 +44,8 @@ BASE = Path(__file__).resolve().parent.parent
 ORIG = BASE / "datos" / "originales"
 PROC = BASE / "datos" / "procesados"
 WEB = BASE / "web" / "data"
-CRS_METROS = "EPSG:32717"  # UTM 17S: Piura y Trujillo
-ZONAS = {"piura": (-80.80, -5.45, -80.58, -5.12), "trujillo": (-79.14, -8.16, -78.98, -8.02)}
+CRS_METROS = "EPSG:32717"  # UTM 17S
+ZONAS = {"piura": (-80.80, -5.45, -80.58, -5.12)}
 DANADO = ["Negligible to slight damage", "Moderately Damaged", "Highly Damaged", "Completely Destroyed"]
 GRADO_ES = {"Negligible to slight damage": "leve", "Moderately Damaged": "moderado",
             "Highly Damaged": "grave", "Completely Destroyed": "destruido"}
@@ -151,16 +151,7 @@ def main():
                         "afectado_2017", "afectado_2023", "geometry"]].copy()
         web["ems2017_grado"] = web["ems2017_grado"].fillna("")
         web.to_file(WEB / f"edificios_{zona}.geojson", driver="GeoJSON", COORDINATE_PRECISION=6)
-
-        capas = [crisis.assign(fuente="Copernicus EMS 2017")[["fuente", "tipo", "geometry"]]]
-        for ev, g in gfm.items():
-            if len(g):
-                capas.append(gpd.GeoDataFrame({"fuente": [f"GFM {ev}"], "tipo": ["inundacion"]},
-                                              geometry=[g.union_all()], crs=4326))
-        zonas_web = pd.concat(capas, ignore_index=True)
-        zonas_web["geometry"] = zonas_web.to_crs(CRS_METROS).simplify(8).to_crs(4326)
-        zonas_web.to_file(WEB / f"zonas_{zona}.geojson", driver="GeoJSON", COORDINATE_PRECISION=6)
-        print(f"  web: {len(web):,} edificios, {len(zonas_web)} capas de zonas")
+        print(f"  web: {len(web):,} edificios")
 
 
 if __name__ == "__main__":

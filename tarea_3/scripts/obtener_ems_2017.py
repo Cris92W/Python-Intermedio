@@ -6,8 +6,9 @@ Copernicus EMS (servicio de mapeo rápido de emergencias de la UE) se activó el
 pedido de DG ECHO. Sus analistas delimitaron a mano el área inundada (DELINEATION) y el grado de daño
 en edificios y vías (GRADING) sobre imágenes de alta resolución. Son la referencia para validar GFM.
 
-Baja los paquetes vectoriales de cada área (AOI) a datos/originales/copernicus_ems_2017/, salvo
-Iquitos, que está fuera del estudio. Página de la activación:
+Baja a datos/originales/copernicus_ems_2017/ los paquetes vectoriales de las áreas (AOI) del
+departamento de Piura: Sullana, Piura, Parachique, Piura norte, Salinas, Piura este, Piura oeste y
+Los Ejidos. Página de la activación:
 https://mapping.emergency.copernicus.eu/activations/EMSR199/
 """
 import re
@@ -19,14 +20,15 @@ import requests
 BASE = Path(__file__).resolve().parent.parent
 DESTINO = BASE / "datos" / "originales" / "copernicus_ems_2017"
 PAGINA = "https://mapping.emergency.copernicus.eu/activations/EMSR199/"
-FUERA_DEL_ESTUDIO = ("09IQUITOS",)
+AOIS_PIURA = ("08SULLANA", "10PIURA", "11PARACHIQUE", "12PIURANORTH", "14SALINAS",
+              "15PIURAEAST", "16PIURAWEST", "19LOSEJIDOS")
 CABECERAS = {"User-Agent": "tarea3-unmsm (https://github.com/Cris92W/Python-Intermedio)"}
 
 
 def main():
     html = requests.get(PAGINA, headers=CABECERAS, timeout=60).text
     urls = sorted(set(re.findall(r"https://[^\"']+/EMSR199_[^\"']+_vector\.zip", html)))
-    urls = [u for u in urls if not any(f in u for f in FUERA_DEL_ESTUDIO)]
+    urls = [u for u in urls if any(f"EMSR199_{a}_" in u for a in AOIS_PIURA)]
     DESTINO.mkdir(parents=True, exist_ok=True)
 
     for url in urls:

@@ -1,0 +1,488 @@
+COD_INV,UBIGEO,NM_PROV,distrito,sector,FECHA,NOM_PELIGRO,estudio,tipo,huaico,anio,provincia,lon,lat
+06081010024,200304,Huancabamba,Huarmaca,Qda. Huaychau,1244005200000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.37153,-5.83115
+14030810067,200404,Morropon,La Matanza,Co.El Virrey,1206766800000.0,1000|1500|1504,,Flujo de detritos,True,2008,MORROPÓN,-79.96224,-5.52638
+14030810069,200404,Morropon,La Matanza,Co.Ñaupe,1206766800000.0,1000|1500|1502,,Avalancha de detritos,False,2008,MORROPÓN,-79.96577,-5.57297
+14030810107,200404,Morropon,La Matanza,Cerro Ñaupe,1244091600000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.97046,-5.56771
+14030810108,200404,Morropon,La Matanza,Cerro Ñaupe,1244091600000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.97206,-5.55129
+14030810109,200404,Morropon,La Matanza,,1244091600000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.97076,-5.55895
+14030810110,200404,Morropon,La Matanza,El Virrey,1244091600000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.97791,-5.53487
+14030810111,200404,Morropon,La Matanza,Km. 156+837,1244091600000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.98258,-5.53021
+16030110001,200201,Ayabaca,Ayabaca,Sanamaca,1039842000000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-73.63427,-4.43425
+20010410001,200104,Piura,Castilla,Alto Mirador,1251090000000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,PIURA,-80.60969,-5.14842
+20010410003,200104,Piura,Castilla,Quebrada de Pampa Papayo,1251090000000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,PIURA,-80.59693,-5.06963
+20010910002,200109,Piura,La Arena,Lomas de sal,1251003600000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,PIURA,-80.76854,-5.30944
+20011110003,200111,Piura,Las Lomas,,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PIURA,-80.20504,-4.6159
+20011110005,200111,Piura,Las Lomas,Quebrada del Salado,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PIURA,-80.26987,-4.6534
+20011110008,200111,Piura,Las Lomas,Quebrada del Salado,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PIURA,-80.31425,-4.64344
+20011110010,200111,Piura,Las Lomas,San Lorenzo,1039669200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PIURA,-80.21774,-4.65971
+20011110011,200111,Piura,Las Lomas,Pampa Elera - Quebrada El Muerto,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PIURA,-80.14991,-4.6952
+20011110013,200111,Piura,Las Lomas,Quebrada Las Lomas,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PIURA,-80.24954,-4.66173
+20011110015,200111,Piura,Las Lomas,La Menta,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PIURA,-80.1019,-4.71725
+20011110016,200111,Piura,Las Lomas,,1229230800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2008,PIURA,-80.08642,-4.71786
+20011110017,200111,Piura,Las Lomas,,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PIURA,-80.07676,-4.72317
+20011110018,200111,Piura,Las Lomas,Cerro las Peñas,1249707600000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.1556,-4.68955
+20011110019,200111,Piura,Las Lomas,"Cerro rincón Seco, sector Pampa Elera Alta",1249707600000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.12472,-4.70661
+20011110020,200111,Piura,Las Lomas,"Cerro Fraile, margen izquierda Qda. Yangas",1249707600000.0,1000|1500|1504,GA32: Estudios de Riesgos Geológicos en la regines Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.07964,-4.72001
+20011110022,200111,Piura,Las Lomas,Quebrada del Salado,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PIURA,-80.28119,-4.65569
+20011110023,200111,Piura,Las Lomas,Quebrada de Pichones,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PIURA,-80.33939,-4.6523
+20011110025,200111,Piura,Las Lomas,Quebrada Rincón Seco,1249707600000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.14549,-4.69905
+20011410001,200401,Morropon,Chulucanas,Quebrada el Muerto,1242450000000.0,1000|1500|1505,,Flujo de lodo,True,2009,MORROPÓN,-80.23471,-4.97433
+20011410006,200114,Piura,Tambo Grande,"Puente Valle Hermoso, Qda. Parales",1249621200000.0,1000|1500|1504,Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.55661,-4.93844
+20011410007,200114,Piura,Tambo Grande,Quebrada Honda,1249621200000.0,1000|1500|1504,Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.52286,-4.92235
+20011410008,200114,Piura,Tambo Grande, Quebrada Salto,1249621200000.0,1000|1500|1504,Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.49973,-4.90515
+20011410010,200114,Piura,Tambo Grande,"Puente Manco Inca, quebrada Chica",1249621200000.0,1000|1500|1504,Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.44099,-4.88161
+20011410011,200114,Piura,Tambo Grande,"Puente Pedregal I, quebrada de los Luises",1249621200000.0,1000|1500|1504,Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.39039,-4.88794
+20011410012,200114,Piura,Tambo Grande,"Puente Pedregal, quebrada Arcilla",1249621200000.0,1000|1500|1504,Estudio de Riesgos Geológicos de las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.37403,-4.88668
+20011410013,200114,Piura,Tambo Grande,"Puente Pedregal II, Km 1059",1249621200000.0,1000|1500|1504,Estudio de Riesgos Geológicos de las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.3527,-4.89799
+20011410014,200114,Piura,Tambo Grande,Puente Carneros,1249621200000.0,1000|1500|1505,Estudio de Riesgos Geológicos de las regiones Piura y Tumbes,Flujo de lodo,True,2009,PIURA,-80.30868,-4.85727
+20011410015,200114,Piura,Tambo Grande,Puente Carneritos,1249621200000.0,1000|1500|1504,Estudio de Reisgos Geológicos de las regiones Piura y Tumbes,Flujo de detritos,True,2009,PIURA,-80.30256,-4.8509
+20011510001,200101,Piura,Piura,,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,PIURA,-80.7039,-5.16542
+20020110008,200201,Ayabaca,Ayabaca,Quebrada Linderos,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.74394,-4.58639
+20020110044,200201,Ayabaca,Ayabaca,El Tambo,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.61288,-4.84047
+20020110045,200201,Ayabaca,Ayabaca,Tomayaco - El Tambo,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.61725,-4.84385
+20020110049,200201,Ayabaca,Ayabaca,Parcochaca,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.61641,-4.81605
+20020110052,200201,Ayabaca,Ayabaca,Barro Negro,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.62148,-4.76264
+20020110087,200201,Ayabaca,Ayabaca,San Antonio de Mostaza,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.69042,-4.53787
+20020110098,200201,Ayabaca,Ayabaca,Sector de Joras,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.68719,-4.57363
+20020110111,200201,Ayabaca,Ayabaca,San Sebastián,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.63408,-4.85371
+20020110112,200201,Ayabaca,Ayabaca,San Sebastián,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.63686,-4.85375
+20020110116,200201,Ayabaca,Ayabaca,San Sebastián,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.64461,-4.85179
+20020110125,200201,Ayabaca,Ayabaca,Sector Barro Negro,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.60872,-4.79714
+20020110139,200201,Ayabaca,Ayabaca,Quebrada Ulunche - Arrepite Bajo,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.83414,-4.70088
+20020110148,200201,Ayabaca,Ayabaca,Sausal,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.64303,-4.43919
+20020110149,200201,Ayabaca,Ayabaca,Sausal,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.63959,-4.4392
+20020110150,200201,Ayabaca,Ayabaca,Sausal,1039842000000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.63028,-4.44053
+20020110161,200201,Ayabaca,Ayabaca,Quebrada Matala,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.79135,-4.74429
+20020110165,200201,Ayabaca,Ayabaca,Sausal,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.76148,-4.75108
+20020110174,200201,Ayabaca,Ayabaca,Sector Las Pircas,1249880400000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.7958,-4.52153
+20020110184,200201,Ayabaca,Ayabaca,"Tributario margen derecha qda. Aragoto, Cerro Balcan",1249966800000.0,1000|1500|1504,GA32: Estudio de riegos Geológicos en  las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.57458,-4.65499
+20020110190,200201,Ayabaca,Ayabaca,Quebrada de Limón,1250053200000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.61507,-4.77464
+20020110192,200204,Ayabaca,Lagunas,Quebrada Tondopa,1039842000000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.82663,-4.73306
+20020110202,200201,Ayabaca,Ayabaca,Tomayaco,1039669200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.60241,-4.84168
+20020110215,200201,Ayabaca,Ayabaca,Huachuma,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.73695,-4.51815
+20020210006,200202,Ayabaca,Frias,Cerro Cardo,1243659600000.0,1000|1500|1503,,Avalancha de rocas,False,2009,AYABACA,-80.02457,-4.98983
+20020210007,200202,Ayabaca,Frias,Quebrada Huabo,1243659600000.0,1000|1500|1504,,Flujo de detritos,True,2009,AYABACA,-80.04682,-5.01526
+20020210008,200202,Ayabaca,Frias,Margen derecha del río Yapatera,1243659600000.0,1000|1500|1504,,Flujo de detritos,True,2009,AYABACA,-80.04203,-5.00369
+20020210009,200202,Ayabaca,Frias,Margen derecha del río Yapatera,1243659600000.0,1000|1500|1504,,Flujo de detritos,True,2009,AYABACA,-80.04023,-5.00052
+20020210010,200202,Ayabaca,Frias,,1243659600000.0,1000|1500|1504,,Flujo de detritos,True,2009,AYABACA,-80.04878,-5.0132
+20020210013,200202,Ayabaca,Frias,"Pampa Ramada, Qda. Peña Blanca",1250312400000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-80.01314,-4.97827
+20020210014,200202,Ayabaca,Frias,Sector Limon,1250312400000.0,1000|1500|1503,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Avalancha de rocas,False,2009,AYABACA,-79.9925,-4.94618
+20020210020,200202,Ayabaca,Frias,Cerro Pucara,1250312400000.0,1000|1500|1503,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Avalancha de rocas,False,2009,AYABACA,-79.95302,-4.96207
+20020210021,200202,Ayabaca,Frias,"Cerro La Cruz, margen izquierda río Huaitaco",1250312400000.0,1000|1500|1503,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Avalancha de rocas,False,2009,AYABACA,-79.93727,-4.97508
+20020210022,200202,Ayabaca,Frias,"Cerro de Tuno, sector El Molino",1250312400000.0,1000|1500|1503,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Avalancha de rocas,False,2009,AYABACA,-79.9406,-4.97459
+20020210023,200202,Ayabaca,Frias,"Cerro Negro, margen dereha rio San Jorge",1250312400000.0,1000|1500|1503,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Avalancha de rocas,False,2009,AYABACA,-79.9933,-5.01493
+20020210025,200202,Ayabaca,Frias,"Parihuanas Bajo, Qda. Parihuanas",1250485200000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.97147,-4.90356
+20020210026,200202,Ayabaca,Frias,Río Challe Grande,1250485200000.0,1000|1500|1504,GA32: Estudio de Riesgos Geologicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.95781,-4.91024
+20020210035,200202,Ayabaca,Frias,"Condorhuachina, Cerro Condor Lachina ",1250658000000.0,1000|1500|1503,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Avalancha de rocas,False,2009,AYABACA,-79.92523,-4.99944
+20020210036,200202,Ayabaca,Frias,Cerro condor Lachina,1250658000000.0,1000|1500|1503,GA32:Riesgos Geologicos en las regioens Piura y Tumbes,Avalancha de rocas,False,2009,AYABACA,-79.93787,-4.99223
+20020210038,200202,Ayabaca,Frias,,1243659600000.0,1000|1500|1504,,Flujo de detritos,True,2009,AYABACA,-80.03842,-4.99962
+20020310007,200203,Ayabaca,Jilili,Quebrada Cucuyas,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.84501,-4.46884
+20020310010,200203,Ayabaca,Jilili,Quebrada Los Corrales,1249880400000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.83346,-4.47667
+20020310012,200203,Ayabaca,Jilili,"Quebrada El Oso, margen izquierda río Calvas",1249880400000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en la regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.81893,-4.48805
+20020310013,200203,Ayabaca,Jilili,Área urbana de Jililí ,1604725200000.0,1000|1500|1503,"IT A7154: Evaluación de peligros geológicos por movimientos en masa en el área urbana de Jililí y alrededores, caseríos Bella Vista Alta y El Limón",Avalancha de rocas,False,2020,AYABACA,-79.8,-4.58
+20020410016,200204,Ayabaca,Lagunas,Quebrada Yerbabuena,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.8194,-4.74119
+20020410018,200204,Ayabaca,Lagunas,Loma de Macora,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.78421,-4.75831
+20020410023,200204,Ayabaca,Lagunas,"Cerro Pampa Grande ladera NE, Km23+461 carretera Tondopa-Lagunas ",1250139600000.0,1000|1500|1503,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Avalancha de rocas,False,2009,AYABACA,-79.85365,-4.78561
+20020510011,200204,Ayabaca,Lagunas,Quebrada Jacapa,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.86787,-4.69571
+20020510012,200205,Ayabaca,Montero,Quebrada de Agua,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.90653,-4.63703
+20020510013,200205,Ayabaca,Montero,C° Nogal,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.88059,-4.64879
+20020510015,200205,Ayabaca,Montero,Quebrada Tailiin,1249794000000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.88734,-4.64601
+20020510016,200205,Ayabaca,Montero,Quebrada Caña Brava Alta,1249794000000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.8539,-4.65141
+20020510027,200205,Ayabaca,Montero,Qda. La Esperanza y Qda Marmas,1604552400000.0,1000|1500|1504,"IT A7130: Evaluación de peligros geológicos por movimientos en masa en el área urbana de Montero, sector Loja y las quebradas Juan Pablo II, La Esperanza y Marmas",Flujo de detritos,True,2020,AYABACA,-79.82378,-4.62902
+20020610024,200206,Ayabaca,Pacaipampa,,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.67234,-4.99794
+20020610060,200206,Ayabaca,Pacaipampa,Quebrada El Silencio,1244005200000.0,1000|1500|1504,,Flujo de detritos,True,2009,AYABACA,-79.57929,-5.03064
+20020610062,200206,Ayabaca,Pacaipampa,Quebrada Panteón,1250053200000.0,1000|1500|1504,GA32: Estudio de Riesgo Geologicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.599,-4.85902
+20020610063,200206,Ayabaca,Pacaipampa,"Quebrada Papayal, sector Periqueria",1250053200000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.60892,-4.86757
+20020610064,200206,Ayabaca,Pacaipampa,Cerro Caña Brava,1250053200000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.61253,-4.87721
+20020610065,200206,Ayabaca,Pacaipampa,"Paredones, margen izquierda río Aranza",1250053200000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.61523,-4.88219
+20020610082,200206,Ayabaca,Pacaipampa,Algarrobo-Quebrada Huanta,1040187600000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.77069,-4.75376
+20020610096,200206,Ayabaca,Pacaipampa,Área urbana de Pacaipampa,1616734800000.0,1000|1500|1504,IT A7155: Evaluación de peligros geológicos por movimientos en masa en el área urbana de Pacaipampa,Flujo de detritos,True,2021,AYABACA,-79.6711,-4.99504
+20020710001,200207,Ayabaca,Paimas,Paimas,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.95166,-4.6253
+20020710007,200207,Ayabaca,Paimas,Quebrada Cajón,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.90551,-4.65428
+20020710008,200207,Ayabaca,Paimas,Quebrada la Zamba,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.90146,-4.66329
+20020710010,200207,Ayabaca,Paimas,Muleros,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.88949,-4.67128
+20020710011,200207,Ayabaca,Paimas,Quebrada Mulero,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.8865,-4.67635
+20020710014,200207,Ayabaca,Paimas,Paraje Grande,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.91783,-4.62919
+20020710015,200207,Ayabaca,Paimas,Quebrada Saucha,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.0773,-4.59201
+20020710016,200207,Ayabaca,Paimas,Sector Culqui,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.00467,-4.63327
+20020710019,200207,Ayabaca,Paimas,Sector Cardal-Qda. Perro Ahorcado,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.03233,-4.6185
+20020710020,200207,Ayabaca,Paimas," Quebrada Guirguil, Km 19+820",1249794000000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.96867,-4.62498
+20020710021,200207,Ayabaca,Paimas,"Sector Paimas, Km 16+532",1249794000000.0,1000|1500|1504,GA32: Estudios de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.9437,-4.63029
+20020710022,200207,Ayabaca,Paimas,Cerro Senorial,1249794000000.0,1000|1500|1503,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Avalancha de rocas,False,2009,AYABACA,-79.93189,-4.63173
+20020710023,200207,Ayabaca,Paimas,Sector Higueron,1039669200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.06038,-4.60797
+20020710025,200207,Ayabaca,Paimas,Sector Algodonal,,1000|1500|1504,IT A7093: Evaluación de peligros geológicos en el sector Algodonal.,Flujo de detritos,True,,AYABACA,-79.94762,-4.63597
+20020810002,200208,Ayabaca,Sapillica,Quebrada Huabal,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.06708,-4.73226
+20020810003,200208,Ayabaca,Sapillica,Sector Lagartera,1040187600000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.06442,-4.73869
+20020810004,200208,Ayabaca,Sapillica,Quebrada Tranca,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.05161,-4.75353
+20020810005,200208,Ayabaca,Sapillica,Quebrada Carrizillo,1040187600000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.04424,-4.76539
+20020810007,200208,Ayabaca,Sapillica,,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.04689,-4.7621
+20020810008,200208,Ayabaca,Sapillica,Cerro Huabal,1249707600000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-80.05885,-4.744
+20020810009,200208,Ayabaca,Sapillica,Quebrada Piedra Blanca,1249707600000.0,1000|1500|1504,Proyecto GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.97236,-4.8247
+20020810010,200208,Ayabaca,Sapillica,Quebrada de Nagay,1249707600000.0,1000|1500|1504,Proyecto GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.97805,-4.79599
+20020910002,200203,Ayabaca,Jilili,Quebrada Mallancoca,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.80028,-4.53373
+20020910007,200209,Ayabaca,Sicchez,Margen izquierda río Mallancoca,1249880400000.0,1000|1500|1504,GA32: Estudios de Riesgos Geológicos en las regioens Piura y Tumbes,Flujo de detritos,True,2009,AYABACA,-79.79595,-4.54179
+20021010001,200111,Piura,Las Lomas,La Puerta,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PIURA,-80.1984,-4.6044
+20021010002,200210,Ayabaca,Suyo,,1039582800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.19338,-4.59066
+20021010003,200210,Ayabaca,Suyo,Puente Palo Blanco,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.16385,-4.56664
+20021010004,200210,Ayabaca,Suyo,Sector la Copa,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.08424,-4.56588
+20021010006,200210,Ayabaca,Suyo,,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.99521,-4.50175
+20021010007,200210,Ayabaca,Suyo,,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.99406,-4.49911
+20021010008,200210,Ayabaca,Suyo,Chirinos,1040187600000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.9873,-4.48315
+20021010009,200210,Ayabaca,Suyo,,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.98638,-4.48086
+20021010010,200210,Ayabaca,Suyo,Puente Morocho III,1039582800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.98239,-4.47114
+20021010012,200210,Ayabaca,Suyo,,1039669200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.97269,-4.43828
+20021010014,200210,Ayabaca,Suyo,Puente Internacional,1039669200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.9682,-4.3937
+20021010016,200210,Ayabaca,Suyo,Caserio de Sulpampa / Ciruela,1039323600000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.9308,-4.42662
+20021010019,200210,Ayabaca,Suyo,Puente  Quemado,1039755600000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.86738,-4.41798
+20021010021,200210,Ayabaca,Suyo,,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.86366,-4.42774
+20021010022,200210,Ayabaca,Suyo,,1040101200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.85633,-4.44268
+20021010023,200210,Ayabaca,Suyo,,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.85497,-4.44908
+20021010024,200210,Ayabaca,Suyo,Quebrada Ancashcola,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.85384,-4.45306
+20021010025,200210,Ayabaca,Suyo,Carretera Surpampa - Chirinos,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,AYABACA,-79.93721,-4.44151
+20021010026,200210,Ayabaca,Suyo,km 1107 - Hacienda El Progreso,1039755600000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-80.1787,-4.57474
+20021010027,200210,Ayabaca,Suyo,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,AYABACA,-80.08531,-4.55094
+20021010028,200210,Ayabaca,Suyo,Quebrada Cuchicorral,1040533200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,AYABACA,-79.94967,-4.45459
+20021010029,200210,Ayabaca,Suyo,Caserío Santa Rosa,1604898000000.0,1000|1500|1504,"IT A7169: Evaluación de peligros geológicos y geohidrológicos por flujos de detritos, erosión fluvial y cárcavas en los caseríos Santa Rosa, El Limón y Tamarindo",Flujo de detritos,True,2020,AYABACA,-79.94668,-4.54855
+20030110025,200301,Huancabamba,Huancabamba,Qda. Unguio - Qda. El Ungulo,1243141200000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.44654,-5.24123
+20030110056,200301,Huancabamba,Huancabamba,Chamanán,1242882000000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.43986,-5.28551
+20030110065,200301,Huancabamba,Huancabamba,Huancabamba,1257483600000.0,1000|1500|1507,,Flujo de tierra,False,2009,HUANCABAMBA,-79.44804,-5.23542
+20030110071,200301,Huancabamba,Huancabamba,Quebrada Angostura,1242622800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.45985,-5.19747
+20030110076,200301,Huancabamba,Huancabamba,Quebrada Sauce Chico,1242795600000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.47245,-5.23283
+20030110091,200301,Huancabamba,Huancabamba,Qda. Ungulo,1576213200000.0,1000|1500|1504,IT A7016: Evaluación por Flujo de Detritos en la Quebrada Ungulo,Flujo de detritos,True,2019,HUANCABAMBA,-79.43336,-5.22681
+20030210002,200302,Huancabamba,Canchaque,Cabecera del río  Uchmalca,1243141200000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.57547,-5.37111
+20030210005,200302,Huancabamba,Canchaque,Puente Fierro,1243141200000.0,1000|1500|1503,,Avalancha de rocas,False,2009,HUANCABAMBA,-79.58181,-5.37298
+20030210016,200302,Huancabamba,Canchaque,Pueblo Libre - Huabal,1243314000000.0,1000|1500|1503,,Avalancha de rocas,False,2009,HUANCABAMBA,-79.64435,-5.39596
+20030210018,200302,Huancabamba,Canchaque,Cerro Pila,1243400400000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.66325,-5.29647
+20030210019,200302,Huancabamba,Canchaque,Silla,1243400400000.0,1000|1500|1503,,Avalancha de rocas,False,2009,HUANCABAMBA,-79.65254,-5.30816
+20030210025,200302,Huancabamba,Canchaque,Quebrada Limón,1680670800000.0,1000|1500|1504,INFORME DE EMERGENCIA Nº 1385 - 26/4/2023 / COEN - INDECI / 23:30 HORAS (Informe N° 116),Flujo de detritos,True,2023,HUANCABAMBA,-79.6016,-5.37284
+20030310001,200303,Huancabamba,El Carmen De La Frontera,Cerro Huirco,1247547600000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.44225,-5.01701
+20030310002,200303,Huancabamba,El Carmen De La Frontera,Cerros de Shimbe,1247547600000.0,1000|1500|1503,,Avalancha de rocas,False,2009,HUANCABAMBA,-79.45398,-5.01478
+20030310003,200303,Huancabamba,El Carmen De La Frontera,Cerro El Buitre,1247547600000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.43452,-5.04457
+20030310005,200303,Huancabamba,El Carmen De La Frontera,Cerro de Osos ,1247547600000.0,1000|1500|1503,,Avalancha de rocas,False,2009,HUANCABAMBA,-79.43728,-5.02016
+20030310007,200303,Huancabamba,El Carmen De La Frontera,Cerro Buitre,1247547600000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.43585,-5.05543
+20030310008,200303,Huancabamba,El Carmen De La Frontera,Cerro  Osos,1247547600000.0,1000|1500|1503,,Avalancha de rocas,False,2009,HUANCABAMBA,-79.43349,-5.02287
+20030310009,200303,Huancabamba,El Carmen De La Frontera,,1247547600000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.43228,-5.03824
+20030310010,200303,Huancabamba,El Carmen De La Frontera,,1247547600000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.42645,-5.0441
+20030310011,200303,Huancabamba,El Carmen De La Frontera,Cerro Peña Blanca,1247547600000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.43315,-5.05
+20030310012,200303,Huancabamba,El Carmen De La Frontera,Cerro Peña Blanca,1247547600000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.43404,-5.05769
+20030310013,200303,Huancabamba,El Carmen De La Frontera,Cerro Peña Blanca ,1247547600000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.41418,-5.06442
+20030310015,200303,Huancabamba,El Carmen De La Frontera,Cerro Huirco,1247547600000.0,1000|1500|1503,,Avalancha de rocas,False,2009,HUANCABAMBA,-79.44723,-5.01024
+20030410001,200304,Huancabamba,Huarmaca,,1194843600000.0,1000|1500|1504,,Flujo de detritos,True,2007,HUANCABAMBA,-79.35609,-5.86456
+20030410002,200304,Huancabamba,Huarmaca,,1194843600000.0,1000|1500|1504,,Flujo de detritos,True,2007,HUANCABAMBA,-79.37244,-5.83115
+20030410004,200304,Huancabamba,Huarmaca,,1207112400000.0,1000|1500|1503,,Avalancha de rocas,False,2008,HUANCABAMBA,-79.82662,-5.63647
+20030410007,200304,Huancabamba,Huarmaca,El Overal ,1207371600000.0,1000|1500|1505,,Flujo de lodo,True,2008,HUANCABAMBA,-79.59978,-5.93408
+20030410010,200304,Huancabamba,Huarmaca,Qda. Mal Paso,1244005200000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.35383,-5.8632
+20030410011,200304,Huancabamba,Huarmaca,Qda. Tasajeras,1244005200000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.37654,-5.8185
+20030410015,200304,Huancabamba,Huarmaca,Qda. Peña de León,1243918800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.48002,-5.78488
+20030410018,200304,Huancabamba,Huarmaca,Margen izquierda de la Qd. Hualapampa,1243918800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.46151,-5.78347
+20030410021,200304,Huancabamba,Huarmaca,cerro Fila,1243918800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.45428,-5.78752
+20030410023,200304,Huancabamba,Huarmaca,Río Rincón,1243918800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.44479,-5.79066
+20030410025,200304,Huancabamba,Huarmaca,Qda. Ravija,1243918800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.44128,-5.78668
+20030410026,200304,Huancabamba,Huarmaca,Nuevo hualapmapa,1243918800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.43531,-5.78883
+20030410029,200304,Huancabamba,Huarmaca,Km. 57+640 (Cerro Grande),1243918800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.45052,-5.80505
+20030410030,200304,Huancabamba,Huarmaca,Río Hualapampa,1243918800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.43667,-5.78838
+20030410034,200304,Huancabamba,Huarmaca,Queda Linderos,1243918800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.45914,-5.82326
+20030410037,200304,Huancabamba,Huarmaca,km. 52 Porcuya - Huarmaca,1243918800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.47682,-5.83353
+20030410043,200304,Huancabamba,Huarmaca,Qda. Chontas,1244005200000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.34249,-5.88035
+20030410045,200304,Huancabamba,Huarmaca,Km. 17+635,1244005200000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.58122,-5.93391
+20030410065,200304,Huancabamba,Huarmaca,Quebrada tierra Blanca,1250830800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,HUANCABAMBA,-79.51802,-5.75514
+20030410078,200304,Huancabamba,Huarmaca,Quebrada Cucho,1250830800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,HUANCABAMBA,-79.52719,-5.59962
+20030410089,200304,Huancabamba,Huarmaca,Quebrada Huanabano,1250917200000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,HUANCABAMBA,-79.68187,-5.59193
+20030410090,200304,Huancabamba,Huarmaca,"Sector La Chignia, Qda. El Mango",1250917200000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,HUANCABAMBA,-79.69293,-5.57846
+20030410091,200304,Huancabamba,Huarmaca,"Quebrada Regalado, sector La Huaca",1250917200000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,HUANCABAMBA,-79.70688,-5.56439
+20030410094,200304,Huancabamba,Huarmaca,Hualcas Alto,1243314000000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.70946,-5.51745
+20030410095,200304,Huancabamba,Huarmaca,Quebrada Naranja,1244005200000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.57626,-5.93345
+20030410096,200304,Huancabamba,Huarmaca,Km. 23+100,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.5494,-5.92277
+20030410104,200304,Huancabamba,Huarmaca,Qda Cascajo,1194930000000.0,1000|1500|1504,,Flujo de detritos,True,2007,HUANCABAMBA,-79.39897,-5.70734
+20030410105,200304,Huancabamba,Huarmaca,Qda Paucas,1194930000000.0,1000|1500|1504,,Flujo de detritos,True,2007,HUANCABAMBA,-79.40161,-5.73357
+20030610001,200306,Huancabamba,San Miguel De El Faique,Tributario la Qda. Los Chorros,1243141200000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.55931,-5.37888
+20030610002,200306,Huancabamba,San Miguel De El Faique,Qda. San Antonio,1243227600000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.59316,-5.40764
+20030610016,200306,Huancabamba,San Miguel De El Faique,Villa  Flor,1243314000000.0,1000|1500|1507,,Flujo de tierra,False,2009,HUANCABAMBA,-79.61505,-5.40591
+20030610021,200306,Huancabamba,San Miguel De El Faique,Las Huacas km. 55+644 carretera Canchaque - Morropon,1243314000000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.75051,-5.438
+20030610022,200306,Huancabamba,San Miguel De El Faique,,1242882000000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.4706,-5.41227
+20030610023,200306,Huancabamba,San Miguel De El Faique,,1242882000000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.49008,-5.37931
+20030610025,200306,Huancabamba,San Miguel De El Faique,Km 98+700 Canchaque-Huancabamba,1242277200000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.5616,-5.37838
+20030710001,200307,Huancabamba,Sondor,carretera Huancabamba-Sondor,1242968400000.0,1000|1500|1507,,Flujo de tierra,False,2009,HUANCABAMBA,-79.42858,-5.27733
+20030710002,200307,Huancabamba,Sondor,"Quebrada Pucutay, caserío Cachacoto Km. 7 Huancabamba-Sondor",1242968400000.0,1000|1500|1507,,Flujo de tierra,False,2009,HUANCABAMBA,-79.42257,-5.28518
+20030710008,200307,Huancabamba,Sondor,Sector Aguabamba,1242968400000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.40054,-5.35999
+20030710012,200307,Huancabamba,Sondor,Tributario de la quebrada Mancucruz,1243054800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.39955,-5.40068
+20030810007,200308,Huancabamba,Sondorillo,,1243054800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.4169,-5.4162
+20030810009,200308,Huancabamba,Sondorillo,,1243054800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.40497,-5.49213
+20030810010,200308,Huancabamba,Sondorillo,,1243054800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.4095,-5.48491
+20030810011,200308,Huancabamba,Sondorillo,Quebrada MAndrocillo,1243054800000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.40951,-5.48175
+20030810012,200308,Huancabamba,Sondorillo,Quebrada Sangrin,1242882000000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.43859,-5.28975
+20030810015,200308,Huancabamba,Sondorillo,Pangoran,1242882000000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.43378,-5.34455
+20030810022,200308,Huancabamba,Sondorillo,,1242882000000.0,1000|1500|1504,,Flujo de detritos,True,2009,HUANCABAMBA,-79.4706,-5.41408
+20040110001,200401,Morropon,Chulucanas,Km. 50+00 Cruce Chulucanas,1242450000000.0,1000|1500|1505,,Flujo de lodo,True,2009,MORROPÓN,-80.18386,-5.16709
+20040110008,200401,Morropon,Chulucanas,Km. 9+800 Carretera Chapica - Frías,1243659600000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.08643,-5.05575
+20040110009,200401,Morropon,Chulucanas,,1243659600000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.07985,-5.04717
+20040110010,200401,Morropon,Chulucanas,"Cerro Encajonado, Platanal Alto",1243659600000.0,1000|1500|1503,,Avalancha de rocas,False,2009,MORROPÓN,-80.07809,-5.0137
+20040110011,200401,Morropon,Chulucanas,Cerro Platonal,1243659600000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.08663,-5.03406
+20040110012,200401,Morropon,Chulucanas,Km. 13+060,1243659600000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.07363,-5.04179
+20040110013,200401,Morropon,Chulucanas,Cerro Peña Blanca,1243659600000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.0705,-5.03558
+20040110016,200401,Morropon,Chulucanas,Cerro Vicus Km. 202 +030,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.15456,-5.16848
+20040110019,200401,Morropon,Chulucanas,Cruz Pampa-Yapatera,1250312400000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.12758,-5.05011
+20040110021,200401,Morropon,Chulucanas,A 150 m de Panecillo,1250312400000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.09635,-5.045
+20040110022,200401,Morropon,Chulucanas,Platanal Bajo,1250312400000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.07843,-5.03575
+20040110023,200401,Morropon,Chulucanas,Platanal Alto,1250312400000.0,1000|1500|1504,Ga32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.07597,-5.03492
+20040110024,200401,Morropon,Chulucanas,Chililique Bajo,1250312400000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.0623,-5.02311
+20040110027,200401,Morropon,Chulucanas,San Jose de Chorro,1250398800000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.06741,-5.13566
+20040110029,200401,Morropon,Chulucanas,Km 7+510 carretera Chulucanas-Chapica-Frias,1250485200000.0,1000|1500|1504,GA32: Estudio de Riesgo Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.10225,-5.07016
+20040110030,200401,Morropon,Chulucanas,Quebrada Sol Sol,1681880400000.0,1000|1500|1504,INFORME DE EMERGENCIA Nº 1385 - 26/4/2023 / COEN - INDECI / 23:30 HORAS (Informe N° 116),Flujo de detritos,True,2023,MORROPÓN,-80.18067,-5.03831
+20040210002,200402,Morropon,Buenos Aires,Pueblo Nuevo (km. 15 + 2002 carretera a Morropón),1242536400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.99294,-5.23865
+20040210003,200402,Morropon,Buenos Aires,Pedregal ,1242536400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.98412,-5.24334
+20040210004,200402,Morropon,Buenos Aires,El Ala,1242536400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.92849,-5.30686
+20040210006,200402,Morropon,Buenos Aires,Poblado Juan Velasco,1242536400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.93115,-5.32429
+20040210007,200402,Morropon,Buenos Aires,Río Seco,1242536400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.91964,-5.32815
+20040210010,200402,Morropon,Buenos Aires,Cerro CArrizal,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.94852,-5.37123
+20040210011,200402,Morropon,Buenos Aires,Lindero del Ala,1256101200000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.94073,-5.29166
+20040210012,200402,Morropon,Buenos Aires,Sector Buenos Aires - Km. 19+140,1256101200000.0,1000|1500|1505,,Flujo de lodo,True,2009,MORROPÓN,-79.96361,-5.26691
+20040210013,200402,Morropon,Buenos Aires,Km. 18+800,1256101200000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.97015,-5.25853
+20040210014,200402,Morropon,Buenos Aires,Cerro tirrajon (km. 14+587),1242536400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.99498,-5.23326
+20040210017,200402,Morropon,Buenos Aires,Hualas,1242536400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.90444,-5.32936
+20040410001,200404,Morropon,La Matanza,Cerro el Virrey ,1206766800000.0,1000|1500|1503,,Avalancha de rocas,False,2008,MORROPÓN,-79.974,-5.50921
+20040410002,200404,Morropon,La Matanza,Cerro Tongo,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.09531,-5.27332
+20040410003,200404,Morropon,La Matanza,Quebrada Los Charanes,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.10766,-5.25727
+20040410004,200404,Morropon,La Matanza,Quebrada Cerro Chiquito,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.10581,-5.26198
+20040410005,200404,Morropon,La Matanza,Km. 184+30,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.08712,-5.30858
+20040410006,200404,Morropon,La Matanza,Quebrada Zapata,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.05233,-5.38256
+20040410007,200404,Morropon,La Matanza,Cerro Nucanamu,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-80.03958,-5.42611
+20040410008,200404,Morropon,La Matanza,Cerro Carrizal ,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.94846,-5.40198
+20040410009,200404,Morropon,La Matanza,La Matanza,1256101200000.0,1000|1500|1505,,Flujo de lodo,True,2009,MORROPÓN,-80.09768,-5.21754
+20040410010,200404,Morropon,La Matanza,,1256101200000.0,1000|1500|1505,,Flujo de lodo,True,2009,MORROPÓN,-80.10977,-5.22106
+20040410011,200404,Morropon,La Matanza,Km. 200+120,1258779600000.0,1000|1500|1505,,Flujo de lodo,True,2009,MORROPÓN,-80.13722,-5.17703
+20040410012,200404,Morropon,La Matanza,La Matanza,1256101200000.0,1000|1500|1505,,Flujo de lodo,True,2009,MORROPÓN,-80.09057,-5.2154
+20040410013,200404,Morropon,La Matanza,Cerro Salcante,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.9539,-5.39114
+20040510002,200405,Morropon,Morropon,Sector Chilinique ,1248757200000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.93217,-5.14782
+20040510004,200405,Morropon,Morropon,Quebrada tributario de la margen izq. de Las Damas,1250398800000.0,1000|1500|1504,GA32: Estudio de riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.06175,-5.13805
+20040510005,200405,Morropon,Morropon,Quebrada de Las Damas,1250485200000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.03457,-5.11119
+20040510006,200405,Morropon,Morropon,Quebrada Franco,1250398800000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.02925,-5.15085
+20040510007,200405,Morropon,Morropon,A 700 m de qda. Franco,1250398800000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.02691,-5.15936
+20040510008,200405,Morropon,Morropon,Quebrada El Cerezo,1250398800000.0,1000|1500|1505,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,MORROPÓN,-80.00176,-5.17061
+20040510010,200405,Morropon,Morropon,Sector Franco Alto,1250398800000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.04595,-5.1739
+20040510011,200405,Morropon,Morropon,Franco Bajo,1249794000000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.0565,-5.17171
+20040510013,200405,Morropon,Morropon,Margen izquierda de la Qda. de Las Damas,1250398800000.0,1000|1500|1504,GA32: Estudio de riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.08331,-5.15825
+20040510015,200405,Morropon,Morropon,"Maray, Km 30+360 carretera Yamango-Morropon",1250744400000.0,1000|1500|1504,GA32: Riesgo Geologico en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.93521,-5.19099
+20040510017,200405,Morropon,Morropon,El Toro,1243486800000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.93979,-5.1546
+20040610001,200406,Morropon,Salitral,Malacasi,1242536400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.85506,-5.34248
+20040610002,200406,Morropon,Salitral,,1242536400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.83132,-5.35993
+20040610006,200406,Morropon,Salitral,Quebrada del Garobo,1245992400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.7666,-5.45255
+20040610007,200406,Morropon,Salitral,Quebrada Tutuno,1243314000000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.75037,-5.47384
+20040610008,200406,Morropon,Salitral,Hornopampa,1243314000000.0,1000|1500|1503,,Avalancha de rocas,False,2009,MORROPÓN,-79.73396,-5.48297
+20040610009,200406,Morropon,Salitral,Cerral,1243314000000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.77786,-5.43077
+20040610010,200406,Morropon,Salitral,Quebrada La Tranca,1243314000000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.7846,-5.42243
+20040610011,200406,Morropon,Salitral,,1243314000000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.79464,-5.41351
+20040610013,200406,Morropon,Salitral,,1243314000000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.79884,-5.40734
+20040610014,200406,Morropon,Salitral,Palo Blanco km. 47+980,1243314000000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.803,-5.40343
+20040610015,200406,Morropon,Salitral,Km. 880 Cerezo,1243314000000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.80908,-5.39586
+20040610016,200406,Morropon,Salitral,Quebrada Pasmaran,1243314000000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.81944,-5.37346
+20040710001,200406,Morropon,Salitral,Cerro Salitral,1211864400000.0,1000|1500|1504,,Flujo de detritos,True,2008,MORROPÓN,-79.81395,-5.32348
+20040710002,200407,Morropon,San Juan De Bigote,El Huayagal caserío Alan García,1243400400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.79828,-5.32022
+20040710003,200407,Morropon,San Juan De Bigote,"San Juan Bigote, quebrada Palo Blanco",1243400400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.78546,-5.31948
+20040710004,200407,Morropon,San Juan De Bigote,San Juan de Bigote,1243400400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.78117,-5.31834
+20040710005,200407,Morropon,San Juan De Bigote,Caserío Manzanares,1243400400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.7699,-5.31836
+20040710006,200407,Morropon,San Juan De Bigote,Sector Manzanares,1243400400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.76065,-5.3137
+20040710009,200407,Morropon,San Juan De Bigote,Cardal cerro Pilar,1243400400000.0,1000|1500|1503,,Avalancha de rocas,False,2009,MORROPÓN,-79.70388,-5.30286
+20040710010,200407,Morropon,San Juan De Bigote,Barrios Altos,1243400400000.0,1000|1500|1503,,Avalancha de rocas,False,2009,MORROPÓN,-79.69348,-5.28524
+20040710011,200407,Morropon,San Juan De Bigote,"Cerro Paydegarza, sector San Juan de Bigote",1243400400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.76611,-5.31769
+20040710012,200407,Morropon,San Juan De Bigote,Alto San José,1243400400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.73517,-5.31076
+20040710013,200407,Morropon,San Juan De Bigote,Polo Negro,1243400400000.0,1000|1500|1503,,Avalancha de rocas,False,2009,MORROPÓN,-79.70057,-5.29497
+20040810001,200408,Morropon,Santa Catalina De Mossa,Sector El Puente,1243486800000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.89526,-5.11833
+20040810004,200408,Morropon,Santa Catalina De Mossa,"Qda. Zanjon Hondo, Km 27+660 carretera Yamango-Morropon",1250744400000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.91618,-5.18417
+20040810006,200408,Morropon,Santa Catalina De Mossa,Km 25+120 crretera Yamango-Morropon,1250744400000.0,1000|1500|1504,GA32: Riesgos Geologicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.9014,-5.1782
+20040810008,200408,Morropon,Santa Catalina De Mossa,Margen derecha río Chalaco,1250744400000.0,1000|1500|1504,GA32: Riesgos Geologicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.8659,-5.14587
+20040810009,200408,Morropon,Santa Catalina De Mossa,Quebrada Honda,1250744400000.0,1000|1500|1504,GA32: Riesgos Geologicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.8785,-5.16262
+20040810011,200408,Morropon,Santa Catalina De Mossa,,1243486800000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.90382,-5.12513
+20040810012,200408,Morropon,Santa Catalina De Mossa,Culebras-San Isidro,1615006800000.0,1000|1500|1504,REPORTE PRELIMINAR N° 734 – 7/3/2021 / COEN - INDECI /23:55 HORAS,Flujo de detritos,True,2021,MORROPÓN,-79.83533,-5.09154
+20040910001,200409,Morropon,Santo Domingo,Quebrada Carachuco,1243486800000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.91842,-5.14343
+20040910002,200409,Morropon,Santo Domingo,Cerro Paycal ,1248757200000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.91058,-5.1298
+20040910004,200409,Morropon,Santo Domingo,Sector Quilpon,1243746000000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.9849,-5.04618
+20040910005,200409,Morropon,Santo Domingo,Cerro Salcante,1243832400000.0,1000|1500|1504,,Flujo de detritos,True,2009,MORROPÓN,-79.96202,-5.11573
+20040910006,200409,Morropon,Santo Domingo,Río Ñoma,1250226000000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.83281,-5.02936
+20040910007,200409,Morropon,Santo Domingo,Km 1+620 Carretera Nuevo Progreso-San Jorge,1250226000000.0,1000|1500|1504,GA32: Estudio de Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-80.0011,-5.0601
+20040910008,200409,Morropon,Santo Domingo,Sector Simiris,1250658000000.0,1000|1500|1503,GA32: Riesgos geológicos enlas regiones Piura y Tumbes,Avalancha de rocas,False,2009,MORROPÓN,-79.93105,-5.0284
+20041010001,200410,Morropon,Yamango,"Km 34+075 carretera Yamango-Morropon, Nueva Esperanza",1250744400000.0,1000|1500|1504,GA32: Riesgos Geologicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.87551,-5.1744
+20041010002,200410,Morropon,Yamango,Mambluque,1250744400000.0,1000|1500|1504,GA32: Riesgos Geologicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.86598,-5.18855
+20041010003,200410,Morropon,Yamango,Quebrada Coca,1250744400000.0,1000|1500|1504,GA32: Riesgos Geologicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.85207,-5.19232
+20041010004,200410,Morropon,Yamango,"Qda. DEl Pescad, Sector Coca",1250744400000.0,1000|1500|1504,GA32: Riesgos Geologicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.84051,-5.19222
+20041010005,200410,Morropon,Yamango,Cerro San Cristobal,1250744400000.0,1000|1500|1504,GA32: Riesgos Geologicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.82719,-5.19767
+20041010007,200410,Morropon,Yamango,"Piscan, Km12+540 carretera Yamango-Morropon",1250744400000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,MORROPÓN,-79.80585,-5.20713
+20050110007,200501,Paita,Paita,Quebrada Yacila,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,PAITA,-81.15837,-5.1343
+20050110008,200501,Paita,Paita,La Islilla,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,PAITA,-81.18693,-5.20158
+20050110009,200501,Paita,Paita,Quebrada Colanes,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,PAITA,-81.14302,-5.19481
+20050110010,200501,Paita,Paita,Vega Charco Grande,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,PAITA,-81.11788,-5.18254
+20050110011,200501,Paita,Paita,Cerro Silla de Paita,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,PAITA,-81.12076,-5.16206
+20050110016,200501,Paita,Paita,Cerro Silla de Paita,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,PAITA,-81.13253,-5.1939
+20050210004,200502,Paita,Amotape,Amotape,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-81.00947,-4.89084
+20050210005,200502,Paita,Amotape,Quebrada Charanal en la vía Amotape - Talara,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-81.02298,-4.82775
+20050210006,200502,Paita,Amotape,Quebrada Cardo Grande,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-81.03188,-4.81155
+20050210007,200502,Paita,Amotape,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-81.03976,-4.79386
+20050210008,200502,Paita,Amotape,Libertad,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-81.00218,-4.88555
+20050210009,200502,Paita,Amotape,Libertad,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-80.99613,-4.88303
+20050210012,200502,Paita,Amotape,,1040014800000.0,1000|1500|1502,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Avalancha de detritos,False,2002,PAITA,-81.00938,-4.89069
+20050210013,200502,Paita,Amotape,Amotape,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-81.01477,-4.85451
+20050410013,200504,Paita,Colan,Tablazo de Colan Nuevo Paraiso,1251176400000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,PAITA,-81.05661,-5.00801
+20050510002,200505,Paita,La Huaca,Viviate,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-80.9245,-4.92586
+20050510003,200505,Paita,La Huaca,Viviate-Sector Monteverde,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PAITA,-80.91755,-4.92047
+20050510004,200505,Paita,La Huaca,,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PAITA,-80.90408,-4.91704
+20050510005,200505,Paita,La Huaca,Sector de Nomara,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PAITA,-80.89014,-4.91439
+20050510006,200505,Paita,La Huaca,Hacienda Miraflores,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PAITA,-80.88097,-4.91463
+20050510014,200606,Sullana,Miguel Checa,Puente Sojo,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.82604,-4.91532
+20050510015,200505,Paita,La Huaca,Km 17  + 300 dela carretera Sullana - Paita,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PAITA,-80.84123,-4.91765
+20050510016,200505,Paita,La Huaca,Km. 18+ 800 altura de Macarara,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PAITA,-80.85505,-4.92017
+20050510021,200505,Paita,La Huaca,Cerro Tunal,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,PAITA,-80.93222,-5.14905
+20050510022,200505,Paita,La Huaca,Cerro Chocan,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,PAITA,-80.96098,-5.15476
+20050510023,200505,Paita,La Huaca,Quebrada Vichayal,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,PAITA,-80.88186,-5.11487
+20050610001,200506,Paita,Tamarindo,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-80.96806,-4.885
+20050610002,200506,Paita,Tamarindo,Libertad,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-80.98949,-4.87802
+20050610003,200506,Paita,Tamarindo,Tamarindo,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-80.97655,-4.88053
+20050610004,200506,Paita,Tamarindo,Tamarindo,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,PAITA,-80.96508,-4.87544
+20050710004,200507,Paita,Vichayal,Felipe de Vichayal,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,PAITA,-81.07217,-4.86446
+20050710014,200507,Paita,Vichayal,Carretera Negritos-Miramar,1254632400000.0,1000|1500|1505,,Flujo de lodo,True,2009,PAITA,-81.1304,-4.85334
+20060310001,200603,Sullana,Ignacio Escudero,Monte Lima,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.93435,-4.8563
+20060310002,200603,Sullana,Ignacio Escudero,Km. 4+300,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.92253,-4.85062
+20060310003,200603,Sullana,Ignacio Escudero,San Jose - km 3 + 000 de la carretera San Jacinto - Tamarindo,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.90666,-4.84925
+20060310004,200603,Sullana,Ignacio Escudero,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.92299,-4.81291
+20060310005,200603,Sullana,Ignacio Escudero,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.90935,-4.82487
+20060310007,200603,Sullana,Ignacio Escudero,,1040274000000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.9014,-4.83219
+20060310008,200603,Sullana,Ignacio Escudero,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.93478,-4.80202
+20060310009,200603,Sullana,Ignacio Escudero,"Quebrada Ubillus, Km 26 carretera Sullana- Talara ",1251262800000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,SULLANA,-80.88452,-4.8459
+20060310010,200603,Sullana,Ignacio Escudero,Km 37+100 carretera Sullana-Talara,1251262800000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,SULLANA,-80.95986,-4.77917
+20060310011,200603,Sullana,Ignacio Escudero,San Jacinto,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.86564,-4.84726
+20060410001,200604,Sullana,Lancones,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.58863,-4.59444
+20060410002,200604,Sullana,Lancones,Jerguitas,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.54603,-4.54989
+20060410003,200604,Sullana,Lancones,Quebrada Cabrería,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.60124,-4.51682
+20060410008,200604,Sullana,Lancones,Quebrada la Manga,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.43483,-4.64144
+20060410009,200604,Sullana,Lancones,Quebrada Huasimal,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.44958,-4.51271
+20060410010,200604,Sullana,Lancones,Sector Pilares,1039842000000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.41943,-4.61956
+20060410011,200604,Sullana,Lancones,Huasimal,1039669200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.38886,-4.54433
+20060410013,200604,Sullana,Lancones,Quebrada Huatería,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.68678,-4.45555
+20060410014,200604,Sullana,Lancones,Panalitos,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.56108,-4.62328
+20060410015,200604,Sullana,Lancones,,1040274000000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.59302,-4.57936
+20060410016,200604,Sullana,Lancones,,1039669200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.59723,-4.57094
+20060410017,200604,Sullana,Lancones,,1039669200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.38329,-4.6547
+20060410018,200604,Sullana,Lancones,Quebrada Montesillo,1039842000000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.45122,-4.66981
+20060410019,200604,Sullana,Lancones,Gramadal,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.40013,-4.56665
+20060410020,200604,Sullana,Lancones,La Bocana,1039669200000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.36238,-4.65887
+20060410022,200604,Sullana,Lancones,La Ramadita,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.65585,-4.46108
+20060510003,200605,Sullana,Marcavelica,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.74944,-4.7583
+20060510004,200605,Sullana,Marcavelica,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.75207,-4.75233
+20060510005,200605,Sullana,Marcavelica,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.75519,-4.74153
+20060510006,200605,Sullana,Marcavelica,Cañas,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.75644,-4.68202
+20060510007,200605,Sullana,Marcavelica,Quebrada Copa Sombrero,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.74501,-4.67999
+20060510008,200605,Sullana,Marcavelica,Chapetones,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.72108,-4.65167
+20060510009,200605,Sullana,Marcavelica,La Peñita - Quebrada El Salado,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.70509,-4.55676
+20060510010,200603,Sullana,Ignacio Escudero,Puente Peroles,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.81871,-4.84262
+20060510011,200605,Sullana,Marcavelica,Quebrada Saucesito,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.69821,-4.49929
+20060510018,200605,Sullana,Marcavelica,Qda. Burgos,1255237200000.0,1000|1500|1504,,Flujo de detritos,True,2009,SULLANA,-80.83826,-4.19108
+20060510020,200605,Sullana,Marcavelica,Saman,1254546000000.0,1000|1500|1505,,Flujo de lodo,True,2009,SULLANA,-80.76708,-4.84172
+20060510021,200605,Sullana,Marcavelica,Pampa la Viuda,1254546000000.0,1000|1500|1505,,Flujo de lodo,True,2009,SULLANA,-80.75649,-4.8188
+20060510022,200605,Sullana,Marcavelica,Cementerio la víbora,1254546000000.0,1000|1500|1504,,Flujo de detritos,True,2009,SULLANA,-80.7812,-4.64787
+20060510023,200605,Sullana,Marcavelica,,1254546000000.0,1000|1500|1504,,Flujo de detritos,True,2009,SULLANA,-80.83115,-4.56982
+20060510024,200605,Sullana,Marcavelica,Quebrada La Tina,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.74895,-4.80729
+20060510025,200605,Sullana,Marcavelica,Quebrada Casura,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.7624,-4.69711
+20060510026,200605,Sullana,Marcavelica,Quebrada Algarrobillo,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.70562,-4.58374
+20060610001,200606,Sullana,Miguel Checa,,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,SULLANA,-80.79714,-5.14536
+20060610002,200606,Sullana,Miguel Checa,Margen izquierda de la quebrada Congorá,1244264400000.0,1000|1500|1504,,Flujo de detritos,True,2009,SULLANA,-80.8358,-5.12619
+20060710001,200607,Sullana,Querecotillo,Quebrada Corralitos,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.54483,-4.67719
+20060710007,200607,Sullana,Querecotillo,Cerro Mesa,1040014800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.60372,-4.7729
+20060710008,200607,Sullana,Querecotillo,Cerro san Francisco,1039842000000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.59613,-4.76022
+20060710010,200607,Sullana,Querecotillo,Caserío de Chocan,1039928400000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.57522,-4.72408
+20060710013,200607,Sullana,Querecotillo,  ,1039582800000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.56882,-4.70492
+20060710014,200607,Sullana,Querecotillo,Sector Santa Victoria,1040187600000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,SULLANA,-80.55798,-4.69286
+20060710015,200607,Sullana,Querecotillo,Nueva Esperanza de Poechos,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,SULLANA,-80.54483,-4.68419
+20070110004,200701,Talara,Pariñas,"Quebrada Ancha, Puente Debora Norte Km 66+250",1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.15599,-4.60739
+20070110005,200701,Talara,Pariñas,Quebrada Acholada,1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.20632,-4.57157
+20070110006,200701,Talara,Pariñas,Aprox. 1.1 km del desvío a Talara,1251262800000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.22747,-4.56755
+20070110007,200701,Talara,Pariñas,Tributario quebrada Acholada,1251262800000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.24297,-4.57377
+20070110009,200701,Talara,Pariñas,Sector Luciano Castillo,1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.27351,-4.56049
+20070110010,200701,Talara,Pariñas,"Quebrada de la peñia, Instalaciones de Petro Tech ",1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.27544,-4.55705
+20070110011,200701,Talara,Pariñas,"Lote VI, VII, Km 0+300 Desvio Talara-Cabo Blanco",1251349200000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.2638,-4.53216
+20070110013,200701,Talara,Pariñas,Av. Luis Alba Castro,1254632400000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.26537,-4.58884
+20070110014,200701,Talara,Pariñas,Urb. Sur America,1254632400000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.26862,-4.59341
+20070110015,200701,Talara,Pariñas,Frente a urbanización Jazmines,1254632400000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.27384,-4.58895
+20070110016,200701,Talara,Pariñas,Qda. Salado,1254718800000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.15122,-4.53023
+20070110017,200701,Talara,Pariñas,Qda. Mogollon,1254718800000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.12345,-4.51493
+20070110018,200701,Talara,Pariñas,Qda. Botijas,1254718800000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.11381,-4.50124
+20070110019,200701,Talara,Pariñas,Qda. Pariñas,1254718800000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.20547,-4.53271
+20070110020,200701,Talara,Pariñas,Quebrada Seca,1254718800000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.20456,-4.52087
+20070110021,200701,Talara,Pariñas,,1254718800000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.0532,-4.46373
+20070110022,200701,Talara,Pariñas,"Union de las Qdas. Salinas, Marchan y Gutierrez",1254718800000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.03476,-4.46952
+20070110023,200701,Talara,Pariñas,,1254114000000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.00972,-4.4665
+20070110024,200701,Talara,Pariñas,Qda. Chiquero de puerco,1254718800000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.01481,-4.47265
+20070110025,200701,Talara,Pariñas,Qda. Casuelas,1254718800000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.02389,-4.47561
+20070110026,200701,Talara,Pariñas,Qda. Honda,1254718800000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.22046,-4.48742
+20070110027,200701,Talara,Pariñas,Urb. James Storm,1254632400000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.27043,-4.59222
+20070110029,200701,Talara,Pariñas,Km. 1107+233,1256014800000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.19868,-4.4667
+20070210001,200702,Talara,El Alto,Km. 109 (Qda. El Cardo),1256014800000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.15002,-4.32224
+20070210002,200702,Talara,El Alto,Qda. El Cardo - Km. 110+70 (sullana),1256014800000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.15796,-4.31509
+20070210003,200702,Talara,El Alto,Km. 11+900 Qda. Chamizal,1224478800000.0,1000|1500|1505,,Flujo de lodo,True,2008,TALARA,-81.16937,-4.30517
+20070210005,200702,Talara,El Alto,Playa Cabo Blanco,1254805200000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.20788,-4.23297
+20070210006,200702,Talara,El Alto,"Cabo Blanco, Quebrada Cachirula",1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.23028,-4.25086
+20070210007,200702,Talara,El Alto,Quebrada Hospital,1251349200000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.22308,-4.2487
+20070210010,200702,Talara,El Alto,Playa Cabo Blanco,1254805200000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.21978,-4.24666
+20070210011,200702,Talara,El Alto,Qda. El Verde,1254805200000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.2014,-4.22861
+20070310001,200703,Talara,La Brea,Quebrada Songorita,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,TALARA,-81.02867,-4.72771
+20070310002,200703,Talara,La Brea,Quebrada del Billar,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,TALARA,-81.04419,-4.78402
+20070310003,200703,Talara,La Brea,Quebrada Songorita,1039842000000.0,1000|1500|1504,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de detritos,True,2002,TALARA,-81.05114,-4.77448
+20070310004,200703,Talara,La Brea,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,TALARA,-80.98235,-4.7589
+20070310006,200703,Talara,La Brea,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,TALARA,-81.05399,-4.75937
+20070310007,200703,Talara,La Brea,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,TALARA,-81.05534,-4.75431
+20070310008,200703,Talara,La Brea,km 17 + 070 de la antigua carretera Amotape - Talara,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,TALARA,-81.0585,-4.74819
+20070310009,200703,Talara,La Brea,Km 18 + 420 al Km 18 + 500 de la antigua carretera Amotape - Talara,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,TALARA,-81.06026,-4.74312
+20070310010,200703,Talara,La Brea,Quebrada el carbon km 19 + 700 de la antigua carretera Amotape - Talara,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,TALARA,-81.06227,-4.73779
+20070310011,200703,Talara,La Brea,,,1000|1500|1505,Estudio Geoambiental de la Cuenca del Río Catamayo - Chira,Flujo de lodo,True,,TALARA,-81.06684,-4.72508
+20070310012,200703,Talara,La Brea,Km 41+302 carretera Sullana-Talara,1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-80.98759,-4.75399
+20070310013,200703,Talara,La Brea,Km45+100 carretera Sullana-Talara,1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.01595,-4.73522
+20070310014,200703,Talara,La Brea,"Quebrada Songora, Km 52+480",1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.0729,-4.70101
+20070310015,200703,Talara,La Brea,"Qda. Las Moras, Km 53+540 carretera Sullana-Talara ",1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.0813,-4.69597
+20070310016,200703,Talara,La Brea,"Fundo La Brea, Km55+360 carretera Sullana-Talara",1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.09329,-4.68478
+20070310017,200703,Talara,La Brea,"Cerro Prieto, Km 58+060",1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.10911,-4.66618
+20070310018,200703,Talara,La Brea,"Quebrada Cerro Muerto, Km59+348.5 al Km 60",1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.11881,-4.65501
+20070310019,200703,Talara,La Brea,Km 63+840 al Km 40+00 carretera Sullana-Talara,1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.14269,-4.62934
+20070310020,200703,Talara,La Brea,Km65+00 carretera Sullana-Talara,1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.14718,-4.62037
+20070310021,200703,Talara,La Brea,"Puente Debora Sur, Km 66+00, Qda. Pan de Azucar",1251262800000.0,1000|1500|1504,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de detritos,True,2009,TALARA,-81.15194,-4.61269
+20070310022,200703,Talara,La Brea,Km. 63+420 tributario de la Qda. Ancha,1254546000000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.13693,-4.63855
+20070310024,200703,Talara,La Brea,La Brea,1254632400000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.30469,-4.65084
+20070310026,200703,Talara,La Brea,Qda. Acholada,1254632400000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.26717,-4.69447
+20070310028,200703,Talara,La Brea,Bajada a Negritos,1254632400000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.28862,-4.60923
+20070310030,200703,Talara,La Brea,Negritos,1254632400000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.30658,-4.66522
+20070410001,200704,Talara,Lobitos,Qda. Media,1256101200000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.23527,-4.46928
+20070410002,200704,Talara,Lobitos,A 16 km carretera Talara-Lobitos,1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.2761,-4.47366
+20070410003,200704,Talara,Lobitos,Carretera Talara-Lobitos,1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.27288,-4.45225
+20070410004,200704,Talara,Lobitos,Quebrada Monte,1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.25716,-4.43706
+20070410005,200704,Talara,Lobitos,Quebrada Las Animas,1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.25534,-4.40621
+20070410007,200704,Talara,Lobitos,Quebrada La Cruz,1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.25013,-4.39042
+20070410008,200704,Talara,Lobitos,Quebrada Salinas,1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.24972,-4.38667
+20070410010,200704,Talara,Lobitos,Quebrada Chacaliza,1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.24708,-4.3562
+20070410011,200704,Talara,Lobitos,Quebrada Los Amarillos,1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.24958,-4.33972
+20070410012,200704,Talara,Lobitos,Quebrada Paite,1251349200000.0,1000|1500|1505,GA32: Riesgos Geológicos en las regiones Piura y Tumbes,Flujo de lodo,True,2009,TALARA,-81.24966,-4.32228
+20070510002,200705,Talara,Los Organos,Qda. Carrillo,1254891600000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.11025,-4.16548
+20070510003,200705,Talara,Los Organos,Qda. Vichayito - Km. 138+165,1254891600000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.09432,-4.15345
+20070510006,200705,Talara,Los Organos,Qda. Ñuro,1254805200000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.15883,-4.2132
+20070510007,200705,Talara,Los Organos,Punta Farallon,1254805200000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.19413,-4.22526
+20070510008,200705,Talara,Los Organos,Punta Farallon,1254805200000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.19149,-4.22382
+20070510009,200705,Talara,Los Organos,Punta Farallon,1254805200000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.18653,-4.22382
+20070510010,200705,Talara,Los Organos,El Ðuro,1254805200000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.0984,-4.21848
+20070510011,200705,Talara,Los Organos,El Ðuro,1254805200000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.16593,-4.21796
+20070510012,200705,Talara,Los Organos,Los Organos,1254891600000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.12744,-4.17746
+20070510013,200705,Talara,Los Organos,Punta  Farallon,1254805200000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.18026,-4.22165
+20070610002,200706,Talara,Mancora,Qda. Canulsa,1254891600000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.06404,-4.11023
+20070610003,200706,Talara,Mancora,Cerro Peña Mala,1254891600000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.07547,-4.11202
+20070610004,200706,Talara,Mancora,Playa Las Pocitas,1254891600000.0,1000|1500|1504,,Flujo de detritos,True,2009,TALARA,-81.08115,-4.11596
+20070610005,200706,Talara,Mancora,Km. 3 del desvio de Mancora,1254891600000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.08898,-4.12047
+20070610006,200706,Talara,Mancora,Playa Las Pocitas,1254891600000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.09683,-4.12755
+20070610007,200706,Talara,Mancora,Qdas. Los Pasos y Cabo Blanco,1254891600000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.05946,-4.10786
+20070610009,200706,Talara,Mancora,Qda. Camal,1254978000000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-81.04309,-4.10636
+20070610010,200706,Talara,Mancora,Caserio Barranco,1254978000000.0,1000|1500|1505,,Flujo de lodo,True,2009,TALARA,-80.97078,-4.13035
+20080110004,200801,Sechura,Sechura,Cerro Los Hornillos,1241586000000.0,1000|1500|1504,,Flujo de detritos,True,2009,SECHURA,-80.98419,-5.93166
+20080110005,200801,Sechura,Sechura,Puerto Rico,1262840400000.0,1000|1500|1504,Ga-32: Riesgos Geológicos en las Regiones Piura y Tumbes,Flujo de detritos,True,2010,SECHURA,-81.028,-5.83667
+20080110006,200801,Sechura,Sechura,Puerto Rico (Quebrada Las Tijeras),1262840400000.0,1000|1500|1504,GA 32: Riesgos Geológicos en las Regiones Piura y Tumbes,Flujo de detritos,True,2010,SECHURA,-81.03162,-5.82898
+20080110007,200801,Sechura,Sechura,Reservorio,1262840400000.0,1000|1500|1504,Ga-32: Riesgos Geológicos en las Regiones Piura y Tumbes,Flujo de detritos,True,2010,SECHURA,-81.02281,-5.84391
+20080110008,200801,Sechura,Sechura,Carretera a Puerto Rico,1262840400000.0,1000|1500|1504,Ga-32: Riesgos Geológicos en las Regiones Piura y Tumbes,Flujo de detritos,True,2010,SECHURA,-81.00723,-5.85974
+20080110009,200801,Sechura,Sechura,QuebradaLa Montera y Bayobar,1262840400000.0,1000|1500|1504,Ga-32: Riesgos Geológicos en las Regiones Piura y Tumbes,Flujo de detritos,True,2010,SECHURA,-81.00136,-5.86291
+20080110011,200801,Sechura,Sechura,Pampa Los Hornillos,1262840400000.0,1000|1500|1504,Ga-32: Riesgos Geológicos en las Regiones Piura y Tumbes,Flujo de detritos,True,2010,SECHURA,-80.92321,-5.88687
+20080110015,200801,Sechura,Sechura,Reservorio,1262840400000.0,1000|1500|1504,Ga-32: Riesgos Geológicos en las Regiones Piura y Tumbes,Flujo de detritos,True,2010,SECHURA,-81.0131,-5.85567
+20080110016,200801,Sechura,Sechura,Pampa Los Hornillos,1262840400000.0,1000|1500|1504,Ga-32: Riesgos Geológicos en las Regiones Piura y Tumbes,Flujo de detritos,True,2010,SECHURA,-80.9738,-5.8715
+20080510001,200805,Sechura,Vice,Chalaco (entrada a Vice),1244178000000.0,1000|1500|1504,,Flujo de detritos,True,2009,SECHURA,-80.77365,-5.40136
+20080510003,200805,Sechura,Vice,Entrada a Vice - Quebrada Cornelio,1244178000000.0,1000|1500|1504,,Flujo de detritos,True,2009,SECHURA,-80.77599,-5.41911

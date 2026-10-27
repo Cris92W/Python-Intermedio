@@ -2,205 +2,470 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Niño Costero 2017 y 2023</title>
-  <meta name="description" content="Lluvias, inundaciones y huaicos del Niño Costero 2017 y 2023 en Piura, Lambayeque, La Libertad, Áncash y Lima: imágenes satelitales frente a registros oficiales.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Piura bajo el agua</title>
+  <meta name="description" content="Inundaciones y huaicos de los Niños Costeros de 2017 y 2023 en Piura: radar Sentinel-1, Copernicus EMS, INGEMMET e INDECI.">
   <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..650;1,8..60,400&display=swap">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <link rel="stylesheet" href="assets/estilos.css">
 </head>
 <body>
-  <header class="portada">
-    <div class="contenedor">
-      <p class="antetitulo">Tarea 3 · Python Intermedio · Diplomado en Ciencia de Datos</p>
-      <h1>¿Dónde golpeó el agua? El Niño Costero de 2017 y de 2023 visto desde el espacio</h1>
-      <p class="pregunta">¿Cuánto territorio y cuántas viviendas de Piura, Lambayeque, La Libertad, Áncash y Lima
-        afectaron las lluvias, inundaciones y huaicos de los Niños Costeros de 2017 y 2023, y qué detectan
-        —y qué omiten— las imágenes satelitales frente a los registros oficiales?</p>
-      <ul class="fichas">
-        <li><b>Cobertura:</b> 5 departamentos, 523 distritos (146 177 km²)</li>
-        <li><b>2017:</b> dic 2016 – may 2017</li>
-        <li><b>2023:</b> ene – jun 2023 (incluye el ciclón Yaku)</li>
-        <li><b>Fuentes:</b> Copernicus GFM y EMS, INDECI, INEI, Microsoft</li>
-      </ul>
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#inicio">Piura<span>Niño Costero 2017 · 2023</span></a>
+    <nav class="chap-nav" aria-label="Capítulos">
+      <a href="#cap1" data-ch="cap1"><b>I</b><span>Contexto</span></a>
+      <a href="#cap2" data-ch="cap2"><b>II</b><span>El agua</span></a>
+      <a href="#cap3" data-ch="cap3"><b>III</b><span>Validación</span></a>
+      <a href="#cap4" data-ch="cap4"><b>IV</b><span>Huaicos</span></a>
+      <a href="#cap5" data-ch="cap5"><b>V</b><span>Viviendas</span></a>
+      <a href="#cap6" data-ch="cap6"><b>VI</b><span>Explorar</span></a>
+      <a href="#cap7" data-ch="cap7"><b>VII</b><span>Síntesis</span></a>
+    </nav>
+    <span class="chap-now" id="chap-now" aria-live="polite">Portada</span>
+  </div>
+  <div class="prog" aria-hidden="true"><i id="prog"></i></div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-in">
+    <div>
+      <p class="eyebrow">Informe de teledetección · Departamento de Piura, Perú</p>
+      <h1>El agua que se quedó en Piura</h1>
+      <p class="lede">En los Niños Costeros de 2017 y 2023, las lluvias desbordaron el río Piura, llenaron de agua el desierto de Sechura y activaron quebradas en la sierra. Con imágenes de radar Sentinel-1, los mapas de Copernicus, el inventario de huaicos de INGEMMET y los reportes de INDECI medimos cuánto territorio cubrió el agua, cuánto tiempo se quedó, qué viviendas tocó y qué no alcanza a ver un satélite.</p>
+      <div class="author">
+        <span class="author-m" aria-hidden="true">CW</span>
+        <div><span class="author-k">Autor</span><p class="author-n">Cristian Wong P.</p><p class="author-t">Ingeniero geógrafo y bachiller en Ciencia Política</p></div>
+      </div>
+      <dl class="hkpis">
+        <div><dt><span data-v="eventos.2017.inund_anom_km2">—</span><small>km²</small></dt><dd>Con agua anómala en 2017, según el radar</dd></div>
+        <div><dt><span data-v="eventos.2023.inund_anom_km2">—</span><small>km²</small></dt><dd>Con agua anómala en 2023, con el ciclón Yaku</dd></div>
+        <div><dt><span data-v="indeci.2017.damnificados">—</span></dt><dd>Damnificados en Piura en 2017 (INDECI)</dd></div>
+        <div><dt><span data-v="huaicos.huaicos">—</span></dt><dd>Huaicos en el inventario de INGEMMET</dd></div>
+      </dl>
+      <p class="byline">Diplomado de Ciencia de Datos con Python · Tarea 3 · Corte de datos: 26 oct 2026</p>
+      <a class="cue" href="#cap1">Desliza para recorrer la historia <span aria-hidden="true">↓</span></a>
     </div>
-  </header>
-
-  <nav class="controles" aria-label="Filtros">
-    <div class="contenedor fila-controles">
-      <div class="control">
-        <span class="etiqueta">Evento</span>
-        <div class="segmentado" id="ctl-evento" role="radiogroup">
-          <button type="button" data-valor="2017" class="activo" role="radio" aria-checked="true">2017</button>
-          <button type="button" data-valor="2023" role="radio" aria-checked="false">2023</button>
-        </div>
+    <figure class="plate">
+      <div class="plate-box">
+        <svg id="lamina" role="img" aria-label="Mapa del departamento de Piura con el agua anómala detectada por el radar, por provincia"></svg>
+        <div class="locator"><span>Ubicación</span><svg id="localizador" role="img" aria-label="Mapa del Perú con Piura resaltado"></svg></div>
+        <div class="seg" id="lamina-ev" role="group" aria-label="Evento de la lámina" style="position:absolute;top:12px;right:12px;background:rgba(8,19,28,.86)"><button type="button" data-v="2017" aria-pressed="true">2017</button><button type="button" data-v="2023" aria-pressed="false">2023</button></div>
+        <div class="plate-leg"><b>Fechas con agua</b><span><i style="background:var(--w1)"></i>2–3</span><span><i style="background:var(--w2)"></i>4–7</span><span><i style="background:var(--w3)"></i>8–15</span><span><i style="background:var(--w4)"></i>16 o más</span></div>
       </div>
-      <label class="control">
-        <span class="etiqueta">Departamento</span>
-        <select id="ctl-departamento">
-          <option value="TODOS">Los 5 departamentos</option>
-          <option value="PIURA">Piura</option>
-          <option value="LAMBAYEQUE">Lambayeque</option>
-          <option value="LA LIBERTAD">La Libertad</option>
-          <option value="ÁNCASH">Áncash</option>
-          <option value="LIMA">Lima</option>
-        </select>
-      </label>
-      <label class="control">
-        <span class="etiqueta">Indicador del mapa</span>
-        <select id="ctl-indicador">
-          <option value="inund_anom_km2">Inundación anómala (km², sin el agua habitual)</option>
-          <option value="inund_union_km2">Toda el agua detectada (km², ≥2 fechas)</option>
-          <option value="inund_max_km2">Máximo anómalo en un solo día (km²)</option>
-          <option value="pct_max">% del distrito inundado (máximo diario)</option>
-          <option value="fechas_con_agua">Fechas con agua detectada</option>
-        </select>
-      </label>
-      <label class="control buscar">
-        <span class="etiqueta">Buscar distrito</span>
-        <input id="ctl-buscar" list="lista-distritos" placeholder="Ej.: Catacaos" autocomplete="off">
-        <datalist id="lista-distritos"></datalist>
-      </label>
+      <figcaption>Lámina 1. Agua anómala detectada por el radar de <span id="lamina-cap-ev">diciembre de 2016 a mayo de 2017</span>: píxeles con agua en al menos dos fechas que en 2022, un año sin Niño, nunca la tuvieron. Copernicus GFM sobre Sentinel-1; límites del INEI. Web Mercator.</figcaption>
+    </figure>
+  </div>
+  <dl class="ficha">
+    <div><dt>Zona de estudio</dt><dd><span data-v="distritos">65</span> distritos · <span data-v="area_km2">—</span> km²</dd></div>
+    <div><dt>Periodos</dt><dd>dic 2016 – may 2017 · ene – jun 2023</dd></div>
+    <div><dt>Referencia sin Niño</dt><dd>ene – jun 2022</dd></div>
+    <div><dt>Sensores</dt><dd>Sentinel-1 C-SAR · ópticos (EMS)</dd></div>
+    <div><dt>Resolución</dt><dd>20 m (GFM) · leído a 80 m</dd></div>
+  </dl>
+</section>
+
+<!-- Capítulos I y II: contexto y agua -->
+<section class="story" id="stA-sec" aria-label="Capítulos I y II: contexto y agua">
+  <div class="stage" id="stA">
+    <div class="gl" role="img" aria-label="Mapa animado de Piura: contexto, inundación de 2017 y de 2023"></div>
+    <div class="frame">
+      <div class="counter"><b></b><small></small></div>
+      <div class="tl" hidden></div>
+      <div class="legend"></div>
     </div>
-  </nav>
+  </div>
+  <div class="steps">
+    <article class="step on" id="cap1">
+      <p class="chap-n">Capítulo <b>I</b></p>
+      <h2>Dos Niños costeros</h2>
+      <p class="q">¿Qué pasó en Piura, y cuándo?</p>
+      <hr>
+      <p class="k">8 provincias, 65 distritos · 1 de 4</p>
+      <h3>Entre el mar caliente y la sierra</h3>
+      <p>Piura tiene costa desértica, valles regados por los ríos Piura y Chira, y sierra en Ayabaca y Huancabamba. Cuando el mar frente a la costa se calienta, el aire húmedo descarga lluvias que el desierto no puede absorber: es el <b>Niño Costero</b>.</p>
+      <p class="src">Límites: INEI 2020 · Imagen: Esri World Imagery</p>
+    </article>
+    <article class="step">
+      <p class="k">Ene – may 2017 · 2 de 4</p>
+      <h3>2017: el río Piura se desborda</h3>
+      <p>Las lluvias empezaron el 29 de enero en Tambogrande y Paita. La peor tormenta cayó la noche del 18 al 19 de marzo, y el 27 de marzo el río Piura llegó a <b>3 800 m³/s</b>, por encima de sus registros históricos: inundó Piura, Castilla, Catacaos y el Bajo Piura.</p>
+      <p>En blanco, la inundación que Copernicus delimitó a mano sobre imágenes de alta resolución.</p>
+      <p class="src">INDECI, Compendio Estadístico 2017 · Copernicus EMS, activación EMSR199</p>
+    </article>
+    <article class="step">
+      <p class="k">Ene – jun 2023 · 3 de 4</p>
+      <h3>2023: el ciclón Yaku</h3>
+      <p>A inicios de marzo de 2023, un ciclón poco común, <b>Yaku</b>, se formó frente a la costa norte y descargó lluvias intensas sobre Piura. El 16 de marzo el ENFEN declaró la alerta de Niño Costero, y las lluvias siguieron en abril y mayo.</p>
+      <p class="src">ENFEN, comunicado oficial del 16 mar 2023</p>
+    </article>
+    <article class="step">
+      <p class="k">Daños oficiales · 4 de 4</p>
+      <h3>Menos daño en 2023</h3>
+      <p>Según INDECI, en 2023 Piura tuvo <b><span data-v="indeci.2023.damnificados">—</span> damnificados</b>, frente a <span data-v="indeci.2017.damnificados">—</span> en 2017, y <b><span data-v="indeci.2023.viviendas_destruidas">—</span> viviendas destruidas</b>, frente a <span data-v="indeci.2017.viviendas_destruidas">—</span>.</p>
+      <div id="stA-indeci"></div>
+      <p class="src">INDECI · 2017: Niño Costero, corte al 4 jul 2017 · 2023: todas las emergencias de ene – jun</p>
+    </article>
+    <article class="step" id="cap2">
+      <p class="chap-n">Capítulo <b>II</b></p>
+      <h2>El agua desde el espacio</h2>
+      <p class="q">¿Dónde se quedó el agua, y cuánto tiempo?</p>
+      <hr>
+      <p class="k">Referencia · ene – jun 2022 · 1 de 4</p>
+      <h3>Primero, el agua de siempre</h3>
+      <p>El radar Sentinel-1 ve el agua aunque haya nubes: la superficie quieta refleja el pulso lejos del satélite y se ve oscura. Pero no toda el agua es inundación: arrozales, salinas y lagunas se llenan cada año.</p>
+      <p>En gris, el agua que el radar vio en 2022, un año sin Niño: <b><span data-v="eventos.2022.agua_habitual_km2">—</span> km²</b> que no se cuentan como inundación.</p>
+      <p class="src">Copernicus GFM · <span data-v="eventos.2022.escenas">—</span> escenas de ene – jun 2022</p>
+    </article>
+    <article class="step">
+      <p class="k">Dic 2016 – may 2017 · 2 de 4</p>
+      <h3>2017: el desierto se llenó de agua</h3>
+      <p>Descontada el agua habitual, el radar vio <b><span data-v="eventos.2017.inund_anom_km2">—</span> km²</b> con agua en al menos dos fechas. El color dice en cuántas: en el Bajo Piura y en Sechura el agua siguió ahí durante semanas.</p>
+      <p>El día con más agua fue el <b><span data-v="eventos.2017.pico_fecha" data-f="fecha">—</span></b>, con <b><span data-v="eventos.2017.pico_km2">—</span> km²</b>, una semana después del desborde.</p>
+      <p class="src"><span data-v="eventos.2017.escenas">—</span> escenas Sentinel-1 de <span data-v="eventos.2017.fechas">—</span> fechas · píxel de 20 m leído a 80 m</p>
+    </article>
+    <article class="step">
+      <p class="k">Sechura · 3 de 4</p>
+      <h3>Sechura: lagunas en el desierto</h3>
+      <p>El río Piura y las quebradas llevaron el agua hasta las depresiones del desierto de Sechura, que no tienen salida al mar. Solo este distrito sumó casi dos tercios del agua anómala de todo el departamento.</p>
+      <p class="src">Distrito de Sechura, provincia de Sechura</p>
+    </article>
+    <article class="step">
+      <p class="k">Ene – jun 2023 · 4 de 4</p>
+      <h3>2023: menos agua, y más tarde</h3>
+      <p>En 2023 el radar vio <b><span data-v="eventos.2023.inund_anom_km2">—</span> km²</b> con agua anómala. El día con más agua no llegó con el ciclón Yaku, en marzo, sino el <b><span data-v="eventos.2023.pico_fecha" data-f="fecha">—</span></b>, con <b><span data-v="eventos.2023.pico_km2">—</span> km²</b>; el <span data-v="eventos.2023.ultima_fecha" data-f="fecha">—</span> aún quedaban <b><span data-v="eventos.2023.ultima_km2">—</span> km²</b>.</p>
+      <p class="src"><span data-v="eventos.2023.escenas">—</span> escenas Sentinel-1 de <span data-v="eventos.2023.fechas">—</span> fechas</p>
+    </article>
+  </div>
+</section>
 
-  <main class="contenedor">
-    <section class="kpis" id="kpis" aria-live="polite"></section>
-
-    <section class="bloque">
-      <div class="cabecera-bloque">
-        <h2>Superficie inundada por distrito</h2>
-        <p class="nota" id="nota-mapa">Radar Sentinel-1 procesado por Copernicus GFM. Haga clic en un distrito para ver el detalle.</p>
-      </div>
-      <div class="mapa-y-ranking">
-        <div id="mapa" class="mapa" role="region" aria-label="Mapa de distritos"></div>
-        <aside class="ranking">
-          <h3 id="titulo-ranking">Distritos con más superficie inundada</h3>
-          <ol id="ranking"></ol>
-          <div class="leyenda" id="leyenda-mapa"></div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="bloque dos-columnas">
+<section class="note">
+  <div class="wrap">
+    <div class="nhead">
+      <div class="ntag">Nota técnica · I–II</div>
       <div>
-        <div class="cabecera-bloque">
-          <h2>¿Cuándo hubo más agua?</h2>
-          <p class="nota">Máximo semanal de km² con inundación anómala (descontada el agua habitual de 2022). Se usa el
-            máximo de la semana porque cada pasada del radar ve solo una parte del territorio.</p>
-        </div>
-        <div class="grafico"><canvas id="grafico-serie" aria-label="Serie de tiempo de superficie inundada"></canvas></div>
+        <h2>Lo que registró INDECI y lo que vio el radar</h2>
+        <p>Los daños oficiales cuentan personas y viviendas; el radar mide superficie con agua. Ninguna de las dos cifras basta sola: juntas muestran dónde y cuánto tiempo el agua estuvo cerca de la gente.</p>
       </div>
-      <div>
-        <div class="cabecera-bloque">
-          <h2>Daños oficiales (INDECI)</h2>
-          <label class="control en-linea">
-            <span class="etiqueta">Indicador</span>
-            <select id="ctl-indeci">
-              <option value="damnificados">Damnificados</option>
-              <option value="afectados">Afectados</option>
-              <option value="fallecidos">Fallecidos</option>
-              <option value="viviendas_destruidas">Viviendas destruidas</option>
-              <option value="viviendas_afectadas">Viviendas afectadas</option>
-            </select>
-          </label>
-        </div>
-        <div class="grafico"><canvas id="grafico-indeci" aria-label="Daños por departamento 2017 y 2023"></canvas></div>
-        <p class="nota">2017: Niño Costero, ene–may (corte al 4/7/2017). 2023: todas las emergencias de ene–jun.</p>
-      </div>
-    </section>
-
-    <section class="bloque">
-      <div class="cabecera-bloque">
-        <h2>Las viviendas en 3D: inundación y huaicos</h2>
-        <p class="nota">Cada bloque es un edificio detectado por satélite (Microsoft). El color dice qué fuente lo ubica en
-          una zona afectada. Arrastre con clic derecho (o dos dedos) para girar e inclinar la vista.</p>
-      </div>
-      <div class="fila-controles fila-3d">
-        <div class="control">
-          <span class="etiqueta">Zona</span>
-          <div class="segmentado" id="ctl-zona" role="radiogroup">
-            <button type="button" data-valor="piura" class="activo" role="radio" aria-checked="true">Piura (inundación)</button>
-            <button type="button" data-valor="trujillo" role="radio" aria-checked="false">Trujillo (huaicos)</button>
-          </div>
-        </div>
-        <fieldset class="control capas">
-          <legend class="etiqueta">Capas</legend>
-          <label><input type="checkbox" data-capa="ems-inundacion" checked> Inundación Copernicus 2017</label>
-          <label><input type="checkbox" data-capa="ems-huaico" checked> Huaico Copernicus 2017</label>
-          <label><input type="checkbox" data-capa="gfm-2017"> Radar GFM 2017</label>
-          <label><input type="checkbox" data-capa="gfm-2023"> Radar GFM 2023</label>
-        </fieldset>
-      </div>
-      <div class="mapa-y-ranking">
-        <div id="mapa3d" class="mapa alto" role="region" aria-label="Vista 3D de edificios"></div>
-        <aside class="ranking">
-          <h3>Edificios en zonas afectadas</h3>
-          <div id="conteo-3d"></div>
-          <div class="leyenda" id="leyenda-3d"></div>
-          <p class="nota">La altura no representa pisos reales: los edificios afectados se elevan para destacarlos.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="bloque">
-      <h2>Tres hallazgos</h2>
-      <div class="hallazgos" id="hallazgos"></div>
-    </section>
-
-    <section class="bloque texto">
-      <h2>Metodología</h2>
-      <ol>
-        <li><b>Inundación con radar (GFM).</b> Copernicus Global Flood Monitoring procesa cada imagen Sentinel-1 (20 m)
-          con tres algoritmos y marca el agua que no es habitual para ese mes. Se leyeron 2 093 escenas (95 fechas en
-          2017, 115 en 2023 y 78 en el año de referencia 2022) desde el catálogo abierto de EODC y se contaron los píxeles inundados por distrito
-          (límites INEI 2020) a 80 m, con agua en al menos dos fechas para descartar detecciones sueltas.</li>
-        <li><b>Agua habitual (año de referencia).</b> Se procesó igual enero–junio de 2022, un año sin Niño. La
-          «inundación anómala» solo cuenta los píxeles que en 2022 nunca tuvieron agua: así se descuentan arrozales,
-          salinas y lagunas que se llenan todos los años. La serie por fecha resta a cada distrito su mediana de 2022.</li>
-        <li><b>Referencia manual (Copernicus EMS, 2017).</b> Delimitaciones de inundación y huaico y grado de daño por
-          manzana, hechas por analistas sobre imágenes de alta resolución (activación EMSR199).</li>
-        <li><b>Edificios.</b> Huellas de Microsoft Global ML Building Footprints; un edificio cuenta como afectado si su
-          centro cae en una zona inundada o de huaico, o en una manzana con daño.</li>
-        <li><b>Daños oficiales.</b> Compendios estadísticos de INDECI 2017 (informe del Niño Costero) y 2023 (primer
-          semestre), transcritos y verificados contra las tablas originales.</li>
-      </ol>
-      <h2>Limitaciones</h2>
-      <ul>
-        <li>El radar ve mal el agua entre edificios (el pulso rebota en las paredes): subestima la inundación urbana.</li>
-        <li>El radar solo ve lo que estaba inundado cuando pasó (cada 3 a 5 días); los huaicos y crecidas de horas se
-          le escapan.</li>
-        <li>La arena seca y los arrozales pueden parecer agua; GFM excluye parte de esas zonas, pero no todas. Además,
-          su máscara de «agua habitual» se armó con datos de 2017 a 2021 (incluye el propio 2017) y puede esconder
-          parte de las lagunas de ese año. Por eso se usa 2022 como referencia propia.</li>
-        <li>Un solo año de referencia (2022) puede no representar el agua habitual de todos los años; además, en enero y
-          febrero de 2022 el radar pasó pocas veces (3 y 5 fechas), así que el agua habitual de esos meses está subestimada.</li>
-        <li>Los datos de INDECI de 2023 incluyen todas las emergencias del semestre, no solo las del Niño Costero.</li>
-        <li>Los edificios de Microsoft vienen de imágenes de varios años: en 2017 algunas casas aún no existían.</li>
-      </ul>
-      <h2>Fuentes</h2>
-      <ul class="fuentes">
-        <li><a href="https://stac.eodc.eu/api/v1/collections/GFM">Copernicus GFM – catálogo STAC de EODC</a></li>
-        <li><a href="https://mapping.emergency.copernicus.eu/activations/EMSR199/">Copernicus EMS – activación EMSR199 (2017)</a></li>
-        <li><a href="https://cdn.www.gob.pe/uploads/document/file/1048401/20180227171454120200726-15599-1ptpifw.pdf">INDECI – Compendio estadístico 2017</a></li>
-        <li><a href="https://cdn.www.gob.pe/uploads/document/file/5591372/4965310-compendio-final-af-2023-indeci.pdf">INDECI – Compendio estadístico 2023</a></li>
-        <li><a href="https://github.com/microsoft/GlobalMLBuildingFootprints">Microsoft – Global ML Building Footprints (ODbL)</a></li>
-        <li>INEI – Límites distritales 2020</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer class="pie">
-    <div class="contenedor">
-      <p>Cristian Wong · Tarea 3 del curso Python Intermedio. Análisis y código desarrollados con apoyo de IA (Claude Code);
-        las cifras se verificaron contra las fuentes originales.
-        <a href="https://github.com/Cris92W/Python-Intermedio/tree/main/tarea_3">Repositorio</a></p>
     </div>
-  </footer>
+    <div class="cols cols-wide">
+      <figure class="viz anim">
+        <figcaption class="viz-h"><div><span class="no">Gráfico 1</span><h3>Superficie con agua anómala en Piura, semana a semana</h3><span class="u">km²; máximo de cada semana, porque cada pasada del radar ve solo una parte del departamento</span></div></figcaption>
+        <div class="lg"><span><i style="background:var(--e17)"></i>2017 (dic 2016 – may 2017)</span><span><i style="background:var(--e23)"></i>2023 (ene – jun)</span></div>
+        <div class="chart" id="g-semanal"></div>
+        <p class="viz-f"><b>Fuente:</b> Copernicus GFM (Sentinel-1), agua habitual de 2022 descontada. <b>Elaboración:</b> propia. Pasa el cursor sobre un punto para ver la fecha.</p>
+      </figure>
+      <figure class="viz anim">
+        <figcaption class="viz-h"><div><span class="no">Cuadro 1</span><h3>Daños oficiales en Piura</h3><span class="u">2023 como porcentaje de 2017</span></div></figcaption>
+        <div class="st-wrap"><table class="st" id="t-indeci"><thead><tr><th>Indicador</th><th class="n">2017</th><th class="n">2023</th><th>2023 / 2017</th></tr></thead><tbody></tbody></table></div>
+        <p class="viz-f"><b>Fuente:</b> INDECI, Compendios Estadísticos 2017 (pp. 13–15) y 2023 (pp. 233–237). 2023 incluye todas las emergencias del semestre. <b>Elaboración:</b> propia.</p>
+      </figure>
+    </div>
+    <div class="cols" style="margin-top:28px">
+      <figure class="viz anim">
+        <figcaption class="viz-h"><div><span class="no">Gráfico 2</span><h3>Agua anómala por provincia</h3><span class="u">km² con agua en al menos dos fechas, sin el agua habitual de 2022</span></div></figcaption>
+        <div class="lg"><span><i class="sq" style="background:var(--e17)"></i>2017</span><span><i class="sq" style="background:var(--e23)"></i>2023</span></div>
+        <div id="g-prov"></div>
+        <p class="viz-f"><b>Fuente:</b> Copernicus GFM. <b>Elaboración:</b> propia.</p>
+      </figure>
+      <figure class="viz anim" id="f-top">
+        <figcaption class="viz-h"><div><span class="no">Cuadro 2</span><h3>Los 10 distritos con más agua anómala</h3><span class="u">km² con agua anómala; día con más agua; agua habitual de 2022 en km²</span></div>
+          <div class="seg" id="top-ev" role="group" aria-label="Evento del cuadro"><button type="button" data-v="2017" aria-pressed="true">2017</button><button type="button" data-v="2023" aria-pressed="false">2023</button></div></figcaption>
+        <div class="st-wrap"><table class="st" id="t-top"><thead><tr><th class="n">N.°</th><th>Distrito</th><th>Agua anómala</th><th class="n">Máximo</th><th class="n">Habitual</th></tr></thead><tbody></tbody></table></div>
+        <p class="viz-f"><b>Fuente:</b> Copernicus GFM. <b>Elaboración:</b> propia.</p>
+      </figure>
+    </div>
+  </div>
+</section>
 
-  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-  <script src="assets/app.js"></script>
+<!-- Capítulos III y IV: validación y huaicos -->
+<section class="story" id="stB-sec" aria-label="Capítulos III y IV: lo que el radar no ve y los huaicos">
+  <div class="stage" id="stB">
+    <div class="gl" role="img" aria-label="Mapa animado: inundación de Copernicus frente al radar y huaicos de Piura"></div>
+    <div class="frame">
+      <div class="counter"><b></b><small></small></div>
+      <div class="legend"></div>
+    </div>
+  </div>
+  <div class="steps">
+    <article class="step on" id="cap3">
+      <p class="chap-n">Capítulo <b>III</b></p>
+      <h2>Lo que el radar no ve</h2>
+      <p class="q">¿Cuánto de la inundación real detecta un satélite de radar?</p>
+      <hr>
+      <p class="k">Copernicus EMS · mar – abr 2017 · 1 de 3</p>
+      <h3>La referencia: un mapa hecho a mano</h3>
+      <p>En marzo de 2017 se activó el servicio de emergencias de Copernicus. Sus analistas delimitaron a mano la inundación sobre imágenes ópticas de alta resolución en ocho áreas de Piura (contorno celeste).</p>
+      <p class="src">Activación EMSR199 · versiones inicial y de monitoreo unidas</p>
+    </article>
+    <article class="step">
+      <p class="k">Comparación · 2 de 3</p>
+      <h3>El radar vio menos de la mitad</h3>
+      <p>En el Bajo Piura, el radar marcó con agua (en al menos dos fechas) solo una parte de lo que Copernicus delimitó. En el resto de áreas, menos aún:</p>
+      <div id="stB-det"></div>
+      <p class="src">% del área inundada según EMS que el radar también marcó, grilla de 80 m</p>
+    </article>
+    <article class="step">
+      <p class="k">Ciudad de Piura · 3 de 3</p>
+      <h3>En la ciudad, casi nada</h3>
+      <p>Entre edificios, el pulso del radar rebota en las paredes y el agua no se ve oscura. De los <b><span data-v="edificios.afectado_2017">—</span> edificios</b> en zona inundada o en manzanas dañadas en 2017, el radar marcó <b><span data-v="edificios.gfm2017">—</span></b>.</p>
+      <p class="src">Huellas de edificios de Microsoft · Copernicus EMS · GFM</p>
+    </article>
+    <article class="step" id="cap4">
+      <p class="chap-n">Capítulo <b>IV</b></p>
+      <h2>Huaicos en la sierra y en las quebradas</h2>
+      <p class="q">¿Hubo huaicos en Piura?</p>
+      <hr>
+      <p class="k">Inventario de INGEMMET · 1 de 5</p>
+      <h3>Sí: cientos de quebradas con huaicos</h3>
+      <p>INGEMMET levantó en campo <b><span data-v="huaicos.huaicos">—</span> puntos</b> donde bajaron flujos de detritos o de lodo, lo que en el Perú llamamos <b>huaico</b>. La mayoría se registró entre 2002 y 2010: el inventario dice dónde ocurren, no cuándo.</p>
+      <p class="src">INGEMMET, GEOCATMIN, capa de peligros geológicos</p>
+    </article>
+    <article class="step">
+      <p class="k">Dónde · 2 de 5</p>
+      <h3>La sierra y las quebradas secas de la costa</h3>
+      <p>Ayabaca, Morropón y Huancabamba tienen laderas empinadas; en Talara, Sullana y Paita hay quebradas secas que con lluvia fuerte bajan cargadas de lodo.</p>
+      <div id="stB-prov"></div>
+      <p class="src">Puntos de flujo de detritos o de lodo por provincia</p>
+    </article>
+    <article class="step">
+      <p class="k">2017 · 3 de 5</p>
+      <h3>2017: Paimas, Malingas y Sechura</h3>
+      <p>En Paimas (Ayabaca) bajaron flujos de detritos el 25 de marzo en el sector Algodonal; en Malingas (Tambogrande), las quebradas Carnero y San Francisco dejaron aisladas a 50 familias; en Sechura, una quebrada cortó la carretera a Bayóvar.</p>
+      <p class="src">INGEMMET, informes A7091 y A7093 · INDECI, Compendio 2017</p>
+    </article>
+    <article class="step">
+      <p class="k">2023 · 4 de 5</p>
+      <h3>2023: Canchaque, dos veces</h3>
+      <p>La noche del 15 de marzo la quebrada El Limón bajó sobre Canchaque (Huancabamba) y arrasó viviendas; el 5 de abril volvió a activarse. El 13 de marzo, en San Miguel de El Faique, un derrumbe sepultó una casa y murieron dos niños.</p>
+      <p class="hint">Relieve exagerado 1,3 veces.</p>
+      <p class="src">COEN-INDECI vía INGEMMET · Trome · Andina · Panamericana</p>
+    </article>
+    <article class="step">
+      <p class="k">El límite del satélite · 5 de 5</p>
+      <h3>Por qué el radar no los ve</h3>
+      <p>Un huaico es angosto, dura horas y baja por laderas que el radar ve de costado, con sombras y distorsiones del relieve. Copernicus GFM excluye esas zonas de su mapa de agua.</p>
+      <p>Ninguno de los <b><span data-v="huaicos.con_agua_radar.2017.de">—</span> puntos de huaico</b> de INGEMMET tuvo agua del radar a menos de 160 m, ni en 2017 ni en 2023. Para los huaicos hacen falta otras fuentes: el registro de emergencias y el trabajo de campo.</p>
+      <p class="src">Puntos de INGEMMET frente al agua anómala de GFM 2017</p>
+    </article>
+  </div>
+</section>
+
+<section class="note">
+  <div class="wrap">
+    <div class="nhead">
+      <div class="ntag">Nota técnica · III–IV</div>
+      <div>
+        <h2>Validación y huaicos, en cifras</h2>
+        <p>La comparación con Copernicus EMS mide qué tan confiable es el radar donde vive la gente. Los huaicos vienen de fuentes que no son satelitales: el inventario de INGEMMET y nueve eventos documentados con su fuente.</p>
+      </div>
+    </div>
+    <div class="cols">
+      <figure class="viz anim">
+        <figcaption class="viz-h"><div><span class="no">Cuadro 3</span><h3>Inundación de Copernicus EMS que también vio el radar, 2017</h3><span class="u">Por área mapeada (AOI); radar con agua en al menos dos fechas</span></div></figcaption>
+        <div class="st-wrap"><table class="st" id="t-val"><thead><tr><th>Área</th><th class="n">EMS (km²)</th><th>Detectado</th><th class="n">Radar fuera de EMS</th></tr></thead><tbody></tbody></table></div>
+        <p class="viz-f"><b>Nota:</b> «Radar fuera de EMS» no es necesariamente error: el radar cubre seis meses y Copernicus, unos pocos días. <b>Elaboración:</b> propia.</p>
+      </figure>
+      <figure class="viz anim">
+        <figcaption class="viz-h"><div><span class="no">Gráfico 3</span><h3>Huaicos y otros flujos en el inventario de INGEMMET</h3><span class="u">Número de puntos por provincia y tipo</span></div></figcaption>
+        <div id="g-ingemmet"></div>
+        <p class="viz-f"><b>Fuente:</b> INGEMMET, GEOCATMIN (servicio <code>SERV_PELIGROS_GEOLOGICOS</code>). <b>Elaboración:</b> propia.</p>
+      </figure>
+    </div>
+    <figure class="viz anim" style="margin-top:28px">
+      <figcaption class="viz-h"><div><span class="no">Cuadro 4</span><h3>Huaicos y quebradas activadas documentados en Piura, 2017 y 2023</h3><span class="u">Compilados de INDECI, INGEMMET y prensa; no es un censo</span></div></figcaption>
+      <div class="st-wrap"><table class="st" id="t-huaicos"><thead><tr><th>Año</th><th class="n">Fecha</th><th>Lugar</th><th>Qué pasó</th><th>Fuente</th></tr></thead><tbody></tbody></table></div>
+      <p class="viz-f"><b>Nota:</b> las cifras de víctimas de la prensa varían entre medios; se citan las de la fuente enlazada. <b>Elaboración:</b> propia.</p>
+    </figure>
+  </div>
+</section>
+
+<!-- Capítulo V: viviendas en 3D -->
+<section class="story" id="stC-sec" aria-label="Capítulo V: viviendas en 3D">
+  <div class="stage" id="stC">
+    <div class="gl" role="img" aria-label="Edificios de la ciudad de Piura en 3D, coloreados según la fuente que los ubica en zona afectada"></div>
+    <div class="frame">
+      <div class="counter"><b></b><small></small></div>
+      <div class="legend"></div>
+    </div>
+  </div>
+  <div class="steps">
+    <article class="step on" id="cap5">
+      <p class="chap-n">Capítulo <b>V</b></p>
+      <h2>Las viviendas en 3D</h2>
+      <p class="q">¿Qué casas quedaron dentro del agua?</p>
+      <hr>
+      <p class="k">Ciudad de Piura y Bajo Piura · 1 de 4</p>
+      <h3>Cada bloque es un edificio</h3>
+      <p>Microsoft detectó con aprendizaje automático los techos de <b><span data-v="edificios.edificios">—</span> edificios</b> en la zona. Los que se elevan cayeron dentro de una zona afectada en 2017.</p>
+      <p class="hint">La altura no es real: solo destaca los afectados.</p>
+    </article>
+    <article class="step">
+      <p class="k">Inundación · 2 de 4</p>
+      <h3>Dentro del agua</h3>
+      <p><b><span data-v="edificios.ems2017_inundacion">—</span> edificios</b> quedaron dentro de la inundación que delimitó Copernicus en marzo y abril de 2017.</p>
+      <p class="src">Copernicus EMS, polígonos «Flooded Area»</p>
+    </article>
+    <article class="step">
+      <p class="k">Daño · 3 de 4</p>
+      <h3>Manzanas dañadas</h3>
+      <p>Copernicus también calificó el daño por manzana. <b><span data-v="edificios.ems2017_manzana_danada">—</span> edificios</b> están en manzanas con algún daño, de leve a destruido.</p>
+      <p class="src">Copernicus EMS, capas de grado de daño (GRADING)</p>
+    </article>
+    <article class="step">
+      <p class="k">Radar · 4 de 4</p>
+      <h3>Lo que vio el radar</h3>
+      <p>El radar marcó con agua solo <b><span data-v="edificios.gfm2017">—</span> edificios</b> en 2017 y <b><span data-v="edificios.gfm2023">—</span></b> en 2023. Para medir daños en ciudades hacen falta imágenes ópticas de alta resolución o un radar de mayor resolución.</p>
+    </article>
+  </div>
+</section>
+
+<section class="note">
+  <div class="wrap">
+    <div class="nhead">
+      <div class="ntag">Nota técnica · V</div>
+      <div>
+        <h2>Edificios por fuente</h2>
+        <p>Cada edificio se cuenta una vez, con la fuente más precisa que lo ubica en zona afectada: primero el grado de daño de su manzana, luego la inundación de Copernicus y al final el radar.</p>
+      </div>
+    </div>
+    <figure class="viz anim">
+      <figcaption class="viz-h"><div><span class="no">Cuadro 5</span><h3>Edificios en zonas afectadas, ciudad de Piura y Bajo Piura</h3><span class="u">Número de edificios y porcentaje del total en zonas afectadas (2017 o 2023)</span></div></figcaption>
+      <div class="st-wrap"><table class="st" id="t-edif"><thead><tr><th>Categoría</th><th class="n">Edificios</th><th>% de los afectados</th></tr></thead><tbody><tr><td colspan="3">Cargando…</td></tr></tbody></table></div>
+      <p class="viz-f"><b>Fuente:</b> Microsoft Global ML Building Footprints (ODbL), Copernicus EMS y GFM. Los edificios vienen de imágenes de varios años: en 2017 algunos aún no existían. <b>Elaboración:</b> propia.</p>
+    </figure>
+  </div>
+</section>
+
+<!-- Capítulo VI: explorador -->
+<section class="note" id="cap6" style="border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="chap-head">
+      <p class="chap-n"><span>Capítulo</span><b>VI</b></p>
+      <div>
+        <h2>Explora Piura distrito por distrito</h2>
+        <p>Elige el evento, la provincia y el indicador, o busca un distrito. Haz clic en el mapa para ver su detalle; las cifras, el gráfico y el ranking se actualizan con tu selección. Para acercar con la rueda, mantén pulsada la tecla Ctrl.</p>
+      </div>
+    </div>
+    <p class="small" style="margin:0 0 8px">Indicadores para <b id="x-lugar">Piura</b></p>
+    <div class="kpi4" id="x-kpis" aria-live="polite"></div>
+    <div class="mapgrid">
+      <div class="mapbox">
+        <div class="gl" id="mapa-x" role="region" aria-label="Mapa de distritos de Piura"></div>
+        <div class="readout" id="x-readout"></div>
+      </div>
+      <div class="panel">
+        <div>
+          <h4>Evento</h4>
+          <div class="seg" id="x-ev" role="group" aria-label="Evento"><button type="button" data-v="2017" aria-pressed="true">2017</button><button type="button" data-v="2023" aria-pressed="false">2023</button></div>
+        </div>
+        <label><span class="h">Provincia</span><select id="x-prov"></select></label>
+        <label><span class="h">Indicador del mapa</span>
+          <select id="x-ind">
+            <option value="inund_anom_km2">Inundación anómala (km²)</option>
+            <option value="inund_max_km2">Máximo anómalo en un día (km²)</option>
+            <option value="pct_anom">% del distrito con agua anómala</option>
+            <option value="inund_union_km2">Toda el agua detectada (km²)</option>
+            <option value="fechas_con_agua">Fechas con agua</option>
+          </select></label>
+        <label><span class="h">Buscar distrito</span><input type="search" id="x-buscar" list="x-dl" placeholder="Ej.: Catacaos" autocomplete="off"><datalist id="x-dl"></datalist></label>
+        <div><button type="button" class="btn-link" id="x-limpiar">Ver todo Piura</button></div>
+        <div class="layers">
+          <h4>Capas</h4>
+          <label><input type="checkbox" id="L-agua" checked> <span class="sw" style="background:linear-gradient(90deg,var(--w1),var(--w3))"></span> Agua del radar (GFM)</label>
+          <label><input type="checkbox" id="L-ems"> <span class="sw" style="background:#fff;box-shadow:inset 0 0 0 1px var(--rule)"></span> Inundación Copernicus 2017</label>
+          <label><input type="checkbox" id="L-flujos"> <span class="sw dot" style="background:var(--hu)"></span> Huaicos (INGEMMET)</label>
+          <label><input type="checkbox" id="L-eventos" checked> <span class="sw dot" style="background:var(--e17-n);box-shadow:0 0 0 2px var(--e23-n)"></span> Huaicos documentados</label>
+        </div>
+        <div><h4>Leyenda</h4><div id="x-ley"></div></div>
+        <div><h4>Ranking</h4><ol class="rank" id="x-rank"></ol></div>
+      </div>
+    </div>
+    <div class="cols" style="margin-top:28px">
+      <figure class="viz">
+        <figcaption class="viz-h"><div><span class="no">Gráfico 4</span><h3>Agua semana a semana en <span id="x-lugar2">Piura</span></h3><span class="u">km² con agua anómala; máximo de cada semana</span></div></figcaption>
+        <div class="lg"><span><i style="background:var(--e17)"></i>2017</span><span><i style="background:var(--e23)"></i>2023</span></div>
+        <div class="chart" id="x-graf"></div>
+        <p class="viz-f"><b>Fuente:</b> Copernicus GFM. <b>Elaboración:</b> propia.</p>
+      </figure>
+      <figure class="viz anim" id="f-xtop">
+        <figcaption class="viz-h"><div><span class="no">Cuadro 6</span><h3>Distritos con más agua en <span id="x-lugar3">Piura</span></h3><span class="u" id="x-top-u"></span></div></figcaption>
+        <div class="lg"><span><i class="sq" style="background:var(--e17)"></i>2017</span><span><i class="sq" style="background:var(--e23)"></i>2023</span></div>
+        <div class="st-wrap"><table class="st" id="x-top"><thead><tr><th class="n">N.°</th><th>Distrito</th><th>2017 y 2023</th></tr></thead><tbody></tbody></table></div>
+        <p class="viz-f"><b>Fuente:</b> Copernicus GFM. <b>Elaboración:</b> propia.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Capítulo VII: síntesis -->
+<section class="note" id="cap7" style="border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="chap-head">
+      <p class="chap-n"><span>Capítulo</span><b>VII</b></p>
+      <div>
+        <h2>Lo que dicen los datos</h2>
+        <p>Tres hallazgos, el método completo y lo que este análisis no puede afirmar.</p>
+      </div>
+    </div>
+    <div class="finds" id="hallazgos"></div>
+
+    <div class="sub-h"><h3>Método en ocho pasos</h3><p>Todo en Python, sin claves ni pagos</p></div>
+    <ol class="method">
+      <li><h4>Límites</h4><p>Distritos y provincias de Piura del límite distrital del INEI 2020.</p><span class="io">geopandas</span></li>
+      <li><h4>Escenas de radar</h4><p>Búsqueda STAC en el catálogo abierto de EODC: <span data-v="eventos.2017.escenas">—</span> escenas GFM de 2017, <span data-v="eventos.2023.escenas">—</span> de 2023 y <span data-v="eventos.2022.escenas">—</span> de 2022.</p><span class="io">pystac-client</span></li>
+      <li><h4>Lectura</h4><p>Archivos COG leídos a 80 m sin descargarlos; las escenas de una misma fecha y tile se combinan antes de contar.</p><span class="io">rasterio · numpy</span></li>
+      <li><h4>Agua habitual</h4><p>Se procesa igual ene – jun 2022, un año sin Niño. La inundación anómala excluye los píxeles con agua en 2022.</p><span class="io">referencia propia</span></li>
+      <li><h4>Corrección de área</h4><p>La proyección Equi7 de GFM agranda las áreas un 2 % en Piura; se divide por c/sen(c).</p><span class="io">pyproj</span></li>
+      <li><h4>Validación</h4><p>Por cada área de Copernicus EMS, porcentaje de su inundación que también marcó el radar.</p><span class="io">rasterio.features</span></li>
+      <li><h4>Huaicos</h4><p>Inventario de INGEMMET por su servicio ArcGIS y nueve eventos de 2017 y 2023 compilados con su fuente.</p><span class="io">requests · truststore</span></li>
+      <li><h4>Edificios</h4><p>Huellas de Microsoft cruzadas con Copernicus EMS y con el radar, por el centro de cada edificio.</p><span class="io">geopandas</span></li>
+    </ol>
+
+    <div class="sub-h"><h3>Limitaciones</h3><p>Lo que este análisis no puede afirmar</p></div>
+    <div class="lims">
+      <div class="lim"><h4>El radar no ve dentro de la ciudad</h4><p>Entre edificios el pulso rebota en las paredes: subestima la inundación urbana, como muestra la validación.</p></div>
+      <div class="lim"><h4>Solo ve lo que había al pasar</h4><p>Cada pasada (cada 3 a 5 días) cubre una parte del departamento; las crecidas de horas se le escapan.</p></div>
+      <div class="lim"><h4>Un solo año de referencia</h4><p>2022 puede no representar el agua habitual de todos los años, y en enero y febrero de 2022 el radar pasó pocas veces.</p></div>
+      <div class="lim"><h4>Los huaicos documentados son una muestra</h4><p>Nueve eventos de INDECI, INGEMMET y prensa no son un censo; el inventario de INGEMMET es anterior a 2011 en su mayoría.</p></div>
+      <div class="lim"><h4>INDECI no separa el Niño en 2023</h4><p>Las cifras de 2023 incluyen todas las emergencias del semestre; las de 2017 son del Niño Costero.</p></div>
+      <div class="lim"><h4>Edificios de varios años</h4><p>Las huellas de Microsoft vienen de imágenes posteriores a 2017 en su mayoría; la altura en 3D es ilustrativa.</p></div>
+    </div>
+
+    <div class="sub-h"><h3>Ficha técnica</h3><p>Metadatos del producto</p></div>
+    <dl class="meta">
+      <div><dt>Zona de estudio</dt><dd>Departamento de Piura: 8 provincias, <span data-v="distritos">65</span> distritos, <span data-v="area_km2">—</span> km²</dd></div>
+      <div><dt>Periodos</dt><dd>2017: 1 dic 2016 – 31 may 2017 · 2023: 1 ene – 30 jun 2023 · referencia: 1 ene – 30 jun 2022</dd></div>
+      <div><dt>Sensor</dt><dd>Sentinel-1 C-SAR (banda C), producto Copernicus GFM «ensemble»</dd></div>
+      <div><dt>Resolución</dt><dd>20 m (GFM), leído a 80 m; mapas web a 100 m</dd></div>
+      <div><dt>Indicador principal</dt><dd>Inundación anómala: agua en ≥ 2 fechas del evento y en ninguna de 2022</dd></div>
+      <div><dt>Corrección de área</dt><dd>Equi7 Sudamérica (azimutal equidistante): factor c/sen(c)</dd></div>
+      <div><dt>Sistemas de referencia</dt><dd>Equi7 SA (radar) · UTM 17S, <code>EPSG:32717</code> (edificios) · Web Mercator (mapas)</dd></div>
+      <div><dt>Validación</dt><dd>Copernicus EMS EMSR199, 8 áreas de Piura</dd></div>
+      <div><dt>Software</dt><dd>Python: geopandas, rasterio, pystac-client, numpy, pandas · MapLibre GL</dd></div>
+      <div><dt>Autor y fecha</dt><dd>Cristian Wong P. · corte de datos 26 oct 2026</dd></div>
+    </dl>
+
+    <div class="sub-h"><h3>Fuentes</h3><p>Todas abiertas</p></div>
+    <ol class="src">
+      <li><a href="https://stac.eodc.eu/api/v1/collections/GFM">Copernicus Global Flood Monitoring (GFM)</a>, catálogo STAC de EODC.</li>
+      <li><a href="https://mapping.emergency.copernicus.eu/activations/EMSR199/">Copernicus EMS, activación EMSR199</a> (inundaciones en el Perú, 2017).</li>
+      <li><a href="https://geocatmin.ingemmet.gob.pe/arcgis/rest/services/SERV_PELIGROS_GEOLOGICOS/MapServer">INGEMMET, GEOCATMIN: peligros geológicos</a>, e informes técnicos A7091 y A7093.</li>
+      <li><a href="https://cdn.www.gob.pe/uploads/document/file/1048401/20180227171454120200726-15599-1ptpifw.pdf">INDECI, Compendio Estadístico 2017</a> y <a href="https://cdn.www.gob.pe/uploads/document/file/5591372/4965310-compendio-final-af-2023-indeci.pdf">Compendio Estadístico 2023</a>.</li>
+      <li><a href="https://github.com/microsoft/GlobalMLBuildingFootprints">Microsoft Global ML Building Footprints</a> (ODbL).</li>
+      <li>INEI, límite distrital 2020, vía el dataset del curso <code>aquiro1994/ds-python-up</code>.</li>
+      <li>Prensa para eventos puntuales: Andina, El Tiempo (Piura), Trome y Panamericana; enlaces en el cuadro 4.</li>
+      <li>Mapas base: Esri World Imagery y World Dark Gray; relieve: Terrain Tiles (Mapzen, AWS Open Data).</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="foot"><div class="wrap"><span><b>Piura bajo el agua</b> · Autor: <b>Cristian Wong P.</b>, ingeniero geógrafo y bachiller en Ciencia Política · Tarea 3, Python Intermedio</span><span>Análisis y código con apoyo de IA (Claude Code); cifras verificadas contra las fuentes · <a href="https://github.com/Cris92W/Python-Intermedio/tree/main/tarea_3">Repositorio</a></span></div></footer>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="assets/app.js"></script>
 </body>
 </html>
