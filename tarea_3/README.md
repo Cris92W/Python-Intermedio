@@ -1,4 +1,4 @@
-# Tarea 3 – El agua que se quedó en Piura: los Niños Costeros de 2017 y 2023
+# Tarea 3 – Piura bajo el agua: dos Niños costeros medidos desde el espacio (2017 y 2023)
 
 **Dashboard:** https://cris92w.github.io/Python-Intermedio/tarea_3/web/
 **Publicación de LinkedIn:** (pendiente)
@@ -81,7 +81,7 @@ Requiere Python 3.12 y [uv](https://docs.astral.sh/uv/). Desde `tarea_3/`:
 uv venv .venv --python 3.12
 uv pip install --python .venv/Scripts/python.exe -r requirements.txt   # en Linux/Mac: .venv/bin/python
 
-.venv/Scripts/python.exe scripts/obtener_limites.py      # límites INEI de Piura y contorno del Perú
+.venv/Scripts/python.exe scripts/obtener_limites.py      # límites INEI de Piura (simplificados como cobertura: calzan entre niveles) y contorno del Perú
 .venv/Scripts/python.exe scripts/inventario_gfm.py       # escenas GFM de 2017, 2023 y 2022
 .venv/Scripts/python.exe scripts/procesar_gfm.py         # km² con agua por distrito y fecha (~25 min)
 .venv/Scripts/python.exe scripts/obtener_ems_2017.py     # mapas de Copernicus EMS 2017 de Piura

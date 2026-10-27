@@ -14,6 +14,8 @@
     ['Sechura', -80.822, -5.557], ['Chulucanas', -80.162, -5.093], ['Huancabamba', -79.451, -5.239], ['Ayabaca', -79.715, -4.639]];
   const W1 = '#a6e8ff', W2 = '#54c4f5', W3 = '#208ce6', W4 = '#1852c4';
   const E17N = '#f2a03d', E23N = '#6cc3d8', HU = '#e07a3a', HU2 = '#b08a5a';
+  // Límites: línea clara sobre un halo oscuro, para que se lean sobre la imagen satelital
+  const HALO = '#05061a';
   const GRADOS = [['leve', 'Daño leve', '#f2d16b'], ['moderado', 'Daño moderado', '#ee9a3a'], ['grave', 'Daño grave', '#d6453d'], ['destruido', 'Destruido', '#8a2246']];
   const ESRI = s => `https://server.arcgisonline.com/ArcGIS/rest/services/${s}/MapServer/tile/{z}/{y}/{x}`;
 
@@ -163,14 +165,26 @@
     }
   }
   const PROP = { raster: ['raster-opacity'], fill: ['fill-opacity'], line: ['line-opacity'], circle: ['circle-opacity', 'circle-stroke-opacity'], 'fill-extrusion': ['fill-extrusion-opacity'] };
+  // Capas que siguen a otra con su misma opacidad (por un factor): los halos y el contorno de Piura sobre las provincias
+  const COMPANERAS = { 'prov-l': [['prov-c', .55], ['dep-c', .7], ['dep-l', 1]], 'peru-l': [['peru-c', .45]] };
   // Opacidad de cada capa del paso; las que no figuran se apagan
   function aplicarCapas(map, ids, capas) {
     ids.forEach(id => {
-      const l = map.getLayer(id); if (!l) return;
       const o = capas[id] || 0;
-      PROP[l.type].forEach(p => map.setPaintProperty(id, p, o));
-      map.setLayoutProperty(id, 'visibility', o > 0 ? 'visible' : 'none');
+      [[id, 1], ...(COMPANERAS[id] || [])].forEach(([cid, k]) => {
+        const l = map.getLayer(cid); if (!l) return;
+        PROP[l.type].forEach(p => map.setPaintProperty(cid, p, o * k));
+        map.setLayoutProperty(cid, 'visibility', o > 0 ? 'visible' : 'none');
+      });
     });
+  }
+  // Provincias y, encima, el contorno del departamento, cada una con su halo (fuentes 'prov' y 'dep')
+  function capasLimites(map, opac = 0) {
+    const union = { 'line-join': 'round', 'line-cap': 'round' };
+    map.addLayer({ id: 'prov-c', type: 'line', source: 'prov', layout: union, paint: { 'line-color': HALO, 'line-width': 3.4, 'line-blur': 1, 'line-opacity': opac * .55 } });
+    map.addLayer({ id: 'prov-l', type: 'line', source: 'prov', layout: union, paint: { 'line-color': '#e3e5f4', 'line-width': 1.15, 'line-opacity': opac } });
+    map.addLayer({ id: 'dep-c', type: 'line', source: 'dep', layout: union, paint: { 'line-color': HALO, 'line-width': ['interpolate', ['linear'], ['zoom'], 5, 4.5, 9, 7], 'line-blur': 1.5, 'line-opacity': opac * .7 } });
+    map.addLayer({ id: 'dep-l', type: 'line', source: 'dep', layout: union, paint: { 'line-color': '#ffffff', 'line-width': ['interpolate', ['linear'], ['zoom'], 5, 1.8, 9, 2.8], 'line-opacity': opac } });
   }
   function margenEscenario(map) {
     const st = map.getContainer().closest('.stage'), fr = st.querySelector('.frame').getBoundingClientRect(), r = st.getBoundingClientRect();
@@ -199,9 +213,11 @@
     'data/agua.json', 'data/huaicos_ingemmet.geojson', 'data/huaicos_eventos.geojson', 'data/ems_2017.geojson'].map(get))
     .then(([R, DIST, PROV, PERU, serie, INDECI, AGUA, FLUJOS, EVENTOS_H, EMS]) => {
       SERIE = serie;
-      const D = { R, DIST, PROV, PERU, INDECI, AGUA, FLUJOS, EVENTOS_H, EMS };
+      // Contorno de Piura: sale de los mismos distritos que las provincias, así que calza con ellas
+      const DEP = { type: 'FeatureCollection', features: PERU.features.filter(f => f.properties.CCDD === '20') };
+      const D = { R, DIST, PROV, PERU, DEP, INDECI, AGUA, FLUJOS, EVENTOS_H, EMS };
       ligarCifras(R);
-      const pasos = [lamina, historiaA, notasI, historiaB, notasII, historiaC, explorador, sintesis];
+      const pasos = [lamina, historiaA, notasI, historiaB, notasII, historiaC, explorador, sintesis, pasadas];
       pasos.forEach(f => { try { f(D); } catch (e) { console.error(f.name, e); } });
       observarAnim(); queueScroll();
     })
@@ -213,6 +229,43 @@
       const v = dig(R, el.dataset.v); if (v == null) return;
       el.textContent = el.dataset.f === 'fecha' ? fecha(v, el.dataset.a !== '0') : fmt(+v, +(el.dataset.d || 0));
     });
+  }
+
+  /* ---------- Ficha técnica: fechas en que el radar vio Piura ---------- */
+  function pasadas(D) {
+    const el = $('pasadas'); if (!el) return;
+    const ubis = D.DIST.features.map(f => f.properties.UBIGEO);
+    // El ancho del dibujo es el de su caja, así el texto queda a tamaño real; en el celular, margen izquierdo más angosto
+    const W = Math.max(300, Math.round(el.clientWidth)), FILA = 82, M = { l: W < 500 ? 62 : 96, r: 12, t: 8, b: 24 }, H = M.t + FILA * EVENTOS.length + M.b;
+    const X = d => M.l + d / 212 * (W - M.l - M.r);
+    let s = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">`;
+    MES_T.forEach(([d, m], i) => {
+      const x = X(d); s += `<line class="p-mes" x1="${x}" x2="${x}" y1="${M.t}" y2="${H - M.b}"/>`;
+      if (m) s += `<text class="p-ax" x="${(x + X(MES_T[i + 1][0])) / 2}" y="${H - 7}" text-anchor="middle">${m}</text>`;
+    });
+    let k = 0;
+    EVENTOS.forEach((ev, fila) => {
+      const y0 = M.t + fila * FILA, base = y0 + FILA - 14, alto = FILA - 34, col = ev === '2017' ? E17N : E23N;
+      const tot = totales(ev, ubis), obs = SERIE[ev].observado_pct;
+      s += `<text class="p-ev" x="0" y="${y0 + 30}" fill="${col}">${ev}</text><text class="p-n" x="0" y="${y0 + 48}">${tot.length} fechas</text>`;
+      s += `<line class="p-base" x1="${M.l}" x2="${W - M.r}" y1="${base}" y2="${base}"/>`;
+      tot.forEach(({ f, v }, i) => {
+        const x = X(diaTemporada(ev, f)).toFixed(1), h = Math.max(3, alto * obs[i] / 100);
+        const tip = `<b>${fecha(f)}</b><br>Cubrió el ${fmt(obs[i])} % de Piura` + (v != null ? ` · ${fmt(v, 1)} km² de agua anómala` : '');
+        s += `<line class="p-t" x1="${x}" x2="${x}" y1="${base}" y2="${(base - h).toFixed(1)}" stroke="${col}" stroke-opacity="${obs[i] >= 90 ? 1 : .45}" style="--i:${k++}"/>`;
+        s += `<rect class="p-hit" x="${x - 4}" y="${base - alto - 6}" width="8" height="${alto + 8}" data-tip="${tip.replace(/"/g, '&quot;')}"/>`;
+      });
+      const pico = picoDe(ev, ubis);
+      if (pico) {
+        const x = X(diaTemporada(ev, pico.f)), der = x > W - 150;
+        s += `<circle cx="${x}" cy="${base - alto - 8}" r="3.5" fill="#fff"/><text class="p-pico" x="${der ? x - 8 : x + 8}" y="${base - alto - 4}" text-anchor="${der ? 'end' : 'start'}">Pico: ${fecha(pico.f, false)} · ${fmt(pico.v)} km²</text>`;
+      }
+    });
+    el.innerHTML = s + '</svg>';
+    if (!el.dataset.oye) {
+      el.dataset.oye = '1'; let w = el.clientWidth, t;
+      window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { if (Math.abs(el.clientWidth - w) > 40) { w = el.clientWidth; pasadas(D); } }, 250); });
+    }
   }
 
   /* ---------- Lámina de portada (SVG en Mercator) ---------- */
@@ -228,8 +281,8 @@
     s += D.PERU.features.filter(f => f.properties.CCDD !== '20').map(f => `<path d="${ruta(f.geometry)}" fill="#181b38" stroke="#2a2e52" stroke-width=".8"/>`).join('');
     s += D.PROV.features.map(f => `<path d="${ruta(f.geometry)}" fill="#1c203e" stroke="none"/>`).join('');
     s += `<image id="lamina-agua" href="data/agua_2017.png" x="${ax}" y="${ay}" width="${bx - ax}" height="${by - ay}" preserveAspectRatio="none" filter="url(#engrosar)"/>`;
-    s += D.PROV.features.map(f => `<path d="${ruta(f.geometry)}" fill="none" stroke="rgba(227, 229, 244,.45)" stroke-width=".8"/>`).join('');
-    s += D.PERU.features.filter(f => f.properties.CCDD === '20').map(f => `<path d="${ruta(f.geometry)}" fill="none" stroke="#e3e5f4" stroke-width="1.4"/>`).join('');
+    s += D.PROV.features.map(f => `<path d="${ruta(f.geometry)}" fill="none" stroke="rgba(227, 229, 244,.6)" stroke-width=".9" stroke-linejoin="round"/>`).join('');
+    s += D.DEP.features.map(f => { const d = ruta(f.geometry); return `<path d="${d}" fill="none" stroke="${HALO}" stroke-opacity=".8" stroke-width="4.4" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"/>`; }).join('');
     CIUDADES.forEach(([n, lon, lat]) => { const [x, y] = P([lon, lat]), izq = x > VW - 95; s += `<circle cx="${x}" cy="${y}" r="3" fill="#fff" stroke="#10122a" stroke-width="1.5"/><text x="${izq ? x - 6 : x + 6}" y="${y - 5}" text-anchor="${izq ? 'end' : 'start'}" font-size="12" font-weight="600" fill="#fff" stroke="#0a0c1b" stroke-width="3" paint-order="stroke">${n}</text>`; });
     [-6, -5.5, -5, -4.5].forEach(lat => { const y = P([B[0], lat])[1]; s += `<line x1="0" x2="6" y1="${y}" y2="${y}" stroke="#9ca1c4"/><text x="9" y="${y + 3.5}" font-size="9.5" fill="#9ca1c4" font-family="IBM Plex Mono, monospace">${fmt(-lat, 1)}° S</text>`; });
     [-81, -80.5, -80, -79.5].forEach(lon => { const x = P([lon, B[1]])[0]; s += `<line x1="${x}" x2="${x}" y1="${VH}" y2="${VH - 6}" stroke="#9ca1c4"/><text x="${x}" y="${VH - 9}" font-size="9.5" fill="#9ca1c4" text-anchor="middle" font-family="IBM Plex Mono, monospace">${fmt(-lon, 1)}° O</text>`; });
@@ -256,7 +309,7 @@
   /* ---------- Capítulos I y II: contexto y agua ---------- */
   function historiaA(D) {
     const root = $('stA'); const map = nuevoMapa(root.querySelector('.gl'), 'imagen', { bounds: NORTE_B, fuentes: {
-      peru: { type: 'geojson', data: D.PERU }, prov: { type: 'geojson', data: D.PROV }, ems: { type: 'geojson', data: D.EMS },
+      peru: { type: 'geojson', data: D.PERU }, prov: { type: 'geojson', data: D.PROV }, dep: { type: 'geojson', data: D.DEP }, ems: { type: 'geojson', data: D.EMS },
       a2017: { type: 'image', url: 'data/agua_2017.png', coordinates: D.AGUA.esquinas }, a2023: { type: 'image', url: 'data/agua_2023.png', coordinates: D.AGUA.esquinas },
       a2022: { type: 'image', url: 'data/agua_2022.png', coordinates: D.AGUA.esquinas } } });
     const cnt = counter(root.querySelector('.counter')), leg = root.querySelector('.legend'), tl = root.querySelector('.tl');
@@ -312,11 +365,12 @@
     }
     if (map) map.on('load', () => {
       map.addLayer({ id: 'peru-f', type: 'fill', source: 'peru', paint: { 'fill-color': ['case', ['==', ['get', 'CCDD'], '20'], W2, '#10122a'], 'fill-opacity': 0 } });
-      map.addLayer({ id: 'peru-l', type: 'line', source: 'peru', paint: { 'line-color': '#e3e5f4', 'line-width': .7, 'line-opacity': 0 } });
+      map.addLayer({ id: 'peru-c', type: 'line', source: 'peru', layout: { 'line-join': 'round' }, paint: { 'line-color': HALO, 'line-width': 2.6, 'line-blur': 1, 'line-opacity': 0 } });
+      map.addLayer({ id: 'peru-l', type: 'line', source: 'peru', layout: { 'line-join': 'round' }, paint: { 'line-color': '#e3e5f4', 'line-width': .8, 'line-opacity': 0 } });
       ['a2022', 'a2017', 'a2023'].forEach(id => map.addLayer({ id, type: 'raster', source: id, paint: { 'raster-opacity': 0, 'raster-resampling': 'nearest' } }));
       map.addLayer({ id: 'ems-f', type: 'fill', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], paint: { 'fill-color': '#ffffff', 'fill-opacity': 0 } });
       map.addLayer({ id: 'ems-l', type: 'line', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], paint: { 'line-color': '#ffffff', 'line-width': .8, 'line-opacity': 0 } });
-      map.addLayer({ id: 'prov-l', type: 'line', source: 'prov', paint: { 'line-color': '#e3e5f4', 'line-width': 1, 'line-opacity': 0 } });
+      capasLimites(map);
       marcas.prov = D.PROV.features.map(f => rotulo(map, nombre(f.properties.NOMBPROV), [f.properties.lab_x, f.properties.lab_y], 'prov'));
       marcas.ciudad = CIUDADES.map(([n, lon, lat]) => rotulo(map, n, [lon, lat], 'city'));
       listo = true; paso(pendiente);
@@ -367,7 +421,7 @@
     '15PIURAEAST': 'Ciudad de Piura, este', '16PIURAWEST': 'Ciudad de Piura, oeste', '08SULLANA': 'Sullana' };
   function historiaB(D) {
     const root = $('stB'); const map = nuevoMapa(root.querySelector('.gl'), 'imagen', { fuentes: {
-      ems: { type: 'geojson', data: D.EMS }, prov: { type: 'geojson', data: D.PROV },
+      ems: { type: 'geojson', data: D.EMS }, prov: { type: 'geojson', data: D.PROV }, dep: { type: 'geojson', data: D.DEP },
       a2017: { type: 'image', url: 'data/agua_2017.png', coordinates: D.AGUA.esquinas },
       flujos: { type: 'geojson', data: D.FLUJOS }, eventos: { type: 'geojson', data: D.EVENTOS_H },
       dem: { type: 'raster-dem', tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'], encoding: 'terrarium', tileSize: 256, maxzoom: 13,
@@ -420,7 +474,7 @@
       map.addLayer({ id: 'ems-f', type: 'fill', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], paint: { 'fill-color': '#ffffff', 'fill-opacity': 0 } });
       map.addLayer({ id: 'ems-l', type: 'line', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], paint: { 'line-color': '#ffffff', 'line-width': .8, 'line-opacity': 0 } });
       map.addLayer({ id: 'aoi-l', type: 'line', source: 'ems', filter: ['==', ['get', 'tipo'], 'aoi'], paint: { 'line-color': '#a8c2ff', 'line-width': 1.4, 'line-dasharray': [3, 2], 'line-opacity': 0 } });
-      map.addLayer({ id: 'prov-l', type: 'line', source: 'prov', paint: { 'line-color': '#e3e5f4', 'line-width': 1, 'line-opacity': 0 } });
+      capasLimites(map);
       map.addLayer({ id: 'flujos', type: 'circle', source: 'flujos', paint: { 'circle-color': ['case', ['get', 'huaico'], HU, HU2], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, 2.6, 12, 6],
         'circle-stroke-color': '#10122a', 'circle-stroke-width': .8, 'circle-opacity': 0, 'circle-stroke-opacity': 0 } });
       map.addLayer({ id: 'eventos', type: 'circle', source: 'eventos', paint: { 'circle-color': ['match', ['get', 'evento'], '2017', E17N, E23N], 'circle-radius': 7,
@@ -534,7 +588,7 @@
     const sel = $('x-prov');
     sel.innerHTML = '<option value="TODAS">Todo Piura</option>' + [...new Set(lista.map(p => p.NOMBPROV))].sort().map(p => `<option value="${p}">${nombre(p)}</option>`).join('');
     const map = nuevoMapa($('mapa-x'), 'oscuro', { interactivo: true, fuentes: {
-      dist: { type: 'geojson', data: D.DIST, promoteId: 'UBIGEO' }, prov: { type: 'geojson', data: D.PROV },
+      dist: { type: 'geojson', data: D.DIST, promoteId: 'UBIGEO' }, prov: { type: 'geojson', data: D.PROV }, dep: { type: 'geojson', data: D.DEP },
       agua: { type: 'image', url: 'data/agua_2017.png', coordinates: D.AGUA.esquinas }, ems: { type: 'geojson', data: D.EMS },
       flujos: { type: 'geojson', data: D.FLUJOS }, eventos: { type: 'geojson', data: D.EVENTOS_H } } });
     const valor = (p, ind = st.ind, ev = st.ev) => +p[`${ind}_${ev}`] || 0;
@@ -606,7 +660,7 @@
         map.addLayer({ id: 'dist-f', type: 'fill', source: 'dist', paint: { 'fill-color': colorExpr(), 'fill-opacity': .82 } });
         map.addLayer({ id: 'agua', type: 'raster', source: 'agua', layout: { visibility: vis('L-agua') }, paint: { 'raster-opacity': .95, 'raster-resampling': 'nearest' } });
         map.addLayer({ id: 'dist-l', type: 'line', source: 'dist', paint: { 'line-color': '#10122a', 'line-width': .6 } });
-        map.addLayer({ id: 'prov-l', type: 'line', source: 'prov', paint: { 'line-color': '#e3e5f4', 'line-width': 1.1, 'line-opacity': .8 } });
+        capasLimites(map, .85);
         map.addLayer({ id: 'ems-f', type: 'fill', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], layout: { visibility: vis('L-ems') }, paint: { 'fill-color': '#ffffff', 'fill-opacity': .4 } });
         map.addLayer({ id: 'ems-l', type: 'line', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], layout: { visibility: vis('L-ems') }, paint: { 'line-color': '#ffffff', 'line-width': .7 } });
         map.addLayer({ id: 'flujos', type: 'circle', source: 'flujos', layout: { visibility: vis('L-flujos') }, paint: { 'circle-color': ['case', ['get', 'huaico'], HU, HU2], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, 2.5, 12, 6], 'circle-stroke-color': '#10122a', 'circle-stroke-width': .8 } });

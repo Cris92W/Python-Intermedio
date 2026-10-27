@@ -34,7 +34,8 @@
   <div class="hero-in">
     <div>
       <p class="eyebrow">Informe de teledetección · Departamento de Piura, Perú</p>
-      <h1>El agua que se quedó en Piura</h1>
+      <h1>Piura bajo el agua</h1>
+      <p class="deck">Dos Niños costeros medidos desde el espacio</p>
       <p class="lede">En los Niños Costeros de 2017 y 2023, las lluvias desbordaron el río Piura, llenaron de agua el desierto de Sechura y activaron quebradas en la sierra. Con imágenes de radar Sentinel-1, los mapas de Copernicus, el inventario de huaicos de INGEMMET y los reportes de INDECI medimos cuánto territorio cubrió el agua, cuánto tiempo se quedó, qué viviendas tocó y qué no alcanza a ver un satélite.</p>
       <div class="author">
         <span class="author-m" aria-hidden="true">CW</span>
@@ -413,17 +414,88 @@
     </div>
     <div class="finds" id="hallazgos"></div>
 
-    <div class="sub-h"><h3>Método en ocho pasos</h3><p>Todo en Python, sin claves ni pagos</p></div>
-    <ol class="method">
-      <li><h4>Límites</h4><p>Distritos y provincias de Piura del límite distrital del INEI 2020.</p><span class="io">geopandas</span></li>
-      <li><h4>Escenas de radar</h4><p>Búsqueda STAC en el catálogo abierto de EODC: <span data-v="eventos.2017.escenas">—</span> escenas GFM de 2017, <span data-v="eventos.2023.escenas">—</span> de 2023 y <span data-v="eventos.2022.escenas">—</span> de 2022.</p><span class="io">pystac-client</span></li>
-      <li><h4>Lectura</h4><p>Archivos COG leídos a 80 m sin descargarlos; las escenas de una misma fecha y tile se combinan antes de contar.</p><span class="io">rasterio · numpy</span></li>
-      <li><h4>Agua habitual</h4><p>Se procesa igual ene – jun 2022, un año sin Niño. La inundación anómala excluye los píxeles con agua en 2022.</p><span class="io">referencia propia</span></li>
-      <li><h4>Corrección de área</h4><p>La proyección Equi7 de GFM agranda las áreas un 2 % en Piura; se divide por c/sen(c).</p><span class="io">pyproj</span></li>
-      <li><h4>Validación</h4><p>Por cada área de Copernicus EMS, porcentaje de su inundación que también marcó el radar.</p><span class="io">rasterio.features</span></li>
-      <li><h4>Huaicos</h4><p>Inventario de INGEMMET por su servicio ArcGIS y nueve eventos de 2017 y 2023 compilados con su fuente.</p><span class="io">requests · truststore</span></li>
-      <li><h4>Edificios</h4><p>Huellas de Microsoft cruzadas con Copernicus EMS y con el radar, por el centro de cada edificio.</p><span class="io">geopandas</span></li>
-    </ol>
+    <div class="sub-h"><h3>Método en ocho pasos</h3><p>Todo en Python, con datos abiertos y sin claves de acceso</p></div>
+    <div class="flujo anim">
+      <div class="fase" style="--fc:var(--f1);--fi:0">
+        <p class="fase-n"><b>Datos</b><span>Pasos 1 a 3 · reunir y leer</span></p>
+        <ol class="pasos">
+        <li class="paso" style="--i:0">
+          <div class="paso-top"><span class="paso-n">1</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7l6-3 9 3-2 9-8 4-5-6z"/><circle cx="4" cy="7" r="1.3"/><circle cx="10" cy="4" r="1.3"/><circle cx="19" cy="7" r="1.3"/><circle cx="17" cy="16" r="1.3"/><circle cx="9" cy="20" r="1.3"/><circle cx="4" cy="14" r="1.3"/></svg></div>
+          <p class="cifra"><b><span data-v="distritos">65</span></b><span>distritos · 8 provincias</span></p>
+          <h4>Límites</h4>
+          <p>Límite distrital del INEI 2020. Las provincias y el contorno de Piura salen de los mismos distritos, así los bordes calzan.</p>
+          <div class="io"><span>geopandas</span><span>shapely</span></div>
+        </li>
+        <li class="paso" style="--i:1">
+          <div class="paso-top"><span class="paso-n">2</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="9.5" y="4" width="5" height="6.5" rx="1"/><path d="M2 5.5h6v3H2zM16 5.5h6v3h-6zM8 7h1.5M14.5 7H16"/><path d="M8.5 14.5a5 5 0 0 0 7 0M5.5 17.5a9 9 0 0 0 13 0"/></svg></div>
+          <p class="cifra"><b>945</b><span>escenas de radar</span></p>
+          <h4>Escenas de radar</h4>
+          <p>Búsqueda STAC en el catálogo abierto de EODC: <span data-v="eventos.2017.escenas">—</span> escenas GFM de 2017, <span data-v="eventos.2023.escenas">—</span> de 2023 y <span data-v="eventos.2022.escenas">—</span> de 2022.</p>
+          <div class="io"><span>pystac-client</span></div>
+        </li>
+        <li class="paso" style="--i:2">
+          <div class="paso-top"><span class="paso-n">3</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg></div>
+          <p class="cifra"><b>20 → 80 m</b><span>por píxel</span></p>
+          <h4>Lectura</h4>
+          <p>Archivos COG leídos a 80 m sin descargarlos; las escenas de una misma fecha y tesela se combinan antes de contar.</p>
+          <div class="io"><span>rasterio</span><span>numpy</span></div>
+        </li>
+        </ol>
+      </div>
+      <div class="fase" style="--fc:var(--f2);--fi:1">
+        <p class="fase-n"><b>Indicador</b><span>Pasos 4 y 5 · medir el agua</span></p>
+        <ol class="pasos" start="4">
+        <li class="paso" style="--i:3">
+          <div class="paso-top"><span class="paso-n">4</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3.6 4.6 6 8 6 11a6 6 0 0 1-12 0c0-3 2.4-6.4 6-11z"/><path d="M9 14.5h6"/></svg></div>
+          <p class="cifra"><b><span data-v="eventos.2022.agua_habitual_km2">—</span> km²</b><span>de agua habitual</span></p>
+          <h4>Agua habitual</h4>
+          <p>Se procesa igual enero a junio de 2022, un año sin Niño. La inundación anómala excluye los píxeles con agua en 2022.</p>
+          <div class="io"><span>referencia propia</span></div>
+        </li>
+        <li class="paso" style="--i:4">
+          <div class="paso-top"><span class="paso-n">5</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c-3.2 3.2-3.2 13.8 0 17M12 3.5c3.2 3.2 3.2 13.8 0 17"/></svg></div>
+          <p class="cifra"><b>−2 %</b><span>de área en Piura</span></p>
+          <h4>Corrección de área</h4>
+          <p>La proyección Equi7 de GFM agranda las áreas lejos de su centro; cada superficie se divide por c/sen(c).</p>
+          <div class="io"><span>pyproj</span></div>
+        </li>
+          <li class="resultado">
+            <span class="k">Resultado</span>
+            <h4>Inundación anómala: agua en dos o más fechas que en 2022 no la tuvo</h4>
+            <dl>
+              <div><dt>2017</dt><dd><span data-v="eventos.2017.inund_anom_km2">—</span><small>km²</small></dd></div>
+              <div><dt>2023</dt><dd><span data-v="eventos.2023.inund_anom_km2">—</span><small>km²</small></dd></div>
+            </dl>
+          </li>
+        </ol>
+      </div>
+      <div class="fase" style="--fc:var(--f3);--fi:2">
+        <p class="fase-n"><b>Contraste</b><span>Pasos 6 a 8 · cruzar con otras fuentes</span></p>
+        <ol class="pasos" start="6">
+        <li class="paso" style="--i:5">
+          <div class="paso-top"><span class="paso-n">6</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/><path d="M10.5 12.2l1.2 1.3 2-2.6"/></svg></div>
+          <p class="cifra"><b>8</b><span>áreas de Copernicus EMS</span></p>
+          <h4>Validación</h4>
+          <p>Por cada área delimitada a mano en 2017, el porcentaje de su inundación que también marcó el radar.</p>
+          <div class="io"><span>rasterio.features</span></div>
+        </li>
+        <li class="paso" style="--i:6">
+          <div class="paso-top"><span class="paso-n">7</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20L9 7l4 6 3-4 6 11z"/><path d="M9 7c.6 4.2 3.2 6.4 2.4 13"/></svg></div>
+          <p class="cifra"><b><span data-v="huaicos.huaicos">—</span></b><span>huaicos + 9 eventos</span></p>
+          <h4>Huaicos</h4>
+          <p>Inventario de INGEMMET por su servicio ArcGIS y nueve eventos de 2017 y 2023 compilados con su fuente.</p>
+          <div class="io"><span>requests</span><span>truststore</span></div>
+        </li>
+        <li class="paso" style="--i:7">
+          <div class="paso-top"><span class="paso-n">8</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10l5-3v14M10 21V4l9 4v13M13 10.5h3M13 13.5h3M13 16.5h3M7 13h1M7 16h1"/></svg></div>
+          <p class="cifra"><b><span data-v="edificios.afectado_2017">—</span></b><span>edificios en zona afectada</span></p>
+          <h4>Edificios</h4>
+          <p>Huellas de Microsoft cruzadas con Copernicus EMS y con el radar, por el centro de cada edificio.</p>
+          <div class="io"><span>geopandas</span></div>
+        </li>
+        </ol>
+      </div>
+    </div>
 
     <div class="sub-h"><h3>Limitaciones</h3><p>Lo que este análisis no puede afirmar</p></div>
     <div class="lims">
@@ -435,19 +507,27 @@
       <div class="lim"><h4>Edificios de varios años</h4><p>Las huellas de Microsoft vienen de imágenes posteriores a 2017 en su mayoría; la altura en 3D es ilustrativa.</p></div>
     </div>
 
-    <div class="sub-h"><h3>Ficha técnica</h3><p>Metadatos del producto</p></div>
-    <dl class="meta">
-      <div><dt>Zona de estudio</dt><dd>Departamento de Piura: 8 provincias, <span data-v="distritos">65</span> distritos, <span data-v="area_km2">—</span> km²</dd></div>
-      <div><dt>Periodos</dt><dd>2017: 1 dic 2016 – 31 may 2017 · 2023: 1 ene – 30 jun 2023 · referencia: 1 ene – 30 jun 2022</dd></div>
-      <div><dt>Sensor</dt><dd>Sentinel-1 C-SAR (banda C), producto Copernicus GFM «ensemble»</dd></div>
-      <div><dt>Resolución</dt><dd>20 m (GFM), leído a 80 m; mapas web a 100 m</dd></div>
-      <div><dt>Indicador principal</dt><dd>Inundación anómala: agua en ≥ 2 fechas del evento y en ninguna de 2022</dd></div>
-      <div><dt>Corrección de área</dt><dd>Equi7 Sudamérica (azimutal equidistante): factor c/sen(c)</dd></div>
-      <div><dt>Sistemas de referencia</dt><dd>Equi7 SA (radar) · UTM 17S, <code>EPSG:32717</code> (edificios) · Web Mercator (mapas)</dd></div>
-      <div><dt>Validación</dt><dd>Copernicus EMS EMSR199, 8 áreas de Piura</dd></div>
-      <div><dt>Software</dt><dd>Python: geopandas, rasterio, pystac-client, numpy, pandas · MapLibre GL</dd></div>
-      <div><dt>Autor y fecha</dt><dd>Cristian Wong P. · corte de datos 26 oct 2026</dd></div>
-    </dl>
+    <div class="sub-h"><h3>Ficha técnica</h3><p>Lo que midió el radar y con qué se procesó</p></div>
+    <div class="spec">
+      <figure class="pasadas anim">
+        <figcaption><b>Pasadas de Sentinel-1 sobre Piura</b><span>Cada raya es una fecha en que el radar vio al menos una parte del departamento; su alto es la parte que cubrió. Las rayas tenues cubrieron menos del 90 %. Pasa el cursor por una raya para ver su fecha.</span></figcaption>
+        <div class="pasadas-svg" id="pasadas" role="img" aria-label="Fechas de paso del radar Sentinel-1 sobre Piura en 2017 y 2023, con la parte del departamento que cubrió cada una"></div>
+        <p class="pasadas-ref">Referencia sin Niño: <b data-v="eventos.2022.escenas">—</b> escenas de enero a junio de 2022.</p>
+      </figure>
+      <dl class="spec-grid">
+        <div class="sp-ancho"><dt>Zona de estudio</dt><dd><span class="sp-big"><span data-v="area_km2">—</span><small>km²</small></span><span>Departamento de Piura: 8 provincias y <span data-v="distritos">65</span> distritos</span></dd></div>
+        <div><dt>Sensor</dt><dd><b>Sentinel-1 C-SAR</b><span>Radar de banda C (5,405 GHz): ve a través de las nubes y de noche</span></dd></div>
+        <div><dt>Producto</dt><dd><b>Copernicus GFM</b><span>Mapa de agua «ensemble» de tres algoritmos, por escena</span></dd></div>
+        <div><dt>Resolución</dt><dd><span class="pix" aria-hidden="true"><span><i style="--s:20"></i>20</span><span><i style="--s:80"></i>80</span><span><i style="--s:100"></i>100 m</span></span><span>GFM a 20 m, leído a 80 m; mapas web a 100 m</span></dd></div>
+        <div><dt>Corrección de área</dt><dd><b>÷ c / sen(c)</b><span>Equi7 Sudamérica agranda las áreas un 2 % en Piura</span></dd></div>
+        <div class="sp-ancho"><dt>Indicador principal</dt><dd><code class="formula">agua en ≥ 2 fechas del evento  y  en 0 fechas de 2022</code><span>Inundación anómala, en km², por distrito y por evento</span></dd></div>
+        <div><dt>Periodos</dt><dd><b>dic 2016 – may 2017</b><b>ene – jun 2023</b><span>Referencia: ene – jun 2022</span></dd></div>
+        <div><dt>Validación</dt><dd><b>Copernicus EMS EMSR199</b><span>8 áreas de Piura delimitadas a mano en 2017</span></dd></div>
+        <div class="sp-ancho"><dt>Sistemas de referencia</dt><dd class="chips"><span>Equi7 SA · radar</span><span>EPSG:32717 · UTM 17S · edificios</span><span>EPSG:3857 · Web Mercator · mapas</span></dd></div>
+        <div class="sp-ancho"><dt>Software</dt><dd class="chips"><span>Python</span><span>geopandas</span><span>shapely</span><span>rasterio</span><span>pystac-client</span><span>numpy</span><span>pandas</span><span>MapLibre GL</span></dd></div>
+        <div class="sp-ancho spec-autor"><dt>Autor y fecha</dt><dd><b>Cristian Wong P.</b><span>Corte de datos: 26 oct 2026</span></dd></div>
+      </dl>
+    </div>
 
     <div class="sub-h"><h3>Fuentes</h3><p>Todas abiertas</p></div>
     <ol class="src">

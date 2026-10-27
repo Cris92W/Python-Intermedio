@@ -145,7 +145,9 @@ def main():
             web[c] = pd.to_numeric(web[c]).fillna(0).astype(int)
         elif c.startswith("fecha_max"):
             web[c] = web[c].fillna("")
-    web["geometry"] = web.to_crs("EPSG:32717").simplify(120).to_crs(4326)
+    # Geometría simplificada como cobertura en obtener_limites.py: la misma de provincias y del contorno de Piura
+    simple = gpd.read_file(PROC / "distritos_web.gpkg").set_index("UBIGEO").geometry
+    web["geometry"] = simple.reindex(web["UBIGEO"]).values
     WEB.mkdir(parents=True, exist_ok=True)
     web.to_file(WEB / "distritos.geojson", driver="GeoJSON", COORDINATE_PRECISION=5)
 
