@@ -1,0 +1,14 @@
+# Descargas pesadas (límites INEI, paquetes de Copernicus EMS, rasters): se recuperan con los scripts de scripts/
+datos/originales/
+
+# Entornos y temporales
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Credenciales: nunca al repositorio
+.env
+*credenciales*
+
+# Registros de procesos largos
+*.log

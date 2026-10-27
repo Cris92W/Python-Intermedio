@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Niño Costero 2017 y 2023</title>
+  <meta name="description" content="Lluvias, inundaciones y huaicos del Niño Costero 2017 y 2023 en Piura, Lambayeque, La Libertad, Áncash y Lima: imágenes satelitales frente a registros oficiales.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="assets/estilos.css">
+</head>
+<body>
+  <header class="portada">
+    <div class="contenedor">
+      <p class="antetitulo">Tarea 3 · Python Intermedio · Diplomado en Ciencia de Datos</p>
+      <h1>¿Dónde golpeó el agua? El Niño Costero de 2017 y de 2023 visto desde el espacio</h1>
+      <p class="pregunta">¿Cuánto territorio y cuántas viviendas de Piura, Lambayeque, La Libertad, Áncash y Lima
+        afectaron las lluvias, inundaciones y huaicos de los Niños Costeros de 2017 y 2023, y qué detectan
+        —y qué omiten— las imágenes satelitales frente a los registros oficiales?</p>
+      <ul class="fichas">
+        <li><b>Cobertura:</b> 5 departamentos, 523 distritos (146 177 km²)</li>
+        <li><b>2017:</b> dic 2016 – may 2017</li>
+        <li><b>2023:</b> ene – jun 2023 (incluye el ciclón Yaku)</li>
+        <li><b>Fuentes:</b> Copernicus GFM y EMS, INDECI, INEI, Microsoft</li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="controles" aria-label="Filtros">
+    <div class="contenedor fila-controles">
+      <div class="control">
+        <span class="etiqueta">Evento</span>
+        <div class="segmentado" id="ctl-evento" role="radiogroup">
+          <button type="button" data-valor="2017" class="activo" role="radio" aria-checked="true">2017</button>
+          <button type="button" data-valor="2023" role="radio" aria-checked="false">2023</button>
+        </div>
+      </div>
+      <label class="control">
+        <span class="etiqueta">Departamento</span>
+        <select id="ctl-departamento">
+          <option value="TODOS">Los 5 departamentos</option>
+          <option value="PIURA">Piura</option>
+          <option value="LAMBAYEQUE">Lambayeque</option>
+          <option value="LA LIBERTAD">La Libertad</option>
+          <option value="ÁNCASH">Áncash</option>
+          <option value="LIMA">Lima</option>
+        </select>
+      </label>
+      <label class="control">
+        <span class="etiqueta">Indicador del mapa</span>
+        <select id="ctl-indicador">
+          <option value="inund_anom_km2">Inundación anómala (km², sin el agua habitual)</option>
+          <option value="inund_union_km2">Toda el agua detectada (km², ≥2 fechas)</option>
+          <option value="inund_max_km2">Máximo anómalo en un solo día (km²)</option>
+          <option value="pct_max">% del distrito inundado (máximo diario)</option>
+          <option value="fechas_con_agua">Fechas con agua detectada</option>
+        </select>
+      </label>
+      <label class="control buscar">
+        <span class="etiqueta">Buscar distrito</span>
+        <input id="ctl-buscar" list="lista-distritos" placeholder="Ej.: Catacaos" autocomplete="off">
+        <datalist id="lista-distritos"></datalist>
+      </label>
+    </div>
+  </nav>
+
+  <main class="contenedor">
+    <section class="kpis" id="kpis" aria-live="polite"></section>
+
+    <section class="bloque">
+      <div class="cabecera-bloque">
+        <h2>Superficie inundada por distrito</h2>
+        <p class="nota" id="nota-mapa">Radar Sentinel-1 procesado por Copernicus GFM. Haga clic en un distrito para ver el detalle.</p>
+      </div>
+      <div class="mapa-y-ranking">
+        <div id="mapa" class="mapa" role="region" aria-label="Mapa de distritos"></div>
+        <aside class="ranking">
+          <h3 id="titulo-ranking">Distritos con más superficie inundada</h3>
+          <ol id="ranking"></ol>
+          <div class="leyenda" id="leyenda-mapa"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="bloque dos-columnas">
+      <div>
+        <div class="cabecera-bloque">
+          <h2>¿Cuándo hubo más agua?</h2>
+          <p class="nota">Máximo semanal de km² con inundación anómala (descontada el agua habitual de 2022). Se usa el
+            máximo de la semana porque cada pasada del radar ve solo una parte del territorio.</p>
+        </div>
+        <div class="grafico"><canvas id="grafico-serie" aria-label="Serie de tiempo de superficie inundada"></canvas></div>
+      </div>
+      <div>
+        <div class="cabecera-bloque">
+          <h2>Daños oficiales (INDECI)</h2>
+          <label class="control en-linea">
+            <span class="etiqueta">Indicador</span>
+            <select id="ctl-indeci">
+              <option value="damnificados">Damnificados</option>
+              <option value="afectados">Afectados</option>
+              <option value="fallecidos">Fallecidos</option>
+              <option value="viviendas_destruidas">Viviendas destruidas</option>
+              <option value="viviendas_afectadas">Viviendas afectadas</option>
+            </select>
+          </label>
+        </div>
+        <div class="grafico"><canvas id="grafico-indeci" aria-label="Daños por departamento 2017 y 2023"></canvas></div>
+        <p class="nota">2017: Niño Costero, ene–may (corte al 4/7/2017). 2023: todas las emergencias de ene–jun.</p>
+      </div>
+    </section>
+
+    <section class="bloque">
+      <div class="cabecera-bloque">
+        <h2>Las viviendas en 3D: inundación y huaicos</h2>
+        <p class="nota">Cada bloque es un edificio detectado por satélite (Microsoft). El color dice qué fuente lo ubica en
+          una zona afectada. Arrastre con clic derecho (o dos dedos) para girar e inclinar la vista.</p>
+      </div>
+      <div class="fila-controles fila-3d">
+        <div class="control">
+          <span class="etiqueta">Zona</span>
+          <div class="segmentado" id="ctl-zona" role="radiogroup">
+            <button type="button" data-valor="piura" class="activo" role="radio" aria-checked="true">Piura (inundación)</button>
+            <button type="button" data-valor="trujillo" role="radio" aria-checked="false">Trujillo (huaicos)</button>
+          </div>
+        </div>
+        <fieldset class="control capas">
+          <legend class="etiqueta">Capas</legend>
+          <label><input type="checkbox" data-capa="ems-inundacion" checked> Inundación Copernicus 2017</label>
+          <label><input type="checkbox" data-capa="ems-huaico" checked> Huaico Copernicus 2017</label>
+          <label><input type="checkbox" data-capa="gfm-2017"> Radar GFM 2017</label>
+          <label><input type="checkbox" data-capa="gfm-2023"> Radar GFM 2023</label>
+        </fieldset>
+      </div>
+      <div class="mapa-y-ranking">
+        <div id="mapa3d" class="mapa alto" role="region" aria-label="Vista 3D de edificios"></div>
+        <aside class="ranking">
+          <h3>Edificios en zonas afectadas</h3>
+          <div id="conteo-3d"></div>
+          <div class="leyenda" id="leyenda-3d"></div>
+          <p class="nota">La altura no representa pisos reales: los edificios afectados se elevan para destacarlos.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="bloque">
+      <h2>Tres hallazgos</h2>
+      <div class="hallazgos" id="hallazgos"></div>
+    </section>
+
+    <section class="bloque texto">
+      <h2>Metodología</h2>
+      <ol>
+        <li><b>Inundación con radar (GFM).</b> Copernicus Global Flood Monitoring procesa cada imagen Sentinel-1 (20 m)
+          con tres algoritmos y marca el agua que no es habitual para ese mes. Se leyeron 2 093 escenas (95 fechas en
+          2017, 115 en 2023 y 78 en el año de referencia 2022) desde el catálogo abierto de EODC y se contaron los píxeles inundados por distrito
+          (límites INEI 2020) a 80 m, con agua en al menos dos fechas para descartar detecciones sueltas.</li>
+        <li><b>Agua habitual (año de referencia).</b> Se procesó igual enero–junio de 2022, un año sin Niño. La
+          «inundación anómala» solo cuenta los píxeles que en 2022 nunca tuvieron agua: así se descuentan arrozales,
+          salinas y lagunas que se llenan todos los años. La serie por fecha resta a cada distrito su mediana de 2022.</li>
+        <li><b>Referencia manual (Copernicus EMS, 2017).</b> Delimitaciones de inundación y huaico y grado de daño por
+          manzana, hechas por analistas sobre imágenes de alta resolución (activación EMSR199).</li>
+        <li><b>Edificios.</b> Huellas de Microsoft Global ML Building Footprints; un edificio cuenta como afectado si su
+          centro cae en una zona inundada o de huaico, o en una manzana con daño.</li>
+        <li><b>Daños oficiales.</b> Compendios estadísticos de INDECI 2017 (informe del Niño Costero) y 2023 (primer
+          semestre), transcritos y verificados contra las tablas originales.</li>
+      </ol>
+      <h2>Limitaciones</h2>
+      <ul>
+        <li>El radar ve mal el agua entre edificios (el pulso rebota en las paredes): subestima la inundación urbana.</li>
+        <li>El radar solo ve lo que estaba inundado cuando pasó (cada 3 a 5 días); los huaicos y crecidas de horas se
+          le escapan.</li>
+        <li>La arena seca y los arrozales pueden parecer agua; GFM excluye parte de esas zonas, pero no todas. Además,
+          su máscara de «agua habitual» se armó con datos de 2017 a 2021 (incluye el propio 2017) y puede esconder
+          parte de las lagunas de ese año. Por eso se usa 2022 como referencia propia.</li>
+        <li>Un solo año de referencia (2022) puede no representar el agua habitual de todos los años; además, en enero y
+          febrero de 2022 el radar pasó pocas veces (3 y 5 fechas), así que el agua habitual de esos meses está subestimada.</li>
+        <li>Los datos de INDECI de 2023 incluyen todas las emergencias del semestre, no solo las del Niño Costero.</li>
+        <li>Los edificios de Microsoft vienen de imágenes de varios años: en 2017 algunas casas aún no existían.</li>
+      </ul>
+      <h2>Fuentes</h2>
+      <ul class="fuentes">
+        <li><a href="https://stac.eodc.eu/api/v1/collections/GFM">Copernicus GFM – catálogo STAC de EODC</a></li>
+        <li><a href="https://mapping.emergency.copernicus.eu/activations/EMSR199/">Copernicus EMS – activación EMSR199 (2017)</a></li>
+        <li><a href="https://cdn.www.gob.pe/uploads/document/file/1048401/20180227171454120200726-15599-1ptpifw.pdf">INDECI – Compendio estadístico 2017</a></li>
+        <li><a href="https://cdn.www.gob.pe/uploads/document/file/5591372/4965310-compendio-final-af-2023-indeci.pdf">INDECI – Compendio estadístico 2023</a></li>
+        <li><a href="https://github.com/microsoft/GlobalMLBuildingFootprints">Microsoft – Global ML Building Footprints (ODbL)</a></li>
+        <li>INEI – Límites distritales 2020</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>Cristian Wong · Tarea 3 del curso Python Intermedio. Análisis y código desarrollados con apoyo de IA (Claude Code);
+        las cifras se verificaron contra las fuentes originales.
+        <a href="https://github.com/Cris92W/Python-Intermedio/tree/main/tarea_3">Repositorio</a></p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

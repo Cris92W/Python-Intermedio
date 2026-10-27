@@ -1,0 +1,547 @@
+{
+ "por_departamento": [
+  {
+   "evento": "2017",
+   "NOMBDEP": "LA LIBERTAD",
+   "inund_anom_km2": 11.22,
+   "inund_union_km2": 12.09,
+   "agua_habitual_km2": 2.65,
+   "distritos_con_agua": 11
+  },
+  {
+   "evento": "2017",
+   "NOMBDEP": "LAMBAYEQUE",
+   "inund_anom_km2": 145.66,
+   "inund_union_km2": 155.51,
+   "agua_habitual_km2": 45.01,
+   "distritos_con_agua": 14
+  },
+  {
+   "evento": "2017",
+   "NOMBDEP": "LIMA",
+   "inund_anom_km2": 0.88,
+   "inund_union_km2": 0.88,
+   "agua_habitual_km2": 0.11,
+   "distritos_con_agua": 4
+  },
+  {
+   "evento": "2017",
+   "NOMBDEP": "PIURA",
+   "inund_anom_km2": 304.03,
+   "inund_union_km2": 331.14,
+   "agua_habitual_km2": 32.1,
+   "distritos_con_agua": 27
+  },
+  {
+   "evento": "2017",
+   "NOMBDEP": "ÁNCASH",
+   "inund_anom_km2": 1.71,
+   "inund_union_km2": 1.72,
+   "agua_habitual_km2": 0.09,
+   "distritos_con_agua": 4
+  },
+  {
+   "evento": "2023",
+   "NOMBDEP": "LA LIBERTAD",
+   "inund_anom_km2": 3.08,
+   "inund_union_km2": 3.61,
+   "agua_habitual_km2": 2.65,
+   "distritos_con_agua": 6
+  },
+  {
+   "evento": "2023",
+   "NOMBDEP": "LAMBAYEQUE",
+   "inund_anom_km2": 77.18,
+   "inund_union_km2": 100.62,
+   "agua_habitual_km2": 45.01,
+   "distritos_con_agua": 12
+  },
+  {
+   "evento": "2023",
+   "NOMBDEP": "LIMA",
+   "inund_anom_km2": 0.09,
+   "inund_union_km2": 0.09,
+   "agua_habitual_km2": 0.11,
+   "distritos_con_agua": 0
+  },
+  {
+   "evento": "2023",
+   "NOMBDEP": "PIURA",
+   "inund_anom_km2": 254.55,
+   "inund_union_km2": 290.61,
+   "agua_habitual_km2": 32.1,
+   "distritos_con_agua": 23
+  },
+  {
+   "evento": "2023",
+   "NOMBDEP": "ÁNCASH",
+   "inund_anom_km2": 0.94,
+   "inund_union_km2": 1.14,
+   "agua_habitual_km2": 0.09,
+   "distritos_con_agua": 5
+  }
+ ],
+ "pico_departamento": [
+  {
+   "evento": "2017",
+   "NOMBDEP": "LA LIBERTAD",
+   "fecha": "2017-02-07",
+   "km2": 8.48
+  },
+  {
+   "evento": "2017",
+   "NOMBDEP": "LAMBAYEQUE",
+   "fecha": "2017-04-28",
+   "km2": 81.23
+  },
+  {
+   "evento": "2017",
+   "NOMBDEP": "LIMA",
+   "fecha": "2016-12-24",
+   "km2": 0.6
+  },
+  {
+   "evento": "2017",
+   "NOMBDEP": "PIURA",
+   "fecha": "2017-04-04",
+   "km2": 239.78
+  },
+  {
+   "evento": "2017",
+   "NOMBDEP": "ÁNCASH",
+   "fecha": "2017-03-24",
+   "km2": 1.64
+  },
+  {
+   "evento": "2023",
+   "NOMBDEP": "LA LIBERTAD",
+   "fecha": "2023-03-17",
+   "km2": 1.96
+  },
+  {
+   "evento": "2023",
+   "NOMBDEP": "LAMBAYEQUE",
+   "fecha": "2023-05-09",
+   "km2": 49.96
+  },
+  {
+   "evento": "2023",
+   "NOMBDEP": "LIMA",
+   "fecha": "2023-06-13",
+   "km2": 0.16
+  },
+  {
+   "evento": "2023",
+   "NOMBDEP": "PIURA",
+   "fecha": "2023-05-09",
+   "km2": 227.57
+  },
+  {
+   "evento": "2023",
+   "NOMBDEP": "ÁNCASH",
+   "fecha": "2023-03-17",
+   "km2": 0.75
+  }
+ ],
+ "edificios": [
+  {
+   "zona": "piura",
+   "edificios": 126082,
+   "ems2017_inundacion": 561,
+   "ems2017_huaico": 0,
+   "ems2017_manzana_danada": 797,
+   "gfm2017": 14,
+   "gfm2023": 5,
+   "afectado_2017": 1322,
+   "afectado_2023": 5,
+   "afectado_ambos": 0,
+   "ems_inundacion_km2": 23.23,
+   "gfm2017_km2": 30.21,
+   "gfm2023_km2": 8.3
+  },
+  {
+   "zona": "trujillo",
+   "edificios": 150313,
+   "ems2017_inundacion": 1764,
+   "ems2017_huaico": 14,
+   "ems2017_manzana_danada": 1833,
+   "gfm2017": 9,
+   "gfm2023": 0,
+   "afectado_2017": 3586,
+   "afectado_2023": 0,
+   "afectado_ambos": 0,
+   "ems_inundacion_km2": 60.28,
+   "gfm2017_km2": 0.13,
+   "gfm2023_km2": 0.06
+  }
+ ],
+ "validacion": [
+  {
+   "aoi": "14SALINAS",
+   "departamento": "PIURA",
+   "aoi_km2": 1983.46,
+   "ems_inundado_km2": 824.33,
+   "gfm_1fecha_km2": 126.63,
+   "gfm_2fechas_km2": 106.46,
+   "deteccion_1fecha_pct": 11.89,
+   "deteccion_2fechas_pct": 10.5,
+   "gfm_fuera_ems_pct": 18.73
+  },
+  {
+   "aoi": "11PARACHIQUE",
+   "departamento": "PIURA",
+   "aoi_km2": 1954.16,
+   "ems_inundado_km2": 481.11,
+   "gfm_1fecha_km2": 131.36,
+   "gfm_2fechas_km2": 89.33,
+   "deteccion_1fecha_pct": 15.68,
+   "deteccion_2fechas_pct": 13.13,
+   "gfm_fuera_ems_pct": 29.31
+  },
+  {
+   "aoi": "10PIURA",
+   "departamento": "PIURA",
+   "aoi_km2": 1939.72,
+   "ems_inundado_km2": 99.36,
+   "gfm_1fecha_km2": 86.21,
+   "gfm_2fechas_km2": 58.02,
+   "deteccion_1fecha_pct": 50.42,
+   "deteccion_2fechas_pct": 46.33,
+   "gfm_fuera_ems_pct": 20.67
+  },
+  {
+   "aoi": "13TRUJILLO",
+   "departamento": "LA LIBERTAD",
+   "aoi_km2": 1921.4,
+   "ems_inundado_km2": 95.77,
+   "gfm_1fecha_km2": 0.36,
+   "gfm_2fechas_km2": 0.06,
+   "deteccion_1fecha_pct": 0.13,
+   "deteccion_2fechas_pct": 0.06,
+   "gfm_fuera_ems_pct": 0.0
+  },
+  {
+   "aoi": "12PIURANORTH",
+   "departamento": "PIURA",
+   "aoi_km2": 941.48,
+   "ems_inundado_km2": 29.22,
+   "gfm_1fecha_km2": 6.44,
+   "gfm_2fechas_km2": 3.33,
+   "deteccion_1fecha_pct": 11.5,
+   "deteccion_2fechas_pct": 8.21,
+   "gfm_fuera_ems_pct": 27.88
+  },
+  {
+   "aoi": "06ROMA",
+   "departamento": "LA LIBERTAD",
+   "aoi_km2": 86.89,
+   "ems_inundado_km2": 9.88,
+   "gfm_1fecha_km2": 0.0,
+   "gfm_2fechas_km2": 0.0,
+   "deteccion_1fecha_pct": 0.0,
+   "deteccion_2fechas_pct": 0.0,
+   "gfm_fuera_ems_pct": null
+  },
+  {
+   "aoi": "19LOSEJIDOS",
+   "departamento": "PIURA",
+   "aoi_km2": 38.01,
+   "ems_inundado_km2": 4.86,
+   "gfm_1fecha_km2": 0.95,
+   "gfm_2fechas_km2": 0.52,
+   "deteccion_1fecha_pct": 10.28,
+   "deteccion_2fechas_pct": 6.85,
+   "gfm_fuera_ems_pct": 35.8
+  },
+  {
+   "aoi": "02ATE",
+   "departamento": "LIMA",
+   "aoi_km2": 239.97,
+   "ems_inundado_km2": 4.31,
+   "gfm_1fecha_km2": 0.0,
+   "gfm_2fechas_km2": 0.0,
+   "deteccion_1fecha_pct": 0.0,
+   "deteccion_2fechas_pct": 0.0,
+   "gfm_fuera_ems_pct": null
+  },
+  {
+   "aoi": "21LAREDO",
+   "departamento": "LA LIBERTAD",
+   "aoi_km2": 49.4,
+   "ems_inundado_km2": 2.14,
+   "gfm_1fecha_km2": 0.0,
+   "gfm_2fechas_km2": 0.0,
+   "deteccion_1fecha_pct": 0.0,
+   "deteccion_2fechas_pct": 0.0,
+   "gfm_fuera_ems_pct": null
+  },
+  {
+   "aoi": "01LIMA",
+   "departamento": "LIMA",
+   "aoi_km2": 240.01,
+   "ems_inundado_km2": 2.1,
+   "gfm_1fecha_km2": 0.0,
+   "gfm_2fechas_km2": 0.0,
+   "deteccion_1fecha_pct": 0.0,
+   "deteccion_2fechas_pct": 0.0,
+   "gfm_fuera_ems_pct": null
+  },
+  {
+   "aoi": "15PIURAEAST",
+   "departamento": "PIURA",
+   "aoi_km2": 38.04,
+   "ems_inundado_km2": 1.96,
+   "gfm_1fecha_km2": 0.29,
+   "gfm_2fechas_km2": 0.19,
+   "deteccion_1fecha_pct": 13.07,
+   "deteccion_2fechas_pct": 8.17,
+   "gfm_fuera_ems_pct": 16.67
+  },
+  {
+   "aoi": "03CHACLACAYO",
+   "departamento": "LIMA",
+   "aoi_km2": 169.18,
+   "ems_inundado_km2": 1.78,
+   "gfm_1fecha_km2": 0.0,
+   "gfm_2fechas_km2": 0.0,
+   "deteccion_1fecha_pct": 0.0,
+   "deteccion_2fechas_pct": 0.0,
+   "gfm_fuera_ems_pct": null
+  },
+  {
+   "aoi": "07CIUDADDEDIOS",
+   "departamento": "LA LIBERTAD",
+   "aoi_km2": 18.94,
+   "ems_inundado_km2": 1.58,
+   "gfm_1fecha_km2": 0.03,
+   "gfm_2fechas_km2": 0.0,
+   "deteccion_1fecha_pct": 0.0,
+   "deteccion_2fechas_pct": 0.0,
+   "gfm_fuera_ems_pct": null
+  },
+  {
+   "aoi": "08SULLANA",
+   "departamento": "PIURA",
+   "aoi_km2": 65.59,
+   "ems_inundado_km2": 1.34,
+   "gfm_1fecha_km2": 0.51,
+   "gfm_2fechas_km2": 0.22,
+   "deteccion_1fecha_pct": 25.84,
+   "deteccion_2fechas_pct": 15.31,
+   "gfm_fuera_ems_pct": 8.57
+  },
+  {
+   "aoi": "05HUAURA",
+   "departamento": "LIMA",
+   "aoi_km2": 13.83,
+   "ems_inundado_km2": 0.88,
+   "gfm_1fecha_km2": 0.0,
+   "gfm_2fechas_km2": 0.0,
+   "deteccion_1fecha_pct": 0.0,
+   "deteccion_2fechas_pct": 0.0,
+   "gfm_fuera_ems_pct": null
+  },
+  {
+   "aoi": "16PIURAWEST",
+   "departamento": "PIURA",
+   "aoi_km2": 38.03,
+   "ems_inundado_km2": 0.79,
+   "gfm_1fecha_km2": 0.0,
+   "gfm_2fechas_km2": 0.0,
+   "deteccion_1fecha_pct": 0.0,
+   "deteccion_2fechas_pct": 0.0,
+   "gfm_fuera_ems_pct": null
+  },
+  {
+   "aoi": "18TRUJILLOSOUTH",
+   "departamento": "LA LIBERTAD",
+   "aoi_km2": 55.56,
+   "ems_inundado_km2": 0.64,
+   "gfm_1fecha_km2": 0.02,
+   "gfm_2fechas_km2": 0.0,
+   "deteccion_1fecha_pct": 3.0,
+   "deteccion_2fechas_pct": 0.0,
+   "gfm_fuera_ems_pct": null
+  }
+ ],
+ "top_distritos": {
+  "2017": [
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "SECHURA",
+    "inund_anom_km2": 193.78,
+    "inund_union_km2": 206.85,
+    "agua_habitual_km2": 8.35,
+    "fecha_max": "2017-04-04"
+   },
+   {
+    "NOMBDEP": "LAMBAYEQUE",
+    "NOMBDIST": "OLMOS",
+    "inund_anom_km2": 52.65,
+    "inund_union_km2": 58.84,
+    "agua_habitual_km2": 33.9,
+    "fecha_max": "2017-02-03"
+   },
+   {
+    "NOMBDEP": "LAMBAYEQUE",
+    "NOMBDIST": "MORROPE",
+    "inund_anom_km2": 48.84,
+    "inund_union_km2": 50.54,
+    "agua_habitual_km2": 3.97,
+    "fecha_max": "2017-04-28"
+   },
+   {
+    "NOMBDEP": "LAMBAYEQUE",
+    "NOMBDIST": "JAYANCA",
+    "inund_anom_km2": 39.14,
+    "inund_union_km2": 39.73,
+    "agua_habitual_km2": 6.03,
+    "fecha_max": "2017-01-14"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "LA BREA",
+    "inund_anom_km2": 26.49,
+    "inund_union_km2": 30.57,
+    "agua_habitual_km2": 3.23,
+    "fecha_max": "2017-03-11"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "CRISTO NOS VALGA",
+    "inund_anom_km2": 19.43,
+    "inund_union_km2": 25.52,
+    "agua_habitual_km2": 4.46,
+    "fecha_max": "2017-03-11"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "VICHAYAL",
+    "inund_anom_km2": 15.41,
+    "inund_union_km2": 18.43,
+    "agua_habitual_km2": 2.8,
+    "fecha_max": "2017-04-04"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "EL TALLAN",
+    "inund_anom_km2": 8.29,
+    "inund_union_km2": 8.33,
+    "agua_habitual_km2": 0.0,
+    "fecha_max": "2017-03-23"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "TAMBO GRANDE",
+    "inund_anom_km2": 8.05,
+    "inund_union_km2": 8.18,
+    "agua_habitual_km2": 3.59,
+    "fecha_max": "2017-04-04"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "COLAN",
+    "inund_anom_km2": 4.96,
+    "inund_union_km2": 4.96,
+    "agua_habitual_km2": 0.1,
+    "fecha_max": "2017-03-11"
+   }
+  ],
+  "2023": [
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "SECHURA",
+    "inund_anom_km2": 182.6,
+    "inund_union_km2": 198.16,
+    "agua_habitual_km2": 8.35,
+    "fecha_max": "2023-05-09"
+   },
+   {
+    "NOMBDEP": "LAMBAYEQUE",
+    "NOMBDIST": "OLMOS",
+    "inund_anom_km2": 44.63,
+    "inund_union_km2": 62.85,
+    "agua_habitual_km2": 33.9,
+    "fecha_max": "2023-04-27"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "LA BREA",
+    "inund_anom_km2": 29.51,
+    "inund_union_km2": 33.82,
+    "agua_habitual_km2": 3.23,
+    "fecha_max": "2023-04-15"
+   },
+   {
+    "NOMBDEP": "LAMBAYEQUE",
+    "NOMBDIST": "MORROPE",
+    "inund_anom_km2": 24.47,
+    "inund_union_km2": 26.25,
+    "agua_habitual_km2": 3.97,
+    "fecha_max": "2023-03-10"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "VICHAYAL",
+    "inund_anom_km2": 16.95,
+    "inund_union_km2": 20.29,
+    "agua_habitual_km2": 2.8,
+    "fecha_max": "2023-04-15"
+   },
+   {
+    "NOMBDEP": "LAMBAYEQUE",
+    "NOMBDIST": "JAYANCA",
+    "inund_anom_km2": 5.21,
+    "inund_union_km2": 7.99,
+    "agua_habitual_km2": 6.03,
+    "fecha_max": "2023-02-26"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "COLAN",
+    "inund_anom_km2": 4.33,
+    "inund_union_km2": 4.33,
+    "agua_habitual_km2": 0.1,
+    "fecha_max": "2023-04-03"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "CRISTO NOS VALGA",
+    "inund_anom_km2": 3.85,
+    "inund_union_km2": 9.31,
+    "agua_habitual_km2": 4.46,
+    "fecha_max": "2023-03-10"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "MIGUEL CHECA",
+    "inund_anom_km2": 3.42,
+    "inund_union_km2": 5.58,
+    "agua_habitual_km2": 2.9,
+    "fecha_max": "2023-02-02"
+   },
+   {
+    "NOMBDEP": "PIURA",
+    "NOMBDIST": "TAMBO GRANDE",
+    "inund_anom_km2": 3.24,
+    "inund_union_km2": 3.99,
+    "agua_habitual_km2": 3.59,
+    "fecha_max": "2023-04-27"
+   }
+  ]
+ },
+ "hallazgos": [
+  {
+   "titulo": "1. El agua se quedó en el desierto del norte, por semanas",
+   "texto": "Piura y Lambayeque concentran el 97 % de la inundación anómala detectada por radar en 2017 (450 de 464 km²) y el 99 % en 2023 (332 de 336 km²). Solo Sechura suma 194 km² en 2017 y 183 km² en 2023. El agua no se fue con la lluvia: en Piura el máximo de 2017 fue el 4 de abril (240 km²), una semana después del desborde del río Piura del 27 de marzo, y el de 2023 llegó recién el 9 de mayo (228 km²), dos meses después del ciclón Yaku; a fines de junio aún quedaban 165 km²."
+  },
+  {
+   "titulo": "2. El radar no ve dónde vive la gente",
+   "texto": "Frente a la delimitación manual de Copernicus de 2017, el radar detectó el 46 % de la inundación del Bajo Piura (llanura agrícola), entre 10 y 16 % en Sechura y 0 % en las zonas urbanas y de huaicos de Trujillo y Lima. En las zonas de detalle, Copernicus ubica 4 908 edificios en zonas inundadas, de huaico o en manzanas dañadas; el radar, solo 23. La Libertad, Áncash y Lima sumaron 132 711 damnificados en 2017 según INDECI, pero apenas 14 km² de inundación detectada."
+  },
+  {
+   "titulo": "3. En 2023 hubo menos agua, y el daño cayó mucho más",
+   "texto": "La inundación anómala de 2023 fue el 72 % de la de 2017 (336 frente a 464 km²), pero en los cinco departamentos los damnificados bajaron al 38 % (101 120 frente a 267 039) y las viviendas destruidas al 20 % (11 917 frente a 59 650), aun cuando la cifra de 2023 incluye todas las emergencias del semestre. La extensión del agua no basta para explicar el daño: en 2023 Lambayeque tuvo más damnificados que Piura (42 962 frente a 29 493) con menos de un tercio de su superficie inundada."
+  }
+ ]
+}
