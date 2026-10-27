@@ -1,0 +1,50 @@
+[
+  {
+    "id": "gancho",
+    "frase": "En dos mil diecisiete, el desierto de Sechura se llenó de agua. En dos mil veintitrés volvió a pasar. ¿Cuánta agua fue, y cuánto tiempo se quedó?",
+    "subtitulo": "En 2017, el desierto de Sechura se llenó de agua. En 2023 volvió a pasar. ¿Cuánta agua fue, y cuánto tiempo se quedó?",
+    "cifra": "Piura bajo el agua",
+    "etiqueta": "Dos Niños costeros medidos desde el espacio",
+    "credito": "Agua anómala: Copernicus GFM (Sentinel-1) · Imagen: Esri World Imagery"
+  },
+  {
+    "id": "metodo",
+    "frase": "Lo medí con el radar Sentinel uno, que ve a través de las nubes: noventa y dos pasadas sobre Piura, sin contar el agua de un año normal.",
+    "subtitulo": "Lo medí con el radar Sentinel-1, que ve a través de las nubes: 92 pasadas sobre Piura, sin contar el agua de un año normal.",
+    "cifra": "92 pasadas",
+    "etiqueta": "Fechas en que el radar vio Piura: 43 en 2017 y 49 en 2023",
+    "credito": "Copernicus GFM sobre Sentinel-1 · referencia sin Niño: ene–jun 2022"
+  },
+  {
+    "id": "cuanta",
+    "frase": "Resultado: trescientos cuatro kilómetros cuadrados de agua anómala en dos mil diecisiete, y doscientos cincuenta y cinco en dos mil veintitrés. Casi tres cuartas partes, en Sechura.",
+    "subtitulo": "Resultado: 304 km² de agua anómala en 2017, y 255 en 2023. Casi tres cuartas partes, en Sechura.",
+    "cifra": "304 km²",
+    "etiqueta": "Agua anómala en 2017",
+    "credito": "Copernicus GFM · agua en ≥ 2 fechas que en 2022 no la tuvo · límites INEI"
+  },
+  {
+    "id": "tiempo",
+    "frase": "En dos mil veintitrés el agua tardó más en irse: tocó su máximo el nueve de mayo, y a fines de junio aún cubría ciento sesenta y cinco kilómetros cuadrados.",
+    "subtitulo": "En 2023 el agua tardó más en irse: tocó su máximo el 9 de mayo, y a fines de junio aún cubría 165 km².",
+    "cifra": "165 km²",
+    "etiqueta": "Agua anómala el 26 de junio de 2023",
+    "credito": "Copernicus GFM · pasadas que cubren ≥ 90 % de Piura"
+  },
+  {
+    "id": "dano",
+    "frase": "Hubo menos daño: los damnificados bajaron de casi noventa mil a menos de treinta mil. Pero el radar no ve dentro de las ciudades, ni los huaicos.",
+    "subtitulo": "Hubo menos daño: los damnificados bajaron de casi 90 000 a menos de 30 000. Pero el radar no ve dentro de las ciudades, ni los huaicos.",
+    "cifra": "−67 %",
+    "etiqueta": "Damnificados en Piura, 2023 frente a 2017",
+    "credito": "INDECI: 2017 ene–may (Niño Costero) · 2023 ene–jun (todas las emergencias) · INGEMMET · Copernicus EMS"
+  },
+  {
+    "id": "cierre",
+    "frase": "Explora cada distrito en mi dashboard: Piura bajo el agua.",
+    "subtitulo": "Explora cada distrito en mi dashboard: Piura bajo el agua.",
+    "cifra": "Piura bajo el agua",
+    "etiqueta": "cris92w.github.io/Python-Intermedio/tarea_3/web",
+    "credito": "Dashboard público en GitHub Pages"
+  }
+]

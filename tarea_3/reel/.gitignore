@@ -1,0 +1,6 @@
+# Muestra de voz personal: no se sube al repositorio (como en la Práctica 2)
+mi_voz*
+# Audios intermedios con la voz clonada: se regeneran con voz.py
+salidas/
+# Mapa base de Esri, tipografías, música y capturas: se descargan o regeneran con preparar.py y capturas.py
+recursos/
