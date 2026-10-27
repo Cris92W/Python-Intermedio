@@ -151,7 +151,7 @@
     const capa = fondo === 'oscuro'
       ? { id: 'fondo', type: 'raster', source: 'oscuro' }
       : { id: 'fondo', type: 'raster', source: 'imagen', paint: { 'raster-brightness-max': .62, 'raster-saturation': -.3, 'raster-contrast': .06 } };
-    return { version: 8, sources: { [fondo]: sources[fondo], ...extra }, layers: [{ id: 'noche', type: 'background', paint: { 'background-color': '#08131c' } }, capa], transition: { duration: 650, delay: 0 } };
+    return { version: 8, sources: { [fondo]: sources[fondo], ...extra }, layers: [{ id: 'noche', type: 'background', paint: { 'background-color': '#10122a' } }, capa], transition: { duration: 650, delay: 0 } };
   }
   function nuevoMapa(el, fondo, opciones = {}) {
     try {
@@ -224,18 +224,18 @@
     const P = c => { const m = merc(c); return [(m[0] - p0[0]) / (p1[0] - p0[0]) * VW, (m[1] - p0[1]) / (p1[1] - p0[1]) * VH]; };
     const ruta = (geom, f = P) => (geom.type === 'Polygon' ? [geom.coordinates] : geom.coordinates).map(pol => pol.map(r => 'M' + r.map(c => f(c).map(v => v.toFixed(1)).join(',')).join('L') + 'Z').join('')).join('');
     const [ax, ay] = P(D.AGUA.esquinas[0]), [bx, by] = P(D.AGUA.esquinas[2]);
-    let s = `<defs><filter id="engrosar"><feMorphology operator="dilate" radius="1.1"/></filter></defs><rect width="${VW}" height="${VH}" fill="#050d14"/>`;
-    s += D.PERU.features.filter(f => f.properties.CCDD !== '20').map(f => `<path d="${ruta(f.geometry)}" fill="#0e1c27" stroke="#26394a" stroke-width=".8"/>`).join('');
-    s += D.PROV.features.map(f => `<path d="${ruta(f.geometry)}" fill="#13232f" stroke="none"/>`).join('');
+    let s = `<defs><filter id="engrosar"><feMorphology operator="dilate" radius="1.1"/></filter></defs><rect width="${VW}" height="${VH}" fill="#0a0c1b"/>`;
+    s += D.PERU.features.filter(f => f.properties.CCDD !== '20').map(f => `<path d="${ruta(f.geometry)}" fill="#181b38" stroke="#2a2e52" stroke-width=".8"/>`).join('');
+    s += D.PROV.features.map(f => `<path d="${ruta(f.geometry)}" fill="#1c203e" stroke="none"/>`).join('');
     s += `<image id="lamina-agua" href="data/agua_2017.png" x="${ax}" y="${ay}" width="${bx - ax}" height="${by - ay}" preserveAspectRatio="none" filter="url(#engrosar)"/>`;
-    s += D.PROV.features.map(f => `<path d="${ruta(f.geometry)}" fill="none" stroke="rgba(220,230,237,.45)" stroke-width=".8"/>`).join('');
-    s += D.PERU.features.filter(f => f.properties.CCDD === '20').map(f => `<path d="${ruta(f.geometry)}" fill="none" stroke="#dce6ed" stroke-width="1.4"/>`).join('');
-    CIUDADES.forEach(([n, lon, lat]) => { const [x, y] = P([lon, lat]), izq = x > VW - 95; s += `<circle cx="${x}" cy="${y}" r="3" fill="#fff" stroke="#08131c" stroke-width="1.5"/><text x="${izq ? x - 6 : x + 6}" y="${y - 5}" text-anchor="${izq ? 'end' : 'start'}" font-size="12" font-weight="600" fill="#fff" stroke="#050d14" stroke-width="3" paint-order="stroke">${n}</text>`; });
-    [-6, -5.5, -5, -4.5].forEach(lat => { const y = P([B[0], lat])[1]; s += `<line x1="0" x2="6" y1="${y}" y2="${y}" stroke="#91a5b4"/><text x="9" y="${y + 3.5}" font-size="9.5" fill="#91a5b4" font-family="IBM Plex Mono, monospace">${fmt(-lat, 1)}° S</text>`; });
-    [-81, -80.5, -80, -79.5].forEach(lon => { const x = P([lon, B[1]])[0]; s += `<line x1="${x}" x2="${x}" y1="${VH}" y2="${VH - 6}" stroke="#91a5b4"/><text x="${x}" y="${VH - 9}" font-size="9.5" fill="#91a5b4" text-anchor="middle" font-family="IBM Plex Mono, monospace">${fmt(-lon, 1)}° O</text>`; });
+    s += D.PROV.features.map(f => `<path d="${ruta(f.geometry)}" fill="none" stroke="rgba(227, 229, 244,.45)" stroke-width=".8"/>`).join('');
+    s += D.PERU.features.filter(f => f.properties.CCDD === '20').map(f => `<path d="${ruta(f.geometry)}" fill="none" stroke="#e3e5f4" stroke-width="1.4"/>`).join('');
+    CIUDADES.forEach(([n, lon, lat]) => { const [x, y] = P([lon, lat]), izq = x > VW - 95; s += `<circle cx="${x}" cy="${y}" r="3" fill="#fff" stroke="#10122a" stroke-width="1.5"/><text x="${izq ? x - 6 : x + 6}" y="${y - 5}" text-anchor="${izq ? 'end' : 'start'}" font-size="12" font-weight="600" fill="#fff" stroke="#0a0c1b" stroke-width="3" paint-order="stroke">${n}</text>`; });
+    [-6, -5.5, -5, -4.5].forEach(lat => { const y = P([B[0], lat])[1]; s += `<line x1="0" x2="6" y1="${y}" y2="${y}" stroke="#9ca1c4"/><text x="9" y="${y + 3.5}" font-size="9.5" fill="#9ca1c4" font-family="IBM Plex Mono, monospace">${fmt(-lat, 1)}° S</text>`; });
+    [-81, -80.5, -80, -79.5].forEach(lon => { const x = P([lon, B[1]])[0]; s += `<line x1="${x}" x2="${x}" y1="${VH}" y2="${VH - 6}" stroke="#9ca1c4"/><text x="${x}" y="${VH - 9}" font-size="9.5" fill="#9ca1c4" text-anchor="middle" font-family="IBM Plex Mono, monospace">${fmt(-lon, 1)}° O</text>`; });
     // Escala de 50 km a la latitud media
     const km = 50, x0 = 24, yb = VH - 32, dx = P([B[0] + km / (111.32 * Math.cos(5.2 * Math.PI / 180)), -5.2])[0] - P([B[0], -5.2])[0];
-    s += `<rect x="${x0 - 8}" y="${yb - 20}" width="${dx + 50}" height="30" fill="rgba(8,19,28,.82)"/><rect x="${x0}" y="${yb}" width="${dx / 2}" height="5" fill="#fff"/><rect x="${x0 + dx / 2}" y="${yb}" width="${dx / 2}" height="5" fill="none" stroke="#fff"/>`;
+    s += `<rect x="${x0 - 8}" y="${yb - 20}" width="${dx + 50}" height="30" fill="rgba(16, 18, 42,.82)"/><rect x="${x0}" y="${yb}" width="${dx / 2}" height="5" fill="#fff"/><rect x="${x0 + dx / 2}" y="${yb}" width="${dx / 2}" height="5" fill="none" stroke="#fff"/>`;
     s += `<text x="${x0}" y="${yb - 5}" font-size="10" fill="#fff" text-anchor="middle" font-family="IBM Plex Mono, monospace">0</text><text x="${x0 + dx / 2}" y="${yb - 5}" font-size="10" fill="#fff" text-anchor="middle" font-family="IBM Plex Mono, monospace">25</text><text x="${x0 + dx + 6}" y="${yb - 5}" font-size="10" fill="#fff" font-family="IBM Plex Mono, monospace">50 km</text>`;
     svg.setAttribute('viewBox', `0 0 ${VW} ${VH}`); svg.innerHTML = s;
 
@@ -244,7 +244,7 @@
     const LW = 120, LH = Math.round(LW * (q1[1] - q0[1]) / (q1[0] - q0[0]));
     const Q = c => { const m = merc(c); return [(m[0] - q0[0]) / (q1[0] - q0[0]) * (LW - 8) + 4, (m[1] - q0[1]) / (q1[1] - q0[1]) * (LH - 8) + 4]; };
     loc.setAttribute('viewBox', `0 0 ${LW} ${LH}`);
-    loc.innerHTML = D.PERU.features.map(f => `<path d="${ruta(f.geometry, Q)}" fill="${f.properties.CCDD === '20' ? W2 : '#1f3344'}" stroke="#08131c" stroke-width=".5"/>`).join('');
+    loc.innerHTML = D.PERU.features.map(f => `<path d="${ruta(f.geometry, Q)}" fill="${f.properties.CCDD === '20' ? W2 : '#25284a'}" stroke="#10122a" stroke-width=".5"/>`).join('');
 
     document.querySelectorAll('#lamina-ev button').forEach(b => b.addEventListener('click', () => {
       document.querySelectorAll('#lamina-ev button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
@@ -294,8 +294,8 @@
       const X = d => 4 + d / 212 * (W - 8), Y = v => H - 14 - v / ymax * (H - 24);
       const path = (e, ps) => ps.map((p, i) => (i ? 'L' : 'M') + X(diaTemporada(e, p.f)).toFixed(1) + ',' + Y(p.v).toFixed(1)).join('');
       const otro = ev === '2017' ? '2023' : '2017', top = pts.reduce((m, p) => p.v > m.v ? p : m, pts[0]);
-      let s = `<svg viewBox="0 0 ${W} ${H}"><line x1="4" x2="${W - 4}" y1="${H - 14}" y2="${H - 14}" stroke="#26394a"/>`;
-      MES_T.forEach(([d, m]) => { if (m) s += `<text x="${X(d + 15)}" y="${H - 2}" font-size="9" fill="#91a5b4" text-anchor="middle">${m}</text>`; });
+      let s = `<svg viewBox="0 0 ${W} ${H}"><line x1="4" x2="${W - 4}" y1="${H - 14}" y2="${H - 14}" stroke="#2a2e52"/>`;
+      MES_T.forEach(([d, m]) => { if (m) s += `<text x="${X(d + 15)}" y="${H - 2}" font-size="9" fill="#9ca1c4" text-anchor="middle">${m}</text>`; });
       s += `<path d="${path(otro, otros)}" fill="none" stroke="${otro === '2017' ? E17N : E23N}" stroke-opacity=".35" stroke-width="1.5"/>`;
       s += `<path d="${path(ev, pts)}" fill="none" stroke="${ev === '2017' ? E17N : E23N}" stroke-width="2.2"/>`;
       s += `<circle cx="${X(diaTemporada(ev, top.f))}" cy="${Y(top.v)}" r="3.5" fill="#fff"/><text x="${Math.min(X(diaTemporada(ev, top.f)) + 6, W - 70)}" y="${Math.max(Y(top.v) - 4, 10)}" font-size="10" fill="#fff">${fecha(top.f, false)} · ${fmt(top.v)} km²</text>`;
@@ -311,12 +311,12 @@
       irA(map, p.b);
     }
     if (map) map.on('load', () => {
-      map.addLayer({ id: 'peru-f', type: 'fill', source: 'peru', paint: { 'fill-color': ['case', ['==', ['get', 'CCDD'], '20'], W2, '#08131c'], 'fill-opacity': 0 } });
-      map.addLayer({ id: 'peru-l', type: 'line', source: 'peru', paint: { 'line-color': '#dce6ed', 'line-width': .7, 'line-opacity': 0 } });
+      map.addLayer({ id: 'peru-f', type: 'fill', source: 'peru', paint: { 'fill-color': ['case', ['==', ['get', 'CCDD'], '20'], W2, '#10122a'], 'fill-opacity': 0 } });
+      map.addLayer({ id: 'peru-l', type: 'line', source: 'peru', paint: { 'line-color': '#e3e5f4', 'line-width': .7, 'line-opacity': 0 } });
       ['a2022', 'a2017', 'a2023'].forEach(id => map.addLayer({ id, type: 'raster', source: id, paint: { 'raster-opacity': 0, 'raster-resampling': 'nearest' } }));
       map.addLayer({ id: 'ems-f', type: 'fill', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], paint: { 'fill-color': '#ffffff', 'fill-opacity': 0 } });
       map.addLayer({ id: 'ems-l', type: 'line', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], paint: { 'line-color': '#ffffff', 'line-width': .8, 'line-opacity': 0 } });
-      map.addLayer({ id: 'prov-l', type: 'line', source: 'prov', paint: { 'line-color': '#dce6ed', 'line-width': 1, 'line-opacity': 0 } });
+      map.addLayer({ id: 'prov-l', type: 'line', source: 'prov', paint: { 'line-color': '#e3e5f4', 'line-width': 1, 'line-opacity': 0 } });
       marcas.prov = D.PROV.features.map(f => rotulo(map, nombre(f.properties.NOMBPROV), [f.properties.lab_x, f.properties.lab_y], 'prov'));
       marcas.ciudad = CIUDADES.map(([n, lon, lat]) => rotulo(map, n, [lon, lat], 'city'));
       listo = true; paso(pendiente);
@@ -391,7 +391,7 @@
     const vistos = H.con_agua_radar['2017'];
     const leyH = `<b>Inventario de INGEMMET</b><span><i class="dot" style="background:${HU}"></i>Flujo de detritos o de lodo (huaico)</span><span><i class="dot" style="background:${HU2}"></i>Avalancha o flujo de tierra</span>`;
     const leyE = `<b>Huaicos documentados</b><span><i class="dot" style="background:${E17N};box-shadow:0 0 0 2px #fff"></i>2017</span><span><i class="dot" style="background:${E23N};box-shadow:0 0 0 2px #fff"></i>2023</span>`;
-    const leyEms = `<b>Inundación 2017</b><span><i style="background:rgba(255,255,255,.55);border:1px solid #fff"></i>Copernicus EMS (a mano)</span><span><i class="line" style="background:#7fd0e3"></i>Área mapeada (AOI)</span>`;
+    const leyEms = `<b>Inundación 2017</b><span><i style="background:rgba(255,255,255,.55);border:1px solid #fff"></i>Copernicus EMS (a mano)</span><span><i class="line" style="background:#a8c2ff"></i>Área mapeada (AOI)</span>`;
     const leyV = leyEms + `<span><i style="background:${W2}"></i>Radar GFM (agua anómala)</span>`;
     const IDS = ['prov-l', 'ems-f', 'ems-l', 'aoi-l', 'a2017', 'flujos', 'eventos'];
     const PASOS = [
@@ -419,10 +419,10 @@
       map.addLayer({ id: 'a2017', type: 'raster', source: 'a2017', paint: { 'raster-opacity': 0, 'raster-resampling': 'nearest' } });
       map.addLayer({ id: 'ems-f', type: 'fill', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], paint: { 'fill-color': '#ffffff', 'fill-opacity': 0 } });
       map.addLayer({ id: 'ems-l', type: 'line', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], paint: { 'line-color': '#ffffff', 'line-width': .8, 'line-opacity': 0 } });
-      map.addLayer({ id: 'aoi-l', type: 'line', source: 'ems', filter: ['==', ['get', 'tipo'], 'aoi'], paint: { 'line-color': '#7fd0e3', 'line-width': 1.4, 'line-dasharray': [3, 2], 'line-opacity': 0 } });
-      map.addLayer({ id: 'prov-l', type: 'line', source: 'prov', paint: { 'line-color': '#dce6ed', 'line-width': 1, 'line-opacity': 0 } });
+      map.addLayer({ id: 'aoi-l', type: 'line', source: 'ems', filter: ['==', ['get', 'tipo'], 'aoi'], paint: { 'line-color': '#a8c2ff', 'line-width': 1.4, 'line-dasharray': [3, 2], 'line-opacity': 0 } });
+      map.addLayer({ id: 'prov-l', type: 'line', source: 'prov', paint: { 'line-color': '#e3e5f4', 'line-width': 1, 'line-opacity': 0 } });
       map.addLayer({ id: 'flujos', type: 'circle', source: 'flujos', paint: { 'circle-color': ['case', ['get', 'huaico'], HU, HU2], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, 2.6, 12, 6],
-        'circle-stroke-color': '#08131c', 'circle-stroke-width': .8, 'circle-opacity': 0, 'circle-stroke-opacity': 0 } });
+        'circle-stroke-color': '#10122a', 'circle-stroke-width': .8, 'circle-opacity': 0, 'circle-stroke-opacity': 0 } });
       map.addLayer({ id: 'eventos', type: 'circle', source: 'eventos', paint: { 'circle-color': ['match', ['get', 'evento'], '2017', E17N, E23N], 'circle-radius': 7,
         'circle-stroke-color': '#ffffff', 'circle-stroke-width': 2, 'circle-opacity': 0, 'circle-stroke-opacity': 0 } });
       marcas.prov = D.PROV.features.map(f => rotulo(map, nombre(f.properties.NOMBPROV), [f.properties.lab_x, f.properties.lab_y], 'prov'));
@@ -467,11 +467,11 @@
     const CAT = ['case', ['!=', ['get', 'ems2017_grado'], ''], ['get', 'ems2017_grado'], ['boolean', ['get', 'ems2017_inundacion'], false], 'inundacion',
       ['any', ['boolean', ['get', 'gfm2017'], false], ['boolean', ['get', 'gfm2023'], false]], 'radar', 'ninguna'];
     const COLOR = { inundacion: W2, radar: '#ffffff', ...Object.fromEntries(GRADOS.map(g => [g[0], g[2]])) };
-    const color = cats => ['match', CAT, ...Object.entries(COLOR).flatMap(([k, c]) => [k, cats.includes(k) ? c : '#33424e']), '#33424e'];
+    const color = cats => ['match', CAT, ...Object.entries(COLOR).flatMap(([k, c]) => [k, cats.includes(k) ? c : '#3b3f63']), '#3b3f63'];
     const alto = cats => ['match', CAT, cats.length ? cats : ['__'], 24, 2.5];
     const todas = Object.keys(COLOR), grados = GRADOS.map(g => g[0]);
     const leyCat = cats => '<b>Edificios (Microsoft) según la fuente</b>' + [['inundacion', 'En zona inundada (Copernicus)'], ...GRADOS.map(g => [g[0], 'Manzana: ' + g[1].toLowerCase()]), ['radar', 'Con agua del radar (GFM)'], ['ninguna', 'Sin afectación registrada']]
-      .filter(([k]) => k === 'ninguna' || cats.includes(k)).map(([k, l]) => `<span><i style="background:${k === 'ninguna' ? '#33424e' : COLOR[k]}"></i>${l}</span>`).join('');
+      .filter(([k]) => k === 'ninguna' || cats.includes(k)).map(([k, l]) => `<span><i style="background:${k === 'ninguna' ? '#3b3f63' : COLOR[k]}"></i>${l}</span>`).join('');
     let feats = [];
     const cat = p => p.ems2017_grado || (p.ems2017_inundacion ? 'inundacion' : (p.gfm2017 || p.gfm2023) ? 'radar' : 'ninguna');
     // Cámaras fijas: los afectados están en la ciudad (y el radar, también en el Bajo Piura)
@@ -524,7 +524,7 @@
     inund_union_km2: { l: 'Toda el agua detectada', u: 'km²', cortes: [.1, 1, 5, 20, 50], d: 1 },
     fechas_con_agua: { l: 'Fechas con agua', u: 'fechas', cortes: [1, 3, 6, 12, 24], d: 0 },
   };
-  const RAMPA = ['#162733', '#0f3a55', '#13618a', '#1f8bc0', '#4fb3e0', '#a6e8ff'];
+  const RAMPA = ['#1e2241', '#0f3a55', '#13618a', '#1f8bc0', '#4fb3e0', '#a6e8ff'];
   function explorador(D) {
     const st = { ev: '2017', prov: 'TODAS', ind: 'inund_anom_km2', dist: null };
     const F = D.DIST.features, porUbi = Object.fromEntries(F.map(f => [f.properties.UBIGEO, f]));
@@ -605,11 +605,11 @@
         const vis = id => $(id).checked ? 'visible' : 'none';
         map.addLayer({ id: 'dist-f', type: 'fill', source: 'dist', paint: { 'fill-color': colorExpr(), 'fill-opacity': .82 } });
         map.addLayer({ id: 'agua', type: 'raster', source: 'agua', layout: { visibility: vis('L-agua') }, paint: { 'raster-opacity': .95, 'raster-resampling': 'nearest' } });
-        map.addLayer({ id: 'dist-l', type: 'line', source: 'dist', paint: { 'line-color': '#08131c', 'line-width': .6 } });
-        map.addLayer({ id: 'prov-l', type: 'line', source: 'prov', paint: { 'line-color': '#dce6ed', 'line-width': 1.1, 'line-opacity': .8 } });
+        map.addLayer({ id: 'dist-l', type: 'line', source: 'dist', paint: { 'line-color': '#10122a', 'line-width': .6 } });
+        map.addLayer({ id: 'prov-l', type: 'line', source: 'prov', paint: { 'line-color': '#e3e5f4', 'line-width': 1.1, 'line-opacity': .8 } });
         map.addLayer({ id: 'ems-f', type: 'fill', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], layout: { visibility: vis('L-ems') }, paint: { 'fill-color': '#ffffff', 'fill-opacity': .4 } });
         map.addLayer({ id: 'ems-l', type: 'line', source: 'ems', filter: ['==', ['get', 'tipo'], 'inundacion'], layout: { visibility: vis('L-ems') }, paint: { 'line-color': '#ffffff', 'line-width': .7 } });
-        map.addLayer({ id: 'flujos', type: 'circle', source: 'flujos', layout: { visibility: vis('L-flujos') }, paint: { 'circle-color': ['case', ['get', 'huaico'], HU, HU2], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, 2.5, 12, 6], 'circle-stroke-color': '#08131c', 'circle-stroke-width': .8 } });
+        map.addLayer({ id: 'flujos', type: 'circle', source: 'flujos', layout: { visibility: vis('L-flujos') }, paint: { 'circle-color': ['case', ['get', 'huaico'], HU, HU2], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, 2.5, 12, 6], 'circle-stroke-color': '#10122a', 'circle-stroke-width': .8 } });
         map.addLayer({ id: 'eventos', type: 'circle', source: 'eventos', layout: { visibility: vis('L-eventos') }, paint: { 'circle-color': ['match', ['get', 'evento'], '2017', E17N, E23N], 'circle-radius': 6.5, 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
         map.addLayer({ id: 'sel-l', type: 'line', source: 'dist', filter: ['==', ['get', 'UBIGEO'], ''], paint: { 'line-color': '#ffffff', 'line-width': 2.6 } });
         const ro = $('x-readout');
