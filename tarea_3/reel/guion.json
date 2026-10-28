@@ -46,5 +46,12 @@
     "cifra": "Piura bajo el agua",
     "etiqueta": "cris92w.github.io/Python-Intermedio/tarea_3/web",
     "credito": "Dashboard público en GitHub Pages"
+  },
+  {
+    "id": "despedida",
+    "solo_voz": true,
+    "frase": "Los desastres naturales pasan, los datos quedan.",
+    "subtitulo": "Los desastres naturales pasan, los datos quedan.",
+    "nota": "Solo se escucha, sobre los créditos: no va en los subtítulos ni escrita en pantalla."
   }
 ]

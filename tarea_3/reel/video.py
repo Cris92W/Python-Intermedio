@@ -539,43 +539,32 @@ def pantallas(pw, ph):
             for n in ("portada", "agua", "explorar")]
 
 
-FRASE = ("Los desastres naturales pasan,", "los datos quedan.")
-
-
 def tarjeta_final(img, d, tf):
-    """Cierre con la música sola: primero la frase final; después, escalonados, el título, el autor y los créditos
-    (aviso de voz con IA, fuentes, imágenes y música). `tf` son los segundos desde que terminó la narración."""
+    """Créditos con la música (y la despedida, que solo se escucha): título, autor, aviso de voz con IA, fuentes,
+    imágenes y música, escalonados. `tf` son los segundos desde que terminó la última escena con imagen."""
     d.rectangle([0, Y_VIS - 300, W, H], fill=NOCHE)
-    u = salida(tf / 0.7)
-    f = ajustar(FRASE[0], 72)
-    y = 196
-    d.text((MARGEN, y), FRASE[0], font=f, fill=mezclar(NOCHE, (255, 255, 255), u))
-    y += f.getmetrics()[0] + 24
-    d.text((MARGEN, y), FRASE[1], font=f, fill=mezclar(NOCHE, ORO, u))
-    y += f.getmetrics()[0] + 50
-    resto = lambda k=0: salida((tf - 1.2 - k * 0.12) / 0.6)   # el resto entra 1,2 s después de la frase
-    d.line([(MARGEN, y), (MARGEN + 140, y)], fill=mezclar(NOCHE, ACENTO, resto()), width=4)
-    y += 46
-    d.text((MARGEN, y), "Piura bajo el agua", font=archivo(80, 800), fill=mezclar(NOCHE, (255, 255, 255), resto()))
-    y += 100
-    d.text((MARGEN, y), "Dos Niños costeros medidos desde el espacio", font=archivo(38, 500, 100), fill=mezclar(NOCHE, ACENTO, resto()))
-    y += 70
-    d.text((MARGEN, y), "Cristian Wong P.", font=archivo(72, 800), fill=mezclar(NOCHE, ORO, resto(1)))
-    y += 120
+    paso = lambda k=0: salida((tf - k * 0.12) / 0.7)
+    y = 300
+    d.text((MARGEN, y), "Piura bajo el agua", font=archivo(96, 800), fill=mezclar(NOCHE, (255, 255, 255), paso()))
+    y += 125
+    d.text((MARGEN, y), "Dos Niños costeros medidos desde el espacio", font=archivo(40, 500, 100), fill=mezclar(NOCHE, ACENTO, paso()))
+    y += 110
+    d.text((MARGEN, y), "Cristian Wong P.", font=archivo(84, 800), fill=mezclar(NOCHE, ORO, paso(1)))
+    y += 150
     bloques = [("Voz", "Generada con IA (Qwen3-TTS) a partir de una grabación de mi propia voz"),
                ("Datos", "Copernicus GFM (Sentinel-1), Copernicus EMS, INDECI, INGEMMET e INEI"),
                ("Imágenes", "Esri World Imagery (Esri, Maxar, Earthstar Geographics) y capturas del dashboard"),
                ("Música", "«Floating Cities», Kevin MacLeod (incompetech.com), licencia CC BY 4.0"),
                ("Dashboard", URL)]
     for k, (titulo, txt) in enumerate(bloques):
-        uu = resto(k + 2)
+        uu = paso(k + 2)
         d.text((MARGEN, y), titulo.upper(), font=F_KICK, fill=mezclar(NOCHE, ACENTO, uu))
-        y += 38
-        for linea in envolver(txt, archivo(34, 500, 100), W - 2 * MARGEN):
-            d.text((MARGEN, y), linea, font=archivo(34, 500, 100), fill=mezclar(NOCHE, TINTA, uu))
-            y += 43
-        y += 24
-    d.text((MARGEN, 1812), "Diplomado de Ciencia de Datos con Python · Tarea 3", font=F_CRED, fill=mezclar(NOCHE, TENUE, resto()))
+        y += 40
+        for linea in envolver(txt, archivo(36, 500, 100), W - 2 * MARGEN):
+            d.text((MARGEN, y), linea, font=archivo(36, 500, 100), fill=mezclar(NOCHE, TINTA, uu))
+            y += 46
+        y += 28
+    d.text((MARGEN, 1812), "Diplomado de Ciencia de Datos con Python · Tarea 3", font=F_CRED, fill=mezclar(NOCHE, TENUE, paso()))
 
 
 # ---------- Capas comunes ----------
@@ -661,16 +650,16 @@ def lufs(ff, entrada, filtro=None, dur=None):
     return float(json.loads(r.stderr[r.stderr.rindex("{"):r.stderr.rindex("}") + 1])["input_i"])
 
 
-def filtro_audio(ff, fin_voz, velocidad):
-    """Voz a −14 LUFS (compresión, ganancia exacta y limitador) y música de fondo 16 dB por debajo; en los créditos
-    la música sube a −18 LUFS. La música entra y sale con fundidos. La voz se acelera si hace falta (atempo)."""
+def filtro_audio(ff, sube, velocidad):
+    """Voz a −14 LUFS (compresión, ganancia exacta y limitador) y música de fondo 16 dB por debajo; desde `sube`
+    (cuando ya no hay voz) la música sube a −18 LUFS. Entra y sale con fundidos. La voz se acelera si hace falta."""
     previo = "acompressor=threshold=-24dB:ratio=4:attack=2:release=80,alimiter=limit=0.35:attack=1:release=50:level=false"
     voz = f"atempo={velocidad:.4f},{previo},volume={-14 - lufs(ff, SAL / 'reel.wav', previo):.2f}dB"
     musica = lufs(ff, REC / "floating_cities.mp3", dur=DURACION)
     g1, g2 = 10 ** ((-30 - musica) / 20), 10 ** ((-18 - musica) / 20)
     return (f"[1:a]{voz},apad=whole_dur={DURACION}[v];"
             f"[2:a]atrim=0:{DURACION},asetpts=PTS-STARTPTS,"
-            f"volume='{g1:.4f}+({g2:.4f}-{g1:.4f})*clip((t-{fin_voz:.2f})/1.5,0,1)':eval=frame,"
+            f"volume='{g1:.4f}+({g2:.4f}-{g1:.4f})*clip((t-{sube:.2f})/1.5,0,1)':eval=frame,"
             f"afade=t=in:d=1.2,afade=t=out:st={DURACION - 2:.2f}:d=2[m];"
             "[v][m]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.84:attack=1:release=50:level=false[a]")
 
@@ -700,23 +689,29 @@ def main():
     t_ini = time.time()
     guion = json.loads((AQUI / "guion.json").read_text(encoding="utf-8"))
     tiempos = json.loads((SAL / "tiempos.json").read_text(encoding="utf-8"))
-    # Si la narración no deja al menos CREDITOS segundos al final, se acelera lo justo y se escalan todos los tiempos
-    velocidad = max(1.0, (tiempos["escenas"][-1]["fin"] + 0.6) / (DURACION - CREDITOS))
+    # Las escenas «solo_voz» (la despedida) no tienen imagen ni subtítulos: suenan sobre los créditos finales
+    visibles = [e for e in guion if not e.get("solo_voz")]
+    nv = len(visibles)
+    # Si las escenas con imagen no dejan CREDITOS segundos, o la voz no termina antes del final, se acelera lo justo
+    velocidad = max(1.0, (tiempos["escenas"][nv - 1]["fin"] + 0.6) / (DURACION - CREDITOS),
+                    (tiempos["escenas"][-1]["fin"] + 0.8) / DURACION)
     if velocidad > MAX_VELOCIDAD:
         sys.exit(f"La narración dura {tiempos['escenas'][-1]['fin']:.1f} s: acorta guion.json (no cabe ni acelerando un 7 %).")
     for e in tiempos["escenas"]:
         e["inicio"], e["fin"] = e["inicio"] / velocidad, e["fin"] / velocidad
         e["palabras"] = unir_miles([{**p, "i": p["i"] / velocidad, "f": p["f"] / velocidad} for p in e["palabras"]])
     esc_t = tiempos["escenas"]
-    fin_voz = esc_t[-1]["fin"] + 0.6
-    cortes = [0.0] + [(esc_t[k - 1]["fin"] + esc_t[k]["inicio"]) / 2 for k in range(1, len(esc_t))] + [fin_voz]
+    fin_voz = esc_t[nv - 1]["fin"] + 0.6          # empiezan los créditos
+    fin_audio = esc_t[-1]["fin"]                    # termina la voz (la despedida suena sobre los créditos)
+    cortes = [0.0] + [(esc_t[k - 1]["fin"] + esc_t[k]["inicio"]) / 2 for k in range(1, nv)] + [fin_voz]
     R, serie, huaicos = datos()
     mapas = Mapas()
-    escenas = [Escena(k, e, tiempos, cortes, mapas, R, serie, huaicos) for k, e in enumerate(guion)]
-    print(f"Narración: {esc_t[-1]['fin']:.1f} s (velocidad ×{velocidad:.3f}) · créditos desde {fin_voz:.1f} s · preparación {time.time() - t_ini:.0f} s")
+    escenas = [Escena(k, e, tiempos, cortes, mapas, R, serie, huaicos) for k, e in enumerate(visibles)]
+    print(f"Escenas con imagen hasta {esc_t[nv - 1]['fin']:.1f} s; voz hasta {fin_audio:.1f} s (velocidad ×{velocidad:.3f}) · "
+          f"créditos desde {fin_voz:.1f} s · preparación {time.time() - t_ini:.0f} s")
 
     subs = []
-    for esc in esc_t:
+    for esc in esc_t[:nv]:
         bl = bloques(esc["palabras"])
         for j, b in enumerate(bl):
             fin = bl[j + 1][0]["i"] if j + 1 < len(bl) else b[-1]["f"] + 0.35
@@ -759,7 +754,7 @@ def main():
     cmd = [ff, "-y", "-loglevel", "error",
            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
            "-i", str(SAL / "reel.wav"), "-i", str(REC / "floating_cities.mp3"),
-           "-filter_complex", filtro_audio(ff, fin_voz, velocidad), "-map", "0:v", "-map", "[a]",
+           "-filter_complex", filtro_audio(ff, max(fin_voz, fin_audio + 0.3), velocidad), "-map", "0:v", "-map", "[a]",
            "-ar", "48000", "-c:a", "aac", "-b:a", "128k",
            # Tope de 1,1 Mb/s: el video queda bajo 10 MB, el límite de GitHub y cómodo para LinkedIn
            "-c:v", "libx264", "-preset", "slow", "-crf", "23", "-maxrate", "1100k", "-bufsize", "2200k", "-pix_fmt", "yuv420p",

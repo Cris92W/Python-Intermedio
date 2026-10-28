@@ -29,8 +29,9 @@ dashboard.
 | 5 | Hubo menos daño: los damnificados bajaron de casi 90 000 a menos de 30 000. Pero el radar no ve dentro de las ciudades, ni los huaicos. | Barras de INDECI que crecen; luego el mapa de la sierra con los 455 huaicos de INGEMMET y la ciudad de Piura marcada | INDECI: 89 709 y 29 493 damnificados (−67 %); el radar vio con agua 14 de los 1 322 edificios afectados en 2017 (ciudad de Piura y Bajo Piura) y 0 de 455 huaicos |
 | 6 | Explora cada distrito en mi dashboard: Piura bajo el agua. | El dashboard en un celular: portada, mapa narrativo y explorador | Capturas del dashboard publicado |
 
-Narración: 54,6 s. Al final, unos 5 s con la música sola: primero la frase «Los desastres naturales pasan,
-los datos quedan.» y después los créditos.
+Narración con imagen: 54,6 s. Al final, unos 5 s de créditos con música; sobre ellos mi voz dice «Los desastres
+naturales pasan, los datos quedan.», sin subtítulo ni texto en pantalla (en guion.json, la entrada "despedida" con
+"solo_voz").
 
 **Advertencia sobre la escena 5.** Las cifras de INDECI de 2023 cubren enero a junio y todas las emergencias. Las de
 2017 cubren enero a mayo y solo el Niño Costero. Por eso la comparación subestima la caída, y el video lo dice en

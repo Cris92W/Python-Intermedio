@@ -33,7 +33,8 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 AQUI = Path(__file__).resolve().parent
 SAL = AQUI / "salidas"
-MODELO = AQUI.parent.parent / "PRACTICA_2" / "modelos" / "Qwen3-TTS-12Hz-0.6B-Base"  # el mismo de la Práctica 2
+# El mismo modelo de la Práctica 2; QWEN_TTS_MODELO permite usarlo desde otra copia del repositorio
+MODELO = Path(os.environ.get("QWEN_TTS_MODELO", AQUI.parent.parent / "PRACTICA_2" / "modelos" / "Qwen3-TTS-12Hz-0.6B-Base"))
 MAX_WER = 0.25   # control de la diapositiva: si Whisper entiende mal más del 25 % de las palabras, se genera de nuevo
 INTENTOS = 3
 HZ = 12   # pasos de audio por segundo del códec de Qwen3-TTS (12Hz)
@@ -214,9 +215,9 @@ def main():
     (SAL / "tiempos.json").write_text(json.dumps({"duracion": dur, "escenas": tiempos}, ensure_ascii=False, indent=1),
                                       encoding="utf-8")
     print(f"\nreel.wav: {dur:.1f} s en total ({time.time() - t0:.0f} s de cálculo)")
-    # El reel dura 60 s: la narración más la tarjeta final de créditos (unos 4 s)
-    if not 52 <= dur <= 57:
-        print("OJO: la narración debería durar entre 52 y 57 s para un reel de 60 s; ajusta guion.json.")
+    # El reel dura 60 s: las escenas con imagen, y la despedida (solo voz) sobre los créditos finales
+    if dur > 59.5:
+        print("OJO: la narración pasa de 59,5 s y no cabe en un reel de 60 s; ajusta guion.json.")
 
 
 if __name__ == "__main__":
