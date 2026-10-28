@@ -24,13 +24,13 @@ dashboard.
 |---|---|---|---|
 | 1 | En 2017, el desierto de Sechura se inundó por el fenómeno del Niño. En 2023 volvió a pasar. ¿Cuánta agua fue, y cuánto tiempo se quedó? | Imagen satelital de Piura que se acerca a Sechura mientras aparece el agua del radar de 2017 y luego la de 2023 | Capas `agua_2017.png` y `agua_2023.png` del dashboard (Copernicus GFM) |
 | 2 | Lo medí con el radar Sentinel-1, que ve a través de las nubes: 92 pasadas sobre Piura, sin contar el agua de un año normal. | Las pasadas del radar aparecen una a una en una línea de tiempo de diciembre a junio | 43 fechas en 2017 y 49 en 2023 con radar sobre Piura (`serie.json`); 32 km² de agua habitual en 2022 |
-| 3 | Resultado: 304 km² de agua anómala en 2017, y 255 en 2023. Casi tres cuartas partes, en Sechura. | Contador sobre el mapa con el agua de cada año; luego Sechura resaltado en dorado | 304,0 y 254,5 km² (`resumen.json`); Sechura: 218,0 de 304,0 km² (72 %) y 187,7 de 254,5 km² (74 %) |
+| 3 | Resultado: 304 km² de agua inundada en 2017, y 255 en 2023. Casi tres cuartas partes, en Sechura. | Contador sobre el mapa con el agua de cada año; luego Sechura resaltado en dorado | 304,0 y 254,5 km² (`resumen.json`); Sechura: 218,0 de 304,0 km² (72 %) y 187,7 de 254,5 km² (74 %) |
 | 4 | En 2023 el agua tardó más en irse: tocó su máximo el 9 de mayo, y a fines de junio aún cubría 165 km². | Curva de 2017 y curva de 2023 que se dibuja en vivo, con el máximo y el último dato marcados | Pasadas que cubren ≥ 90 % de Piura: máximo de 227,6 km² el 9 may 2023; 164,8 km² el 26 jun 2023; en 2017, 43,6 km² el 31 may |
 | 5 | Hubo menos daño: los damnificados bajaron de casi 90 000 a menos de 30 000. Pero el radar no ve dentro de las ciudades, ni los huaicos. | Barras de INDECI que crecen; luego el mapa de la sierra con los 455 huaicos de INGEMMET y la ciudad de Piura marcada | INDECI: 89 709 y 29 493 damnificados (−67 %); el radar vio con agua 14 de los 1 322 edificios afectados en 2017 (ciudad de Piura y Bajo Piura) y 0 de 455 huaicos |
 | 6 | Explora cada distrito en mi dashboard: Piura bajo el agua. | El dashboard en un celular: portada, mapa narrativo y explorador | Capturas del dashboard publicado |
 
-Narración con imagen: 54,6 s. Al final, unos 5 s de créditos con música; sobre ellos mi voz dice «Los desastres
-naturales pasan, los datos quedan.», sin subtítulo ni texto en pantalla (en guion.json, la entrada "despedida" con
+Narración con imagen: unos 55 s. Al final, unos 4 s de créditos con música, que entran línea por línea; sobre ellos
+mi voz dice «Los desastres naturales pasan, los datos quedan.», sin subtítulo ni texto en pantalla (en guion.json, la entrada "despedida" con
 "solo_voz").
 
 **Advertencia sobre la escena 5.** Las cifras de INDECI de 2023 cubren enero a junio y todas las emergencias. Las de
@@ -56,7 +56,11 @@ pantalla.
    - gráficos animados de las pasadas, la curva del agua y las barras de INDECI;
    - mapa de huaicos y capturas del dashboard.
 
-   Los colores y las tipografías (Archivo e IBM Plex Mono) son los del dashboard.
+   Los colores («Atardecer en Sechura») y las tipografías (Archivo e IBM Plex Mono) son los del dashboard:
+   - el fondo es un degradado cónico (coral, magenta, noche y ámbar) que gira muy despacio, con una retícula tenue y
+     grano fino;
+   - los mapas van en un recuadro con doble filete, sin fundirse con el fondo;
+   - mi nombre lleva el mismo degradado dorado que en el dashboard.
 4. **Audio.**
    - La voz se lleva a −14 LUFS, el volumen de redes sociales.
    - La música queda 16 dB por debajo mientras hay narración y sube en los créditos, con fundidos de entrada y salida.

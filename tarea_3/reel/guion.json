@@ -5,7 +5,7 @@
     "subtitulo": "En 2017, el desierto de Sechura se inundó por el fenómeno del Niño. En 2023 volvió a pasar. ¿Cuánta agua fue, y cuánto tiempo se quedó?",
     "cifra": "Piura bajo el agua",
     "etiqueta": "Dos Niños costeros medidos desde el espacio",
-    "credito": "Agua anómala: Copernicus GFM (Sentinel-1) · Imagen: Esri World Imagery"
+    "credito": "Agua inundada: Copernicus GFM (Sentinel-1) · Imagen: Esri World Imagery"
   },
   {
     "id": "metodo",
@@ -17,10 +17,10 @@
   },
   {
     "id": "cuanta",
-    "frase": "Resultado: trescientos cuatro kilómetros cuadrados de agua anómala en dos mil diecisiete, y doscientos cincuenta y cinco en dos mil veintitrés. Casi tres cuartas partes, en Sechura.",
-    "subtitulo": "Resultado: 304 km² de agua anómala en 2017, y 255 en 2023. Casi tres cuartas partes, en Sechura.",
+    "frase": "Resultado: trescientos cuatro kilómetros cuadrados de agua inundada en dos mil diecisiete, y doscientos cincuenta y cinco en dos mil veintitrés. Casi tres cuartas partes, en Sechura.",
+    "subtitulo": "Resultado: 304 km² de agua inundada en 2017, y 255 en 2023. Casi tres cuartas partes, en Sechura.",
     "cifra": "304 km²",
-    "etiqueta": "Agua anómala en 2017",
+    "etiqueta": "Agua inundada en 2017",
     "credito": "Copernicus GFM · agua en ≥ 2 fechas que en 2022 no la tuvo · límites INEI"
   },
   {
@@ -28,7 +28,7 @@
     "frase": "En dos mil veintitrés el agua tardó más en irse: tocó su máximo el nueve de mayo, y a fines de junio aún cubría ciento sesenta y cinco kilómetros cuadrados.",
     "subtitulo": "En 2023 el agua tardó más en irse: tocó su máximo el 9 de mayo, y a fines de junio aún cubría 165 km².",
     "cifra": "165 km²",
-    "etiqueta": "Agua anómala el 26 de junio de 2023",
+    "etiqueta": "Agua inundada el 26 de junio de 2023",
     "credito": "Copernicus GFM · pasadas que cubren ≥ 90 % de Piura"
   },
   {
@@ -44,7 +44,7 @@
     "frase": "Explora cada distrito en mi dashboard: Piura bajo el agua.",
     "subtitulo": "Explora cada distrito en mi dashboard: Piura bajo el agua.",
     "cifra": "Piura bajo el agua",
-    "etiqueta": "cris92w.github.io/Python-Intermedio/tarea_3/web",
+    "etiqueta": "Dashboard interactivo: enlace en la publicación",
     "credito": "Dashboard público en GitHub Pages"
   },
   {

@@ -32,7 +32,6 @@ CREDITOS = 3.2                 # mínimo de créditos finales con la música sol
 MAX_VELOCIDAD = 1.07           # si la narración no cabe, se acelera hasta un 7 % (sin cambiar el tono)
 MARGEN = 64
 Y_CIFRA, Y_VIS, H_VIS, Y_SUB = 168, 452, 1000, 1585   # zonas: cifra, visual (mapa o gráfico) y subtítulos
-URL = "cris92w.github.io/Python-Intermedio/tarea_3/web"
 
 # Paleta del dashboard (Ciclón Yaku)
 # Paletas del reel. Cada una define la noche (fondo, línea), los textos, el acento, el degradado del fondo, sus tres
@@ -95,14 +94,49 @@ def _textura():
     return Image.fromarray(rgba, "RGBA")
 
 
+def _paradas(x, paradas):
+    """Degradado por paradas: x entre 0 y 1 (arreglo) y una lista de (posición, color)."""
+    pos = [p for p, _ in paradas]
+    return np.stack([np.interp(np.clip(x, 0, 1), pos, [c[k] for _, c in paradas]) for k in range(3)], -1).astype(np.float32)
+
+
+# Tipos de degradado del fondo, con los colores de Atardecer (el reel usa el cónico). Se elige con FONDO o REEL_FONDO.
+# Abajo nunca pasa de un coral oscuro, para que el aviso de voz con IA y los créditos se lean.
+CIELO = [(0, (14, 8, 20)), (0.5, (42, 17, 40)), (0.8, (88, 32, 58)), (1, (128, 52, 54))]
+FONDO = os.environ.get("REEL_FONDO", "conico")
+PROFESION = "Ing. geógrafo y bachiller en Ciencia Política"
+
+
 def fondo(t):
-    """Fondo de cada cuadro: degradado de tormenta con resplandores violeta, de agua y turquesa que se mueven despacio."""
-    arriba, abajo = (np.array(c, np.float32) for c in _P["fondo"])
-    base = arriba * (1 - _FY[..., None]) + abajo * _FY[..., None]
-    l1, l2, l3 = _P["luces"]
-    base = base + _resplandor(0.10 + 0.06 * math.sin(t / 9), 0.08 + 0.04 * math.cos(t / 11), 0.28, l1, 0.55)
-    base += _resplandor(0.86 + 0.05 * math.sin(t / 7 + 1), 0.52 + 0.08 * math.cos(t / 10), 0.30, l2, 0.30)
-    base += _resplandor(0.30 + 0.08 * math.cos(t / 13), 1.02, 0.30, l3, 0.22)
+    """Fondo de cada cuadro: degradado con luz que se mueve despacio, retícula tenue y grano."""
+    u, v = _FX * 270 / 480, _FY            # coordenadas sin deformar (en fracciones del alto)
+    if FONDO == "horizonte":               # cielo al caer el sol: ciruela arriba, coral en el horizonte y el sol bajo
+        base = _paradas(_FY + 0.03 * math.sin(t / 8), CIELO)
+        base += _resplandor(0.5 + 0.12 * math.sin(t / 12), 1.06, 0.20, _P["luces"][2], 0.30)
+    elif FONDO == "diagonal":              # de la esquina coral (arriba a la izquierda) a la noche (abajo a la derecha)
+        a = math.radians(58 + 6 * math.sin(t / 10))
+        x = (u * math.cos(a) + v * math.sin(a)) / (0.5625 * math.cos(a) + math.sin(a))
+        base = _paradas(x, [(0, (112, 40, 48)), (0.45, (54, 20, 44)), (1, (14, 8, 20))])
+    elif FONDO == "radial":                # un sol detrás del centro que se apaga hacia los bordes
+        r = np.hypot(u - 0.28, v - 0.44) / (0.62 * (1 + 0.05 * math.sin(t / 6)))
+        base = _paradas(r, [(0, (150, 62, 52)), (0.35, (86, 30, 54)), (0.75, (30, 14, 32)), (1, (12, 7, 16))])
+    elif FONDO == "conico":                # barrido de color alrededor del centro, que gira muy despacio
+        ang = (np.arctan2(v - 0.44, u - 0.28) / (2 * math.pi) + t * 0.006) % 1
+        giro = _paradas(ang, [(0, (104, 36, 48)), (0.25, (72, 22, 64)), (0.5, (22, 11, 28)), (0.75, (104, 60, 42)), (1, (104, 36, 48))])
+        cerca = np.clip(np.hypot(u - 0.28, v - 0.44) / 0.18, 0, 1)[..., None]   # el centro se funde, sin punta
+        base = giro * cerca + np.array((48, 20, 42), np.float32) * (1 - cerca)
+    elif FONDO == "franjas":               # el mismo cielo en siete franjas, como un atardecer retro
+        x = _FY + 0.02 * math.sin(t / 9)
+        k = np.floor(x * 7)
+        borde = np.clip((x * 7 - k) * 480 / 7 / 3, 0, 1)                       # 3 px de transición entre franjas
+        base = _paradas((k - 1 + borde) / 6, CIELO)
+    else:                                  # malla: degradado vertical con tres resplandores que se desplazan
+        arriba, abajo = (np.array(c, np.float32) for c in _P["fondo"])
+        base = arriba * (1 - _FY[..., None]) + abajo * _FY[..., None]
+        l1, l2, l3 = _P["luces"]
+        base = base + _resplandor(0.10 + 0.06 * math.sin(t / 9), 0.08 + 0.04 * math.cos(t / 11), 0.28, l1, 0.55)
+        base += _resplandor(0.86 + 0.05 * math.sin(t / 7 + 1), 0.52 + 0.08 * math.cos(t / 10), 0.30, l2, 0.30)
+        base += _resplandor(0.30 + 0.08 * math.cos(t / 13), 1.02, 0.30, l3, 0.22)
     img = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8), "RGB").resize((W, H), Image.BILINEAR).convert("RGBA")
     img.alpha_composite(_textura())
     return img.convert("RGB")
@@ -463,15 +497,15 @@ class Escena:
         E = self.R["eventos"]
         if t < t255 - 0.2:
             v = E["2017"]["inund_anom_km2"] * salida((t - t304 + 0.1) / 1.1)
-            self.cifra(d, f"{entero(v)} km²", "Agua anómala en 2017", (t - self.t0) / 0.5, E17)
+            self.cifra(d, f"{entero(v)} km²", "Agua inundada en 2017", (t - self.t0) / 0.5, E17)
         elif t < tcasi - 0.2:
             v = E["2017"]["inund_anom_km2"] + (E["2023"]["inund_anom_km2"] - E["2017"]["inund_anom_km2"]) * salida((t - t255 + 0.2) / 0.9)
-            self.cifra(d, f"{entero(v)} km²", "Agua anómala en 2023", 1.0, E23)
+            self.cifra(d, f"{entero(v)} km²", "Agua inundada en 2023", 1.0, E23)
         else:
             pp = {(r["evento"], r["NOMBPROV"]): r["inund_anom_km2"] for r in self.R["por_provincia"]}
             p17 = 100 * pp[("2017", "SECHURA")] / E["2017"]["inund_anom_km2"]
             p23 = 100 * pp[("2023", "SECHURA")] / E["2023"]["inund_anom_km2"]
-            self.cifra(d, f"{entero(p17)} % y {entero(p23)} %", "Del agua anómala de 2017 y de 2023 cayó en la provincia de Sechura", (t - tcasi + 0.2) / 0.5, ORO)
+            self.cifra(d, f"{entero(p17)} % y {entero(p23)} %", "Del agua inundada de 2017 y de 2023 cayó en la provincia de Sechura", (t - tcasi + 0.2) / 0.5, ORO)
 
     # 4. Cuánto tiempo: la curva de 2023 se queda arriba hasta junio
     def e_tiempo(self, img, d, t):
@@ -623,7 +657,7 @@ class Escena:
         mask = Image.new("L", (pw, ph), 0)
         ImageDraw.Draw(mask).rounded_rectangle([0, 0, pw - 1, ph - 1], radius=44, fill=255)
         img.paste(pant, (x0, y0), mask)
-        self.cifra(d, "Piura bajo el agua", URL, (t - self.t0) / 0.5)
+        self.cifra(d, "Piura bajo el agua", "Dashboard interactivo: enlace en la publicación", (t - self.t0) / 0.5)
 
 
 @lru_cache(maxsize=None)
@@ -633,28 +667,54 @@ def pantallas(pw, ph):
             for n in ("portada", "agua", "explorar")]
 
 
+NOMBRE, NOMBRE2 = (255, 209, 102), (255, 240, 189)   # el dorado del nombre en el dashboard (--nombre y --nombre-2)
+
+
+def nombre_dorado(img, xy, font, alfa=1.0):
+    """Mi nombre con el degradado dorado del dashboard: del destello claro al dorado pleno al 70 % del ancho."""
+    texto = "Cristian Wong P."
+    x0, y0, x1, y1 = font.getbbox(texto)
+    mascara = Image.new("L", (x1, y1))
+    ImageDraw.Draw(mascara).text((0, 0), texto, font=font, fill=round(255 * alfa))
+    u = np.clip(np.arange(x1, dtype=np.float32) / (0.7 * (x1 - x0)), 0, 1)[:, None]
+    fila = (np.array(NOMBRE2, np.float32) * (1 - u) + np.array(NOMBRE, np.float32) * u).astype(np.uint8)
+    capa = Image.fromarray(np.repeat(fila[None], y1, 0), "RGB")
+    img.paste(capa, (round(xy[0]), round(xy[1])), mascara)
+
+
 def tarjeta_final(img, d, tf):
-    """Créditos con la música (y la despedida, que solo se escucha): título, autor, aviso de voz con IA, fuentes,
-    imágenes y música, escalonados. `tf` son los segundos desde que terminó la última escena con imagen."""
-    paso = lambda k=0: salida((tf - k * 0.12) / 0.7)
+    """Créditos con la música (y la despedida, que solo se escucha): título, autor, voz con IA, fuentes, imágenes y
+    música. Cada línea entra por turno, subiendo y apareciendo; `tf` son los segundos desde que terminó la última
+    escena con imagen."""
+    def entra(k):
+        """Avance (0–1) del elemento k: uno cada 0,24 s, cada uno tarda 0,55 s en asentarse (todo quieto a los 2,4 s)."""
+        return salida((tf - 0.15 - k * 0.24) / 0.55)
+
+    def linea(y, texto, font, color, k):
+        u = entra(k)
+        if u > 0:
+            d.text((MARGEN, y + 34 * (1 - u)), texto, font=font, fill=(*color, round(255 * u)))
+
     y = 300
-    d.text((MARGEN, y), "Piura bajo el agua", font=archivo(96, 800), fill=mezclar(NOCHE, (255, 255, 255), paso()))
+    linea(y, "Piura bajo el agua", archivo(96, 800), (255, 255, 255), 0)
     y += 125
-    d.text((MARGEN, y), "Dos Niños costeros medidos desde el espacio", font=archivo(40, 500, 100), fill=mezclar(NOCHE, ACENTO, paso()))
+    linea(y, "Dos Niños costeros medidos desde el espacio", archivo(40, 500, 100), ACENTO, 1)
     y += 110
-    d.text((MARGEN, y), "Cristian Wong P.", font=archivo(84, 800), fill=mezclar(NOCHE, ORO, paso(1)))
-    y += 150
+    u = entra(2)
+    if u > 0:
+        nombre_dorado(img, (MARGEN, y + 34 * (1 - u)), archivo(84, 800), u)
+    y += 102
+    linea(y, PROFESION, archivo(38, 500, 100), TINTA, 3)
+    y += 90
     bloques = [("Voz", "Generada con IA (Qwen3-TTS) a partir de una grabación de mi propia voz"),
                ("Datos", "Copernicus GFM (Sentinel-1), Copernicus EMS, INDECI, INGEMMET e INEI"),
                ("Imágenes", "Esri World Imagery (Esri, Maxar, Earthstar Geographics) y capturas del dashboard"),
-               ("Música", "«Floating Cities», Kevin MacLeod (incompetech.com), licencia CC BY 4.0"),
-               ("Dashboard", URL)]
+               ("Música", "«Floating Cities», Kevin MacLeod (incompetech.com), licencia CC BY 4.0")]
     for k, (titulo, txt) in enumerate(bloques):
-        uu = paso(k + 2)
-        d.text((MARGEN, y), titulo.upper(), font=F_KICK, fill=mezclar(NOCHE, ACENTO, uu))
+        linea(y, titulo.upper(), F_KICK, ACENTO, k + 4)
         y += 40
-        for linea in envolver(txt, archivo(36, 500, 100), W - 2 * MARGEN):
-            d.text((MARGEN, y), linea, font=archivo(36, 500, 100), fill=mezclar(NOCHE, TINTA, uu))
+        for renglon in envolver(txt, archivo(36, 500, 100), W - 2 * MARGEN):
+            linea(y, renglon, archivo(36, 500, 100), TINTA, k + 4)
             y += 46
         y += 28
 
@@ -767,8 +827,9 @@ def portada(escenas):
     titulo = ajustar("Piura bajo el agua", 118)
     d.text((MARGEN, 175), "Piura bajo el agua", font=titulo, fill=(255, 255, 255))
     d.text((MARGEN, 175 + titulo.getmetrics()[0] + 34), "Dos Niños costeros medidos desde el espacio", font=F_ETIQ, fill=ACENTO)
-    d.text((MARGEN, 1520), "Cristian Wong P.", font=archivo(70, 800), fill=ORO)
-    d.text((MARGEN, 1612), "Radar Sentinel-1 · 2017 y 2023", font=F_ETIQ, fill=TINTA)
+    nombre_dorado(img, (MARGEN, 1500), archivo(70, 800))
+    d.text((MARGEN, 1588), PROFESION, font=F_ETIQ, fill=TINTA)
+    d.text((MARGEN, 1648), "Radar Sentinel-1 · 2017 y 2023", font=F_ETIQ, fill=TENUE)
     img.save(AQUI / "portada.png")
 
 
