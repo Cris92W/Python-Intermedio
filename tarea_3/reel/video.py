@@ -539,30 +539,43 @@ def pantallas(pw, ph):
             for n in ("portada", "agua", "explorar")]
 
 
-def tarjeta_final(img, d, u):
-    """Créditos con la música sola: fuentes, aviso de voz con IA, música y autor."""
+FRASE = ("Los desastres naturales pasan,", "los datos quedan.")
+
+
+def tarjeta_final(img, d, tf):
+    """Cierre con la música sola: primero la frase final; después, escalonados, el título, el autor y los créditos
+    (aviso de voz con IA, fuentes, imágenes y música). `tf` son los segundos desde que terminó la narración."""
     d.rectangle([0, Y_VIS - 300, W, H], fill=NOCHE)
-    y = 330
-    d.text((MARGEN, y), "Piura bajo el agua", font=archivo(96, 800), fill=mezclar(NOCHE, (255, 255, 255), u))
-    y += 125
-    d.text((MARGEN, y), "Dos Niños costeros medidos desde el espacio", font=archivo(40, 500, 100), fill=mezclar(NOCHE, ACENTO, u))
-    y += 110
-    d.text((MARGEN, y), "Cristian Wong P.", font=archivo(84, 800), fill=mezclar(NOCHE, ORO, u))
-    y += 150
+    u = salida(tf / 0.7)
+    f = ajustar(FRASE[0], 72)
+    y = 196
+    d.text((MARGEN, y), FRASE[0], font=f, fill=mezclar(NOCHE, (255, 255, 255), u))
+    y += f.getmetrics()[0] + 24
+    d.text((MARGEN, y), FRASE[1], font=f, fill=mezclar(NOCHE, ORO, u))
+    y += f.getmetrics()[0] + 50
+    resto = lambda k=0: salida((tf - 1.2 - k * 0.12) / 0.6)   # el resto entra 1,2 s después de la frase
+    d.line([(MARGEN, y), (MARGEN + 140, y)], fill=mezclar(NOCHE, ACENTO, resto()), width=4)
+    y += 46
+    d.text((MARGEN, y), "Piura bajo el agua", font=archivo(80, 800), fill=mezclar(NOCHE, (255, 255, 255), resto()))
+    y += 100
+    d.text((MARGEN, y), "Dos Niños costeros medidos desde el espacio", font=archivo(38, 500, 100), fill=mezclar(NOCHE, ACENTO, resto()))
+    y += 70
+    d.text((MARGEN, y), "Cristian Wong P.", font=archivo(72, 800), fill=mezclar(NOCHE, ORO, resto(1)))
+    y += 120
     bloques = [("Voz", "Generada con IA (Qwen3-TTS) a partir de una grabación de mi propia voz"),
                ("Datos", "Copernicus GFM (Sentinel-1), Copernicus EMS, INDECI, INGEMMET e INEI"),
                ("Imágenes", "Esri World Imagery (Esri, Maxar, Earthstar Geographics) y capturas del dashboard"),
                ("Música", "«Floating Cities», Kevin MacLeod (incompetech.com), licencia CC BY 4.0"),
                ("Dashboard", URL)]
-    for k, (t, txt) in enumerate(bloques):
-        uu = acotar(u * 1.6 - k * 0.12)
-        d.text((MARGEN, y), t.upper(), font=F_KICK, fill=mezclar(NOCHE, ACENTO, uu))
-        y += 40
-        for linea in envolver(txt, archivo(36, 500, 100), W - 2 * MARGEN):
-            d.text((MARGEN, y), linea, font=archivo(36, 500, 100), fill=mezclar(NOCHE, TINTA, uu))
-            y += 46
-        y += 28
-    d.text((MARGEN, 1812), "Diplomado de Ciencia de Datos con Python · Tarea 3", font=F_CRED, fill=mezclar(NOCHE, TENUE, u))
+    for k, (titulo, txt) in enumerate(bloques):
+        uu = resto(k + 2)
+        d.text((MARGEN, y), titulo.upper(), font=F_KICK, fill=mezclar(NOCHE, ACENTO, uu))
+        y += 38
+        for linea in envolver(txt, archivo(34, 500, 100), W - 2 * MARGEN):
+            d.text((MARGEN, y), linea, font=archivo(34, 500, 100), fill=mezclar(NOCHE, TINTA, uu))
+            y += 43
+        y += 24
+    d.text((MARGEN, 1812), "Diplomado de Ciencia de Datos con Python · Tarea 3", font=F_CRED, fill=mezclar(NOCHE, TENUE, resto()))
 
 
 # ---------- Capas comunes ----------
@@ -714,7 +727,7 @@ def main():
             img = escenas[-1].render(fin_voz - 0.01)
             d = ImageDraw.Draw(img, "RGBA")
             marco_comun(img, t, escenas, len(escenas) - 1, True)
-            tarjeta_final(img, d, salida((t - fin_voz) / 0.8))
+            tarjeta_final(img, d, t - fin_voz)
             pastilla(d, (MARGEN, 1745), "VOZ GENERADA CON IA", F_TAG, (*NOCHE2, 255), ORO)
             return img
         k = max(j for j, e in enumerate(escenas) if e.t0 - FUNDIDO / 2 <= t or j == 0)
