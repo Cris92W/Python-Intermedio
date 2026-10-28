@@ -1,6 +1,7 @@
 # Tarea 3 – Piura bajo el agua: dos Niños costeros medidos desde el espacio (2017 y 2023)
 
 **Dashboard:** https://cris92w.github.io/Python-Intermedio/tarea_3/web/
+**Reel (60 s):** [`reel/reel.mp4`](reel/reel.mp4), con su guion, scripts y créditos en [`reel/`](reel/)
 **Publicación de LinkedIn:** (pendiente)
 
 ## 1. Tema y pregunta de investigación
@@ -97,8 +98,13 @@ Las descargas van a `datos/originales/` (no se versiona). Los resultados quedan 
 `web/data/`. `datos/procesados/huaicos_eventos.csv` y `hallazgos.json` se redactaron a mano con su fuente.
 Para ver el dashboard en local: `python -m http.server -d web 8000` y abrir http://localhost:8000.
 
+El reel se arma aparte, con los pasos de [`reel/README.md`](reel/README.md): mapa base, capturas del dashboard,
+narración con mi voz clonada (Qwen3-TTS) y video.
+
 ## 8. Uso de inteligencia artificial
 
 El análisis, el código y el dashboard se desarrollaron con apoyo de Claude Code. Las cifras se verificaron contra
 las fuentes originales: las tablas de INDECI se leyeron sobre la imagen de cada página, los resultados del radar
 se contrastaron con la delimitación manual de Copernicus EMS y cada huaico documentado enlaza a su fuente.
+En el reel, la narración es mi voz clonada con Qwen3-TTS a partir de una grabación propia, y cada escena se revisó
+con Whisper para que las cifras se entiendan; el video lo indica en pantalla.
