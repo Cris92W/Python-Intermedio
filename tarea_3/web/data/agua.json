@@ -40,5 +40,27 @@
    "color": "rgba(24,82,196,0.96)"
   }
  ],
- "habitual": "rgba(226,232,236,0.78)"
+ "habitual": "rgba(226,232,236,0.78)",
+ "clases_calidas": [
+  {
+   "desde": 2,
+   "hasta": 3,
+   "color": "rgba(255,179,71,0.80)"
+  },
+  {
+   "desde": 4,
+   "hasta": 7,
+   "color": "rgba(255,122,47,0.89)"
+  },
+  {
+   "desde": 8,
+   "hasta": 15,
+   "color": "rgba(232,64,44,0.95)"
+  },
+  {
+   "desde": 16,
+   "hasta": 999,
+   "color": "rgba(168,23,58,0.98)"
+  }
+ ]
 }

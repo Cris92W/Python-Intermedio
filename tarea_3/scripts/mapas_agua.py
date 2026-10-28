@@ -6,6 +6,8 @@ Parte de los rasters de 80 m de scripts/procesar_gfm.py (banda 1: fechas con agu
 - agua_2017.png y agua_2023.png: inundación anómala, es decir, píxeles con agua en al menos dos fechas
   del evento que en la referencia de 2022 nunca tuvieron agua. El color dice en cuántas fechas se vio agua.
 - agua_2022.png: agua habitual, con agua en al menos dos fechas de ene-jun 2022 (año sin Niño).
+- agua_2017_calido.png y agua_2023_calido.png: lo mismo que las de cada evento, en tonos cálidos (de naranja a
+  carmín), para la lámina de portada, donde el agua se superpone a una imagen satelital en color natural.
 
 Las imágenes se reproyectan a Web Mercator (EPSG:3857), la proyección de MapLibre, a 100 m, y se recortan
 al departamento. Escribe web/data/agua_{evento}.png y web/data/agua.json con las esquinas de la imagen.
@@ -36,6 +38,9 @@ REFERENCIA = "2022"
 CLASES = [(2, 3, (166, 232, 255, 170)), (4, 7, (84, 196, 245, 205)), (8, 15, (32, 140, 230, 230)),
           (16, 999, (24, 82, 196, 245))]
 HABITUAL = (226, 232, 236, 200)
+# Versión cálida para la lámina de portada: resalta sobre el desierto beige y sobre la penumbra fuera de Piura
+CALIDAS = [(2, 3, (255, 179, 71, 205)), (4, 7, (255, 122, 47, 228)), (8, 15, (232, 64, 44, 242)),
+           (16, 999, (168, 23, 58, 250))]
 
 
 def grilla(departamento):
@@ -80,9 +85,12 @@ def main():
         frec[~dentro] = 0
         rgba = np.zeros((4, *forma), dtype="uint8")
         if anomalo:
-            for desde, hasta, color in CLASES:
+            calido = np.zeros_like(rgba)
+            for (desde, hasta, color), (_, _, color_c) in zip(CLASES, CALIDAS):
                 sel = (frec >= desde) & (frec <= hasta)
                 rgba[:, sel] = np.array(color, dtype="uint8")[:, None]
+                calido[:, sel] = np.array(color_c, dtype="uint8")[:, None]
+            guardar_png(calido, f"agua_{evento}_calido.png")
         else:
             rgba[:, frec > 0] = np.array(HABITUAL, dtype="uint8")[:, None]
         guardar_png(rgba, f"agua_{evento}.png")
@@ -97,6 +105,8 @@ def main():
         "clases": [{"desde": d, "hasta": h, "color": f"rgba({c[0]},{c[1]},{c[2]},{c[3] / 255:.2f})"}
                    for d, h, c in CLASES],
         "habitual": f"rgba({HABITUAL[0]},{HABITUAL[1]},{HABITUAL[2]},{HABITUAL[3] / 255:.2f})",
+        "clases_calidas": [{"desde": d, "hasta": h, "color": f"rgba({c[0]},{c[1]},{c[2]},{c[3] / 255:.2f})"}
+                           for d, h, c in CALIDAS],
     }, ensure_ascii=False, indent=1), encoding="utf-8")
 
 

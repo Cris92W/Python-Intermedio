@@ -14,6 +14,8 @@
   --nombre: #ffd166; --nombre-2: #fff0bd;
   /* Marcos de mapa (doble filete, como en la cartografía impresa) y fases del método: datos, indicador, contraste */
   --marco: #6b74b8; --marco-2: #3a3f72; --marco-papel: #7b80a3;
+  /* Inundación en la lámina de portada: tonos cálidos sobre la imagen satelital (fechas con agua, de pocas a muchas) */
+  --c1: #ffb347; --c2: #ff7a2f; --c3: #e8402c; --c4: #a8173a;
   --f1: #34479a; --f2: #0b6e7a; --f3: #7a4aa0;
   /* Huaicos y daño (severidad de Copernicus EMS) */
   --hu: #e07a3a; --hu-2: #b08a5a; --s1: #f2d16b; --s2: #ee9a3a; --s3: #d6453d; --s4: #8a2246;
@@ -60,8 +62,19 @@ img { max-width: 100%; }
 @media (max-width: 640px) { .chap-nav { display: none; } .chap-now { display: block; } }
 
 /* ---------- Portada ---------- */
-.hero { background: var(--night); color: var(--night-ink); }
-.hero-in { max-width: 1320px; margin: 0 auto; padding-left: var(--gut-l); padding-right: var(--gut-r); padding-block: clamp(36px, 6vw, 84px) 36px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+/* Fondo de la portada: noche de tormenta con profundidad (resplandor violeta arriba, brillo de agua detrás de la lámina)
+   y una retícula cartográfica tenue que se desvanece hacia los bordes */
+.hero { position: relative; isolation: isolate; overflow: hidden; background: var(--night); color: var(--night-ink); }
+.hero::before, .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.hero::before { background:
+  radial-gradient(58% 52% at 77% 38%, rgba(84, 196, 245, .14), transparent 72%),
+  radial-gradient(46% 62% at 4% -4%, rgba(122, 74, 160, .34), transparent 70%),
+  radial-gradient(42% 46% at 32% 104%, rgba(52, 71, 154, .30), transparent 74%),
+  linear-gradient(180deg, #0a0c20 0%, #10122a 48%, #0c1530 100%); }
+.hero::after { background-image: linear-gradient(rgba(168, 194, 255, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(168, 194, 255, .07) 1px, transparent 1px);
+  background-size: 56px 56px; background-position: -1px -1px;
+  -webkit-mask-image: radial-gradient(72% 82% at 62% 42%, #000 18%, transparent 82%); mask-image: radial-gradient(72% 82% at 62% 42%, #000 18%, transparent 82%); }
+.hero-in { max-width: 1320px; margin: 0 auto; padding-left: var(--gut-l); padding-right: var(--gut-r); padding-block: clamp(36px, 6vw, 84px) 36px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(28px, 4.5vw, 64px); align-items: start; }
 .eyebrow { font: 500 12px/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--night-accent); margin: 0 0 18px; }
 h1 { font: 800 clamp(40px, 6vw, 84px)/.95 var(--display); font-stretch: 106%; letter-spacing: -.015em; margin: 0 0 24px; color: #fff; text-wrap: balance; }
 .deck { margin: -6px 0 24px; font: 500 clamp(20px, 2.1vw, 28px)/1.25 var(--display); font-stretch: 104%; color: var(--night-accent); text-wrap: balance; }
@@ -69,7 +82,7 @@ h1 { font: 800 clamp(40px, 6vw, 84px)/.95 var(--display); font-stretch: 106%; le
 .hkpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 32px 0 0; border-top: 1px solid var(--night-line); }
 .hkpis div { padding: 16px 16px 0 0; min-width: 0; }
 .hkpis div + div { padding-left: 16px; border-left: 1px solid var(--night-line); }
-.hkpis dt { font: 800 clamp(28px, 2.8vw, 40px)/1 var(--display); font-stretch: 110%; color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hkpis dt { font: 800 clamp(26px, 2.55vw, 37px)/1 var(--display); font-stretch: 110%; color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .hkpis dt small { font-size: .5em; font-weight: 600; margin-left: .18em; color: var(--night-ink); }
 .hkpis dd { margin: 8px 0 0; font: 400 13.5px/1.4 var(--display); color: var(--night-muted); }
 .author { display: flex; align-items: center; gap: 18px; margin: 30px 0 0; padding-top: 22px; border-top: 1px solid var(--night-line); }
@@ -86,25 +99,30 @@ h1 { font: 800 clamp(40px, 6vw, 84px)/.95 var(--display); font-stretch: 106%; le
 .cue:hover { border-color: var(--night-accent); }
 .cue span { display: inline-block; animation: nudge 1.8s ease-in-out infinite; }
 @keyframes nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
-.plate { margin: 0; justify-self: end; width: 100%; max-width: 600px; }
-.plate-box { position: relative; border: 2px solid var(--marco); outline: 1px solid var(--marco-2); outline-offset: 5px; background: #0a0c1b; box-shadow: 0 22px 60px -24px rgba(0, 0, 0, .7); }
+.plate { margin: 6px 0 0; justify-self: end; width: 100%; max-width: 680px; }
+.plate-box { position: relative; border: 2px solid var(--marco); outline: 1px solid var(--marco-2); outline-offset: 5px; background: #000; box-shadow: 0 26px 70px -26px rgba(0, 0, 0, .8); }
 .plate-box > svg { display: block; width: 100%; height: auto; }
 .plate-box text { font-family: var(--display); }
-.locator { position: absolute; top: 12px; left: 12px; width: 24%; max-width: 130px; background: rgba(16, 18, 42, .86); border: 1px solid var(--night-line); }
+/* Ubicación: dentro de la lámina, abajo a la izquierda sobre el mar (la caja de la lámina deja ese margen) */
+.locator { position: absolute; left: 8.5%; bottom: 3.5%; width: 19%; max-width: 124px; background: rgba(7, 8, 22, .82); border: 1px solid var(--night-line); }
 .locator svg { display: block; width: 100%; height: auto; }
 .locator span { display: block; font: 500 9.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--night-muted); padding: 6px 7px 0; }
 .plate-leg { position: absolute; right: 10px; bottom: 34px; display: grid; gap: 4px; background: rgba(16, 18, 42, .86); border: 1px solid var(--night-line); padding: 8px 10px; font: 500 12px/1.2 var(--display); color: var(--night-ink); }
 .plate-leg b { font: 500 10px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--night-muted); }
 .plate-leg span { display: flex; align-items: center; gap: 7px; }
 .plate-leg i { width: 11px; height: 11px; border-radius: 2px; }
+@media (max-width: 560px) { .plate-leg { bottom: 24px; right: 6px; gap: 2px; padding: 5px 7px; font-size: 10.5px; } .plate-leg b { font-size: 8.5px; } .plate-leg i { width: 9px; height: 9px; } }
 .plate figcaption { margin-top: 10px; font: 400 12.5px/1.5 var(--display); color: var(--night-muted); }
 .ficha { max-width: 1320px; margin: 0; margin-inline: auto; padding-left: var(--gut-l); padding-right: var(--gut-r); padding-block: 4px 40px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .ficha div { border-top: 1px solid var(--night-line); padding: 12px 14px 0 0; min-width: 0; }
 .ficha dt { font: 500 10.5px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--night-muted); }
 .ficha dd { margin: 3px 0 0; font: 500 13.5px/1.4 var(--mono); color: var(--night-ink); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 @media (max-width: 899px) {
-  .hero-in { grid-template-columns: minmax(0, 1fr); }
-  .plate { justify-self: stretch; max-width: none; }
+  .hero-in { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
+  .plate { justify-self: stretch; max-width: none; margin: 26px 0 6px; }
+  /* En una columna la lámina va justo después de la introducción, no al final de la portada */
+  .hero-txt { display: contents; }
+  .hero-txt > .author, .hero-txt > .hkpis, .hero-txt > .byline, .hero-txt > .cue { order: 1; }
   .ficha { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 560px) {

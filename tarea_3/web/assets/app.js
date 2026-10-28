@@ -272,23 +272,32 @@
   function lamina(D) {
     const svg = $('lamina'), loc = $('localizador'); if (!svg) return;
     const merc = ([lon, lat]) => [(lon + 180) / 360, (1 - Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360)) / Math.PI) / 2];
-    const B = [-82.25, -6.48, -79.05, -3.95], p0 = merc([B[0], B[3]]), p1 = merc([B[2], B[1]]);
+    // Caja de la lámina: la misma de scripts/lamina_base.py, que recorta la imagen de fondo
+    // Con margen de mar al oeste: ahí van el mapa de ubicación (abajo) y la escala (arriba), sin tapar Piura
+    const B = [-82.25, -6.50, -79.05, -3.96], p0 = merc([B[0], B[3]]), p1 = merc([B[2], B[1]]);
     const VW = 600, VH = Math.round(VW * (p1[1] - p0[1]) / (p1[0] - p0[0]));
     const P = c => { const m = merc(c); return [(m[0] - p0[0]) / (p1[0] - p0[0]) * VW, (m[1] - p0[1]) / (p1[1] - p0[1]) * VH]; };
     const ruta = (geom, f = P) => (geom.type === 'Polygon' ? [geom.coordinates] : geom.coordinates).map(pol => pol.map(r => 'M' + r.map(c => f(c).map(v => v.toFixed(1)).join(',')).join('L') + 'Z').join('')).join('');
     const [ax, ay] = P(D.AGUA.esquinas[0]), [bx, by] = P(D.AGUA.esquinas[2]);
-    let s = `<defs><filter id="engrosar"><feMorphology operator="dilate" radius="1.1"/></filter></defs><rect width="${VW}" height="${VH}" fill="#0a0c1b"/>`;
-    s += D.PERU.features.filter(f => f.properties.CCDD !== '20').map(f => `<path d="${ruta(f.geometry)}" fill="#181b38" stroke="#2a2e52" stroke-width=".8"/>`).join('');
-    s += D.PROV.features.map(f => `<path d="${ruta(f.geometry)}" fill="#1c203e" stroke="none"/>`).join('');
-    s += `<image id="lamina-agua" href="data/agua_2017.png" x="${ax}" y="${ay}" width="${bx - ax}" height="${by - ay}" preserveAspectRatio="none" filter="url(#engrosar)"/>`;
+    // Fondo: Sentinel-2 sin nubes de 2016 (EOX), recortado a esta misma caja por scripts/lamina_base.py
+    let s = `<defs><filter id="engrosar"><feMorphology operator="dilate" radius="1.1"/></filter></defs>`;
+    s += `<image href="data/lamina.jpg" x="0" y="0" width="${VW}" height="${VH}" preserveAspectRatio="none"/>`;
+    // Penumbra fuera de Piura, para que el departamento resalte sobre la imagen
+    const piura = D.DEP.features.map(f => ruta(f.geometry)).join('');
+    s += `<path d="M0 0H${VW}V${VH}H0Z${piura}" fill="rgba(7, 8, 22, .58)" fill-rule="evenodd"/>`;
+    // Cuadrícula cada 0,5° (como la cuadrícula UTM de la lámina de Chichas)
+    [-6, -5.5, -5, -4.5, -4].forEach(lat => { const y = P([B[0], lat])[1].toFixed(1); s += `<line x1="0" x2="${VW}" y1="${y}" y2="${y}" stroke="rgba(255, 255, 255, .13)" stroke-width=".7"/>`; });
+    [-82, -81.5, -81, -80.5, -80, -79.5].forEach(lon => { const x = P([lon, B[1]])[0].toFixed(1); s += `<line x1="${x}" x2="${x}" y1="0" y2="${VH}" stroke="rgba(255, 255, 255, .13)" stroke-width=".7"/>`; });
+    s += D.PERU.features.filter(f => f.properties.CCDD !== '20').map(f => `<path d="${ruta(f.geometry)}" fill="none" stroke="rgba(227, 229, 244, .38)" stroke-width=".7" stroke-linejoin="round"/>`).join('');
+    s += `<image id="lamina-agua" href="data/agua_2017_calido.png" x="${ax}" y="${ay}" width="${bx - ax}" height="${by - ay}" preserveAspectRatio="none" filter="url(#engrosar)"/>`;
     s += D.PROV.features.map(f => `<path d="${ruta(f.geometry)}" fill="none" stroke="rgba(227, 229, 244,.6)" stroke-width=".9" stroke-linejoin="round"/>`).join('');
     s += D.DEP.features.map(f => { const d = ruta(f.geometry); return `<path d="${d}" fill="none" stroke="${HALO}" stroke-opacity=".8" stroke-width="4.4" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"/>`; }).join('');
     CIUDADES.forEach(([n, lon, lat]) => { const [x, y] = P([lon, lat]), izq = x > VW - 95; s += `<circle cx="${x}" cy="${y}" r="3" fill="#fff" stroke="#10122a" stroke-width="1.5"/><text x="${izq ? x - 6 : x + 6}" y="${y - 5}" text-anchor="${izq ? 'end' : 'start'}" font-size="12" font-weight="600" fill="#fff" stroke="#0a0c1b" stroke-width="3" paint-order="stroke">${n}</text>`; });
     [-6, -5.5, -5, -4.5].forEach(lat => { const y = P([B[0], lat])[1]; s += `<line x1="0" x2="6" y1="${y}" y2="${y}" stroke="#9ca1c4"/><text x="9" y="${y + 3.5}" font-size="9.5" fill="#9ca1c4" font-family="IBM Plex Mono, monospace">${fmt(-lat, 1)}° S</text>`; });
     [-81, -80.5, -80, -79.5].forEach(lon => { const x = P([lon, B[1]])[0]; s += `<line x1="${x}" x2="${x}" y1="${VH}" y2="${VH - 6}" stroke="#9ca1c4"/><text x="${x}" y="${VH - 9}" font-size="9.5" fill="#9ca1c4" text-anchor="middle" font-family="IBM Plex Mono, monospace">${fmt(-lon, 1)}° O</text>`; });
-    // Escala de 50 km a la latitud media
-    const km = 50, x0 = 24, yb = VH - 32, dx = P([B[0] + km / (111.32 * Math.cos(5.2 * Math.PI / 180)), -5.2])[0] - P([B[0], -5.2])[0];
-    s += `<rect x="${x0 - 8}" y="${yb - 20}" width="${dx + 50}" height="30" fill="rgba(16, 18, 42,.82)"/><rect x="${x0}" y="${yb}" width="${dx / 2}" height="5" fill="#fff"/><rect x="${x0 + dx / 2}" y="${yb}" width="${dx / 2}" height="5" fill="none" stroke="#fff"/>`;
+    // Escala de 50 km a la latitud media, arriba a la izquierda sobre el mar
+    const km = 50, x0 = 60, yb = 44, dx = P([B[0] + km / (111.32 * Math.cos(5.2 * Math.PI / 180)), -5.2])[0] - P([B[0], -5.2])[0];
+    s += `<rect x="${x0 - 8}" y="${yb - 20}" width="${dx + 50}" height="30" fill="rgba(7, 8, 22, .78)"/><rect x="${x0}" y="${yb}" width="${dx / 2}" height="5" fill="#fff"/><rect x="${x0 + dx / 2}" y="${yb}" width="${dx / 2}" height="5" fill="none" stroke="#fff"/>`;
     s += `<text x="${x0}" y="${yb - 5}" font-size="10" fill="#fff" text-anchor="middle" font-family="IBM Plex Mono, monospace">0</text><text x="${x0 + dx / 2}" y="${yb - 5}" font-size="10" fill="#fff" text-anchor="middle" font-family="IBM Plex Mono, monospace">25</text><text x="${x0 + dx + 6}" y="${yb - 5}" font-size="10" fill="#fff" font-family="IBM Plex Mono, monospace">50 km</text>`;
     svg.setAttribute('viewBox', `0 0 ${VW} ${VH}`); svg.innerHTML = s;
 
@@ -297,11 +306,11 @@
     const LW = 120, LH = Math.round(LW * (q1[1] - q0[1]) / (q1[0] - q0[0]));
     const Q = c => { const m = merc(c); return [(m[0] - q0[0]) / (q1[0] - q0[0]) * (LW - 8) + 4, (m[1] - q0[1]) / (q1[1] - q0[1]) * (LH - 8) + 4]; };
     loc.setAttribute('viewBox', `0 0 ${LW} ${LH}`);
-    loc.innerHTML = D.PERU.features.map(f => `<path d="${ruta(f.geometry, Q)}" fill="${f.properties.CCDD === '20' ? W2 : '#25284a'}" stroke="#10122a" stroke-width=".5"/>`).join('');
+    loc.innerHTML = D.PERU.features.map(f => `<path d="${ruta(f.geometry, Q)}" fill="${f.properties.CCDD === '20' ? '#ff7a2f' : '#25284a'}" stroke="#10122a" stroke-width=".5"/>`).join('');
 
     document.querySelectorAll('#lamina-ev button').forEach(b => b.addEventListener('click', () => {
       document.querySelectorAll('#lamina-ev button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-      $('lamina-agua').setAttribute('href', `data/agua_${b.dataset.v}.png`);
+      $('lamina-agua').setAttribute('href', `data/agua_${b.dataset.v}_calido.png`);
       $('lamina-cap-ev').textContent = b.dataset.v === '2017' ? 'diciembre de 2016 a mayo de 2017' : 'enero a junio de 2023';
     }));
   }
