@@ -51,7 +51,7 @@ Piura que quedaron en zonas afectadas, y se documentaron los huaicos con el inve
 3. **Corrección de área.** La proyección de GFM (Equi7) agranda las áreas un 2 % en Piura; se corrige.
 4. **Validación.** Por cada área mapeada por Copernicus EMS en 2017 se mide qué porcentaje de su inundación también
    detectó el radar.
-5. **Huaicos.** El radar no los ve, así que se usan el inventario de campo de INGEMMET (dónde bajan) y nueve eventos
+5. **huaicos.** El radar no los ve, así que se usan el inventario de campo de INGEMMET (dónde bajan) y nueve eventos
    de 2017 y 2023 compilados de INDECI, INGEMMET y prensa (cuándo bajaron), cada uno con su fuente. También se mide
    cuántos puntos de huaico tienen agua del radar a menos de 160 m.
 6. **Edificios.** Un edificio cuenta como afectado si su centro cae en una zona inundada de Copernicus, en una
