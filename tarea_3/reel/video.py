@@ -18,6 +18,7 @@ from functools import lru_cache
 from pathlib import Path
 
 import imageio_ffmpeg
+import numpy as np
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -39,6 +40,55 @@ E17, E23, HUAICO, HALO = (242, 160, 61), (108, 195, 216), (224, 122, 58), (5, 6,
 CIUDADES = [("Piura", -80.632, -5.194), ("Sullana", -80.685, -4.904), ("Talara", -81.272, -4.577), ("Paita", -81.114, -5.089),
             ("Sechura", -80.822, -5.557), ("Chulucanas", -80.162, -5.093), ("Huancabamba", -79.451, -5.239), ("Ayabaca", -79.715, -4.639)]
 MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "set", "oct", "nov", "dic"]
+
+
+# ---------- Fondo: noche de tormenta con luz (resplandores que se desplazan, retícula tenue y grano) ----------
+_FY, _FX = (a.astype(np.float32) for a in np.mgrid[0:480, 0:270])
+_FX /= 270
+_FY /= 480
+
+
+def _resplandor(cx, cy, r, color, fuerza):
+    """Luz suave y redonda en pantalla: centro en fracciones de ancho y alto, radio en fracción del alto."""
+    d2 = ((_FX - cx) * 270 / 480) ** 2 + (_FY - cy) ** 2
+    return np.exp(-d2 / (2 * r * r))[..., None] * np.array(color, np.float32) * fuerza
+
+
+@lru_cache(maxsize=1)
+def _textura():
+    """Lo que no cambia entre cuadros: retícula cartográfica que se desvanece hacia los bordes y grano fino."""
+    yy, xx = np.mgrid[0:H, 0:W]
+    reticula = ((xx % 60 == 0) | (yy % 60 == 0)).astype(np.float32) * 18
+    reticula *= np.clip(1.3 - np.hypot((xx - W * 0.55) / W, (yy - H * 0.42) / H) * 2.2, 0, 1)
+    rng = np.random.default_rng(7)
+    grano = rng.random((H, W)) < 0.5
+    rgba = np.zeros((H, W, 4), np.uint8)
+    rgba[..., :3] = np.where(grano[..., None], 255, 0)
+    rgba[..., 3] = rng.integers(0, 9, (H, W))                     # grano: puntos claros y oscuros casi invisibles
+    lin = reticula > 0
+    rgba[lin, :3] = (168, 194, 255)
+    rgba[lin, 3] = reticula[lin].astype(np.uint8)
+    return Image.fromarray(rgba, "RGBA")
+
+
+def fondo(t):
+    """Fondo de cada cuadro: degradado de tormenta con resplandores violeta, de agua y turquesa que se mueven despacio."""
+    base = np.array([10, 12, 32], np.float32) * (1 - _FY[..., None]) + np.array([16, 22, 56], np.float32) * _FY[..., None]
+    base = base + _resplandor(0.10 + 0.06 * math.sin(t / 9), 0.08 + 0.04 * math.cos(t / 11), 0.28, (122, 74, 160), 0.55)
+    base += _resplandor(0.86 + 0.05 * math.sin(t / 7 + 1), 0.52 + 0.08 * math.cos(t / 10), 0.30, (54, 140, 230), 0.30)
+    base += _resplandor(0.30 + 0.08 * math.cos(t / 13), 1.02, 0.30, (40, 160, 190), 0.22)
+    img = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8), "RGB").resize((W, H), Image.BILINEAR).convert("RGBA")
+    img.alpha_composite(_textura())
+    return img.convert("RGB")
+
+
+@lru_cache(maxsize=1)
+def pluma():
+    """Máscara del visual (mapa o captura): se funde con el fondo en sus 90 px de arriba y de abajo."""
+    m = np.ones(H_VIS, np.float32)
+    r = np.linspace(0, 1, 90, dtype=np.float32) ** 1.5
+    m[:90], m[-90:] = r, r[::-1]
+    return Image.fromarray((np.repeat(m[:, None], W, 1) * 255).astype(np.uint8), "L")
 
 
 # ---------- Tipografía (las del dashboard, variables) ----------
@@ -286,7 +336,7 @@ class Escena:
         return hits[n - 1] if len(hits) >= n else self.voz0
 
     def render(self, t):
-        img = Image.new("RGB", (W, H), NOCHE)
+        img = fondo(t)
         d = ImageDraw.Draw(img, "RGBA")
         getattr(self, "e_" + self.e["id"])(img, d, t)
         return img
@@ -311,10 +361,10 @@ class Escena:
     # 1. Gancho: el desierto de Sechura con agua, 2017 y luego 2023
     def e_gancho(self, img, d, t):
         cam = camara(PIURA_CAM, SECHURA_CAM, (t - self.t0 - 0.5) / (self.voz1 - self.t0))
-        t17, t23 = self.cuando("llenó"), self.cuando("2023")
+        t17, t23 = self.cuando("inundó"), self.cuando("2023")
         u23 = (t - t23 + 0.2) / 0.6
         vis = self.mapas.fundido("vacio", "2017", (t - t17 + 0.3) / 0.9, cam) if u23 <= 0 else self.mapas.fundido("2017", "2023", u23, cam)
-        img.paste(vis, (0, Y_VIS))
+        img.paste(vis, (0, Y_VIS), pluma())
         rotular(d, cam, {"Sechura", "Piura", "Paita"})
         self.anio(d, "2023" if u23 > 0.5 else "2017", (t - t17) / 0.5)
         tq = self.cuando("cuánta")
@@ -326,7 +376,7 @@ class Escena:
     # 2. Método: las pasadas del radar sobre Piura
     def e_metodo(self, img, d, t):
         t92, tsin = self.cuando("92"), self.cuando("sin")
-        lienzo = Image.new("RGB", (W * 2, H_VIS * 2), NOCHE)
+        lienzo = Image.new("RGBA", (W * 2, H_VIS * 2), (0, 0, 0, 0))
         g = ImageDraw.Draw(lienzo, "RGBA")
         L, R_, top, PASO, ALTO = 250, W * 2 - 80, 120, 820, 660
         X = lambda dd: L + dd / 212 * (R_ - L)
@@ -355,7 +405,8 @@ class Escena:
         if 0 < prog < 1:
             xs = L + prog * (R_ - L)
             g.line([(xs, top), (xs, top + 2 * PASO)], fill=(*ACENTO, 200), width=4)
-        img.paste(lienzo.resize((W, H_VIS), Image.LANCZOS), (0, Y_VIS))
+        panel = lienzo.resize((W, H_VIS), Image.LANCZOS)
+        img.paste(panel, (0, Y_VIS), panel)
         u = (t - tsin + 0.1) / 0.5
         if u > 0:
             texto = f"Se descuenta el agua habitual de 2022: {self.R['eventos']['2022']['agua_habitual_km2']:.0f} km²"
@@ -374,7 +425,7 @@ class Escena:
             vis = self.mapas.fundido("2017", "2023", (t - t255 + 0.2) / 0.6, cam)
         else:
             vis = self.mapas.fundido("2023", "sechura", (t - tcasi + 0.2) / 0.6, cam)
-        img.paste(vis, (0, Y_VIS))
+        img.paste(vis, (0, Y_VIS), pluma())
         rotular(d, cam, {"Piura", "Sullana", "Paita", "Talara", "Sechura", "Chulucanas"})
         self.anio(d, "2023" if t >= t255 - 0.2 else "2017")
         E = self.R["eventos"]
@@ -393,7 +444,7 @@ class Escena:
     # 4. Cuánto tiempo: la curva de 2023 se queda arriba hasta junio
     def e_tiempo(self, img, d, t):
         tini, tmax, t165 = self.cuando("tardó"), self.cuando("máximo"), self.cuando("165")
-        lienzo = Image.new("RGB", (W * 2, H_VIS * 2), NOCHE)
+        lienzo = Image.new("RGBA", (W * 2, H_VIS * 2), (0, 0, 0, 0))
         g = ImageDraw.Draw(lienzo, "RGBA")
         L, R_, top, bot = 190, W * 2 - 90, 130, H_VIS * 2 - 150
         X = lambda dd: L + dd / 212 * (R_ - L)
@@ -445,7 +496,8 @@ class Escena:
             g.ellipse([x - 16, y - 16, x + 16, y + 16], fill=ORO)
             x2, y2 = X(dia_temporada("2017", "2017-05-31")), Y(43.6)
             g.text((x2 + 4, y2 + 30), "31 may 2017: 44", font=archivo(40, 600), fill=(*E17, round(220 * salida(uf))), anchor="mt")
-        img.paste(lienzo.resize((W, H_VIS), Image.LANCZOS), (0, Y_VIS))
+        panel = lienzo.resize((W, H_VIS), Image.LANCZOS)
+        img.paste(panel, (0, Y_VIS), panel)
         if t < tmax - 0.15:
             self.cifra(d, "Más tiempo", "En 2023 el agua tardó más en irse", (t - self.t0) / 0.5)
         elif t < t165 - 0.2:
@@ -460,7 +512,7 @@ class Escena:
         I = self.R["indeci"]
         ub = (t - tpero + 0.25) / 0.5
         if ub < 1:
-            lienzo = Image.new("RGB", (W * 2, H_VIS * 2), NOCHE)
+            lienzo = Image.new("RGBA", (W * 2, H_VIS * 2), (0, 0, 0, 0))
             g = ImageDraw.Draw(lienzo, "RGBA")
             crec = salida((t - tbaj + 0.2) / 1.2)
             y = 180
@@ -478,11 +530,14 @@ class Escena:
                 y += 90
             g.text((MARGEN * 2, y), "INDECI · 2017: ene–may, Niño Costero", font=mono(36), fill=TENUE)
             g.text((MARGEN * 2, y + 52), "2023: ene–jun, todas las emergencias", font=mono(36), fill=TENUE)
-            panel = lienzo.resize((W, H_VIS), Image.LANCZOS)
+            # El panel, ya sobre el fondo, para poder fundirlo con el mapa
+            transparente = lienzo.resize((W, H_VIS), Image.LANCZOS)
+            panel = img.crop((0, Y_VIS, W, Y_VIS + H_VIS))
+            panel.paste(transparente, (0, 0), transparente)
         if ub > 0:
             cam = camara(PIURA_CAM, caja(-80.95, -5.6, -79.3, -4.4, 0.05), (t - tpero) / (self.t1 - tpero))
             mapa = self.mapas.vista("oscuro", cam)
-            img.paste(mapa if ub >= 1 else Image.blend(panel, mapa, ub), (0, Y_VIS))
+            img.paste(mapa if ub >= 1 else Image.blend(panel, mapa, ub), (0, Y_VIS), pluma())
             ul = ImageDraw.Draw(img, "RGBA")
             for j, (lon, lat) in enumerate(self.huaicos):
                 u = (t - (thua - 0.4) - j * 0.004) / 0.25
@@ -542,7 +597,6 @@ def pantallas(pw, ph):
 def tarjeta_final(img, d, tf):
     """Créditos con la música (y la despedida, que solo se escucha): título, autor, aviso de voz con IA, fuentes,
     imágenes y música, escalonados. `tf` son los segundos desde que terminó la última escena con imagen."""
-    d.rectangle([0, Y_VIS - 300, W, H], fill=NOCHE)
     paso = lambda k=0: salida((tf - k * 0.12) / 0.7)
     y = 300
     d.text((MARGEN, y), "Piura bajo el agua", font=archivo(96, 800), fill=mezclar(NOCHE, (255, 255, 255), paso()))
@@ -570,12 +624,6 @@ def tarjeta_final(img, d, tf):
 # ---------- Capas comunes ----------
 def marco_comun(img, t, escenas, activa, final):
     d = ImageDraw.Draw(img, "RGBA")
-    # Fundidos del visual hacia la noche, arriba y abajo
-    for y, sube in ((Y_VIS, True), (Y_VIS + H_VIS - 90, False)):
-        for j in range(90):
-            a = round(220 * ((90 - j) / 90 if sube else j / 90) ** 2)
-            d.line([(0, y + j), (W, y + j)], fill=(*NOCHE, a))
-    d.rectangle([0, 0, W, 140], fill=NOCHE)
     d.text((MARGEN, 52), "PIURA BAJO EL AGUA", font=F_KICK, fill=ACENTO)
     d.text((W - MARGEN, 52), "NIÑO COSTERO 2017 · 2023", font=F_KICK, fill=TENUE, anchor="ra")
     hueco, x = 8, MARGEN
@@ -675,11 +723,12 @@ def portada(escenas):
     img = escenas[k].render(escenas[k].t1 - 0.1)
     marco_comun(img, escenas[k].t1 - 0.1, escenas, k, False)
     d = ImageDraw.Draw(img, "RGBA")
-    d.rectangle([0, 140, W, Y_VIS + 20], fill=NOCHE)
+    bg = fondo(escenas[k].t1 - 0.1)
+    for caja in ((0, 140, W, Y_VIS + 20), (0, Y_VIS + H_VIS - 10, W, 1740)):
+        img.paste(bg.crop(caja), caja[:2])
     titulo = ajustar("Piura bajo el agua", 118)
     d.text((MARGEN, 175), "Piura bajo el agua", font=titulo, fill=(255, 255, 255))
     d.text((MARGEN, 175 + titulo.getmetrics()[0] + 34), "Dos Niños costeros medidos desde el espacio", font=F_ETIQ, fill=ACENTO)
-    d.rectangle([0, Y_VIS + H_VIS - 10, W, 1740], fill=NOCHE)
     d.text((MARGEN, 1520), "Cristian Wong P.", font=archivo(70, 800), fill=ORO)
     d.text((MARGEN, 1612), "Radar Sentinel-1 · 2017 y 2023", font=F_ETIQ, fill=TINTA)
     img.save(AQUI / "portada.png")
@@ -719,7 +768,7 @@ def main():
 
     def cuadro(t):
         if t >= fin_voz:
-            img = escenas[-1].render(fin_voz - 0.01)
+            img = fondo(t)
             d = ImageDraw.Draw(img, "RGBA")
             marco_comun(img, t, escenas, len(escenas) - 1, True)
             tarjeta_final(img, d, t - fin_voz)

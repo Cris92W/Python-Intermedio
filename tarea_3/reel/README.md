@@ -22,7 +22,7 @@ dashboard.
 
 | # | Narración | Qué se ve | De dónde sale cada cifra |
 |---|---|---|---|
-| 1 | En 2017, el desierto de Sechura se llenó de agua. En 2023 volvió a pasar. ¿Cuánta agua fue, y cuánto tiempo se quedó? | Imagen satelital de Piura que se acerca a Sechura mientras aparece el agua del radar de 2017 y luego la de 2023 | Capas `agua_2017.png` y `agua_2023.png` del dashboard (Copernicus GFM) |
+| 1 | En 2017, el desierto de Sechura se inundó por el fenómeno del Niño. En 2023 volvió a pasar. ¿Cuánta agua fue, y cuánto tiempo se quedó? | Imagen satelital de Piura que se acerca a Sechura mientras aparece el agua del radar de 2017 y luego la de 2023 | Capas `agua_2017.png` y `agua_2023.png` del dashboard (Copernicus GFM) |
 | 2 | Lo medí con el radar Sentinel-1, que ve a través de las nubes: 92 pasadas sobre Piura, sin contar el agua de un año normal. | Las pasadas del radar aparecen una a una en una línea de tiempo de diciembre a junio | 43 fechas en 2017 y 49 en 2023 con radar sobre Piura (`serie.json`); 32 km² de agua habitual en 2022 |
 | 3 | Resultado: 304 km² de agua anómala en 2017, y 255 en 2023. Casi tres cuartas partes, en Sechura. | Contador sobre el mapa con el agua de cada año; luego Sechura resaltado en dorado | 304,0 y 254,5 km² (`resumen.json`); Sechura: 218,0 de 304,0 km² (72 %) y 187,7 de 254,5 km² (74 %) |
 | 4 | En 2023 el agua tardó más en irse: tocó su máximo el 9 de mayo, y a fines de junio aún cubría 165 km². | Curva de 2017 y curva de 2023 que se dibuja en vivo, con el máximo y el último dato marcados | Pasadas que cubren ≥ 90 % de Piura: máximo de 227,6 km² el 9 may 2023; 164,8 km² el 26 jun 2023; en 2017, 43,6 km² el 31 may |
