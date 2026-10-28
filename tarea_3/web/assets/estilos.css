@@ -83,6 +83,8 @@ img { max-width: 100%; }
 .eyebrow { font: 500 12px/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--night-accent); margin: 0 0 18px; }
 h1 { font: 800 clamp(40px, 6vw, 84px)/.95 var(--display); font-stretch: 106%; letter-spacing: -.015em; margin: 0 0 24px; color: #fff; text-wrap: balance; }
 .deck { margin: -6px 0 24px; font: 500 clamp(20px, 2.1vw, 28px)/1.25 var(--display); font-stretch: 104%; color: var(--night-accent); text-wrap: balance; }
+.pregunta { margin: 0 0 24px; padding: 2px 0 2px 16px; border-left: 3px solid var(--night-accent); max-width: 50ch; font: italic 400 clamp(19px, 1.7vw, 23px)/1.4 var(--serif); color: #fff; text-wrap: balance; }
+.pregunta span { display: block; margin-bottom: 6px; font: normal 500 11px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--night-accent); }
 .lede { font: 400 clamp(18px, 1.55vw, 21px)/1.55 var(--serif); color: var(--night-ink); max-width: 56ch; margin: 0; }
 .hkpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 32px 0 0; border-top: 1px solid var(--night-line); }
 .hkpis div { padding: 16px 16px 0 0; min-width: 0; }

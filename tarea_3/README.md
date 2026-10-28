@@ -9,9 +9,10 @@
 
 Inundaciones y huaicos de los Niños Costeros de 2017 y 2023 en el departamento de Piura.
 
-> ¿Cuánto territorio cubrió el agua en Piura en los Niños Costeros de 2017 y 2023, cuánto tiempo se quedó,
-> qué viviendas tocó, dónde hubo huaicos, y qué detectan —y qué omiten— las imágenes satelitales frente a los
-> registros oficiales?
+> ¿Cómo se inundó y dónde cayeron los huaicos en Piura durante los Niños Costeros de 2017 y 2023?
+
+«Cómo se inundó» se responde con cuánta superficie cubrió el agua, dónde y por cuánto tiempo, y qué parte de la
+inundación y de los huaicos detecta el radar frente a los registros oficiales.
 
 - **Cobertura geográfica:** departamento de Piura, 8 provincias y 65 distritos (35 546 km²).
 - **Cobertura temporal:** 2017 = diciembre 2016 a mayo 2017; 2023 = enero a junio 2023 (incluye el ciclón Yaku;
