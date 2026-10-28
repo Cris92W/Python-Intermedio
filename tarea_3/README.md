@@ -1,8 +1,9 @@
 # Tarea 3 – Piura bajo el agua: dos Niños costeros medidos desde el espacio (2017 y 2023)
 
-**Dashboard:** https://cris92w.github.io/Python-Intermedio/tarea_3/web/
-**Reel (60 s):** [`reel/reel.mp4`](reel/reel.mp4), con su guion, scripts y créditos en [`reel/`](reel/)
-**Publicación de LinkedIn:** (pendiente)
+- **Autor:** Cristian Wong P., ingeniero geógrafo y bachiller en Ciencia Política · [LinkedIn](https://www.linkedin.com/in/cristian-wong-pagan-09a04613b/)
+- **Dashboard:** https://cris92w.github.io/Python-Intermedio/tarea_3/web/
+- **Reel (60 s):** [`reel/reel.mp4`](reel/reel.mp4), con su guion, scripts y créditos en [`reel/`](reel/)
+- **Publicación de LinkedIn:** [Piura bajo el agua](https://www.linkedin.com/posts/cristian-wong-pagan-09a04613b_cienciadedatos-python-teledetecciaejn-ugcPost-7521129565516161025-YwRA/)
 
 ## 1. Tema y pregunta de investigación
 
@@ -74,7 +75,20 @@ Piura que quedaron en zonas afectadas, y se documentaron los huaicos con el inve
 - Los edificios de Microsoft vienen de imágenes de varios años: en 2017 algunas casas aún no existían. La altura
   en el 3D es ilustrativa.
 
-## 7. Cómo reproducirlo
+## 7. Enlaces
+
+- **Dashboard público:** https://cris92w.github.io/Python-Intermedio/tarea_3/web/
+- **Publicación de LinkedIn** (reel, capturas del dashboard y hallazgos): https://www.linkedin.com/posts/cristian-wong-pagan-09a04613b_cienciadedatos-python-teledetecciaejn-ugcPost-7521129565516161025-YwRA/
+- **Reel:** [`reel/reel.mp4`](reel/reel.mp4); guion, scripts y créditos en [`reel/`](reel/)
+- **Repositorio:** https://github.com/Cris92W/Python-Intermedio/tree/main/tarea_3
+
+| Portada: el agua que vio el radar en 2017 | Explorador por distrito |
+|---|---|
+| ![Portada del dashboard con el mapa del agua de 2017](capturas/1_portada.jpg) | ![Explorador del dashboard con el mapa por distrito y el ranking](capturas/3_explorador.jpg) |
+
+Las tres capturas de escritorio del dashboard están en [`capturas/`](capturas/).
+
+## 8. Cómo reproducirlo
 
 Requiere Python 3.12 y [uv](https://docs.astral.sh/uv/). Desde `tarea_3/`:
 
@@ -101,7 +115,7 @@ Para ver el dashboard en local: `python -m http.server -d web 8000` y abrir http
 El reel se arma aparte, con los pasos de [`reel/README.md`](reel/README.md): mapa base, capturas del dashboard,
 narración con mi voz clonada (Qwen3-TTS) y video.
 
-## 8. Uso de inteligencia artificial
+## 9. Uso de inteligencia artificial
 
 El análisis, el código y el dashboard se desarrollaron con apoyo de Claude Code. Las cifras se verificaron contra
 las fuentes originales: las tablas de INDECI se leyeron sobre la imagen de cada página, los resultados del radar

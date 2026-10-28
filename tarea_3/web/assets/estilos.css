@@ -97,6 +97,9 @@ h1 { font: 800 clamp(40px, 6vw, 84px)/.95 var(--display); font-stretch: 106%; le
 /* El nombre lleva un degradado dorado, del destello claro al dorado pleno */
 @supports ((-webkit-background-clip: text) or (background-clip: text)) { .author-n { background: linear-gradient(90deg, var(--nombre-2), var(--nombre) 70%); -webkit-background-clip: text; background-clip: text; color: transparent; } }
 .author-t { margin: 6px 0 0; font: italic 400 clamp(16px, 1.3vw, 18.5px)/1.4 var(--serif); color: var(--night-ink); }
+.author-l { margin: 8px 0 0; font: 500 11.5px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.author-l a { color: var(--night-accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.author-l a:hover { color: #fff; }
 @media (max-width: 560px) { .author { gap: 14px; } .author-m { width: 50px; height: 50px; font-size: 17px; } }
 .byline { margin: 24px 0 0; font: 400 13px/1.5 var(--mono); color: var(--night-muted); }
 .byline b { color: var(--night-ink); font-weight: 500; }
