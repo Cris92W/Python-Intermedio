@@ -53,7 +53,7 @@ def main():
         cmd("Page.enable")
         cmd("Emulation.setDeviceMetricsOverride", width=540, height=960, deviceScaleFactor=2, mobile=True)
         cmd("Page.navigate", url=URL)
-        time.sleep(12)
+        time.sleep(25)   # el sitio publicado tarda en cargar la imagen satelital y los mapas
         for nombre, js, espera in VISTAS:
             cmd("Runtime.evaluate", expression=js)
             time.sleep(espera)

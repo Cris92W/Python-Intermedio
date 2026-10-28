@@ -9,6 +9,7 @@ recursos/dash_*.png (capturas.py), recursos/floating_cities.mp3 y los datos del 
 """
 import json
 import math
+import os
 import re
 import subprocess
 import sys
@@ -34,9 +35,32 @@ Y_CIFRA, Y_VIS, H_VIS, Y_SUB = 168, 452, 1000, 1585   # zonas: cifra, visual (ma
 URL = "cris92w.github.io/Python-Intermedio/tarea_3/web"
 
 # Paleta del dashboard (Ciclón Yaku)
-NOCHE, NOCHE2, LINEA = (16, 18, 42), (24, 27, 56), (42, 46, 82)
-TINTA, TENUE, ACENTO, ORO = (227, 229, 244), (156, 161, 196), (168, 194, 255), (255, 209, 102)
-E17, E23, HUAICO, HALO = (242, 160, 61), (108, 195, 216), (224, 122, 58), (5, 6, 26)
+# Paletas del reel. Cada una define la noche (fondo, línea), los textos, el acento, el degradado del fondo, sus tres
+# resplandores y el marco del celular. Los colores de datos (2017, 2023, huaicos, agua) no cambian.
+# Se elige con PALETA o, para comparar sin editar el archivo, con la variable de entorno REEL_PALETA.
+PALETAS = {
+    "yaku": dict(noche=(16, 18, 42), linea=(42, 46, 82), tinta=(227, 229, 244), tenue=(156, 161, 196), acento=(168, 194, 255),
+                 fondo=((10, 12, 32), (16, 22, 56)), luces=((122, 74, 160), (54, 140, 230), (40, 160, 190)), marco=(107, 116, 184)),
+    "atardecer": dict(noche=(28, 18, 34), linea=(60, 42, 64), tinta=(244, 232, 228), tenue=(187, 163, 173), acento=(255, 179, 138),
+                      fondo=((20, 12, 24), (44, 22, 38)), luces=((230, 110, 80), (200, 70, 120), (250, 170, 80)), marco=(148, 104, 97)),
+    "oceano": dict(noche=(6, 26, 34), linea=(29, 61, 71), tinta=(224, 241, 242), tenue=(143, 179, 184), acento=(127, 224, 232),
+                   fondo=((4, 19, 25), (10, 47, 60)), luces=((30, 150, 170), (40, 110, 200), (90, 200, 180)), marco=(73, 134, 143)),
+    "grafito": dict(noche=(18, 19, 20), linea=(46, 48, 51), tinta=(237, 237, 234), tenue=(165, 167, 170), acento=(230, 192, 102),
+                    fondo=((11, 12, 13), (27, 29, 32)), luces=((200, 160, 80), (120, 130, 150), (90, 110, 120)), marco=(129, 113, 74)),
+    "bosque": dict(noche=(11, 26, 20), linea=(34, 65, 58), tinta=(227, 239, 232), tenue=(147, 173, 159), acento=(159, 224, 184),
+                   fondo=((7, 19, 14), (18, 48, 42)), luces=((60, 160, 100), (40, 130, 150), (170, 200, 90)), marco=(90, 137, 115)),
+    "aurora": dict(noche=(11, 16, 48), linea=(38, 46, 92), tinta=(230, 235, 250), tenue=(154, 166, 204), acento=(142, 240, 210),
+                   fondo=((7, 10, 34), (12, 28, 72)), luces=((200, 80, 200), (60, 200, 170), (80, 120, 240)), marco=(85, 133, 145)),
+    "arcilla": dict(noche=(26, 18, 14), linea=(58, 42, 34), tinta=(242, 232, 224), tenue=(184, 167, 154), acento=(111, 214, 207),
+                    fondo=((18, 12, 9), (29, 26, 22)), luces=((200, 100, 60), (40, 170, 170), (220, 160, 90)), marco=(82, 119, 112)),
+}
+PALETA = os.environ.get("REEL_PALETA", "atardecer")   # la misma del dashboard
+_P = PALETAS[PALETA]
+NOCHE, LINEA = _P["noche"], _P["linea"]
+NOCHE2 = tuple(round(a + (b - a) * 0.3) for a, b in zip(NOCHE, LINEA))
+TINTA, TENUE, ACENTO, ORO = _P["tinta"], _P["tenue"], _P["acento"], (255, 209, 102)
+E17, E23, HUAICO = (242, 160, 61), (108, 195, 216), (224, 122, 58)
+HALO = tuple(round(c * 0.3) for c in NOCHE)
 CIUDADES = [("Piura", -80.632, -5.194), ("Sullana", -80.685, -4.904), ("Talara", -81.272, -4.577), ("Paita", -81.114, -5.089),
             ("Sechura", -80.822, -5.557), ("Chulucanas", -80.162, -5.093), ("Huancabamba", -79.451, -5.239), ("Ayabaca", -79.715, -4.639)]
 MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "set", "oct", "nov", "dic"]
@@ -66,29 +90,37 @@ def _textura():
     rgba[..., :3] = np.where(grano[..., None], 255, 0)
     rgba[..., 3] = rng.integers(0, 9, (H, W))                     # grano: puntos claros y oscuros casi invisibles
     lin = reticula > 0
-    rgba[lin, :3] = (168, 194, 255)
+    rgba[lin, :3] = ACENTO
     rgba[lin, 3] = reticula[lin].astype(np.uint8)
     return Image.fromarray(rgba, "RGBA")
 
 
 def fondo(t):
     """Fondo de cada cuadro: degradado de tormenta con resplandores violeta, de agua y turquesa que se mueven despacio."""
-    base = np.array([10, 12, 32], np.float32) * (1 - _FY[..., None]) + np.array([16, 22, 56], np.float32) * _FY[..., None]
-    base = base + _resplandor(0.10 + 0.06 * math.sin(t / 9), 0.08 + 0.04 * math.cos(t / 11), 0.28, (122, 74, 160), 0.55)
-    base += _resplandor(0.86 + 0.05 * math.sin(t / 7 + 1), 0.52 + 0.08 * math.cos(t / 10), 0.30, (54, 140, 230), 0.30)
-    base += _resplandor(0.30 + 0.08 * math.cos(t / 13), 1.02, 0.30, (40, 160, 190), 0.22)
+    arriba, abajo = (np.array(c, np.float32) for c in _P["fondo"])
+    base = arriba * (1 - _FY[..., None]) + abajo * _FY[..., None]
+    l1, l2, l3 = _P["luces"]
+    base = base + _resplandor(0.10 + 0.06 * math.sin(t / 9), 0.08 + 0.04 * math.cos(t / 11), 0.28, l1, 0.55)
+    base += _resplandor(0.86 + 0.05 * math.sin(t / 7 + 1), 0.52 + 0.08 * math.cos(t / 10), 0.30, l2, 0.30)
+    base += _resplandor(0.30 + 0.08 * math.cos(t / 13), 1.02, 0.30, l3, 0.22)
     img = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8), "RGB").resize((W, H), Image.BILINEAR).convert("RGBA")
     img.alpha_composite(_textura())
     return img.convert("RGB")
 
 
-@lru_cache(maxsize=1)
-def pluma():
-    """Máscara del visual (mapa o captura): se funde con el fondo en sus 90 px de arriba y de abajo."""
-    m = np.ones(H_VIS, np.float32)
-    r = np.linspace(0, 1, 90, dtype=np.float32) ** 1.5
-    m[:90], m[-90:] = r, r[::-1]
-    return Image.fromarray((np.repeat(m[:, None], W, 1) * 255).astype(np.uint8), "L")
+MAPA_X = 34   # margen lateral del recuadro del mapa
+
+
+def pegar_mapa(img, vis):
+    """El mapa va en un recuadro con doble filete, como la lámina del dashboard: borde nítido, sin degradado.
+    Se recorta el visual (que ocupa todo el ancho) para que las coordenadas en pantalla no cambien."""
+    x0, x1, y0, y1 = MAPA_X, W - MAPA_X, Y_VIS, Y_VIS + H_VIS
+    d = ImageDraw.Draw(img, "RGBA")
+    for k in range(1, 7):                                     # sombra suave debajo del recuadro
+        d.rectangle([x0 + k, y0 + 2 * k, x1 + k, y1 + 2 * k], fill=(*HALO, 22))
+    img.paste(vis.crop((x0, 0, x1, H_VIS)), (x0, y0))
+    d.rectangle([x0 - 8, y0 - 8, x1 + 7, y1 + 7], outline=(*_P["marco"], 150), width=1)   # filete exterior
+    d.rectangle([x0, y0, x1 - 1, y1 - 1], outline=_P["marco"], width=3)                   # borde principal
 
 
 # ---------- Tipografía (las del dashboard, variables) ----------
@@ -364,7 +396,7 @@ class Escena:
         t17, t23 = self.cuando("inundó"), self.cuando("2023")
         u23 = (t - t23 + 0.2) / 0.6
         vis = self.mapas.fundido("vacio", "2017", (t - t17 + 0.3) / 0.9, cam) if u23 <= 0 else self.mapas.fundido("2017", "2023", u23, cam)
-        img.paste(vis, (0, Y_VIS), pluma())
+        pegar_mapa(img, vis)
         rotular(d, cam, {"Sechura", "Piura", "Paita"})
         self.anio(d, "2023" if u23 > 0.5 else "2017", (t - t17) / 0.5)
         tq = self.cuando("cuánta")
@@ -425,7 +457,7 @@ class Escena:
             vis = self.mapas.fundido("2017", "2023", (t - t255 + 0.2) / 0.6, cam)
         else:
             vis = self.mapas.fundido("2023", "sechura", (t - tcasi + 0.2) / 0.6, cam)
-        img.paste(vis, (0, Y_VIS), pluma())
+        pegar_mapa(img, vis)
         rotular(d, cam, {"Piura", "Sullana", "Paita", "Talara", "Sechura", "Chulucanas"})
         self.anio(d, "2023" if t >= t255 - 0.2 else "2017")
         E = self.R["eventos"]
@@ -537,7 +569,14 @@ class Escena:
         if ub > 0:
             cam = camara(PIURA_CAM, caja(-80.95, -5.6, -79.3, -4.4, 0.05), (t - tpero) / (self.t1 - tpero))
             mapa = self.mapas.vista("oscuro", cam)
-            img.paste(mapa if ub >= 1 else Image.blend(panel, mapa, ub), (0, Y_VIS), pluma())
+            if ub >= 1:
+                pegar_mapa(img, mapa)
+            else:   # de las barras al mapa enmarcado, con fundido
+                con_panel = img.copy()
+                con_panel.paste(panel, (0, Y_VIS))
+                con_mapa = img.copy()
+                pegar_mapa(con_mapa, mapa)
+                img.paste(Image.blend(con_panel, con_mapa, ub))
             ul = ImageDraw.Draw(img, "RGBA")
             for j, (lon, lat) in enumerate(self.huaicos):
                 u = (t - (thua - 0.4) - j * 0.004) / 0.25
@@ -571,7 +610,7 @@ class Escena:
         ph, pw = H_VIS - 30, round((H_VIS - 30) * 9 / 16)
         vistas = pantallas(pw, ph)
         x0, y0 = (W - pw) // 2, Y_VIS + 10
-        d.rounded_rectangle([x0 - 14, y0 - 14, x0 + pw + 14, y0 + ph + 14], radius=56, fill=(8, 9, 22), outline=(107, 116, 184), width=4)
+        d.rounded_rectangle([x0 - 14, y0 - 14, x0 + pw + 14, y0 + ph + 14], radius=56, fill=tuple(round(c * 0.5) for c in NOCHE), outline=_P["marco"], width=4)
         tramo = max((self.t1 - self.t0 - 0.4) / len(vistas), 0.8)
         k = min(int((t - self.t0) / tramo), len(vistas) - 1)
         u = ((t - self.t0) - k * tramo) / 0.45
@@ -618,7 +657,6 @@ def tarjeta_final(img, d, tf):
             d.text((MARGEN, y), linea, font=archivo(36, 500, 100), fill=mezclar(NOCHE, TINTA, uu))
             y += 46
         y += 28
-    d.text((MARGEN, 1812), "Diplomado de Ciencia de Datos con Python · Tarea 3", font=F_CRED, fill=mezclar(NOCHE, TENUE, paso()))
 
 
 # ---------- Capas comunes ----------
