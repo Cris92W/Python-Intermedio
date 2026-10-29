@@ -3,8 +3,10 @@
 **Sesión 04 · MCP: Claude conectado a tus datos.** Ciencia de Datos con Python (Python Intermedio), octubre de 2026.
 
 - **Estudiante:** Cristian Moises Wong Pagan ([@Cris92W](https://github.com/Cris92W))
-- **Estado:** servidor, pruebas (9 de 9 en verde) y conexión listos; faltan verificar a mano las preguntas, correr la
-  evaluación y escribir el informe
+- **Resultado:** con el MCP, Claude (Haiku) acertó **10 de 10** cifras del SENACE; sin herramientas y con búsqueda web,
+  **0 de 10** (respondió «no sé»). Detalle en el [informe](informe.md).
+
+![Aciertos por modo y resoluciones del SENACE por mes](grafico.png)
 
 ## La tarea
 
@@ -47,9 +49,13 @@ instrumentos: EIA-d, MEIA-d, EIA-sd, ITS, DIA, PPC y TdR.
 Requiere [uv](https://docs.astral.sh/uv/) y Claude Code. Desde `PRACTICA_3/`:
 
 ```bash
-uv run pytest -q                 # 9 pruebas con datos reales del RCA
-claude                           # aprobar los servidores de .mcp.json: senace y fetch
-uv run evaluar.py                # Claude sin herramientas frente a Claude con el MCP, con Haiku
+uv run pytest -q                              # 9 pruebas con datos reales del RCA
+claude                                        # aprobar los servidores de .mcp.json: senace y fetch
+uv run verificar_web.py                       # la verdad de cada pregunta, desde la web del RCA
+uv run evaluar.py                             # corrida base: sin herramientas frente a MCP, con Haiku
+cp resultados.csv resultados_base.csv
+uv run evaluar.py --modos memoria web mcp     # experimento extra: también con búsqueda web
+uv run grafico.py                             # la figura del informe
 ```
 
 En Claude Code: `/mcp` muestra los dos servidores; `@senace:senace://valores` lee un recurso; `/mcp__senace__informe
@@ -62,6 +68,10 @@ minería en Cusco` usa el prompt.
 | `server.py` | El servidor MCP del SENACE |
 | `test_server.py` | Las pruebas del servidor, adaptadas del contrato del BCRP al SENACE |
 | `.mcp.json` | El servidor del SENACE y Fetch, para Claude Code (sin claves) |
-| `preguntas.csv` | 10 preguntas de prueba, cada una con cómo verificarla a mano en el RCA |
-| `evaluar.py` | La evaluación de la sesión, con el servidor `senace` |
-| `resultados.csv`, `informe.md`, `grafico.png` | Pendientes |
+| `preguntas.csv` | 10 preguntas de prueba con su verdad, cómo verificarla en el RCA y cuáles son propias |
+| `verificar_web.py` | Comprueba la verdad de cada pregunta con el buscador web del RCA, sin usar el servidor |
+| `evaluar.py` | La evaluación de la sesión, con el servidor `senace`; lanza a Claude sin memoria del proyecto |
+| `resultados_base.csv` | Corrida base: sin herramientas y con el MCP |
+| `resultados.csv` | Experimento extra: sin herramientas, con búsqueda web y con el MCP |
+| `grafico.py`, `grafico.png` | La figura: aciertos por modo y resoluciones del SENACE por mes |
+| `informe.md` | El análisis: qué acertó cada modo y por qué, cifras comprobadas a mano y contraste con la prensa |

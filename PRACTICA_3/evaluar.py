@@ -9,6 +9,7 @@ Escribe resultados.csv y cuenta cuántas acierta, cuántas se equivoca y en cuá
 import argparse
 import json
 import subprocess
+import tempfile
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -16,6 +17,12 @@ from pathlib import Path
 import pandas as pd
 
 AQUI = Path(__file__).parent
+# Claude se lanza desde una carpeta vacía fuera del repositorio: así no ve el estado de git ni las notas del
+# proyecto, y el modo «memoria» solo tiene lo que el modelo sabe por sí mismo. El servidor va con su ruta completa.
+NEUTRAL = Path(tempfile.mkdtemp(prefix="evaluar_senace_"))
+MCP_CONFIG = NEUTRAL / "mcp.json"
+MCP_CONFIG.write_text(json.dumps({"mcpServers": {"senace": {
+    "type": "stdio", "command": "uv", "args": ["run", "--directory", str(AQUI.resolve()), "server.py"]}}}))
 ESQUEMA = {"type": "object", "required": ["valor", "fuente"],
            "properties": {"valor": {"type": ["number", "null"]}, "unidad": {"type": "string"},
                           "fuente": {"type": "string"}}}
@@ -24,15 +31,17 @@ INSTRUCCION = ("Responde con un solo número en «valor», en la unidad que pide
 MODOS = {   # todas sin las herramientas de archivos y terminal de Claude Code
     "memoria": ["--tools", "", "--strict-mcp-config"],
     "web": ["--tools", "WebSearch,WebFetch", "--allowedTools", "WebSearch,WebFetch", "--strict-mcp-config"],
-    "mcp": ["--tools", "", "--strict-mcp-config", "--mcp-config", str(AQUI / ".mcp.json"), "--allowedTools", "mcp__senace"],
+    "mcp": ["--tools", "", "--strict-mcp-config", "--mcp-config", str(MCP_CONFIG), "--allowedTools", "mcp__senace"],
 }
 
 
 def preguntar(pregunta, modo, modelo):
+    # Y sin la memoria automática de Claude Code, por la misma razón
     cmd = ["claude", "-p", INSTRUCCION + pregunta, "--output-format", "json", "--json-schema", json.dumps(ESQUEMA),
-           "--no-session-persistence", "--model", modelo, *MODOS[modo]]
+           "--no-session-persistence", "--model", modelo, "--settings", json.dumps({"autoMemoryEnabled": False}),
+           *MODOS[modo]]
     t = time.time()
-    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=600, cwd=AQUI)
+    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=600, cwd=NEUTRAL)
     try:
         salida = json.loads(proc.stdout)
     except json.JSONDecodeError:
